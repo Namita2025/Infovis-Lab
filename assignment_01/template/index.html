@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="public/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Assignment 01</title>
+		<!-- global style -->
+		<link rel="stylesheet" href="style.css">
+		<!-- d3: version given with the assignment -->
+		<script src="./d3.v7.min.js"></script>
+	</head>
+	<body>
+		<div>
+			<nav>
+				<img src="public/favicon.png" alt="logo" id="logo" />
+				<span id="assignment_id"></span>
+				<span class="divider"></span>
+				<span id="name"></span>
+			</nav>
+			<main>  
+        <div id="container">
+        <svg>
+          <g class="chart">
+          </g>
+        </svg></main>
+		</div>
+	</body>
+</html>
+
+<script>
+
+	const assignment_id = "01"
+	const student_name = "firstname lastname" // type your name here
+
+	function loadData() {
+		(async function() {
+			try {
+        let myData = [{id: 1, radius: 20, x: 40, y: 40},
+                      {id: 2, radius: 30, x: 10, y: 40},
+                      {id: 3, radius: 50, x: 20, y: 40},
+                      {id: 4, radius: 70, x: 60, y: 40},
+                      {id: 5, radius: 10, x: 30, y: 40}];
+
+        const scale = d3.scaleLinear()
+                        .domain(d3.extent(myData, (d => d.x))) //Domain based on data, (x-value)
+                        .range([0, 300]) // Range of screen space values
+
+        console.log(d3.extent(myData, (d => d.x)))
+
+        d3.select('.chart')
+          .selectAll('circle')
+          .data(myData)
+          .join('circle')
+          .attr('cx', 200)
+          .attr('cy', 40)
+          .attr('r', 40)
+          .style('fill', 'orange');
+
+        d3.selectAll('circle')
+        .attr('cx', d => scale(d.x)) //scale based on x-value
+
+        const axis = d3.axisBottom()
+                      .scale(scale)
+                      
+        //apply axisBottom/Top
+        d3.select('.chart')
+          .append('g')
+          .attr('transform', 'translate(0,100)') 
+          .call(axis)
+
+        myData.push({id: 6, radius: 10, x: 30, y: 20})
+
+        const updateSelection = d3.select('.chart').selectAll('circle').data(myData, d => d.id)
+        updateSelection.transition()
+                       .duration(1000)
+                       .attr('r', d => d.radius)
+        updateSelection.enter()
+                       .append('circle')
+                       .attr('r', d => d.radius)
+                       .attr('cx', d => scale(d.x))
+                       .attr('cy', d => d.y)
+        updateSelection.exit().remove()
+			} catch(error) {
+				console.log(error)
+			}
+		})();		
+	}
+
+	// nav bar: fill assignment number and student name 
+	document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: "+assignment_id
+	document.getElementById("name").innerText = student_name
+	
+	// load data and plot map
+	loadData()		
+	
+  </script>
