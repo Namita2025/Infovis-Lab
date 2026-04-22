@@ -1,97 +1,437 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="public/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Assignment 01</title>
-		<!-- global style -->
-		<link rel="stylesheet" href="style.css">
-		<!-- d3: version given with the assignment -->
-		<script src="./d3.v7.min.js"></script>
-	</head>
-	<body>
-		<div>
-			<nav>
-				<img src="public/favicon.png" alt="logo" id="logo" />
-				<span id="assignment_id"></span>
-				<span class="divider"></span>
-				<span id="name"></span>
-			</nav>
-			<main>  
-        <div id="container">
-        <svg>
-          <g class="chart">
-          </g>
-        </svg></main>
-		</div>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="public/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assignment 01</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- D3.js library for data-driven SVG rendering -->
+    <script src="./d3.v7.min.js"></script>
+    <!-- Dataset: Mensa Vaihingen menu scraped from studierendenwerk-stuttgart.de -->
+    <script src="./data_vaihingen.csv.js"></script>
+    <!-- Data parsing and type-coercion utilities -->
+    <script src="./prepare-data.js"></script>
+  </head>
+  <body>
+    <div>
+      <nav>
+        <img src="public/favicon.png" alt="logo" id="logo" />
+        <span id="assignment_id"></span>
+        <span class="divider"></span>
+        <span id="name"></span>
+      </nav>
+
+      <main>
+        <!-- Hero section: title, research question, and shared color legend -->
+        <div id="hero">
+          <h1>Sustainable and Cheap?</h1>
+          <p id="research-question">
+            How do vegan, vegetarian, and non-vegetarian meals at Mensa Vaihingen
+            compare in CO₂ emissions, price, and protein content — and does
+            choosing sustainably also mean spending less?
+          </p>
+
+          <!-- Shared color legend for all three charts (ColorBrewer Dark2 palette) -->
+          <div id="color-legend">
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#1b9e77"></span>
+              <span class="legend-label">Vegan</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#d95f02"></span>
+              <span class="legend-label">Vegetarian</span>
+            </div>
+            <div class="legend-item">
+              <span class="legend-dot" style="background:#7570b3"></span>
+              <span class="legend-label">Non-Vegetarian</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dashboard grid: four sections laid out via CSS Grid -->
+        <div id="dashboard">
+
+          <!-- Chart 1: Horizontal bar chart showing average CO₂ per portion by meal type -->
+          <div class="chart-block" id="section-co2">
+            <h2>CO₂ Emissions per Portion (g)</h2>
+            <p class="chart-sub">Average CO₂ footprint by meal type</p>
+            <div id="chart-co2"></div>
+          </div>
+
+          <!-- Chart 2: Pictogram showing average student price per meal type -->
+          <div class="chart-block" id="section-price">
+            <h2>Average Student Price (€)</h2>
+            <p class="chart-sub">Each icon = €0.50</p>
+            <div id="chart-price"></div>
+          </div>
+
+          <!-- Chart 3: 100% stacked bar chart showing macronutrient proportions per meal type -->
+          <div class="chart-block" id="section-protein">
+            <h2>Macronutrient Breakdown per Portion</h2>
+            <p class="chart-sub">100% stacked — proportion of protein, fat, and carbs</p>
+            <div id="chart-protein"></div>
+          </div>
+
+          <!-- Conclusion: narrative summary of findings across all three charts -->
+          <div class="chart-block" id="section-conclusion">
+            <h2>Conclusion</h2>
+            <p class="conclusion-text">
+              Vegan meals at Mensa Vaihingen emit significantly less CO₂ and cost less
+              on average than vegetarian or non-vegetarian options. However, they also
+              contain the least protein per portion. Choosing sustainably
+              <strong>does mean spending less</strong> — but comes with a
+              nutritional trade-off worth considering.
+            </p>
+          </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
 
+
 <script>
+  // Assignment metadata — injected into the nav bar at runtime
+  const assignment_id = "01"
+  const student_name = "Namita Birari"
 
-	const assignment_id = "01"
-	const student_name = "firstname lastname" // type your name here
+  document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: " + assignment_id
+  document.getElementById("name").innerText = student_name
 
-	function loadData() {
-		(async function() {
-			try {
-        let myData = [{id: 1, radius: 20, x: 40, y: 40},
-                      {id: 2, radius: 30, x: 10, y: 40},
-                      {id: 3, radius: 50, x: 20, y: 40},
-                      {id: 4, radius: 70, x: 60, y: 40},
-                      {id: 5, radius: 10, x: 30, y: 40}];
 
-        const scale = d3.scaleLinear()
-                        .domain(d3.extent(myData, (d => d.x))) //Domain based on data, (x-value)
-                        .range([0, 300]) // Range of screen space values
+  // Color palette using ColorBrewer Dark2 — colorblind-safe, avoids red-green conflict.
+  // Each key maps a meal type (as stored in the dataset) to its hex color.
+  const COLOR = {
+    vegan:      "#1b9e77",
+    vegetarian: "#d95f02",
+    nonveg:     "#7570b3"
+  }
 
-        console.log(d3.extent(myData, (d => d.x)))
+  // Macronutrient colors used exclusively in Chart 3 (stacked bar).
+  // Defined locally inside drawProteinChart() as MACRO_COLOR_V2 (updated version).
+  const MACRO_COLOR = {
+    protein: "#2166ac",
+    fat:     "#f4a582",
+    carbs:   "#d1e5f0"
+  }
 
-        d3.select('.chart')
-          .selectAll('circle')
-          .data(myData)
-          .join('circle')
-          .attr('cx', 200)
-          .attr('cy', 40)
-          .attr('r', 40)
-          .style('fill', 'orange');
+  // Canonical display order for meal categories (ordinal: least to most restrictive)
+  const ORDER  = ["vegan", "vegetarian", "nonveg"]
 
-        d3.selectAll('circle')
-        .attr('cx', d => scale(d.x)) //scale based on x-value
+  // Human-readable axis labels corresponding to each dataset key
+  const LABELS = { vegan: "Vegan", vegetarian: "Vegetarian", nonveg: "Non-Veg" }
 
-        const axis = d3.axisBottom()
-                      .scale(scale)
-                      
-        //apply axisBottom/Top
-        d3.select('.chart')
-          .append('g')
-          .attr('transform', 'translate(0,100)') 
-          .call(axis)
 
-        myData.push({id: 6, radius: 10, x: 30, y: 20})
+  // Parse and clean the raw dataset using the utility in prepare-data.js.
+  // Returns an array of objects with numeric fields coerced from strings.
+  const data = prepareData()
+  console.log("Cleaned rows:", data.length)
 
-        const updateSelection = d3.select('.chart').selectAll('circle').data(myData, d => d.id)
-        updateSelection.transition()
-                       .duration(1000)
-                       .attr('r', d => d.radius)
-        updateSelection.enter()
-                       .append('circle')
-                       .attr('r', d => d.radius)
-                       .attr('cx', d => scale(d.x))
-                       .attr('cy', d => d.y)
-        updateSelection.exit().remove()
-			} catch(error) {
-				console.log(error)
-			}
-		})();		
-	}
+  // Aggregate per meal type: compute mean CO₂, price, and macronutrients.
+  // d3.rollup groups rows by the `veg` field and reduces each group to summary stats.
+  const grouped = d3.rollup(
+    data,
+    v => ({
+      co2:     d3.mean(v, d => d.co2_portion),
+      price:   d3.mean(v, d => d.price_student),
+      protein: d3.mean(v, d => d.protein_portion),
+      fat:     d3.mean(v, d => d.fat_portion),
+      carbs:   d3.mean(v, d => d.carbs_portion),
+    }),
+    d => d.veg
+  )
 
-	// nav bar: fill assignment number and student name 
-	document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: "+assignment_id
-	document.getElementById("name").innerText = student_name
-	
-	// load data and plot map
-	loadData()		
-	
-  </script>
+  // Convert the Map returned by d3.rollup into an ordered array
+  // so all three charts iterate over meal types in the same sequence.
+  const summary = ORDER.map(veg => ({ veg, ...grouped.get(veg) }))
+  console.log("Summary:", summary)
+
+
+  // Draws a horizontal bar chart showing average CO₂ emissions per portion,
+  // grouped by meal type (vegan, vegetarian, non-vegetarian).
+  // Uses a linear x-scale and a band y-scale with the standard D3 margin convention.
+  function drawCO2Chart() {
+    const margin = { top: 20, right: 80, bottom: 40, left: 110 }
+    const width  = 500 - margin.left - margin.right
+    const height = 200 - margin.top  - margin.bottom
+
+    const svg = d3.select("#chart-co2")
+      .append("svg")
+      .attr("width",  width  + margin.left + margin.right)
+      .attr("height", height + margin.top  + margin.bottom)
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`)
+
+    // x-scale: linear, domain padded 10% beyond the maximum to leave room for labels
+    const x = d3.scaleLinear()
+      .domain([0, d3.max(summary, d => d.co2) * 1.1])
+      .range([0, width])
+
+    // y-scale: band scale maps each meal type to a vertical position
+    const y = d3.scaleBand()
+      .domain(ORDER)
+      .range([0, height])
+      .padding(0.35)
+
+    // Draw one bar per meal type, colored by meal category
+    svg.selectAll(".bar")
+      .data(summary)
+      .join("rect")
+      .attr("x", 0)
+      .attr("y", d => y(d.veg))
+      .attr("width",  d => x(d.co2))
+      .attr("height", y.bandwidth())
+      .attr("fill",   d => COLOR[d.veg])
+      .attr("rx", 3)   // rounded corners for visual polish
+
+    // Value labels positioned just to the right of each bar end
+    svg.selectAll(".bar-label")
+      .data(summary)
+      .join("text")
+      .attr("x", d => x(d.co2) + 6)
+      .attr("y", d => y(d.veg) + y.bandwidth() / 2)
+      .attr("dy", "0.35em")   // vertical centering relative to bar midpoint
+      .style("font-size", "12px")
+      .style("fill", "#ddd")
+      .text(d => `${Math.round(d.co2)} g`)
+
+    // Bottom axis with unit suffix on each tick
+    svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x).ticks(5).tickFormat(d => d + " g"))
+      .selectAll("text").style("font-size", "11px").style("fill", "#ddd")
+
+    // Left axis with human-readable meal type labels
+    svg.append("g")
+      .call(d3.axisLeft(y).tickFormat(d => LABELS[d]))
+      .selectAll("text").style("font-size", "13px").style("fill", "#ddd")
+
+    // x-axis title below the chart
+    svg.append("text")
+      .attr("x", width / 2)
+      .attr("y", height + margin.bottom - 2)
+      .attr("text-anchor", "middle")
+      .style("font-size", "11px")
+      .style("fill", "#aaa")
+      .text("CO₂ emissions (g per portion)")
+
+    // Mute axis lines to avoid visual competition with the bars
+    svg.selectAll(".domain, .tick line").style("stroke", "#666")
+  }
+
+
+  // Draws a pictogram chart where each icon (filled circle with a € symbol)
+  // represents €0.50 of the average student meal price.
+  // The number of icons per row is rounded to the nearest 0.50 increment.
+  function drawPriceChart() {
+    const iconValue = 0.5    // each icon represents this many euros
+    const iconSize  = 22     // diameter of each icon circle in pixels
+    const margin    = { top: 10, left: 110 }
+
+    const container = d3.select("#chart-price")
+      .append("svg")
+      .attr("width", 420)
+      .attr("height", 200)
+
+    summary.forEach((d, i) => {
+      const totalIcons = Math.round(d.price / iconValue)
+      const y = margin.top + i * 55   // vertical offset per meal type row
+
+      // Meal type label on the left side of the icon row
+      container.append("text")
+        .attr("x", margin.left - 8)
+        .attr("y", y + iconSize / 2 + 4)
+        .attr("text-anchor", "end")
+        .style("font-size", "13px")
+        .style("fill", "#ddd")
+        .text(LABELS[d.veg])
+
+      // Render one icon per 0.50 € unit
+      for (let j = 0; j < totalIcons; j++) {
+        const cx = margin.left + j * (iconSize + 4) + iconSize / 2
+        const cy = y + iconSize / 2
+
+        // Circle background colored by meal type
+        container.append("circle")
+          .attr("cx", cx).attr("cy", cy)
+          .attr("r",  iconSize / 2 - 1)
+          .attr("fill", COLOR[d.veg])
+          .attr("opacity", 0.9)
+
+        // Euro symbol centered inside the circle
+        container.append("text")
+          .attr("x", cx).attr("y", cy + 5)
+          .attr("text-anchor", "middle")
+          .style("font-size", "11px")
+          .style("fill", "white")
+          .style("font-weight", "bold")
+          .text("€")
+      }
+
+      // Exact price displayed after the icon row
+      const afterX = margin.left + totalIcons * (iconSize + 4) + 6
+      container.append("text")
+        .attr("x", afterX)
+        .attr("y", y + iconSize / 2 + 5)
+        .style("font-size", "12px")
+        .style("fill", "#ddd")
+        .text(`€${d.price.toFixed(2)}`)
+    })
+
+    // Annotation highlighting the key price insight for the viewer
+    container.append("text")
+      .attr("x", 415)
+      .attr("y", 30)
+      .attr("text-anchor", "end")
+      .style("font-size", "11px")
+      .style("fill", "#aaa")
+      .text("Vegan meals cost ~2.6×")
+
+    container.append("text")
+      .attr("x", 415)
+      .attr("y", 44)
+      .attr("text-anchor", "end")
+      .style("font-size", "11px")
+      .style("fill", "#aaa")
+      .text("less than Non-Veg")
+  }
+
+
+  // Draws a vertical 100% stacked bar chart showing the proportion of
+  // protein, fat, and carbohydrates per portion for each meal type.
+  // Values are normalized to 100% so the focus is on composition, not absolute quantity.
+  function drawProteinChart() {
+    const margin = { top: 20, right: 140, bottom: 50, left: 60 }
+    const width  = 420 - margin.left - margin.right
+    const height = 180 - margin.top  - margin.bottom
+
+    const svg = d3.select("#chart-protein")
+      .append("svg")
+      .attr("width",  width  + margin.left + margin.right)
+      .attr("height", height + margin.top  + margin.bottom)
+      .style("display", "block")
+      .style("margin", "0 auto")   // center the SVG within its container
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`)
+
+    const macros = ["protein", "fat", "carbs"]
+
+    // Normalize each meal type's macronutrients to proportions summing to 1.0
+    const stackData = summary.map(d => {
+      const total = d.protein + d.fat + d.carbs
+      return {
+        veg:     d.veg,
+        protein: d.protein / total,
+        fat:     d.fat     / total,
+        carbs:   d.carbs   / total
+      }
+    })
+
+    // d3.stack computes cumulative [y0, y1] bounds for each layer
+    const stack = d3.stack().keys(macros)(stackData)
+
+    // x-scale: band scale for the three meal type columns
+    const x = d3.scaleBand()
+      .domain(ORDER)
+      .range([0, width])
+      .padding(0.35)
+
+    // y-scale: linear from 0 to 1 (0% to 100%), inverted for SVG coordinates
+    const y = d3.scaleLinear()
+      .domain([0, 1])
+      .range([height, 0])
+
+    // Updated macronutrient colors — carbs changed to green for clear
+    // distinction from both the blue (protein) and orange (fat) segments
+    const MACRO_COLOR_V2 = {
+      protein: "#2166ac",
+      fat:     "#f4a582",
+      carbs:   "#4dac26"
+    }
+
+    // Render one stacked layer per macronutrient
+    stack.forEach(layer => {
+      // Bars for this macronutrient layer
+      svg.selectAll(`.bar-${layer.key}`)
+        .data(layer)
+        .join("rect")
+        .attr("x",      d => x(d.data.veg))
+        .attr("y",      d => y(d[1]))
+        .attr("width",  x.bandwidth())
+        .attr("height", d => y(d[0]) - y(d[1]))
+        .attr("fill",   MACRO_COLOR_V2[layer.key])
+        .attr("stroke", "#242424")       // thin separator between stack segments
+        .attr("stroke-width", 1.5)
+
+      // Percentage labels centered inside each segment.
+      // Labels are suppressed when the segment is too thin to fit text (< 8%).
+      svg.selectAll(`.label-${layer.key}`)
+        .data(layer)
+        .join("text")
+        .attr("x", d => x(d.data.veg) + x.bandwidth() / 2)
+        .attr("y", d => y(d[0]) - (y(d[0]) - y(d[1])) / 2)
+        .attr("text-anchor", "middle")
+        .attr("dy", "0.35em")
+        .style("font-size", "11px")
+        .style("fill", "white")
+        .style("font-weight", "600")
+        .text(d => {
+          const pct = Math.round((d[1] - d[0]) * 100)
+          return pct > 8 ? pct + "%" : ""   // hide label if segment is too small
+        })
+    })
+
+    // Bottom axis: meal type labels
+    svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x).tickFormat(d => LABELS[d]))
+      .selectAll("text").style("font-size", "12px").style("fill", "#ddd")
+
+    // Left axis: percentage ticks from 0% to 100%
+    svg.append("g")
+      .call(d3.axisLeft(y).ticks(5).tickFormat(d3.format(".0%")))
+      .selectAll("text").style("font-size", "11px").style("fill", "#ddd")
+
+    svg.selectAll(".domain, .tick line").style("stroke", "#555")
+
+    // Rotated y-axis title
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -margin.left + 12)
+      .attr("text-anchor", "middle")
+      .style("font-size", "11px")
+      .style("fill", "#aaa")
+      .text("% of macronutrients per portion")
+
+    // Legend placed to the right of the chart area
+    const legendData = [
+      { key: "protein", label: "Protein" },
+      { key: "fat",     label: "Fat"     },
+      { key: "carbs",   label: "Carbs"   }
+    ]
+    const legend = svg.append("g")
+      .attr("transform", `translate(${width + 16}, 20)`)
+
+    legendData.forEach((item, i) => {
+      legend.append("rect")
+        .attr("x", 0).attr("y", i * 22)
+        .attr("width", 14).attr("height", 14)
+        .attr("fill", MACRO_COLOR_V2[item.key])
+        .attr("rx", 2)
+      legend.append("text")
+        .attr("x", 20).attr("y", i * 22 + 11)
+        .style("font-size", "12px")
+        .style("fill", "#ddd")
+        .text(item.label)
+    })
+  }
+
+  // Render all three charts on page load
+  drawCO2Chart()
+  drawPriceChart()
+  drawProteinChart()
+
+</script>

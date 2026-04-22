@@ -1,73 +1,186 @@
+/* Base typography and rendering settings applied to the entire document.
+   Inter is preferred; Avenir and Helvetica are fallbacks for macOS/Windows. */
 :root {
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	line-height: 24px;
-	font-weight: 400;
-
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* Remove default margin and prevent the page from scrolling at the body level.
+   Scrolling is handled by <main> instead, to keep the nav always visible. */
 body {
-	margin: 0;
-	overflow: hidden;
+  margin: 0;
+  overflow: hidden;
 }
 
+
+/* Top navigation bar: logo on the left, assignment ID and name on the right. */
 nav {
-	font-size: 1.2em;
-	display: flex;
-	padding: 1em;
-	align-items: center;
-	background-color: #242424;
-	color: white;
+  font-size: 1.1em;
+  display: flex;
+  padding: 0.5em 1em;
+  align-items: center;
+  background-color: #242424;
+  color: white;
 }
 
-nav > #logo {
-	height: 2em;
-	margin-right: 0.66em;
-}
+nav > #logo { height: 1.6em; margin-right: 0.5em; }
 
-.divider {
-	flex-grow: 1;
-}
+/* Pushes the student name to the far right of the nav bar. */
+.divider { flex-grow: 1; }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
-}
 
+/* Main content area fills the viewport below the nav bar.
+   overflow-y: auto enables scrolling if the dashboard content exceeds the screen height. */
 main {
-	position: relative;
-	width: 100vw;
-	height: calc(100vh - 6.5em); /* 6.5em is roughly the height of the navbar */
+  height: calc(100vh - 3em);
+  overflow-y: auto;
+  padding-bottom: 0.5em;
 }
 
-#legend {
-	background-color: #fff5;
-	padding: 0.5em;
-	height: 4.5em;
-	border-radius: 0.5em;
-	backdrop-filter: blur(4px);
-	position: absolute;
-	bottom: 3em;
-	right: 1em;
-	width: 320px;
-	display: flex;
-	flex-direction: column;
-	gap: 0.5em;
+
+/* Hero section: contains the title, research question, and shared color legend. */
+#hero {
+  padding: 0.5em 1em 0.3em 1em;
+}
+
+#hero h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.2em 0;
+}
+
+#research-question {
+  font-size: 0.9em;
+  color: #aaa;
+  max-width: 800px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+/* Dashboard grid: two equal columns, three rows.
+   Row 1: CO₂ chart (left) + Price chart (right).
+   Row 2: Macronutrient chart spanning both columns.
+   Row 3: Conclusion text spanning both columns. */
+#dashboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 0.3em;
+  padding: 0.3em 0.8em;
+  box-sizing: border-box;
+}
+
+/* Explicit grid placement for the two top-row charts. */
+#section-co2   { grid-column: 1; grid-row: 1; }
+#section-price { grid-column: 2; grid-row: 1; }
+
+/* Macronutrient chart spans the full width and centers its SVG horizontally. */
+#section-protein {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Align the chart title and subtitle to the left edge of the SVG (420px wide). */
+#section-protein h2,
+#section-protein .chart-sub {
+  width: 420px;
+  text-align: left;
+}
+
+/* Conclusion section spans full width and aligns to the top of its grid cell. */
+#section-conclusion {
+  grid-column: 1 / span 2;
+  grid-row: 3;
+  align-self: start;
+}
+
+
+/* Shared card style applied to every chart section and the conclusion block. */
+.chart-block {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 0.5em 1em;
+}
+
+.chart-block h2 {
+  margin: 0 0 0.15em 0;
+  font-size: 1em;
+  font-weight: 600;
+  color: #eee;
+}
+
+/* Subtitle line shown below each chart title (e.g. "Average CO₂ footprint by meal type"). */
+.chart-sub {
+  margin: 0 0 0.4em 0;
+  font-size: 0.82em;
+  color: #aaa;
+}
+
+
+/* Conclusion paragraph styling. The <strong> tag inside is colored green
+   to visually reinforce the positive sustainability finding. */
+.conclusion-text {
+  font-size: 0.92em;
+  color: #ccc;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0;
+}
+
+.conclusion-text strong {
+  color: #1b9e77;   /* matches the vegan color from the ColorBrewer Dark2 palette */
+}
+
+
+/* Shared color legend displayed in the hero section above the dashboard.
+   Sits inside #hero so it inherits the same left padding as the title. */
+#color-legend {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5em;
+  margin-top: 0.5em;
+  margin-left: 0;
+  flex-wrap: nowrap;
+  padding-left: 0;
+}
+
+/* Each legend item is a dot + label pair laid out in a horizontal row. */
+.legend-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.4em;
+  white-space: nowrap;
+}
+
+/* Colored dot representing a meal type category. */
+.legend-dot {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;   /* prevents the dot from shrinking if the container is narrow */
+}
+
+.legend-label {
+  font-size: 0.85em;
+  color: #ccc;
 }
