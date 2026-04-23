@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="public/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Assignment 02</title>
+		<!-- global style -->
+		<link rel="stylesheet" href="style.css">
+		<!-- d3: version given with the assignment -->
+		<script src="./d3.v7.min.js"></script>
+		<script src="drawMap.js"></script>
+	</head>
+	<body>
+		<div>
+			<nav>
+				<img src="public/favicon.png" alt="logo" id="logo" />
+				<span id="assignment_id"></span>
+				<span class="divider"></span>
+				<span id="name"></span>
+			</nav>
+			<main></main>
+		</div>
+	</body>
+</html>
+
+<script>
+
+	const assignment_id = "02"
+	const student_name = "firstname lastname" // type your name here
+
+	function loadData() {
+		(async function() {
+			try {
+				const unfallatlasData = await d3.json("public/accident_data_2016-2024.json")
+				const germanyData = await d3.json("public/germany_states.geo.json")
+
+				// call function to draw the map and the cities information
+				drawMap(unfallatlasData, germanyData)
+			} catch(error) {
+				console.log(error)
+			}
+		})();		
+	}
+
+
+	// nav bar: fill assignment number and student name 
+	document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: "+assignment_id
+	document.getElementById("name").innerText = student_name
+	
+	// load data and plot map
+	loadData()		
+	
+  </script>
