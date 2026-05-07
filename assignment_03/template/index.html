@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="public/favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 03</title>
+  <!-- global style -->
+  <link rel="stylesheet" href="style.css">
+  <!-- d3: most current version online -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/d3"></script> -->
+  <!-- d3: version given with the assignment -->
+  <script src="./d3.v7.min.js"></script>
+  <script src="drawVVS.js"></script>
+  <!-- data -->
+</head>
+
+
+<body>
+  <div>
+    <nav>
+      <img src="public/favicon.png" alt="logo" id="logo" />
+      <span id="assignment_id"></span>
+      <span class="divider"></span>
+      <span id="name"></span>
+    </nav>
+    <main>
+      <iframe id="file-checker" style="display:none;"></iframe>
+    </main>
+  </div>
+</body>
+
+
+</html>
+
+
+<script type="module">
+
+
+  const assignment_id = "03"
+  const student_name = "firstname lastname" // type your name here
+
+  function main() {
+    (async function () {
+      try {
+
+        // current version of csv is empty
+        const data = await d3.csv("public/VVStrainrides.csv")
+        console.log('data loaded: ' + data?.length)
+        drawVVS()
+
+        console.log("CSV file is missing")
+
+      } catch (error) {
+        console.log(error)
+      }
+    })();
+  }
+
+  // nav bar: fill assignment number and student name 
+  document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: " + assignment_id
+  document.getElementById("name").innerText = student_name
+
+  main()
+</script>
