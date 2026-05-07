@@ -1,54 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="public/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Assignment 02</title>
-		<!-- global style -->
-		<link rel="stylesheet" href="style.css">
-		<!-- d3: version given with the assignment -->
-		<script src="./d3.v7.min.js"></script>
-		<script src="drawMap.js"></script>
-	</head>
-	<body>
-		<div>
-			<nav>
-				<img src="public/favicon.png" alt="logo" id="logo" />
-				<span id="assignment_id"></span>
-				<span class="divider"></span>
-				<span id="name"></span>
-			</nav>
-			<main></main>
-		</div>
-	</body>
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="public/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assignment 02</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./d3.v7.min.js"></script>
+    <script src="drawMap.js"></script>
+    <script src="drawHeatmap.js"></script>
+    <script src="./drawTrend.js"></script>
+
+
+</head>
+
+<body>
+    <div>
+        <nav>
+            <img src="public/favicon.png" alt="logo" id="logo" />
+            <span id="assignment_id"></span>
+            <span class="divider"></span>
+            <span id="name"></span>
+        </nav>
+
+        <main>
+            <div class="research-intro">
+                <span class="question-label">Research Question</span>
+                <p class="research-question">
+                    How does accident severity for cyclists and motorcyclists shift across daylight and darkness — and how does this vulnerability vary by German state from 2016 to 2024?
+                </p>
+                <p>
+                    This dashboard focuses on accident severity rather than accident counts alone. It shows where serious outcomes are most common, how this changes over time, and how daylight and darkness affect rider vulnerability.
+                </p>
+            </div>
+
+            <div class="chart-card" id="map-card">
+                <div class="section-text">
+                    <h3>Map Findings</h3>
+                    <p>
+                        The map compares how often cycling and motorcycle accidents become serious across German states.
+                    </p>
+                    <ul>
+                        <li>Motorcyclists face much higher severity risk than cyclists.</li>
+                        <li>Thüringen, Sachsen, Sachsen-Anhalt, and Rheinland-Pfalz show the highest severity levels.</li>
+                        <li>Hamburg, Berlin, and Bremen are among the least severe states.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chart-card" id="heatmap-card">
+                <div class="section-text">
+                    <h3>Daylight and Darkness Findings</h3>
+                    <p>
+                        This section shows how accident severity changes across time of day and light conditions.
+                    </p>
+                    <ul>
+                        <li>Night-time accidents are clearly more severe than daylight accidents.</li>
+                        <li>The late-night period, especially from 11 PM to 4 AM, shows the highest risk.</li>
+                        <li>Dusk and dawn also stand out as vulnerable transition periods.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chart-card" id="trend-card">
+                <div class="section-text">
+                    <h3>Trend Findings</h3>
+                    <p>
+                        The trend chart shows how accident outcomes changed between 2016 and 2024.
+                    </p>
+                    <ul>
+                        <li>Total accidents increased strongly over the period.</li>
+                        <li>Fatal accidents also increased in number, but their share of all accidents became slightly lower.</li>
+                        <li>Serious injuries peaked around 2019–2020 and then declined slightly.</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
 </html>
 
 <script>
+    const assignment_id = "02"
+    const student_name = "Namita Birari"
 
-	const assignment_id = "02"
-	const student_name = "firstname lastname" // type your name here
+    function loadData() {
+        (async function() {
+            try {
+                const processedData = await d3.json("public/processed_data.json")
+                const germanyData   = await d3.json("public/germany_states.geo.json")
 
-	function loadData() {
-		(async function() {
-			try {
-				const unfallatlasData = await d3.json("public/accident_data_2016-2024.json")
-				const germanyData = await d3.json("public/germany_states.geo.json")
+                drawMap(processedData, germanyData)
+                drawHeatmap(processedData)
+                drawTrend(processedData)
+            } catch(error) {
+                console.log(error)
+            }
+        })();
+    }
 
-				// call function to draw the map and the cities information
-				drawMap(unfallatlasData, germanyData)
-			} catch(error) {
-				console.log(error)
-			}
-		})();		
-	}
+    document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: " + assignment_id
+    document.getElementById("name").innerText = student_name
 
-
-	// nav bar: fill assignment number and student name 
-	document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: "+assignment_id
-	document.getElementById("name").innerText = student_name
-	
-	// load data and plot map
-	loadData()		
-	
-  </script>
+    loadData()
+</script>

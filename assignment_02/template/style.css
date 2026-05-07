@@ -1,73 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	line-height: 24px;
-	font-weight: 400;
+    font-family: 'Inter', Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
 
-	color-scheme: light dark;
-	color: rgba(255, 255, 255, 0.87);
-	background-color: #242424;
+    color-scheme: light;
+    color: #213547;
+    background-color: #f5f4f0;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-	margin: 0;
-	overflow: hidden;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+/* ── Nav ─────────────────────────────────────────────────────────── */
 nav {
-	font-size: 1.2em;
-	display: flex;
-	padding: 1em;
-	align-items: center;
-	background-color: #242424;
-	color: white;
+    font-size: 1em;
+    display: flex;
+    padding: 0.75em 1.5em;
+    align-items: center;
+    background-color: #1a1a2e;
+    color: white;
+    gap: 0.5em;
 }
 
 nav > #logo {
-	height: 2em;
-	margin-right: 0.66em;
+    height: 1.8em;
+    margin-right: 0.5em;
 }
 
 .divider {
-	flex-grow: 1;
+    flex-grow: 1;
 }
 
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
+/* ── Page header ─────────────────────────────────────────────────── */
+.page-header {
+    max-width: 980px;
+    margin: 28px auto 4px auto;
+    padding: 0 12px;
 }
 
+.page-header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 6px 0;
+}
+
+.page-header p {
+    font-size: 13px;
+    color: #888;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ── Chart cards ─────────────────────────────────────────────────── */
+.chart-card {
+    background: #faf9f6;
+    border: 1px solid #e0ddd8;
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin: 16px auto;
+    max-width: 980px;
+}
+
+.research-intro,
+.chart-card {
+    background: #faf9f6;
+    border: 1px solid #e0ddd8;
+    border-radius: 12px;
+}
+
+.research-intro {
+    padding: 22px 24px;
+    margin: 16px auto 24px;
+    max-width: 980px;
+}
+
+.research-intro h2,
+.section-text h3 {
+    margin: 0 0 10px 0;
+    color: #0d5c63;
+}
+
+.research-intro p,
+.section-text p,
+.section-text li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+}
+
+.question-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #0d5c63;
+    margin-bottom: 8px;
+}
+
+.research-question {
+    font-style: italic;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.section-text {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e6e1db;
+}
+
+.section-text p {
+    margin: 0 0 8px 0;
+}
+
+.section-text ul {
+    margin: 8px 0 0 18px;
+    padding: 0;
+}
+
+.section-text li {
+    margin-bottom: 6px;
+}
+
+#map-card svg,
+#heatmap-card svg,
+#trend-card svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ── Main ────────────────────────────────────────────────────────── */
 main {
-	position: relative;
-	width: 100vw;
-	height: calc(100vh - 6.5em); /* 6.5em is roughly the height of the navbar */
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 5em);
+    padding-bottom: 40px;
 }
 
+/* ── Legend (legacy) ─────────────────────────────────────────────── */
 #legend {
-	background-color: #fff5;
-	padding: 0.5em;
-	height: 4.5em;
-	border-radius: 0.5em;
-	backdrop-filter: blur(4px);
-	position: absolute;
-	bottom: 3em;
-	right: 1em;
-	width: 320px;
-	display: flex;
-	flex-direction: column;
-	gap: 0.5em;
+    background-color: #fff5;
+    padding: 0.5em;
+    height: 4.5em;
+    border-radius: 0.5em;
+    backdrop-filter: blur(4px);
+    position: absolute;
+    bottom: 3em;
+    right: 1em;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
