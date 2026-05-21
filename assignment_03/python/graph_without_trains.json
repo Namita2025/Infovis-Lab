@@ -1,0 +1,4366 @@
+{
+    "nodes": [
+        {
+            "station": "Altbach",
+            "incomming_connection": [
+                "Plochingen",
+                "Zell"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 3,
+            "long": 9.382384,
+            "lat": 48.720393,
+            "sum_trains": 877,
+            "delay_change_avg": 0.7092,
+            "arrival_delay_avg": 1.5496,
+            "departure_delay_avg": 2.2588,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.7092,
+                    "arrival_delay_avg": 1.5496,
+                    "departure_delay_avg": 2.2588,
+                    "sum_trains": 877
+                }
+            }
+        },
+        {
+            "station": "Asperg",
+            "incomming_connection": [
+                "Ludwigsburg",
+                "Tamm"
+            ],
+            "lines": [
+                "5"
+            ],
+            "category": 4,
+            "long": 9.147797,
+            "lat": 48.907359,
+            "sum_trains": 584,
+            "delay_change_avg": 0.0908,
+            "arrival_delay_avg": 0.3356,
+            "departure_delay_avg": 0.4264,
+            "delay_per_line": {
+                "5": {
+                    "delay_change_avg": 0.0908,
+                    "arrival_delay_avg": 0.3356,
+                    "departure_delay_avg": 0.4264,
+                    "sum_trains": 584
+                }
+            }
+        },
+        {
+            "station": "Benningen",
+            "incomming_connection": [
+                "Freiberg",
+                "Marbach"
+            ],
+            "lines": [
+                "4",
+                "5"
+            ],
+            "category": 5,
+            "long": 9.244504,
+            "lat": 48.943614,
+            "sum_trains": 555,
+            "delay_change_avg": -0.0973,
+            "arrival_delay_avg": 0.9946,
+            "departure_delay_avg": 0.8973,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": -0.0975,
+                    "arrival_delay_avg": 0.9964,
+                    "departure_delay_avg": 0.8989,
+                    "sum_trains": 554
+                },
+                "5": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 1
+                }
+            }
+        },
+        {
+            "station": "Beutelsbach",
+            "incomming_connection": [
+                "Grunbach",
+                "Endersbach"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 5,
+            "long": 9.386029,
+            "lat": 48.810293,
+            "sum_trains": 855,
+            "delay_change_avg": 0.6012,
+            "arrival_delay_avg": 1.317,
+            "departure_delay_avg": 1.9181,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.6012,
+                    "arrival_delay_avg": 1.317,
+                    "departure_delay_avg": 1.9181,
+                    "sum_trains": 855
+                }
+            }
+        },
+        {
+            "station": "Bietigheim-Bissingen",
+            "incomming_connection": [
+                "Station outside VVS",
+                "Start",
+                "Ludwigsburg"
+            ],
+            "lines": [
+                "1",
+                "5"
+            ],
+            "category": 2,
+            "long": 9.137557,
+            "lat": 48.947933,
+            "sum_trains": 357,
+            "delay_change_avg": 0.1345,
+            "arrival_delay_avg": 0.0196,
+            "departure_delay_avg": 0.1541,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.5,
+                    "departure_delay_avg": 0.5,
+                    "sum_trains": 14
+                },
+                "5": {
+                    "delay_change_avg": 0.1399,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.1399,
+                    "sum_trains": 343
+                }
+            }
+        },
+        {
+            "station": "Boeblingen",
+            "incomming_connection": [
+                "Goldberg",
+                "Start",
+                "Hulb",
+                "Herrenberg",
+                "Vaihingen",
+                "Station outside VVS"
+            ],
+            "lines": [
+                "1",
+                "60",
+                "4"
+            ],
+            "category": 3,
+            "long": 9.004128,
+            "lat": 48.687758,
+            "sum_trains": 1132,
+            "delay_change_avg": 0.6387,
+            "arrival_delay_avg": 0.9196,
+            "departure_delay_avg": 1.5583,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.7598,
+                    "arrival_delay_avg": 1.2045,
+                    "departure_delay_avg": 1.9643,
+                    "sum_trains": 841
+                },
+                "4": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 4.0,
+                    "departure_delay_avg": 4.0,
+                    "sum_trains": 7
+                },
+                "60": {
+                    "delay_change_avg": 0.2958,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.2958,
+                    "sum_trains": 284
+                }
+            }
+        },
+        {
+            "station": "Ditzingen",
+            "incomming_connection": [
+                "Hoefingen",
+                "Korntal"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 4,
+            "long": 9.06705,
+            "lat": 48.823611,
+            "sum_trains": 996,
+            "delay_change_avg": 0.2731,
+            "arrival_delay_avg": 0.9287,
+            "departure_delay_avg": 1.2018,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": 0.2621,
+                    "arrival_delay_avg": 0.8975,
+                    "departure_delay_avg": 1.1596,
+                    "sum_trains": 683
+                },
+                "60": {
+                    "delay_change_avg": 0.2971,
+                    "arrival_delay_avg": 0.9968,
+                    "departure_delay_avg": 1.2939,
+                    "sum_trains": 313
+                }
+            }
+        },
+        {
+            "station": "Echterdingen",
+            "incomming_connection": [
+                "Flughafen/Messe",
+                "Leinfelden"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 4,
+            "long": 9.169164,
+            "lat": 48.692152,
+            "sum_trains": 987,
+            "delay_change_avg": 0.0061,
+            "arrival_delay_avg": 1.0496,
+            "departure_delay_avg": 1.0557,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 1.1562,
+                    "departure_delay_avg": 1.1562,
+                    "sum_trains": 826
+                },
+                "3": {
+                    "delay_change_avg": 0.0373,
+                    "arrival_delay_avg": 0.5031,
+                    "departure_delay_avg": 0.5404,
+                    "sum_trains": 161
+                }
+            }
+        },
+        {
+            "station": "Ehningen",
+            "incomming_connection": [
+                "Hulb",
+                "Gaertringen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 4,
+            "long": 8.94426,
+            "lat": 48.662682,
+            "sum_trains": 799,
+            "delay_change_avg": 0.3079,
+            "arrival_delay_avg": 1.8798,
+            "departure_delay_avg": 2.1877,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3079,
+                    "arrival_delay_avg": 1.8798,
+                    "departure_delay_avg": 2.1877,
+                    "sum_trains": 799
+                }
+            }
+        },
+        {
+            "station": "Endersbach",
+            "incomming_connection": [
+                "Beutelsbach",
+                "Stetten-Beinstein"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 4,
+            "long": 9.370228,
+            "lat": 48.813153,
+            "sum_trains": 853,
+            "delay_change_avg": 0.4256,
+            "arrival_delay_avg": 1.3634,
+            "departure_delay_avg": 1.789,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.4256,
+                    "arrival_delay_avg": 1.3634,
+                    "departure_delay_avg": 1.789,
+                    "sum_trains": 853
+                }
+            }
+        },
+        {
+            "station": "Esslingen",
+            "incomming_connection": [
+                "Oberesslingen",
+                "Plochingen",
+                "Mettingen",
+                "Station outside VVS"
+            ],
+            "lines": [
+                "1",
+                "5"
+            ],
+            "category": 3,
+            "long": 9.30008,
+            "lat": 48.73881,
+            "sum_trains": 989,
+            "delay_change_avg": 0.001,
+            "arrival_delay_avg": 1.9242,
+            "departure_delay_avg": 1.9252,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.0109,
+                    "arrival_delay_avg": 2.0328,
+                    "departure_delay_avg": 2.0219,
+                    "sum_trains": 731
+                },
+                "5": {
+                    "delay_change_avg": 0.0349,
+                    "arrival_delay_avg": 1.6163,
+                    "departure_delay_avg": 1.6512,
+                    "sum_trains": 258
+                }
+            }
+        },
+        {
+            "station": "Mettingen",
+            "incomming_connection": [
+                "Esslingen",
+                "Obertuerkheim"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 3,
+            "long": 9.275830000000001,
+            "lat": 48.747083,
+            "sum_trains": 879,
+            "delay_change_avg": 0.4573,
+            "arrival_delay_avg": 1.7156,
+            "departure_delay_avg": 2.1729,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4573,
+                    "arrival_delay_avg": 1.7156,
+                    "departure_delay_avg": 2.1729,
+                    "sum_trains": 879
+                }
+            }
+        },
+        {
+            "station": "Zell",
+            "incomming_connection": [
+                "Altbach",
+                "Oberesslingen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 3,
+            "long": 9.359389,
+            "lat": 48.724328,
+            "sum_trains": 876,
+            "delay_change_avg": 0.3516,
+            "arrival_delay_avg": 1.6906,
+            "departure_delay_avg": 2.0422,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3516,
+                    "arrival_delay_avg": 1.6906,
+                    "departure_delay_avg": 2.0422,
+                    "sum_trains": 876
+                }
+            }
+        },
+        {
+            "station": "Farvoritepark",
+            "incomming_connection": [
+                "Ludwigsburg",
+                "Freiberg"
+            ],
+            "lines": [
+                "4",
+                "5"
+            ],
+            "category": 5,
+            "long": 9.180233,
+            "lat": 48.909209,
+            "sum_trains": 682,
+            "delay_change_avg": 0.3651,
+            "arrival_delay_avg": 0.2683,
+            "departure_delay_avg": 0.6334,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": 0.3656,
+                    "arrival_delay_avg": 0.2687,
+                    "departure_delay_avg": 0.6344,
+                    "sum_trains": 681
+                },
+                "5": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 1
+                }
+            }
+        },
+        {
+            "station": "Fellbach",
+            "incomming_connection": [
+                "Waiblingen",
+                "Sommerrain"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 3,
+            "long": 9.269978,
+            "lat": 48.820049,
+            "sum_trains": 1711,
+            "delay_change_avg": -0.218,
+            "arrival_delay_avg": 1.5149,
+            "departure_delay_avg": 1.2969,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": -0.2799,
+                    "arrival_delay_avg": 1.7015,
+                    "departure_delay_avg": 1.4216,
+                    "sum_trains": 861
+                },
+                "3": {
+                    "delay_change_avg": -0.1553,
+                    "arrival_delay_avg": 1.3259,
+                    "departure_delay_avg": 1.1706,
+                    "sum_trains": 850
+                }
+            }
+        },
+        {
+            "station": "Flughafen/Messe",
+            "incomming_connection": [
+                "Filderstadt",
+                "Echterdingen",
+                "Start"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 4,
+            "long": 9.192630000000001,
+            "lat": 48.690648,
+            "sum_trains": 696,
+            "delay_change_avg": -0.2098,
+            "arrival_delay_avg": 1.4195,
+            "departure_delay_avg": 1.2098,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": -0.2721,
+                    "arrival_delay_avg": 1.6803,
+                    "departure_delay_avg": 1.4082,
+                    "sum_trains": 588
+                },
+                "3": {
+                    "delay_change_avg": 0.1296,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.1296,
+                    "sum_trains": 108
+                }
+            }
+        },
+        {
+            "station": "Freiberg",
+            "incomming_connection": [
+                "Farvoritepark",
+                "Benningen"
+            ],
+            "lines": [
+                "4",
+                "5"
+            ],
+            "category": 5,
+            "long": 9.197796,
+            "lat": 48.930107,
+            "sum_trains": 681,
+            "delay_change_avg": -0.0073,
+            "arrival_delay_avg": 0.2496,
+            "departure_delay_avg": 0.2423,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": -0.0074,
+                    "arrival_delay_avg": 0.25,
+                    "departure_delay_avg": 0.2426,
+                    "sum_trains": 680
+                },
+                "5": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 1
+                }
+            }
+        },
+        {
+            "station": "Gaertringen",
+            "incomming_connection": [
+                "Ehningen",
+                "Nufringen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 5,
+            "long": 8.908993,
+            "lat": 48.640912,
+            "sum_trains": 806,
+            "delay_change_avg": 0.3449,
+            "arrival_delay_avg": 2.0409,
+            "departure_delay_avg": 2.3859,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3449,
+                    "arrival_delay_avg": 2.0409,
+                    "departure_delay_avg": 2.3859,
+                    "sum_trains": 806
+                }
+            }
+        },
+        {
+            "station": "Geradstetten",
+            "incomming_connection": [
+                "Winterbach",
+                "Grunbach"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 5,
+            "long": 9.439753,
+            "lat": 48.805203,
+            "sum_trains": 858,
+            "delay_change_avg": 0.1807,
+            "arrival_delay_avg": 2.0886,
+            "departure_delay_avg": 2.2692,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.1807,
+                    "arrival_delay_avg": 2.0886,
+                    "departure_delay_avg": 2.2692,
+                    "sum_trains": 858
+                }
+            }
+        },
+        {
+            "station": "Goldberg",
+            "incomming_connection": [
+                "Rohr",
+                "Boeblingen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 5,
+            "long": 9.020430000000001,
+            "lat": 48.69691,
+            "sum_trains": 862,
+            "delay_change_avg": 0.5464,
+            "arrival_delay_avg": 1.3016,
+            "departure_delay_avg": 1.848,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.5464,
+                    "arrival_delay_avg": 1.3016,
+                    "departure_delay_avg": 1.848,
+                    "sum_trains": 862
+                }
+            }
+        },
+        {
+            "station": "Grunbach",
+            "incomming_connection": [
+                "Geradstetten",
+                "Beutelsbach"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 4,
+            "long": 9.420029,
+            "lat": 48.81036,
+            "sum_trains": 858,
+            "delay_change_avg": 0.2564,
+            "arrival_delay_avg": 2.0443,
+            "departure_delay_avg": 2.3007,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.2564,
+                    "arrival_delay_avg": 2.0443,
+                    "departure_delay_avg": 2.3007,
+                    "sum_trains": 858
+                }
+            }
+        },
+        {
+            "station": "Herrenberg",
+            "incomming_connection": [
+                "Start",
+                "Station outside VVS",
+                "Boeblingen"
+            ],
+            "lines": [
+                "1",
+                "4"
+            ],
+            "category": 3,
+            "long": 8.862662,
+            "lat": 48.593991,
+            "sum_trains": 442,
+            "delay_change_avg": 0.4548,
+            "arrival_delay_avg": 0.0633,
+            "departure_delay_avg": 0.5181,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4644,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.4644,
+                    "sum_trains": 435
+                },
+                "4": {
+                    "delay_change_avg": -0.1429,
+                    "arrival_delay_avg": 4.0,
+                    "departure_delay_avg": 3.8571,
+                    "sum_trains": 7
+                }
+            }
+        },
+        {
+            "station": "Hoefingen",
+            "incomming_connection": [
+                "Ditzingen",
+                "Leonberg"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 5,
+            "long": 9.025315,
+            "lat": 48.814986,
+            "sum_trains": 1284,
+            "delay_change_avg": -0.2741,
+            "arrival_delay_avg": 1.2407,
+            "departure_delay_avg": 0.9665,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": -0.3129,
+                    "arrival_delay_avg": 1.1958,
+                    "departure_delay_avg": 0.8829,
+                    "sum_trains": 914
+                },
+                "60": {
+                    "delay_change_avg": -0.1784,
+                    "arrival_delay_avg": 1.3514,
+                    "departure_delay_avg": 1.173,
+                    "sum_trains": 370
+                }
+            }
+        },
+        {
+            "station": "Hulb",
+            "incomming_connection": [
+                "Boeblingen",
+                "Ehningen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 5,
+            "long": 8.982644,
+            "lat": 48.679267,
+            "sum_trains": 808,
+            "delay_change_avg": 0.1931,
+            "arrival_delay_avg": 2.0557,
+            "departure_delay_avg": 2.2488,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.1931,
+                    "arrival_delay_avg": 2.0557,
+                    "departure_delay_avg": 2.2488,
+                    "sum_trains": 808
+                }
+            }
+        },
+        {
+            "station": "Filderstadt",
+            "incomming_connection": [
+                "Start"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 5,
+            "long": 9.217709,
+            "lat": 48.676493,
+            "sum_trains": 415,
+            "delay_change_avg": 0.4699,
+            "arrival_delay_avg": 0.0,
+            "departure_delay_avg": 0.4699,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.4699,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.4699,
+                    "sum_trains": 415
+                }
+            }
+        },
+        {
+            "station": "Kirchheim",
+            "incomming_connection": [
+                "Start"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 4,
+            "long": 9.443927,
+            "lat": 48.644258,
+            "sum_trains": 288,
+            "delay_change_avg": 0.8229,
+            "arrival_delay_avg": 0.0,
+            "departure_delay_avg": 0.8229,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.8229,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.8229,
+                    "sum_trains": 288
+                }
+            }
+        },
+        {
+            "station": "Oetlingen",
+            "incomming_connection": [
+                "Wendlingen",
+                "Kirchheim"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 5,
+            "long": 9.416291,
+            "lat": 48.657764,
+            "sum_trains": 580,
+            "delay_change_avg": -0.1534,
+            "arrival_delay_avg": 1.6741,
+            "departure_delay_avg": 1.5207,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.1534,
+                    "arrival_delay_avg": 1.6741,
+                    "departure_delay_avg": 1.5207,
+                    "sum_trains": 580
+                }
+            }
+        },
+        {
+            "station": "Korntal",
+            "incomming_connection": [
+                "Ditzingen",
+                "Neuwirtshaus"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 4,
+            "long": 9.121168,
+            "lat": 48.826416,
+            "sum_trains": 1180,
+            "delay_change_avg": -0.0322,
+            "arrival_delay_avg": 1.189,
+            "departure_delay_avg": 1.1568,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": -0.0683,
+                    "arrival_delay_avg": 1.1659,
+                    "departure_delay_avg": 1.0976,
+                    "sum_trains": 820
+                },
+                "60": {
+                    "delay_change_avg": 0.05,
+                    "arrival_delay_avg": 1.2417,
+                    "departure_delay_avg": 1.2917,
+                    "sum_trains": 360
+                }
+            }
+        },
+        {
+            "station": "Kornwestheim",
+            "incomming_connection": [
+                "Zuffenhausen",
+                "Ludwigsburg"
+            ],
+            "lines": [
+                "4",
+                "5"
+            ],
+            "category": 3,
+            "long": 9.179964,
+            "lat": 48.862219,
+            "sum_trains": 1374,
+            "delay_change_avg": 0.0677,
+            "arrival_delay_avg": 0.4076,
+            "departure_delay_avg": 0.4753,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": 0.0176,
+                    "arrival_delay_avg": 0.4361,
+                    "departure_delay_avg": 0.4537,
+                    "sum_trains": 681
+                },
+                "5": {
+                    "delay_change_avg": 0.1169,
+                    "arrival_delay_avg": 0.3795,
+                    "departure_delay_avg": 0.4964,
+                    "sum_trains": 693
+                }
+            }
+        },
+        {
+            "station": "Leinfelden",
+            "incomming_connection": [
+                "Echterdingen",
+                "Oberaichen"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 4,
+            "long": 9.142866,
+            "lat": 48.696506,
+            "sum_trains": 1055,
+            "delay_change_avg": -0.1706,
+            "arrival_delay_avg": 1.2161,
+            "departure_delay_avg": 1.0455,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": -0.1745,
+                    "arrival_delay_avg": 1.3797,
+                    "departure_delay_avg": 1.2052,
+                    "sum_trains": 848
+                },
+                "3": {
+                    "delay_change_avg": -0.1546,
+                    "arrival_delay_avg": 0.5459,
+                    "departure_delay_avg": 0.3913,
+                    "sum_trains": 207
+                }
+            }
+        },
+        {
+            "station": "Leonberg",
+            "incomming_connection": [
+                "Hoefingen",
+                "Rutesheim"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 3,
+            "long": 9.003853,
+            "lat": 48.799646,
+            "sum_trains": 1286,
+            "delay_change_avg": 0.4844,
+            "arrival_delay_avg": 0.8142,
+            "departure_delay_avg": 1.2986,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": 0.5185,
+                    "arrival_delay_avg": 0.7478,
+                    "departure_delay_avg": 1.2663,
+                    "sum_trains": 920
+                },
+                "60": {
+                    "delay_change_avg": 0.3989,
+                    "arrival_delay_avg": 0.9809,
+                    "departure_delay_avg": 1.3798,
+                    "sum_trains": 366
+                }
+            }
+        },
+        {
+            "station": "Ludwigsburg",
+            "incomming_connection": [
+                "Kornwestheim",
+                "Bietigheim-Bissingen",
+                "Asperg",
+                "Station outside VVS",
+                "Farvoritepark"
+            ],
+            "lines": [
+                "4",
+                "1",
+                "5"
+            ],
+            "category": 3,
+            "long": 9.18542,
+            "lat": 48.891862,
+            "sum_trains": 1387,
+            "delay_change_avg": 0.2927,
+            "arrival_delay_avg": 0.4131,
+            "departure_delay_avg": 0.7058,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.9286,
+                    "departure_delay_avg": 0.9286,
+                    "sum_trains": 14
+                },
+                "4": {
+                    "delay_change_avg": 0.2382,
+                    "arrival_delay_avg": 0.3779,
+                    "departure_delay_avg": 0.6162,
+                    "sum_trains": 680
+                },
+                "5": {
+                    "delay_change_avg": 0.3521,
+                    "arrival_delay_avg": 0.4372,
+                    "departure_delay_avg": 0.7893,
+                    "sum_trains": 693
+                }
+            }
+        },
+        {
+            "station": "Malmsheim",
+            "incomming_connection": [
+                "Renningen",
+                "Weil der Stadt"
+            ],
+            "lines": [
+                "6"
+            ],
+            "category": 5,
+            "long": 8.904505,
+            "lat": 48.771755,
+            "sum_trains": 921,
+            "delay_change_avg": 0.8306,
+            "arrival_delay_avg": 0.7828,
+            "departure_delay_avg": 1.6135,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": 0.8306,
+                    "arrival_delay_avg": 0.7828,
+                    "departure_delay_avg": 1.6135,
+                    "sum_trains": 921
+                }
+            }
+        },
+        {
+            "station": "Marbach",
+            "incomming_connection": [
+                "Benningen",
+                "Start",
+                "Backnang"
+            ],
+            "lines": [
+                "4"
+            ],
+            "category": 3,
+            "long": 9.264452,
+            "lat": 48.943685,
+            "sum_trains": 407,
+            "delay_change_avg": -0.4349,
+            "arrival_delay_avg": 0.5307,
+            "departure_delay_avg": 0.0958,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": -0.4349,
+                    "arrival_delay_avg": 0.5307,
+                    "departure_delay_avg": 0.0958,
+                    "sum_trains": 407
+                }
+            }
+        },
+        {
+            "station": "Maubach",
+            "incomming_connection": [
+                "Nellmersbach",
+                "Backnang"
+            ],
+            "lines": [
+                "3"
+            ],
+            "category": 4,
+            "long": 9.41999,
+            "lat": 48.926132,
+            "sum_trains": 920,
+            "delay_change_avg": -0.2326,
+            "arrival_delay_avg": 1.6413,
+            "departure_delay_avg": 1.4087,
+            "delay_per_line": {
+                "3": {
+                    "delay_change_avg": -0.2326,
+                    "arrival_delay_avg": 1.6413,
+                    "departure_delay_avg": 1.4087,
+                    "sum_trains": 920
+                }
+            }
+        },
+        {
+            "station": "Nellmersbach",
+            "incomming_connection": [
+                "Winnenden",
+                "Maubach"
+            ],
+            "lines": [
+                "3"
+            ],
+            "category": 5,
+            "long": 9.415401,
+            "lat": 48.903368,
+            "sum_trains": 851,
+            "delay_change_avg": 0.0329,
+            "arrival_delay_avg": 1.7051,
+            "departure_delay_avg": 1.738,
+            "delay_per_line": {
+                "3": {
+                    "delay_change_avg": 0.0329,
+                    "arrival_delay_avg": 1.7051,
+                    "departure_delay_avg": 1.738,
+                    "sum_trains": 851
+                }
+            }
+        },
+        {
+            "station": "Neustadt-Hohenacker",
+            "incomming_connection": [
+                "Waiblingen",
+                "Schwaikheim"
+            ],
+            "lines": [
+                "3"
+            ],
+            "category": 5,
+            "long": 9.324715,
+            "lat": 48.859312,
+            "sum_trains": 850,
+            "delay_change_avg": 0.4082,
+            "arrival_delay_avg": 1.4376,
+            "departure_delay_avg": 1.8459,
+            "delay_per_line": {
+                "3": {
+                    "delay_change_avg": 0.4082,
+                    "arrival_delay_avg": 1.4376,
+                    "departure_delay_avg": 1.8459,
+                    "sum_trains": 850
+                }
+            }
+        },
+        {
+            "station": "Neuwirtshaus",
+            "incomming_connection": [
+                "Zuffenhausen",
+                "Korntal"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 4,
+            "long": 9.152505,
+            "lat": 48.833824,
+            "sum_trains": 1295,
+            "delay_change_avg": 0.6394,
+            "arrival_delay_avg": 1.051,
+            "departure_delay_avg": 1.6903,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": 0.6364,
+                    "arrival_delay_avg": 0.9405,
+                    "departure_delay_avg": 1.5768,
+                    "sum_trains": 924
+                },
+                "60": {
+                    "delay_change_avg": 0.6469,
+                    "arrival_delay_avg": 1.3261,
+                    "departure_delay_avg": 1.973,
+                    "sum_trains": 371
+                }
+            }
+        },
+        {
+            "station": "Nufringen",
+            "incomming_connection": [
+                "Gaertringen",
+                "Herrenberg"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 5,
+            "long": 8.889796,
+            "lat": 48.620278,
+            "sum_trains": 794,
+            "delay_change_avg": 0.4093,
+            "arrival_delay_avg": 2.0856,
+            "departure_delay_avg": 2.495,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4093,
+                    "arrival_delay_avg": 2.0856,
+                    "departure_delay_avg": 2.495,
+                    "sum_trains": 794
+                }
+            }
+        },
+        {
+            "station": "Oberaichen",
+            "incomming_connection": [
+                "Leinfelden",
+                "Rohr"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 5,
+            "long": 9.127335,
+            "lat": 48.705193,
+            "sum_trains": 1048,
+            "delay_change_avg": 0.5219,
+            "arrival_delay_avg": 0.8473,
+            "departure_delay_avg": 1.3693,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.5707,
+                    "arrival_delay_avg": 0.9465,
+                    "departure_delay_avg": 1.5172,
+                    "sum_trains": 841
+                },
+                "3": {
+                    "delay_change_avg": 0.3237,
+                    "arrival_delay_avg": 0.4444,
+                    "departure_delay_avg": 0.7681,
+                    "sum_trains": 207
+                }
+            }
+        },
+        {
+            "station": "Oberesslingen",
+            "incomming_connection": [
+                "Zell",
+                "Esslingen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 3,
+            "long": 9.327267,
+            "lat": 48.729876,
+            "sum_trains": 875,
+            "delay_change_avg": 0.4217,
+            "arrival_delay_avg": 1.7383,
+            "departure_delay_avg": 2.16,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4217,
+                    "arrival_delay_avg": 1.7383,
+                    "departure_delay_avg": 2.16,
+                    "sum_trains": 875
+                }
+            }
+        },
+        {
+            "station": "Plochingen",
+            "incomming_connection": [
+                "Wernau",
+                "Station outside VVS",
+                "Altbach",
+                "Start",
+                "Esslingen"
+            ],
+            "lines": [
+                "1",
+                "5"
+            ],
+            "category": 2,
+            "long": 9.41081,
+            "lat": 48.71308,
+            "sum_trains": 963,
+            "delay_change_avg": -0.2357,
+            "arrival_delay_avg": 1.5909,
+            "departure_delay_avg": 1.3551,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.3906,
+                    "arrival_delay_avg": 1.4543,
+                    "departure_delay_avg": 1.0637,
+                    "sum_trains": 722
+                },
+                "5": {
+                    "delay_change_avg": 0.2282,
+                    "arrival_delay_avg": 2.0,
+                    "departure_delay_avg": 2.2282,
+                    "sum_trains": 241
+                }
+            }
+        },
+        {
+            "station": "Renningen",
+            "incomming_connection": [
+                "Rutesheim",
+                "Malmsheim",
+                "Start",
+                "Maichingen Nord"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 3,
+            "long": 8.93235,
+            "lat": 48.775121,
+            "sum_trains": 1357,
+            "delay_change_avg": -0.5682,
+            "arrival_delay_avg": 1.241,
+            "departure_delay_avg": 0.6728,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": -0.4757,
+                    "arrival_delay_avg": 1.167,
+                    "departure_delay_avg": 0.6914,
+                    "sum_trains": 904
+                },
+                "60": {
+                    "delay_change_avg": -0.7528,
+                    "arrival_delay_avg": 1.3885,
+                    "departure_delay_avg": 0.6358,
+                    "sum_trains": 453
+                }
+            }
+        },
+        {
+            "station": "Rommelshausen",
+            "incomming_connection": [
+                "Stetten-Beinstein",
+                "Waiblingen"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 4,
+            "long": 9.319344,
+            "lat": 48.815540000000006,
+            "sum_trains": 856,
+            "delay_change_avg": 0.2278,
+            "arrival_delay_avg": 1.5643,
+            "departure_delay_avg": 1.7921,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.2278,
+                    "arrival_delay_avg": 1.5643,
+                    "departure_delay_avg": 1.7921,
+                    "sum_trains": 856
+                }
+            }
+        },
+        {
+            "station": "Rutesheim",
+            "incomming_connection": [
+                "Leonberg",
+                "Renningen"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 5,
+            "long": 8.95955,
+            "lat": 48.790017,
+            "sum_trains": 1289,
+            "delay_change_avg": -0.0861,
+            "arrival_delay_avg": 1.6307,
+            "departure_delay_avg": 1.5446,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": -0.065,
+                    "arrival_delay_avg": 1.5146,
+                    "departure_delay_avg": 1.4496,
+                    "sum_trains": 923
+                },
+                "60": {
+                    "delay_change_avg": -0.1393,
+                    "arrival_delay_avg": 1.9235,
+                    "departure_delay_avg": 1.7842,
+                    "sum_trains": 366
+                }
+            }
+        },
+        {
+            "station": "Schorndorf",
+            "incomming_connection": [
+                "Start",
+                "Station outside VVS"
+            ],
+            "lines": [
+                "2",
+                "1"
+            ],
+            "category": 3,
+            "long": 9.52631,
+            "lat": 48.80715000000001,
+            "sum_trains": 553,
+            "delay_change_avg": 0.2857,
+            "arrival_delay_avg": 0.1429,
+            "departure_delay_avg": 0.4286,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.0246,
+                    "arrival_delay_avg": 0.6475,
+                    "departure_delay_avg": 0.623,
+                    "sum_trains": 122
+                },
+                "2": {
+                    "delay_change_avg": 0.3735,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.3735,
+                    "sum_trains": 431
+                }
+            }
+        },
+        {
+            "station": "Schwaikheim",
+            "incomming_connection": [
+                "Neustadt-Hohenacker",
+                "Winnenden"
+            ],
+            "lines": [
+                "3"
+            ],
+            "category": 4,
+            "long": 9.354943,
+            "lat": 48.86834,
+            "sum_trains": 850,
+            "delay_change_avg": 0.0388,
+            "arrival_delay_avg": 1.4824,
+            "departure_delay_avg": 1.5212,
+            "delay_per_line": {
+                "3": {
+                    "delay_change_avg": 0.0388,
+                    "arrival_delay_avg": 1.4824,
+                    "departure_delay_avg": 1.5212,
+                    "sum_trains": 850
+                }
+            }
+        },
+        {
+            "station": "Stetten-Beinstein",
+            "incomming_connection": [
+                "Endersbach",
+                "Rommelshausen"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 5,
+            "long": 9.35245,
+            "lat": 48.811924,
+            "sum_trains": 847,
+            "delay_change_avg": 0.2798,
+            "arrival_delay_avg": 1.7391,
+            "departure_delay_avg": 2.0189,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.2798,
+                    "arrival_delay_avg": 1.7391,
+                    "departure_delay_avg": 2.0189,
+                    "sum_trains": 847
+                }
+            }
+        },
+        {
+            "station": "Hauptbahnhof",
+            "incomming_connection": [
+                "Start",
+                "Vaihingen",
+                "Bad Cannstatt"
+            ],
+            "lines": [
+                "1",
+                "5",
+                "6",
+                "3",
+                "4"
+            ],
+            "category": 1,
+            "long": 9.181635,
+            "lat": 48.784084,
+            "sum_trains": 528,
+            "delay_change_avg": 0.5606,
+            "arrival_delay_avg": 0.1667,
+            "departure_delay_avg": 0.7273,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.1845,
+                    "arrival_delay_avg": 0.4272,
+                    "departure_delay_avg": 0.6117,
+                    "sum_trains": 206
+                },
+                "3": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 6
+                },
+                "4": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 8
+                },
+                "5": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 135
+                },
+                "6": {
+                    "delay_change_avg": 1.4913,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 1.4913,
+                    "sum_trains": 173
+                }
+            }
+        },
+        {
+            "station": "Neckarpark",
+            "incomming_connection": [
+                "Obertuerkheim",
+                "Bad Cannstatt"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 4,
+            "long": 9.241595,
+            "lat": 48.792173,
+            "sum_trains": 869,
+            "delay_change_avg": 0.3349,
+            "arrival_delay_avg": 2.0104,
+            "departure_delay_avg": 2.3452,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3349,
+                    "arrival_delay_avg": 2.0104,
+                    "departure_delay_avg": 2.3452,
+                    "sum_trains": 869
+                }
+            }
+        },
+        {
+            "station": "Nordbahnhof",
+            "incomming_connection": [
+                "Hauptbahnhof",
+                "Feuerbach",
+                "Station outside VVS"
+            ],
+            "lines": [
+                "6",
+                "4",
+                "5",
+                "60"
+            ],
+            "category": 5,
+            "long": 9.188026,
+            "lat": 48.803769,
+            "sum_trains": 2655,
+            "delay_change_avg": 0.3096,
+            "arrival_delay_avg": 0.7947,
+            "departure_delay_avg": 1.1043,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": 0.3216,
+                    "arrival_delay_avg": 0.6358,
+                    "departure_delay_avg": 0.9574,
+                    "sum_trains": 681
+                },
+                "5": {
+                    "delay_change_avg": 0.3223,
+                    "arrival_delay_avg": 0.6387,
+                    "departure_delay_avg": 0.961,
+                    "sum_trains": 692
+                },
+                "6": {
+                    "delay_change_avg": 0.2701,
+                    "arrival_delay_avg": 0.8807,
+                    "departure_delay_avg": 1.1508,
+                    "sum_trains": 922
+                },
+                "60": {
+                    "delay_change_avg": 0.3639,
+                    "arrival_delay_avg": 1.175,
+                    "departure_delay_avg": 1.5389,
+                    "sum_trains": 360
+                }
+            }
+        },
+        {
+            "station": "Nuernberger Strassse",
+            "incomming_connection": [
+                "Sommerrain",
+                "Bad Cannstatt"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 5,
+            "long": 9.234858,
+            "lat": 48.806423,
+            "sum_trains": 1705,
+            "delay_change_avg": 0.0979,
+            "arrival_delay_avg": 1.2633,
+            "departure_delay_avg": 1.3613,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.1742,
+                    "arrival_delay_avg": 1.295,
+                    "departure_delay_avg": 1.4692,
+                    "sum_trains": 861
+                },
+                "3": {
+                    "delay_change_avg": 0.0201,
+                    "arrival_delay_avg": 1.231,
+                    "departure_delay_avg": 1.2512,
+                    "sum_trains": 844
+                }
+            }
+        },
+        {
+            "station": "Oesterfeld",
+            "incomming_connection": [
+                "Universitaet",
+                "Vaihingen"
+            ],
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ],
+            "category": 4,
+            "long": 9.116774,
+            "lat": 48.737651,
+            "sum_trains": 2370,
+            "delay_change_avg": 0.4068,
+            "arrival_delay_avg": 1.4169,
+            "departure_delay_avg": 1.8236,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3684,
+                    "arrival_delay_avg": 1.5455,
+                    "departure_delay_avg": 1.9138,
+                    "sum_trains": 847
+                },
+                "2": {
+                    "delay_change_avg": 0.5265,
+                    "arrival_delay_avg": 1.2721,
+                    "departure_delay_avg": 1.7986,
+                    "sum_trains": 849
+                },
+                "3": {
+                    "delay_change_avg": 0.3042,
+                    "arrival_delay_avg": 1.4377,
+                    "departure_delay_avg": 1.7418,
+                    "sum_trains": 674
+                }
+            }
+        },
+        {
+            "station": "Universitaet",
+            "incomming_connection": [
+                "Schwabstrassse",
+                "Vaihingen"
+            ],
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ],
+            "category": 4,
+            "long": 9.105398,
+            "lat": 48.745837,
+            "sum_trains": 2492,
+            "delay_change_avg": 0.4169,
+            "arrival_delay_avg": 1.3186,
+            "departure_delay_avg": 1.7356,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4123,
+                    "arrival_delay_avg": 1.5024,
+                    "departure_delay_avg": 1.9147,
+                    "sum_trains": 844
+                },
+                "2": {
+                    "delay_change_avg": 0.5749,
+                    "arrival_delay_avg": 1.2283,
+                    "departure_delay_avg": 1.8033,
+                    "sum_trains": 854
+                },
+                "3": {
+                    "delay_change_avg": 0.2519,
+                    "arrival_delay_avg": 1.2204,
+                    "departure_delay_avg": 1.4723,
+                    "sum_trains": 794
+                }
+            }
+        },
+        {
+            "station": "Bad Cannstatt",
+            "incomming_connection": [
+                "Neckarpark",
+                "Nuernberger Strassse",
+                "Hauptbahnhof",
+                "Start",
+                "Station outside VVS",
+                "Vaihingen"
+            ],
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ],
+            "category": 3,
+            "long": 9.217531,
+            "lat": 48.801377,
+            "sum_trains": 2485,
+            "delay_change_avg": 0.3775,
+            "arrival_delay_avg": 1.5718,
+            "departure_delay_avg": 1.9493,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4009,
+                    "arrival_delay_avg": 1.7027,
+                    "departure_delay_avg": 2.1036,
+                    "sum_trains": 878
+                },
+                "2": {
+                    "delay_change_avg": 0.3956,
+                    "arrival_delay_avg": 1.5531,
+                    "departure_delay_avg": 1.9488,
+                    "sum_trains": 781
+                },
+                "3": {
+                    "delay_change_avg": 0.3354,
+                    "arrival_delay_avg": 1.4504,
+                    "departure_delay_avg": 1.7857,
+                    "sum_trains": 826
+                }
+            }
+        },
+        {
+            "station": "Feuerbach",
+            "incomming_connection": [
+                "Nordbahnhof",
+                "Zuffenhausen"
+            ],
+            "lines": [
+                "6",
+                "4",
+                "5",
+                "60"
+            ],
+            "category": 3,
+            "long": 9.169382,
+            "lat": 48.813673,
+            "sum_trains": 2656,
+            "delay_change_avg": 0.0441,
+            "arrival_delay_avg": 0.7952,
+            "departure_delay_avg": 0.8392,
+            "delay_per_line": {
+                "4": {
+                    "delay_change_avg": 0.0147,
+                    "arrival_delay_avg": 0.6461,
+                    "departure_delay_avg": 0.6608,
+                    "sum_trains": 681
+                },
+                "5": {
+                    "delay_change_avg": -0.0043,
+                    "arrival_delay_avg": 0.6565,
+                    "departure_delay_avg": 0.6522,
+                    "sum_trains": 690
+                },
+                "6": {
+                    "delay_change_avg": 0.0887,
+                    "arrival_delay_avg": 0.8561,
+                    "departure_delay_avg": 0.9448,
+                    "sum_trains": 924
+                },
+                "60": {
+                    "delay_change_avg": 0.0776,
+                    "arrival_delay_avg": 1.1856,
+                    "departure_delay_avg": 1.2632,
+                    "sum_trains": 361
+                }
+            }
+        },
+        {
+            "station": "Feuersee",
+            "incomming_connection": [
+                "Schwabstrassse",
+                "Stadtmitte"
+            ],
+            "lines": [
+                "6",
+                "1",
+                "5",
+                "2",
+                "4",
+                "3",
+                "60"
+            ],
+            "category": 3,
+            "long": 9.166273,
+            "lat": 48.772768,
+            "sum_trains": 4882,
+            "delay_change_avg": -0.0096,
+            "arrival_delay_avg": 1.2093,
+            "departure_delay_avg": 1.1997,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.2125,
+                    "arrival_delay_avg": 1.8026,
+                    "departure_delay_avg": 1.59,
+                    "sum_trains": 861
+                },
+                "2": {
+                    "delay_change_avg": -0.2431,
+                    "arrival_delay_avg": 1.4792,
+                    "departure_delay_avg": 1.2361,
+                    "sum_trains": 864
+                },
+                "3": {
+                    "delay_change_avg": -0.23,
+                    "arrival_delay_avg": 1.4803,
+                    "departure_delay_avg": 1.2503,
+                    "sum_trains": 839
+                },
+                "4": {
+                    "delay_change_avg": 0.2534,
+                    "arrival_delay_avg": 0.6424,
+                    "departure_delay_avg": 0.8959,
+                    "sum_trains": 509
+                },
+                "5": {
+                    "delay_change_avg": 0.2482,
+                    "arrival_delay_avg": 0.7206,
+                    "departure_delay_avg": 0.9688,
+                    "sum_trains": 544
+                },
+                "6": {
+                    "delay_change_avg": 0.2048,
+                    "arrival_delay_avg": 0.7643,
+                    "departure_delay_avg": 0.9692,
+                    "sum_trains": 908
+                },
+                "60": {
+                    "delay_change_avg": 0.2493,
+                    "arrival_delay_avg": 1.1737,
+                    "departure_delay_avg": 1.423,
+                    "sum_trains": 357
+                }
+            }
+        },
+        {
+            "station": "Obertuerkheim",
+            "incomming_connection": [
+                "Mettingen",
+                "Neckarpark"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 4,
+            "long": 9.267889,
+            "lat": 48.762013,
+            "sum_trains": 849,
+            "delay_change_avg": 0.4535,
+            "arrival_delay_avg": 1.914,
+            "departure_delay_avg": 2.3675,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.4535,
+                    "arrival_delay_avg": 1.914,
+                    "departure_delay_avg": 2.3675,
+                    "sum_trains": 849
+                }
+            }
+        },
+        {
+            "station": "Rohr",
+            "incomming_connection": [
+                "Vaihingen",
+                "Oberaichen",
+                "Goldberg"
+            ],
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ],
+            "category": 4,
+            "long": 9.108328,
+            "lat": 48.717902,
+            "sum_trains": 1926,
+            "delay_change_avg": -0.3048,
+            "arrival_delay_avg": 1.7129,
+            "departure_delay_avg": 1.4081,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.3828,
+                    "arrival_delay_avg": 2.0184,
+                    "departure_delay_avg": 1.6356,
+                    "sum_trains": 870
+                },
+                "2": {
+                    "delay_change_avg": -0.2591,
+                    "arrival_delay_avg": 1.6184,
+                    "departure_delay_avg": 1.3592,
+                    "sum_trains": 849
+                },
+                "3": {
+                    "delay_change_avg": -0.1643,
+                    "arrival_delay_avg": 0.8164,
+                    "departure_delay_avg": 0.6522,
+                    "sum_trains": 207
+                }
+            }
+        },
+        {
+            "station": "Schwabstrassse",
+            "incomming_connection": [
+                "Start",
+                "Feuersee",
+                "Universitaet"
+            ],
+            "lines": [
+                "6",
+                "1",
+                "5",
+                "2",
+                "4",
+                "3",
+                "60"
+            ],
+            "category": 3,
+            "long": 9.156959,
+            "lat": 48.770255,
+            "sum_trains": 3808,
+            "delay_change_avg": 0.3409,
+            "arrival_delay_avg": 0.9987,
+            "departure_delay_avg": 1.3395,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.2395,
+                    "arrival_delay_avg": 1.59,
+                    "departure_delay_avg": 1.8294,
+                    "sum_trains": 856
+                },
+                "2": {
+                    "delay_change_avg": 0.2888,
+                    "arrival_delay_avg": 1.6582,
+                    "departure_delay_avg": 1.9471,
+                    "sum_trains": 831
+                },
+                "3": {
+                    "delay_change_avg": 0.1219,
+                    "arrival_delay_avg": 1.3367,
+                    "departure_delay_avg": 1.4585,
+                    "sum_trains": 796
+                },
+                "4": {
+                    "delay_change_avg": 0.8094,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.8094,
+                    "sum_trains": 341
+                },
+                "5": {
+                    "delay_change_avg": 0.1076,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.1076,
+                    "sum_trains": 344
+                },
+                "6": {
+                    "delay_change_avg": 0.713,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.713,
+                    "sum_trains": 460
+                },
+                "60": {
+                    "delay_change_avg": 0.6389,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.6389,
+                    "sum_trains": 180
+                }
+            }
+        },
+        {
+            "station": "Sommerrain",
+            "incomming_connection": [
+                "Fellbach",
+                "Nuernberger Strassse"
+            ],
+            "lines": [
+                "2",
+                "3"
+            ],
+            "category": 5,
+            "long": 9.248327,
+            "lat": 48.81527,
+            "sum_trains": 1707,
+            "delay_change_avg": 0.5261,
+            "arrival_delay_avg": 1.239,
+            "departure_delay_avg": 1.7651,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.4936,
+                    "arrival_delay_avg": 1.3225,
+                    "departure_delay_avg": 1.8161,
+                    "sum_trains": 859
+                },
+                "3": {
+                    "delay_change_avg": 0.559,
+                    "arrival_delay_avg": 1.1545,
+                    "departure_delay_avg": 1.7134,
+                    "sum_trains": 848
+                }
+            }
+        },
+        {
+            "station": "Stadtmitte",
+            "incomming_connection": [
+                "Feuersee",
+                "Hauptbahnhof"
+            ],
+            "lines": [
+                "6",
+                "1",
+                "5",
+                "2",
+                "4",
+                "3",
+                "60"
+            ],
+            "category": 3,
+            "long": 9.172925,
+            "lat": 48.776229,
+            "sum_trains": 5340,
+            "delay_change_avg": 0.109,
+            "arrival_delay_avg": 1.1232,
+            "departure_delay_avg": 1.2322,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3796,
+                    "arrival_delay_avg": 1.5523,
+                    "departure_delay_avg": 1.9318,
+                    "sum_trains": 851
+                },
+                "2": {
+                    "delay_change_avg": 0.4469,
+                    "arrival_delay_avg": 1.2148,
+                    "departure_delay_avg": 1.6617,
+                    "sum_trains": 866
+                },
+                "3": {
+                    "delay_change_avg": 0.2759,
+                    "arrival_delay_avg": 1.1819,
+                    "departure_delay_avg": 1.4578,
+                    "sum_trains": 841
+                },
+                "4": {
+                    "delay_change_avg": -0.109,
+                    "arrival_delay_avg": 0.6433,
+                    "departure_delay_avg": 0.5343,
+                    "sum_trains": 670
+                },
+                "5": {
+                    "delay_change_avg": -0.0963,
+                    "arrival_delay_avg": 0.6622,
+                    "departure_delay_avg": 0.5659,
+                    "sum_trains": 675
+                },
+                "6": {
+                    "delay_change_avg": -0.1264,
+                    "arrival_delay_avg": 1.0566,
+                    "departure_delay_avg": 0.9302,
+                    "sum_trains": 989
+                },
+                "60": {
+                    "delay_change_avg": -0.2165,
+                    "arrival_delay_avg": 1.5804,
+                    "departure_delay_avg": 1.3638,
+                    "sum_trains": 448
+                }
+            }
+        },
+        {
+            "station": "Untertuerkheim",
+            "incomming_connection": [
+                "Obertuerkheim",
+                "Neckarpark"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 3,
+            "long": 9.250569,
+            "lat": 48.779751,
+            "sum_trains": 713,
+            "delay_change_avg": 0.338,
+            "arrival_delay_avg": 2.3366,
+            "departure_delay_avg": 2.6746,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.338,
+                    "arrival_delay_avg": 2.3366,
+                    "departure_delay_avg": 2.6746,
+                    "sum_trains": 713
+                }
+            }
+        },
+        {
+            "station": "Vaihingen",
+            "incomming_connection": [
+                "Universitaet",
+                "Rohr",
+                "Start",
+                "Bad Cannstatt",
+                "Boeblingen"
+            ],
+            "lines": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "category": 3,
+            "long": 9.113226,
+            "lat": 48.726279,
+            "sum_trains": 2261,
+            "delay_change_avg": 0.1495,
+            "arrival_delay_avg": 1.2291,
+            "departure_delay_avg": 1.3786,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.0588,
+                    "arrival_delay_avg": 1.6533,
+                    "departure_delay_avg": 1.7121,
+                    "sum_trains": 851
+                },
+                "2": {
+                    "delay_change_avg": 0.1663,
+                    "arrival_delay_avg": 1.2965,
+                    "departure_delay_avg": 1.4628,
+                    "sum_trains": 860
+                },
+                "3": {
+                    "delay_change_avg": 0.2628,
+                    "arrival_delay_avg": 0.4325,
+                    "departure_delay_avg": 0.6953,
+                    "sum_trains": 548
+                },
+                "4": {
+                    "delay_change_avg": 0.5,
+                    "arrival_delay_avg": 10.0,
+                    "departure_delay_avg": 10.5,
+                    "sum_trains": 2
+                }
+            }
+        },
+        {
+            "station": "Weilimdorf",
+            "incomming_connection": [
+                "Korntal",
+                "Ditzingen"
+            ],
+            "lines": [
+                "6",
+                "60"
+            ],
+            "category": 5,
+            "long": 9.094328,
+            "lat": 48.82208,
+            "sum_trains": 1291,
+            "delay_change_avg": 0.6375,
+            "arrival_delay_avg": 1.0883,
+            "departure_delay_avg": 1.7258,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": 0.636,
+                    "arrival_delay_avg": 1.0098,
+                    "departure_delay_avg": 1.6457,
+                    "sum_trains": 923
+                },
+                "60": {
+                    "delay_change_avg": 0.6413,
+                    "arrival_delay_avg": 1.2853,
+                    "departure_delay_avg": 1.9266,
+                    "sum_trains": 368
+                }
+            }
+        },
+        {
+            "station": "Zuffenhausen",
+            "incomming_connection": [
+                "Feuerbach",
+                "Neuwirtshaus",
+                "Kornwestheim",
+                "Start",
+                "Station outside VVS"
+            ],
+            "lines": [
+                "6",
+                "4",
+                "5",
+                "60",
+                "1"
+            ],
+            "category": 3,
+            "long": 9.166739,
+            "lat": 48.829415,
+            "sum_trains": 2661,
+            "delay_change_avg": -0.1,
+            "arrival_delay_avg": 0.8294,
+            "departure_delay_avg": 0.7294,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 2
+                },
+                "4": {
+                    "delay_change_avg": -0.0514,
+                    "arrival_delay_avg": 0.5991,
+                    "departure_delay_avg": 0.5477,
+                    "sum_trains": 681
+                },
+                "5": {
+                    "delay_change_avg": -0.0448,
+                    "arrival_delay_avg": 0.6315,
+                    "departure_delay_avg": 0.5867,
+                    "sum_trains": 692
+                },
+                "6": {
+                    "delay_change_avg": -0.1598,
+                    "arrival_delay_avg": 0.9707,
+                    "departure_delay_avg": 0.8109,
+                    "sum_trains": 920
+                },
+                "60": {
+                    "delay_change_avg": -0.1448,
+                    "arrival_delay_avg": 1.2814,
+                    "departure_delay_avg": 1.1366,
+                    "sum_trains": 366
+                }
+            }
+        },
+        {
+            "station": "Tamm",
+            "incomming_connection": [
+                "Asperg",
+                "Bietigheim-Bissingen"
+            ],
+            "lines": [
+                "5"
+            ],
+            "category": 4,
+            "long": 9.125828,
+            "lat": 48.921605,
+            "sum_trains": 691,
+            "delay_change_avg": -0.0289,
+            "arrival_delay_avg": 0.631,
+            "departure_delay_avg": 0.602,
+            "delay_per_line": {
+                "5": {
+                    "delay_change_avg": -0.0289,
+                    "arrival_delay_avg": 0.631,
+                    "departure_delay_avg": 0.602,
+                    "sum_trains": 691
+                }
+            }
+        },
+        {
+            "station": "Waiblingen",
+            "incomming_connection": [
+                "Fellbach",
+                "Rommelshausen",
+                "Neustadt-Hohenacker"
+            ],
+            "lines": [
+                "3",
+                "2"
+            ],
+            "category": 3,
+            "long": 9.299882,
+            "lat": 48.826124,
+            "sum_trains": 1985,
+            "delay_change_avg": -0.2685,
+            "arrival_delay_avg": 1.7768,
+            "departure_delay_avg": 1.5083,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": -0.2794,
+                    "arrival_delay_avg": 1.9627,
+                    "departure_delay_avg": 1.6834,
+                    "sum_trains": 859
+                },
+                "3": {
+                    "delay_change_avg": -0.2602,
+                    "arrival_delay_avg": 1.635,
+                    "departure_delay_avg": 1.3748,
+                    "sum_trains": 1126
+                }
+            }
+        },
+        {
+            "station": "Weil der Stadt",
+            "incomming_connection": [
+                "Start"
+            ],
+            "lines": [
+                "6"
+            ],
+            "category": 4,
+            "long": 8.872806,
+            "lat": 48.755483,
+            "sum_trains": 458,
+            "delay_change_avg": 0.7969,
+            "arrival_delay_avg": 0.0,
+            "departure_delay_avg": 0.7969,
+            "delay_per_line": {
+                "6": {
+                    "delay_change_avg": 0.7969,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.7969,
+                    "sum_trains": 458
+                }
+            }
+        },
+        {
+            "station": "Weiler",
+            "incomming_connection": [
+                "Winterbach",
+                "Schorndorf"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 5,
+            "long": 9.501991,
+            "lat": 48.800301,
+            "sum_trains": 643,
+            "delay_change_avg": 0.4572,
+            "arrival_delay_avg": 2.818,
+            "departure_delay_avg": 3.2753,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.4572,
+                    "arrival_delay_avg": 2.818,
+                    "departure_delay_avg": 3.2753,
+                    "sum_trains": 643
+                }
+            }
+        },
+        {
+            "station": "Wendlingen",
+            "incomming_connection": [
+                "Wernau",
+                "Oetlingen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 3,
+            "long": 9.373011,
+            "lat": 48.672961,
+            "sum_trains": 578,
+            "delay_change_avg": -0.0761,
+            "arrival_delay_avg": 1.7993,
+            "departure_delay_avg": 1.7232,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": -0.0761,
+                    "arrival_delay_avg": 1.7993,
+                    "departure_delay_avg": 1.7232,
+                    "sum_trains": 578
+                }
+            }
+        },
+        {
+            "station": "Wernau",
+            "incomming_connection": [
+                "Wendlingen",
+                "Plochingen"
+            ],
+            "lines": [
+                "1"
+            ],
+            "category": 4,
+            "long": 9.413898,
+            "lat": 48.694247,
+            "sum_trains": 574,
+            "delay_change_avg": 0.3014,
+            "arrival_delay_avg": 1.3728,
+            "departure_delay_avg": 1.6742,
+            "delay_per_line": {
+                "1": {
+                    "delay_change_avg": 0.3014,
+                    "arrival_delay_avg": 1.3728,
+                    "departure_delay_avg": 1.6742,
+                    "sum_trains": 574
+                }
+            }
+        },
+        {
+            "station": "Winnenden",
+            "incomming_connection": [
+                "Schwaikheim",
+                "Nellmersbach"
+            ],
+            "lines": [
+                "3"
+            ],
+            "category": 3,
+            "long": 9.39229,
+            "lat": 48.879583,
+            "sum_trains": 851,
+            "delay_change_avg": 0.0682,
+            "arrival_delay_avg": 1.5253,
+            "departure_delay_avg": 1.5934,
+            "delay_per_line": {
+                "3": {
+                    "delay_change_avg": 0.0682,
+                    "arrival_delay_avg": 1.5253,
+                    "departure_delay_avg": 1.5934,
+                    "sum_trains": 851
+                }
+            }
+        },
+        {
+            "station": "Winterbach",
+            "incomming_connection": [
+                "Weiler",
+                "Geradstetten"
+            ],
+            "lines": [
+                "2"
+            ],
+            "category": 4,
+            "long": 9.480994,
+            "lat": 48.798432,
+            "sum_trains": 849,
+            "delay_change_avg": 0.3051,
+            "arrival_delay_avg": 2.1037,
+            "departure_delay_avg": 2.4087,
+            "delay_per_line": {
+                "2": {
+                    "delay_change_avg": 0.3051,
+                    "arrival_delay_avg": 2.1037,
+                    "departure_delay_avg": 2.4087,
+                    "sum_trains": 849
+                }
+            }
+        },
+        {
+            "station": "Maichingen Nord",
+            "incomming_connection": [
+                "Renningen",
+                "Boeblingen"
+            ],
+            "lines": [
+                "60"
+            ],
+            "category": 5,
+            "long": 8.979257,
+            "lat": 48.72736,
+            "sum_trains": 564,
+            "delay_change_avg": 0.6135,
+            "arrival_delay_avg": 0.9379,
+            "departure_delay_avg": 1.5514,
+            "delay_per_line": {
+                "60": {
+                    "delay_change_avg": 0.6135,
+                    "arrival_delay_avg": 0.9379,
+                    "departure_delay_avg": 1.5514,
+                    "sum_trains": 564
+                }
+            }
+        },
+        {
+            "station": "Backnang",
+            "incomming_connection": [
+                "Start"
+            ],
+            "lines": [
+                "3",
+                "4"
+            ],
+            "category": 3,
+            "long": 9.425989,
+            "lat": 48.942676,
+            "sum_trains": 494,
+            "delay_change_avg": 0.5121,
+            "arrival_delay_avg": 0.0,
+            "departure_delay_avg": 0.5121,
+            "delay_per_line": {
+                "3": {
+                    "delay_change_avg": 0.6024,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.6024,
+                    "sum_trains": 420
+                },
+                "4": {
+                    "delay_change_avg": 0.0,
+                    "arrival_delay_avg": 0.0,
+                    "departure_delay_avg": 0.0,
+                    "sum_trains": 74
+                }
+            }
+        }
+    ],
+    "links": [
+        {
+            "source": "Plochingen",
+            "destination": "Altbach",
+            "delay_avg": 1.1986607142857142,
+            "delay_sum": 537,
+            "sum_trains": 448,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Zell",
+            "destination": "Altbach",
+            "delay_avg": 3.365967365967366,
+            "delay_sum": 1444,
+            "sum_trains": 429,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Ludwigsburg",
+            "destination": "Asperg",
+            "delay_avg": 0.8755186721991701,
+            "delay_sum": 211,
+            "sum_trains": 241,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Tamm",
+            "destination": "Asperg",
+            "delay_avg": 0.11078717201166181,
+            "delay_sum": 38,
+            "sum_trains": 343,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Freiberg",
+            "destination": "Benningen",
+            "delay_avg": 1.373913043478261,
+            "delay_sum": 474,
+            "sum_trains": 345,
+            "lines": [
+                "4",
+                "5"
+            ]
+        },
+        {
+            "source": "Marbach",
+            "destination": "Benningen",
+            "delay_avg": 0.11428571428571428,
+            "delay_sum": 24,
+            "sum_trains": 210,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Grunbach",
+            "destination": "Beutelsbach",
+            "delay_avg": 1.4154929577464788,
+            "delay_sum": 603,
+            "sum_trains": 426,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Endersbach",
+            "destination": "Beutelsbach",
+            "delay_avg": 2.417249417249417,
+            "delay_sum": 1037,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Bietigheim-Bissingen",
+            "delay_avg": 1.0,
+            "delay_sum": 7,
+            "sum_trains": 7,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Bietigheim-Bissingen",
+            "delay_avg": 0.13994169096209913,
+            "delay_sum": 48,
+            "sum_trains": 343,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Ludwigsburg",
+            "destination": "Bietigheim-Bissingen",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 7,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Goldberg",
+            "destination": "Boeblingen",
+            "delay_avg": 2.4549653579676676,
+            "delay_sum": 1063,
+            "sum_trains": 433,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Boeblingen",
+            "delay_avg": 0.29577464788732394,
+            "delay_sum": 84,
+            "sum_trains": 284,
+            "lines": [
+                "60"
+            ]
+        },
+        {
+            "source": "Hulb",
+            "destination": "Boeblingen",
+            "delay_avg": 1.3925925925925926,
+            "delay_sum": 564,
+            "sum_trains": 405,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Herrenberg",
+            "destination": "Boeblingen",
+            "delay_avg": 7.571428571428571,
+            "delay_sum": 53,
+            "sum_trains": 7,
+            "lines": [
+                "4",
+                "1"
+            ]
+        },
+        {
+            "source": "Vaihingen",
+            "destination": "Boeblingen",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 2,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Boeblingen",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 1,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Hoefingen",
+            "destination": "Ditzingen",
+            "delay_avg": 1.078125,
+            "delay_sum": 690,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Korntal",
+            "destination": "Ditzingen",
+            "delay_avg": 1.4241573033707866,
+            "delay_sum": 507,
+            "sum_trains": 356,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Flughafen/Messe",
+            "destination": "Echterdingen",
+            "delay_avg": 0.29010989010989013,
+            "delay_sum": 132,
+            "sum_trains": 455,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Leinfelden",
+            "destination": "Echterdingen",
+            "delay_avg": 1.7105263157894737,
+            "delay_sum": 910,
+            "sum_trains": 532,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Hulb",
+            "destination": "Ehningen",
+            "delay_avg": 3.9746192893401013,
+            "delay_sum": 1566,
+            "sum_trains": 394,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Gaertringen",
+            "destination": "Ehningen",
+            "delay_avg": 0.44938271604938274,
+            "delay_sum": 182,
+            "sum_trains": 405,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Beutelsbach",
+            "destination": "Endersbach",
+            "delay_avg": 0.8490566037735849,
+            "delay_sum": 360,
+            "sum_trains": 424,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Stetten-Beinstein",
+            "destination": "Endersbach",
+            "delay_avg": 2.717948717948718,
+            "delay_sum": 1166,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Oberesslingen",
+            "destination": "Esslingen",
+            "delay_avg": 1.0892857142857142,
+            "delay_sum": 488,
+            "sum_trains": 448,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Plochingen",
+            "destination": "Esslingen",
+            "delay_avg": 3.294573643410853,
+            "delay_sum": 425,
+            "sum_trains": 129,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Mettingen",
+            "destination": "Esslingen",
+            "delay_avg": 3.498233215547703,
+            "delay_sum": 990,
+            "sum_trains": 283,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Esslingen",
+            "delay_avg": 0.007751937984496124,
+            "delay_sum": 1,
+            "sum_trains": 129,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Esslingen",
+            "destination": "Mettingen",
+            "delay_avg": 1.578125,
+            "delay_sum": 707,
+            "sum_trains": 448,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Obertuerkheim",
+            "destination": "Mettingen",
+            "delay_avg": 2.7911832946635733,
+            "delay_sum": 1203,
+            "sum_trains": 431,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Altbach",
+            "destination": "Zell",
+            "delay_avg": 1.2522321428571428,
+            "delay_sum": 561,
+            "sum_trains": 448,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Oberesslingen",
+            "destination": "Zell",
+            "delay_avg": 2.869158878504673,
+            "delay_sum": 1228,
+            "sum_trains": 428,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Ludwigsburg",
+            "destination": "Farvoritepark",
+            "delay_avg": 0.26011560693641617,
+            "delay_sum": 90,
+            "sum_trains": 346,
+            "lines": [
+                "4",
+                "5"
+            ]
+        },
+        {
+            "source": "Freiberg",
+            "destination": "Farvoritepark",
+            "delay_avg": 1.0178571428571428,
+            "delay_sum": 342,
+            "sum_trains": 336,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Waiblingen",
+            "destination": "Fellbach",
+            "delay_avg": 1.0623529411764705,
+            "delay_sum": 903,
+            "sum_trains": 850,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Sommerrain",
+            "destination": "Fellbach",
+            "delay_avg": 1.5284552845528456,
+            "delay_sum": 1316,
+            "sum_trains": 861,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Filderstadt",
+            "destination": "Flughafen/Messe",
+            "delay_avg": 0.7597402597402597,
+            "delay_sum": 117,
+            "sum_trains": 154,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Echterdingen",
+            "destination": "Flughafen/Messe",
+            "delay_avg": 1.6382488479262673,
+            "delay_sum": 711,
+            "sum_trains": 434,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Flughafen/Messe",
+            "delay_avg": 0.12962962962962962,
+            "delay_sum": 14,
+            "sum_trains": 108,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Farvoritepark",
+            "destination": "Freiberg",
+            "delay_avg": 0.26011560693641617,
+            "delay_sum": 90,
+            "sum_trains": 346,
+            "lines": [
+                "4",
+                "5"
+            ]
+        },
+        {
+            "source": "Benningen",
+            "destination": "Freiberg",
+            "delay_avg": 0.22388059701492538,
+            "delay_sum": 75,
+            "sum_trains": 335,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Ehningen",
+            "destination": "Gaertringen",
+            "delay_avg": 4.349127182044888,
+            "delay_sum": 1744,
+            "sum_trains": 401,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Nufringen",
+            "destination": "Gaertringen",
+            "delay_avg": 0.4419753086419753,
+            "delay_sum": 179,
+            "sum_trains": 405,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Winterbach",
+            "destination": "Geradstetten",
+            "delay_avg": 0.32167832167832167,
+            "delay_sum": 138,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Grunbach",
+            "destination": "Geradstetten",
+            "delay_avg": 4.216783216783217,
+            "delay_sum": 1809,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Rohr",
+            "destination": "Goldberg",
+            "delay_avg": 2.284064665127021,
+            "delay_sum": 989,
+            "sum_trains": 433,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Boeblingen",
+            "destination": "Goldberg",
+            "delay_avg": 1.407925407925408,
+            "delay_sum": 604,
+            "sum_trains": 429,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Geradstetten",
+            "destination": "Grunbach",
+            "delay_avg": 0.35664335664335667,
+            "delay_sum": 153,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Beutelsbach",
+            "destination": "Grunbach",
+            "delay_avg": 4.244755244755245,
+            "delay_sum": 1821,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Herrenberg",
+            "delay_avg": 0.46436781609195404,
+            "delay_sum": 202,
+            "sum_trains": 435,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Herrenberg",
+            "delay_avg": 6.75,
+            "delay_sum": 27,
+            "sum_trains": 4,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Boeblingen",
+            "destination": "Herrenberg",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 3,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Ditzingen",
+            "destination": "Hoefingen",
+            "delay_avg": 0.967391304347826,
+            "delay_sum": 623,
+            "sum_trains": 644,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Leonberg",
+            "destination": "Hoefingen",
+            "delay_avg": 0.965625,
+            "delay_sum": 618,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Boeblingen",
+            "destination": "Hulb",
+            "delay_avg": 4.024813895781637,
+            "delay_sum": 1622,
+            "sum_trains": 403,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Ehningen",
+            "destination": "Hulb",
+            "delay_avg": 0.48148148148148145,
+            "delay_sum": 195,
+            "sum_trains": 405,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Filderstadt",
+            "delay_avg": 0.46987951807228917,
+            "delay_sum": 195,
+            "sum_trains": 415,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Kirchheim",
+            "delay_avg": 0.8229166666666666,
+            "delay_sum": 237,
+            "sum_trains": 288,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Wendlingen",
+            "destination": "Oetlingen",
+            "delay_avg": 2.315068493150685,
+            "delay_sum": 676,
+            "sum_trains": 292,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Kirchheim",
+            "destination": "Oetlingen",
+            "delay_avg": 0.7152777777777778,
+            "delay_sum": 206,
+            "sum_trains": 288,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Ditzingen",
+            "destination": "Korntal",
+            "delay_avg": 0.978125,
+            "delay_sum": 626,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Neuwirtshaus",
+            "destination": "Korntal",
+            "delay_avg": 1.3685185185185185,
+            "delay_sum": 739,
+            "sum_trains": 540,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Zuffenhausen",
+            "destination": "Kornwestheim",
+            "delay_avg": 0.6863309352517986,
+            "delay_sum": 477,
+            "sum_trains": 695,
+            "lines": [
+                "4",
+                "5"
+            ]
+        },
+        {
+            "source": "Ludwigsburg",
+            "destination": "Kornwestheim",
+            "delay_avg": 0.25920471281296026,
+            "delay_sum": 176,
+            "sum_trains": 679,
+            "lines": [
+                "5",
+                "4"
+            ]
+        },
+        {
+            "source": "Echterdingen",
+            "destination": "Leinfelden",
+            "delay_avg": 0.29636711281070743,
+            "delay_sum": 155,
+            "sum_trains": 523,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Oberaichen",
+            "destination": "Leinfelden",
+            "delay_avg": 1.781954887218045,
+            "delay_sum": 948,
+            "sum_trains": 532,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Hoefingen",
+            "destination": "Leonberg",
+            "delay_avg": 0.8266871165644172,
+            "delay_sum": 539,
+            "sum_trains": 652,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Rutesheim",
+            "destination": "Leonberg",
+            "delay_avg": 1.7839116719242902,
+            "delay_sum": 1131,
+            "sum_trains": 634,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Kornwestheim",
+            "destination": "Ludwigsburg",
+            "delay_avg": 0.4906474820143885,
+            "delay_sum": 341,
+            "sum_trains": 695,
+            "lines": [
+                "4",
+                "5"
+            ]
+        },
+        {
+            "source": "Bietigheim-Bissingen",
+            "destination": "Ludwigsburg",
+            "delay_avg": 1.0,
+            "delay_sum": 7,
+            "sum_trains": 7,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Asperg",
+            "destination": "Ludwigsburg",
+            "delay_avg": 0.9533527696793003,
+            "delay_sum": 327,
+            "sum_trains": 343,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Ludwigsburg",
+            "delay_avg": 0.8571428571428571,
+            "delay_sum": 6,
+            "sum_trains": 7,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Farvoritepark",
+            "destination": "Ludwigsburg",
+            "delay_avg": 0.8895522388059701,
+            "delay_sum": 298,
+            "sum_trains": 335,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Renningen",
+            "destination": "Malmsheim",
+            "delay_avg": 1.449244060475162,
+            "delay_sum": 671,
+            "sum_trains": 463,
+            "lines": [
+                "6"
+            ]
+        },
+        {
+            "source": "Weil der Stadt",
+            "destination": "Malmsheim",
+            "delay_avg": 1.779475982532751,
+            "delay_sum": 815,
+            "sum_trains": 458,
+            "lines": [
+                "6"
+            ]
+        },
+        {
+            "source": "Benningen",
+            "destination": "Marbach",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 72,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Marbach",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 261,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Backnang",
+            "destination": "Marbach",
+            "delay_avg": 0.527027027027027,
+            "delay_sum": 39,
+            "sum_trains": 74,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Nellmersbach",
+            "destination": "Maubach",
+            "delay_avg": 2.07,
+            "delay_sum": 1035,
+            "sum_trains": 500,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Backnang",
+            "destination": "Maubach",
+            "delay_avg": 0.6214285714285714,
+            "delay_sum": 261,
+            "sum_trains": 420,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Winnenden",
+            "destination": "Nellmersbach",
+            "delay_avg": 1.962877030162413,
+            "delay_sum": 846,
+            "sum_trains": 431,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Maubach",
+            "destination": "Nellmersbach",
+            "delay_avg": 1.5071428571428571,
+            "delay_sum": 633,
+            "sum_trains": 420,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Waiblingen",
+            "destination": "Neustadt-Hohenacker",
+            "delay_avg": 2.6194895591647334,
+            "delay_sum": 1129,
+            "sum_trains": 431,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Schwaikheim",
+            "destination": "Neustadt-Hohenacker",
+            "delay_avg": 1.0501193317422435,
+            "delay_sum": 440,
+            "sum_trains": 419,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Zuffenhausen",
+            "destination": "Neuwirtshaus",
+            "delay_avg": 1.3038167938931298,
+            "delay_sum": 854,
+            "sum_trains": 655,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Korntal",
+            "destination": "Neuwirtshaus",
+            "delay_avg": 2.0859375,
+            "delay_sum": 1335,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Gaertringen",
+            "destination": "Nufringen",
+            "delay_avg": 4.082474226804123,
+            "delay_sum": 1584,
+            "sum_trains": 388,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Herrenberg",
+            "destination": "Nufringen",
+            "delay_avg": 0.9778325123152709,
+            "delay_sum": 397,
+            "sum_trains": 406,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Leinfelden",
+            "destination": "Oberaichen",
+            "delay_avg": 1.1825242718446602,
+            "delay_sum": 609,
+            "sum_trains": 515,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Rohr",
+            "destination": "Oberaichen",
+            "delay_avg": 1.549718574108818,
+            "delay_sum": 826,
+            "sum_trains": 533,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Zell",
+            "destination": "Oberesslingen",
+            "delay_avg": 1.2635135135135136,
+            "delay_sum": 561,
+            "sum_trains": 444,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Esslingen",
+            "destination": "Oberesslingen",
+            "delay_avg": 3.0835266821345706,
+            "delay_sum": 1329,
+            "sum_trains": 431,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Wernau",
+            "destination": "Plochingen",
+            "delay_avg": 0.8819188191881919,
+            "delay_sum": 239,
+            "sum_trains": 271,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Plochingen",
+            "delay_avg": 4.0476190476190474,
+            "delay_sum": 510,
+            "sum_trains": 126,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Altbach",
+            "destination": "Plochingen",
+            "delay_avg": 1.597902097902098,
+            "delay_sum": 457,
+            "sum_trains": 286,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Plochingen",
+            "delay_avg": 0.43636363636363634,
+            "delay_sum": 72,
+            "sum_trains": 165,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Esslingen",
+            "destination": "Plochingen",
+            "delay_avg": 0.23478260869565218,
+            "delay_sum": 27,
+            "sum_trains": 115,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Rutesheim",
+            "destination": "Renningen",
+            "delay_avg": 0.6545166402535658,
+            "delay_sum": 413,
+            "sum_trains": 631,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Malmsheim",
+            "destination": "Renningen",
+            "delay_avg": 0.7346491228070176,
+            "delay_sum": 335,
+            "sum_trains": 456,
+            "lines": [
+                "6"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Renningen",
+            "delay_avg": 0.011235955056179775,
+            "delay_sum": 1,
+            "sum_trains": 89,
+            "lines": [
+                "60"
+            ]
+        },
+        {
+            "source": "Maichingen Nord",
+            "destination": "Renningen",
+            "delay_avg": 0.9060773480662984,
+            "delay_sum": 164,
+            "sum_trains": 181,
+            "lines": [
+                "60"
+            ]
+        },
+        {
+            "source": "Stetten-Beinstein",
+            "destination": "Rommelshausen",
+            "delay_avg": 0.8236658932714617,
+            "delay_sum": 355,
+            "sum_trains": 431,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Waiblingen",
+            "destination": "Rommelshausen",
+            "delay_avg": 2.7741176470588234,
+            "delay_sum": 1179,
+            "sum_trains": 425,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Leonberg",
+            "destination": "Rutesheim",
+            "delay_avg": 2.1972265023112483,
+            "delay_sum": 1426,
+            "sum_trains": 649,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Renningen",
+            "destination": "Rutesheim",
+            "delay_avg": 0.8828125,
+            "delay_sum": 565,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Schorndorf",
+            "delay_avg": 0.37354988399071926,
+            "delay_sum": 161,
+            "sum_trains": 431,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Schorndorf",
+            "delay_avg": 0.6229508196721312,
+            "delay_sum": 76,
+            "sum_trains": 122,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Neustadt-Hohenacker",
+            "destination": "Schwaikheim",
+            "delay_avg": 2.1531322505800463,
+            "delay_sum": 928,
+            "sum_trains": 431,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Winnenden",
+            "destination": "Schwaikheim",
+            "delay_avg": 0.8711217183770883,
+            "delay_sum": 365,
+            "sum_trains": 419,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Endersbach",
+            "destination": "Stetten-Beinstein",
+            "delay_avg": 0.8872901678657075,
+            "delay_sum": 370,
+            "sum_trains": 417,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Rommelshausen",
+            "destination": "Stetten-Beinstein",
+            "delay_avg": 3.116279069767442,
+            "delay_sum": 1340,
+            "sum_trains": 430,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Hauptbahnhof",
+            "delay_avg": 0.5894941634241245,
+            "delay_sum": 303,
+            "sum_trains": 514,
+            "lines": [
+                "1",
+                "5",
+                "6",
+                "3",
+                "4"
+            ]
+        },
+        {
+            "source": "Vaihingen",
+            "destination": "Hauptbahnhof",
+            "delay_avg": 5.125,
+            "delay_sum": 41,
+            "sum_trains": 8,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Bad Cannstatt",
+            "destination": "Hauptbahnhof",
+            "delay_avg": 6.666666666666667,
+            "delay_sum": 40,
+            "sum_trains": 6,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Obertuerkheim",
+            "destination": "Neckarpark",
+            "delay_avg": 1.342281879194631,
+            "delay_sum": 600,
+            "sum_trains": 447,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Bad Cannstatt",
+            "destination": "Neckarpark",
+            "delay_avg": 3.4075829383886256,
+            "delay_sum": 1438,
+            "sum_trains": 422,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Hauptbahnhof",
+            "destination": "Nordbahnhof",
+            "delay_avg": 1.5143721633888048,
+            "delay_sum": 2002,
+            "sum_trains": 1322,
+            "lines": [
+                "6",
+                "4",
+                "5",
+                "60"
+            ]
+        },
+        {
+            "source": "Feuerbach",
+            "destination": "Nordbahnhof",
+            "delay_avg": 0.6962794229309036,
+            "delay_sum": 917,
+            "sum_trains": 1317,
+            "lines": [
+                "6",
+                "5",
+                "4",
+                "60"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Nordbahnhof",
+            "delay_avg": 0.8125,
+            "delay_sum": 13,
+            "sum_trains": 16,
+            "lines": [
+                "5",
+                "6",
+                "4"
+            ]
+        },
+        {
+            "source": "Sommerrain",
+            "destination": "Nuernberger Strassse",
+            "delay_avg": 0.8941176470588236,
+            "delay_sum": 760,
+            "sum_trains": 850,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Bad Cannstatt",
+            "destination": "Nuernberger Strassse",
+            "delay_avg": 1.8257309941520468,
+            "delay_sum": 1561,
+            "sum_trains": 855,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Universitaet",
+            "destination": "Oesterfeld",
+            "delay_avg": 2.322884012539185,
+            "delay_sum": 2964,
+            "sum_trains": 1276,
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Vaihingen",
+            "destination": "Oesterfeld",
+            "delay_avg": 1.2413162705667276,
+            "delay_sum": 1358,
+            "sum_trains": 1094,
+            "lines": [
+                "2",
+                "3",
+                "1"
+            ]
+        },
+        {
+            "source": "Schwabstrassse",
+            "destination": "Universitaet",
+            "delay_avg": 2.375494071146245,
+            "delay_sum": 3005,
+            "sum_trains": 1265,
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Vaihingen",
+            "destination": "Universitaet",
+            "delay_avg": 1.075794621026895,
+            "delay_sum": 1320,
+            "sum_trains": 1227,
+            "lines": [
+                "2",
+                "3",
+                "1"
+            ]
+        },
+        {
+            "source": "Neckarpark",
+            "destination": "Bad Cannstatt",
+            "delay_avg": 1.7695749440715884,
+            "delay_sum": 791,
+            "sum_trains": 447,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Nuernberger Strassse",
+            "destination": "Bad Cannstatt",
+            "delay_avg": 1.619241192411924,
+            "delay_sum": 1195,
+            "sum_trains": 738,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Hauptbahnhof",
+            "destination": "Bad Cannstatt",
+            "delay_avg": 2.202501954652072,
+            "delay_sum": 2817,
+            "sum_trains": 1279,
+            "lines": [
+                "2",
+                "3",
+                "1"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Bad Cannstatt",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 10,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Bad Cannstatt",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 6,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Vaihingen",
+            "destination": "Bad Cannstatt",
+            "delay_avg": 8.2,
+            "delay_sum": 41,
+            "sum_trains": 5,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Nordbahnhof",
+            "destination": "Feuerbach",
+            "delay_avg": 0.7234678624813154,
+            "delay_sum": 968,
+            "sum_trains": 1338,
+            "lines": [
+                "6",
+                "4",
+                "5",
+                "60"
+            ]
+        },
+        {
+            "source": "Zuffenhausen",
+            "destination": "Feuerbach",
+            "delay_avg": 0.956752655538695,
+            "delay_sum": 1261,
+            "sum_trains": 1318,
+            "lines": [
+                "6",
+                "5",
+                "4",
+                "60"
+            ]
+        },
+        {
+            "source": "Schwabstrassse",
+            "destination": "Feuersee",
+            "delay_avg": 0.7734782608695652,
+            "delay_sum": 1779,
+            "sum_trains": 2300,
+            "lines": [
+                "6",
+                "5",
+                "2",
+                "4",
+                "3",
+                "1",
+                "60"
+            ]
+        },
+        {
+            "source": "Stadtmitte",
+            "destination": "Feuersee",
+            "delay_avg": 1.579395817195972,
+            "delay_sum": 4078,
+            "sum_trains": 2582,
+            "lines": [
+                "1",
+                "2",
+                "6",
+                "5",
+                "4",
+                "3",
+                "60"
+            ]
+        },
+        {
+            "source": "Mettingen",
+            "destination": "Obertuerkheim",
+            "delay_avg": 1.6651785714285714,
+            "delay_sum": 746,
+            "sum_trains": 448,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Neckarpark",
+            "destination": "Obertuerkheim",
+            "delay_avg": 3.1521197007481296,
+            "delay_sum": 1264,
+            "sum_trains": 401,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Vaihingen",
+            "destination": "Rohr",
+            "delay_avg": 1.8312629399585922,
+            "delay_sum": 1769,
+            "sum_trains": 966,
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Oberaichen",
+            "destination": "Rohr",
+            "delay_avg": 0.9598470363288719,
+            "delay_sum": 502,
+            "sum_trains": 523,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Goldberg",
+            "destination": "Rohr",
+            "delay_avg": 1.0091533180778032,
+            "delay_sum": 441,
+            "sum_trains": 437,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Schwabstrassse",
+            "delay_avg": 0.5684210526315789,
+            "delay_sum": 756,
+            "sum_trains": 1330,
+            "lines": [
+                "6",
+                "5",
+                "4",
+                "60",
+                "3"
+            ]
+        },
+        {
+            "source": "Feuersee",
+            "destination": "Schwabstrassse",
+            "delay_avg": 2.127725856697819,
+            "delay_sum": 2732,
+            "sum_trains": 1284,
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Universitaet",
+            "destination": "Schwabstrassse",
+            "delay_avg": 1.3509212730318259,
+            "delay_sum": 1613,
+            "sum_trains": 1194,
+            "lines": [
+                "2",
+                "3",
+                "1"
+            ]
+        },
+        {
+            "source": "Fellbach",
+            "destination": "Sommerrain",
+            "delay_avg": 1.3475177304964538,
+            "delay_sum": 1140,
+            "sum_trains": 846,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Nuernberger Strassse",
+            "destination": "Sommerrain",
+            "delay_avg": 2.175377468060395,
+            "delay_sum": 1873,
+            "sum_trains": 861,
+            "lines": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Feuersee",
+            "destination": "Stadtmitte",
+            "delay_avg": 1.013076923076923,
+            "delay_sum": 2634,
+            "sum_trains": 2600,
+            "lines": [
+                "6",
+                "5",
+                "2",
+                "4",
+                "3",
+                "1",
+                "60"
+            ]
+        },
+        {
+            "source": "Hauptbahnhof",
+            "destination": "Stadtmitte",
+            "delay_avg": 1.4401459854014598,
+            "delay_sum": 3946,
+            "sum_trains": 2740,
+            "lines": [
+                "1",
+                "2",
+                "6",
+                "5",
+                "4",
+                "3",
+                "60"
+            ]
+        },
+        {
+            "source": "Obertuerkheim",
+            "destination": "Untertuerkheim",
+            "delay_avg": 2.0242214532871974,
+            "delay_sum": 585,
+            "sum_trains": 289,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Neckarpark",
+            "destination": "Untertuerkheim",
+            "delay_avg": 3.1179245283018866,
+            "delay_sum": 1322,
+            "sum_trains": 424,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Universitaet",
+            "destination": "Vaihingen",
+            "delay_avg": 1.7372627372627372,
+            "delay_sum": 1739,
+            "sum_trains": 1001,
+            "lines": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        {
+            "source": "Rohr",
+            "destination": "Vaihingen",
+            "delay_avg": 1.2826086956521738,
+            "delay_sum": 1180,
+            "sum_trains": 920,
+            "lines": [
+                "2",
+                "1",
+                "3"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Vaihingen",
+            "delay_avg": 0.4186746987951807,
+            "delay_sum": 139,
+            "sum_trains": 332,
+            "lines": [
+                "3",
+                "2"
+            ]
+        },
+        {
+            "source": "Bad Cannstatt",
+            "destination": "Vaihingen",
+            "delay_avg": 6.333333333333333,
+            "delay_sum": 38,
+            "sum_trains": 6,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Boeblingen",
+            "destination": "Vaihingen",
+            "delay_avg": 10.5,
+            "delay_sum": 21,
+            "sum_trains": 2,
+            "lines": [
+                "4"
+            ]
+        },
+        {
+            "source": "Korntal",
+            "destination": "Weilimdorf",
+            "delay_avg": 1.5637480798771122,
+            "delay_sum": 1018,
+            "sum_trains": 651,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Ditzingen",
+            "destination": "Weilimdorf",
+            "delay_avg": 1.890625,
+            "delay_sum": 1210,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Feuerbach",
+            "destination": "Zuffenhausen",
+            "delay_avg": 0.6796992481203008,
+            "delay_sum": 904,
+            "sum_trains": 1330,
+            "lines": [
+                "6",
+                "4",
+                "5",
+                "60"
+            ]
+        },
+        {
+            "source": "Neuwirtshaus",
+            "destination": "Zuffenhausen",
+            "delay_avg": 1.1796875,
+            "delay_sum": 755,
+            "sum_trains": 640,
+            "lines": [
+                "6",
+                "60"
+            ]
+        },
+        {
+            "source": "Kornwestheim",
+            "destination": "Zuffenhausen",
+            "delay_avg": 0.41531664212076586,
+            "delay_sum": 282,
+            "sum_trains": 679,
+            "lines": [
+                "5",
+                "4"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Zuffenhausen",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 10,
+            "lines": [
+                "60"
+            ]
+        },
+        {
+            "source": "Station outside VVS",
+            "destination": "Zuffenhausen",
+            "delay_avg": 0.0,
+            "delay_sum": 0,
+            "sum_trains": 2,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Asperg",
+            "destination": "Tamm",
+            "delay_avg": 0.8074712643678161,
+            "delay_sum": 281,
+            "sum_trains": 348,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Bietigheim-Bissingen",
+            "destination": "Tamm",
+            "delay_avg": 0.3935860058309038,
+            "delay_sum": 135,
+            "sum_trains": 343,
+            "lines": [
+                "5"
+            ]
+        },
+        {
+            "source": "Fellbach",
+            "destination": "Waiblingen",
+            "delay_avg": 2.025025025025025,
+            "delay_sum": 2023,
+            "sum_trains": 999,
+            "lines": [
+                "3",
+                "2"
+            ]
+        },
+        {
+            "source": "Rommelshausen",
+            "destination": "Waiblingen",
+            "delay_avg": 0.752913752913753,
+            "delay_sum": 323,
+            "sum_trains": 429,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Neustadt-Hohenacker",
+            "destination": "Waiblingen",
+            "delay_avg": 1.163375224416517,
+            "delay_sum": 648,
+            "sum_trains": 557,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Weil der Stadt",
+            "delay_avg": 0.7969432314410481,
+            "delay_sum": 365,
+            "sum_trains": 458,
+            "lines": [
+                "6"
+            ]
+        },
+        {
+            "source": "Winterbach",
+            "destination": "Weiler",
+            "delay_avg": 4.516355140186916,
+            "delay_sum": 1933,
+            "sum_trains": 428,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Schorndorf",
+            "destination": "Weiler",
+            "delay_avg": 0.8046511627906977,
+            "delay_sum": 173,
+            "sum_trains": 215,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Wernau",
+            "destination": "Wendlingen",
+            "delay_avg": 2.5620689655172413,
+            "delay_sum": 743,
+            "sum_trains": 290,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Oetlingen",
+            "destination": "Wendlingen",
+            "delay_avg": 0.8784722222222222,
+            "delay_sum": 253,
+            "sum_trains": 288,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Wendlingen",
+            "destination": "Wernau",
+            "delay_avg": 2.0104895104895104,
+            "delay_sum": 575,
+            "sum_trains": 286,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Plochingen",
+            "destination": "Wernau",
+            "delay_avg": 1.3402777777777777,
+            "delay_sum": 386,
+            "sum_trains": 288,
+            "lines": [
+                "1"
+            ]
+        },
+        {
+            "source": "Schwaikheim",
+            "destination": "Winnenden",
+            "delay_avg": 2.2134570765661254,
+            "delay_sum": 954,
+            "sum_trains": 431,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Nellmersbach",
+            "destination": "Winnenden",
+            "delay_avg": 0.9571428571428572,
+            "delay_sum": 402,
+            "sum_trains": 420,
+            "lines": [
+                "3"
+            ]
+        },
+        {
+            "source": "Weiler",
+            "destination": "Winterbach",
+            "delay_avg": 0.4028436018957346,
+            "delay_sum": 170,
+            "sum_trains": 422,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Geradstetten",
+            "destination": "Winterbach",
+            "delay_avg": 4.391100702576113,
+            "delay_sum": 1875,
+            "sum_trains": 427,
+            "lines": [
+                "2"
+            ]
+        },
+        {
+            "source": "Renningen",
+            "destination": "Maichingen Nord",
+            "delay_avg": 1.5268817204301075,
+            "delay_sum": 426,
+            "sum_trains": 279,
+            "lines": [
+                "60"
+            ]
+        },
+        {
+            "source": "Boeblingen",
+            "destination": "Maichingen Nord",
+            "delay_avg": 1.575438596491228,
+            "delay_sum": 449,
+            "sum_trains": 285,
+            "lines": [
+                "60"
+            ]
+        },
+        {
+            "source": "Start",
+            "destination": "Backnang",
+            "delay_avg": 0.5121457489878543,
+            "delay_sum": 253,
+            "sum_trains": 494,
+            "lines": [
+                "3",
+                "4"
+            ]
+        }
+    ]
+}

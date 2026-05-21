@@ -1,0 +1,1369 @@
+{
+  "arrivalDelayMean": "0.9238740534077322",
+  "arrivalDelaySum": "2318",
+  "category": 1,
+  "children": [
+    {
+      "arrivalDelayMean": "1.0244516361021216",
+      "arrivalDelaySum": "2849",
+      "category": 3,
+      "children": [
+        {
+          "arrivalDelayMean": "0.39886039886039887",
+          "arrivalDelaySum": "560",
+          "category": 3,
+          "children": [
+            {
+              "arrivalDelayMean": "0.8096111518708731",
+              "arrivalDelaySum": "2207",
+              "category": 3,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.050965250965251",
+                  "arrivalDelaySum": "1361",
+                  "category": 4,
+                  "departureDelayMean": "1.6903474903474904",
+                  "departureDelaySum": "2189",
+                  "lat": 48833824,
+                  "layer": 4,
+                  "lines": [
+                    "6",
+                    "60"
+                  ],
+                  "long": 9152505,
+                  "name": "Neuwirtshaus",
+                  "sumArrivals": 1295
+                },
+                {
+                  "arrivalDelayMean": "0.9136363636363637",
+                  "arrivalDelaySum": "1407",
+                  "category": 4,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "0.8357271095152603",
+                      "arrivalDelaySum": "931",
+                      "category": 4,
+                      "children": [
+                        {
+                          "arrivalDelayMean": "1.2406542056074767",
+                          "arrivalDelaySum": "1593",
+                          "category": 5,
+                          "departureDelayMean": "0.9665109034267912",
+                          "departureDelaySum": "1241",
+                          "lat": 48814986,
+                          "layer": 6,
+                          "lines": [
+                            "6",
+                            "60"
+                          ],
+                          "long": 9025315,
+                          "name": "Hoefingen",
+                          "sumArrivals": 1284
+                        },
+                        {
+                          "arrivalDelayMean": "0.7505300353356891",
+                          "arrivalDelaySum": "1062",
+                          "category": 3,
+                          "departureDelayMean": "1.1915194346289752",
+                          "departureDelaySum": "1686",
+                          "lat": 48799646,
+                          "layer": 6,
+                          "lines": [
+                            "6",
+                            "60",
+                            "62"
+                          ],
+                          "long": 9003853,
+                          "name": "Leonberg",
+                          "sumArrivals": 1415
+                        }
+                      ],
+                      "departureDelayMean": "1.082585278276481",
+                      "departureDelaySum": "1206",
+                      "lat": 48823611,
+                      "layer": 5,
+                      "lines": [
+                        "6",
+                        "60",
+                        "62"
+                      ],
+                      "long": 906705,
+                      "name": "Ditzingen",
+                      "sumArrivals": 1114
+                    },
+                    {
+                      "arrivalDelayMean": "0.9971850809289233",
+                      "arrivalDelaySum": "1417",
+                      "category": 5,
+                      "departureDelayMean": "1.574243490499648",
+                      "departureDelaySum": "2237",
+                      "lat": 4882208,
+                      "layer": 5,
+                      "lines": [
+                        "6",
+                        "60",
+                        "62"
+                      ],
+                      "long": 9094328,
+                      "name": "Weilimdorf",
+                      "sumArrivals": 1421
+                    }
+                  ],
+                  "departureDelayMean": "0.925974025974026",
+                  "departureDelaySum": "1426",
+                  "lat": 48826416,
+                  "layer": 4,
+                  "lines": [
+                    "6",
+                    "RB47",
+                    "60",
+                    "62"
+                  ],
+                  "long": 9121168,
+                  "name": "Korntal",
+                  "sumArrivals": 1540
+                }
+              ],
+              "departureDelayMean": "0.7120322817314747",
+              "departureDelaySum": "1941",
+              "lat": 48829415,
+              "layer": 3,
+              "lines": [
+                "6",
+                "4",
+                "5",
+                "60",
+                "62",
+                "1"
+              ],
+              "long": 9166739,
+              "name": "Zuffenhausen",
+              "sumArrivals": 2726
+            }
+          ],
+          "departureDelayMean": "0.4650997150997151",
+          "departureDelaySum": "653",
+          "lat": 48862219,
+          "layer": 2,
+          "lines": [
+            "4",
+            "5",
+            "11"
+          ],
+          "long": 9179964,
+          "name": "Kornwestheim",
+          "sumArrivals": 1404
+        },
+        {
+          "arrivalDelayMean": "1.4902988987939172",
+          "arrivalDelaySum": "2842",
+          "category": 2,
+          "children": [
+            {
+              "arrivalDelayMean": "0.6309696092619392",
+              "arrivalDelaySum": "436",
+              "category": 4,
+              "departureDelayMean": "0.6020260492040521",
+              "departureDelaySum": "416",
+              "lat": 48921605,
+              "layer": 3,
+              "lines": [
+                "5"
+              ],
+              "long": 9125828,
+              "name": "Tamm",
+              "sumArrivals": 691
+            }
+          ],
+          "departureDelayMean": "1.503932878867331",
+          "departureDelaySum": "2868",
+          "lat": 48947933,
+          "layer": 2,
+          "lines": [
+            "17a",
+            "1",
+            "18",
+            "5",
+            "8",
+            "17c",
+            "12"
+          ],
+          "long": 9137557,
+          "name": "Bietigheim-Bissingen",
+          "sumArrivals": 1907
+        },
+        {
+          "arrivalDelayMean": "0.3356164383561644",
+          "arrivalDelaySum": "196",
+          "category": 4,
+          "departureDelayMean": "0.4263698630136986",
+          "departureDelaySum": "249",
+          "lat": 48907359,
+          "layer": 2,
+          "lines": [
+            "5"
+          ],
+          "long": 9147797,
+          "name": "Asperg",
+          "sumArrivals": 584
+        },
+        {
+          "arrivalDelayMean": "0.26832844574780057",
+          "arrivalDelaySum": "183",
+          "category": 5,
+          "children": [
+            {
+              "arrivalDelayMean": "0.24963289280469897",
+              "arrivalDelaySum": "170",
+              "category": 5,
+              "children": [
+                {
+                  "arrivalDelayMean": "0.9945945945945946",
+                  "arrivalDelaySum": "552",
+                  "category": 5,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "0.5307125307125307",
+                      "arrivalDelaySum": "216",
+                      "category": 3,
+                      "departureDelayMean": "0.09582309582309582",
+                      "departureDelaySum": "39",
+                      "lat": 48943685,
+                      "layer": 5,
+                      "lines": [
+                        "4"
+                      ],
+                      "long": 9264452,
+                      "name": "Marbach",
+                      "sumArrivals": 407
+                    }
+                  ],
+                  "departureDelayMean": "0.8972972972972973",
+                  "departureDelaySum": "498",
+                  "lat": 48943614,
+                  "layer": 4,
+                  "lines": [
+                    "4",
+                    "5"
+                  ],
+                  "long": 9244504,
+                  "name": "Benningen",
+                  "sumArrivals": 555
+                }
+              ],
+              "departureDelayMean": "0.2422907488986784",
+              "departureDelaySum": "165",
+              "lat": 48930107,
+              "layer": 3,
+              "lines": [
+                "4",
+                "5"
+              ],
+              "long": 9197796,
+              "name": "Freiberg",
+              "sumArrivals": 681
+            }
+          ],
+          "departureDelayMean": "0.6334310850439883",
+          "departureDelaySum": "432",
+          "lat": 48909209,
+          "layer": 2,
+          "lines": [
+            "4",
+            "5"
+          ],
+          "long": 9180233,
+          "name": "Farvoritepark",
+          "sumArrivals": 682
+        },
+        {
+          "arrivalDelayMean": "2.0049019607843137",
+          "arrivalDelaySum": "4090",
+          "category": 2,
+          "children": [
+            {
+              "arrivalDelayMean": "1.446551724137931",
+              "arrivalDelaySum": "839",
+              "category": 4,
+              "departureDelayMean": "1.7448275862068965",
+              "departureDelaySum": "1012",
+              "lat": 48694247,
+              "layer": 3,
+              "lines": [
+                "1",
+                "18"
+              ],
+              "long": 9413898,
+              "name": "Wernau",
+              "sumArrivals": 580
+            },
+            {
+              "arrivalDelayMean": "1.5496009122006842",
+              "arrivalDelaySum": "1359",
+              "category": 3,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.6906392694063928",
+                  "arrivalDelaySum": "1481",
+                  "category": 3,
+                  "departureDelayMean": "2.0422374429223744",
+                  "departureDelaySum": "1789",
+                  "lat": 48724328,
+                  "layer": 4,
+                  "lines": [
+                    "1"
+                  ],
+                  "long": 9359389,
+                  "name": "Zell",
+                  "sumArrivals": 876
+                }
+              ],
+              "departureDelayMean": "2.258836944127708",
+              "departureDelaySum": "1981",
+              "lat": 48720393,
+              "layer": 3,
+              "lines": [
+                "1"
+              ],
+              "long": 9382384,
+              "name": "Altbach",
+              "sumArrivals": 877
+            },
+            {
+              "arrivalDelayMean": "2.3851674641148324",
+              "arrivalDelaySum": "2991",
+              "category": 3,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.6741379310344828",
+                  "arrivalDelaySum": "971",
+                  "category": 5,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "0.0",
+                      "arrivalDelaySum": "0",
+                      "category": 4,
+                      "departureDelayMean": "0.6122448979591837",
+                      "departureDelaySum": "240",
+                      "lat": 48644258,
+                      "layer": 5,
+                      "lines": [
+                        "1",
+                        "64"
+                      ],
+                      "long": 9443927,
+                      "name": "Kirchheim",
+                      "sumArrivals": 392
+                    }
+                  ],
+                  "departureDelayMean": "1.5206896551724138",
+                  "departureDelaySum": "882",
+                  "lat": 48657764,
+                  "layer": 4,
+                  "lines": [
+                    "1"
+                  ],
+                  "long": 9416291,
+                  "name": "Oetlingen",
+                  "sumArrivals": 580
+                }
+              ],
+              "departureDelayMean": "2.384370015948963",
+              "departureDelaySum": "2990",
+              "lat": 48672961,
+              "layer": 3,
+              "lines": [
+                "1",
+                "18",
+                "12",
+                "200"
+              ],
+              "long": 9373011,
+              "name": "Wendlingen",
+              "sumArrivals": 1254
+            }
+          ],
+          "departureDelayMean": "1.8754901960784314",
+          "departureDelaySum": "3826",
+          "lat": 4871308,
+          "layer": 2,
+          "lines": [
+            "1",
+            "16",
+            "5",
+            "18",
+            "12",
+            "EV"
+          ],
+          "long": 941081,
+          "name": "Plochingen",
+          "sumArrivals": 2040
+        }
+      ],
+      "departureDelayMean": "1.2182668104998202",
+      "departureDelaySum": "3388",
+      "lat": 48891862,
+      "layer": 1,
+      "lines": [
+        "4",
+        "17a",
+        "1",
+        "18",
+        "5",
+        "12",
+        "8",
+        "17c"
+      ],
+      "long": 918542,
+      "name": "Ludwigsburg",
+      "sumArrivals": 2781
+    },
+    {
+      "arrivalDelayMean": "1.6886611146700832",
+      "arrivalDelaySum": "7908",
+      "category": 3,
+      "children": [
+        {
+          "arrivalDelayMean": "2.0103567318757194",
+          "arrivalDelaySum": "1747",
+          "category": 4,
+          "children": [
+            {
+              "arrivalDelayMean": "1.9140164899882215",
+              "arrivalDelaySum": "1625",
+              "category": 4,
+              "departureDelayMean": "2.3674911660777385",
+              "departureDelaySum": "2010",
+              "lat": 48762013,
+              "layer": 3,
+              "lines": [
+                "1"
+              ],
+              "long": 9267889,
+              "name": "Obertuerkheim",
+              "sumArrivals": 849
+            },
+            {
+              "arrivalDelayMean": "2.235294117647059",
+              "arrivalDelaySum": "1672",
+              "category": 3,
+              "departureDelayMean": "2.557486631016043",
+              "departureDelaySum": "1913",
+              "lat": 48779751,
+              "layer": 3,
+              "lines": [
+                "1",
+                "18",
+                "11"
+              ],
+              "long": 9250569,
+              "name": "Untertuerkheim",
+              "sumArrivals": 748
+            }
+          ],
+          "departureDelayMean": "2.3452243958573074",
+          "departureDelaySum": "2038",
+          "lat": 48792173,
+          "layer": 2,
+          "lines": [
+            "1"
+          ],
+          "long": 9241595,
+          "name": "Neckarpark",
+          "sumArrivals": 869
+        },
+        {
+          "arrivalDelayMean": "1.583555259653795",
+          "arrivalDelaySum": "4757",
+          "category": 3,
+          "children": [
+            {
+              "arrivalDelayMean": "1.5149035651665692",
+              "arrivalDelaySum": "2592",
+              "category": 3,
+              "departureDelayMean": "1.2969023962594974",
+              "departureDelaySum": "2219",
+              "lat": 48820049,
+              "layer": 3,
+              "lines": [
+                "2",
+                "3"
+              ],
+              "long": 9269978,
+              "name": "Fellbach",
+              "sumArrivals": 1711
+            },
+            {
+              "arrivalDelayMean": "1.564252336448598",
+              "arrivalDelaySum": "1339",
+              "category": 4,
+              "departureDelayMean": "1.7920560747663552",
+              "departureDelaySum": "1534",
+              "lat": 4881554,
+              "layer": 3,
+              "lines": [
+                "2"
+              ],
+              "long": 9319344,
+              "name": "Rommelshausen",
+              "sumArrivals": 856
+            },
+            {
+              "arrivalDelayMean": "0.4522058823529412",
+              "arrivalDelaySum": "492",
+              "category": 3,
+              "children": [
+                {
+                  "arrivalDelayMean": "2.818040435458787",
+                  "arrivalDelaySum": "1812",
+                  "category": 5,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "2.1036513545347466",
+                      "arrivalDelaySum": "1786",
+                      "category": 4,
+                      "departureDelayMean": "2.4087161366313308",
+                      "departureDelaySum": "2045",
+                      "lat": 48798432,
+                      "layer": 5,
+                      "lines": [
+                        "2"
+                      ],
+                      "long": 9480994,
+                      "name": "Winterbach",
+                      "sumArrivals": 849
+                    }
+                  ],
+                  "departureDelayMean": "3.275272161741835",
+                  "departureDelaySum": "2106",
+                  "lat": 48800301,
+                  "layer": 4,
+                  "lines": [
+                    "2"
+                  ],
+                  "long": 9501991,
+                  "name": "Weiler",
+                  "sumArrivals": 643
+                }
+              ],
+              "departureDelayMean": "0.5946691176470589",
+              "departureDelaySum": "647",
+              "lat": 4880715,
+              "layer": 3,
+              "lines": [
+                "13",
+                "2",
+                "1"
+              ],
+              "long": 952631,
+              "name": "Schorndorf",
+              "sumArrivals": 1088
+            },
+            {
+              "arrivalDelayMean": "1.4376470588235295",
+              "arrivalDelaySum": "1222",
+              "category": 5,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.4823529411764707",
+                  "arrivalDelaySum": "1260",
+                  "category": 4,
+                  "departureDelayMean": "1.5211764705882354",
+                  "departureDelaySum": "1293",
+                  "lat": 4886834,
+                  "layer": 4,
+                  "lines": [
+                    "3"
+                  ],
+                  "long": 9354943,
+                  "name": "Schwaikheim",
+                  "sumArrivals": 850
+                }
+              ],
+              "departureDelayMean": "1.8458823529411765",
+              "departureDelaySum": "1569",
+              "lat": 48859312,
+              "layer": 3,
+              "lines": [
+                "3"
+              ],
+              "long": 9324715,
+              "name": "Neustadt-Hohenacker",
+              "sumArrivals": 850
+            },
+            {
+              "arrivalDelayMean": "1.4404674945215485",
+              "arrivalDelaySum": "1972",
+              "category": 3,
+              "children": [
+                {
+                  "arrivalDelayMean": "0.46509341199606685",
+                  "arrivalDelaySum": "473",
+                  "category": 3,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "1.641304347826087",
+                      "arrivalDelaySum": "1510",
+                      "category": 4,
+                      "departureDelayMean": "1.4086956521739131",
+                      "departureDelaySum": "1296",
+                      "lat": 48926132,
+                      "layer": 5,
+                      "lines": [
+                        "3"
+                      ],
+                      "long": 941999,
+                      "name": "Maubach",
+                      "sumArrivals": 920
+                    }
+                  ],
+                  "departureDelayMean": "0.7286135693215339",
+                  "departureDelaySum": "741",
+                  "lat": 48942676,
+                  "layer": 4,
+                  "lines": [
+                    "3",
+                    "90",
+                    "4",
+                    "19"
+                  ],
+                  "long": 9425989,
+                  "name": "Backnang",
+                  "sumArrivals": 1017
+                },
+                {
+                  "arrivalDelayMean": "1.7050528789659225",
+                  "arrivalDelaySum": "1451",
+                  "category": 5,
+                  "departureDelayMean": "1.737955346650999",
+                  "departureDelaySum": "1479",
+                  "lat": 48903368,
+                  "layer": 4,
+                  "lines": [
+                    "3"
+                  ],
+                  "long": 9415401,
+                  "name": "Nellmersbach",
+                  "sumArrivals": 851
+                }
+              ],
+              "departureDelayMean": "1.4842951059167275",
+              "departureDelaySum": "2032",
+              "lat": 48879583,
+              "layer": 3,
+              "lines": [
+                "3",
+                "90",
+                "19"
+              ],
+              "long": 939229,
+              "name": "Winnenden",
+              "sumArrivals": 1369
+            }
+          ],
+          "departureDelayMean": "1.40745672436751",
+          "departureDelaySum": "4228",
+          "lat": 48826124,
+          "layer": 2,
+          "lines": [
+            "3",
+            "13",
+            "2",
+            "90",
+            "19"
+          ],
+          "long": 9299882,
+          "name": "Waiblingen",
+          "sumArrivals": 3004
+        },
+        {
+          "arrivalDelayMean": "1.263343108504399",
+          "arrivalDelaySum": "2154",
+          "category": 5,
+          "children": [
+            {
+              "arrivalDelayMean": "1.2390158172231986",
+              "arrivalDelaySum": "2115",
+              "category": 5,
+              "departureDelayMean": "1.7650849443468073",
+              "departureDelaySum": "3013",
+              "lat": 4881527,
+              "layer": 3,
+              "lines": [
+                "2",
+                "3"
+              ],
+              "long": 9248327,
+              "name": "Sommerrain",
+              "sumArrivals": 1707
+            }
+          ],
+          "departureDelayMean": "1.3612903225806452",
+          "departureDelaySum": "2321",
+          "lat": 48806423,
+          "layer": 2,
+          "lines": [
+            "2",
+            "3"
+          ],
+          "long": 9234858,
+          "name": "Nuernberger Strassse",
+          "sumArrivals": 1705
+        },
+        {
+          "arrivalDelayMean": "2.054278728606357",
+          "arrivalDelaySum": "4201",
+          "category": 3,
+          "children": [
+            {
+              "arrivalDelayMean": "1.7382857142857142",
+              "arrivalDelaySum": "1521",
+              "category": 3,
+              "departureDelayMean": "2.16",
+              "departureDelaySum": "1890",
+              "lat": 48729876,
+              "layer": 3,
+              "lines": [
+                "1"
+              ],
+              "long": 9327267,
+              "name": "Oberesslingen",
+              "sumArrivals": 875
+            },
+            {
+              "arrivalDelayMean": "1.7155858930602959",
+              "arrivalDelaySum": "1508",
+              "category": 3,
+              "departureDelayMean": "2.1729237770193404",
+              "departureDelaySum": "1910",
+              "lat": 48747083,
+              "layer": 3,
+              "lines": [
+                "1"
+              ],
+              "long": 927583,
+              "name": "Mettingen",
+              "sumArrivals": 879
+            }
+          ],
+          "departureDelayMean": "2.0425427872860635",
+          "departureDelaySum": "4177",
+          "lat": 4873881,
+          "layer": 2,
+          "lines": [
+            "1",
+            "5",
+            "16",
+            "18",
+            "12"
+          ],
+          "long": 930008,
+          "name": "Esslingen",
+          "sumArrivals": 2045
+        },
+        {
+          "arrivalDelayMean": "1.3578088578088578",
+          "arrivalDelaySum": "1165",
+          "category": 4,
+          "children": [
+            {
+              "arrivalDelayMean": "1.3169590643274853",
+              "arrivalDelaySum": "1126",
+              "category": 5,
+              "children": [
+                {
+                  "arrivalDelayMean": "2.0442890442890445",
+                  "arrivalDelaySum": "1754",
+                  "category": 4,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "2.0885780885780885",
+                      "arrivalDelaySum": "1792",
+                      "category": 5,
+                      "departureDelayMean": "2.269230769230769",
+                      "departureDelaySum": "1947",
+                      "lat": 48805203,
+                      "layer": 5,
+                      "lines": [
+                        "2"
+                      ],
+                      "long": 9439753,
+                      "name": "Geradstetten",
+                      "sumArrivals": 858
+                    }
+                  ],
+                  "departureDelayMean": "2.300699300699301",
+                  "departureDelaySum": "1974",
+                  "lat": 4881036,
+                  "layer": 4,
+                  "lines": [
+                    "2"
+                  ],
+                  "long": 9420029,
+                  "name": "Grunbach",
+                  "sumArrivals": 858
+                }
+              ],
+              "departureDelayMean": "1.9181286549707601",
+              "departureDelaySum": "1640",
+              "lat": 48810293,
+              "layer": 3,
+              "lines": [
+                "2"
+              ],
+              "long": 9386029,
+              "name": "Beutelsbach",
+              "sumArrivals": 855
+            },
+            {
+              "arrivalDelayMean": "1.7390791027154664",
+              "arrivalDelaySum": "1473",
+              "category": 5,
+              "departureDelayMean": "2.0188902007083827",
+              "departureDelaySum": "1710",
+              "lat": 48811924,
+              "layer": 3,
+              "lines": [
+                "2"
+              ],
+              "long": 935245,
+              "name": "Stetten-Beinstein",
+              "sumArrivals": 847
+            }
+          ],
+          "departureDelayMean": "1.780885780885781",
+          "departureDelaySum": "1528",
+          "lat": 48813153,
+          "layer": 2,
+          "lines": [
+            "2",
+            "13"
+          ],
+          "long": 9370228,
+          "name": "Endersbach",
+          "sumArrivals": 858
+        }
+      ],
+      "departureDelayMean": "1.9088191330343798",
+      "departureDelaySum": "8939",
+      "lat": 48801377,
+      "layer": 1,
+      "lines": [
+        "1",
+        "13",
+        "90",
+        "2",
+        "3",
+        "16",
+        "18",
+        "12",
+        "19"
+      ],
+      "long": 9217531,
+      "name": "Bad Cannstatt",
+      "sumArrivals": 4683
+    },
+    {
+      "arrivalDelayMean": "1.2513066202090593",
+      "arrivalDelaySum": "2873",
+      "category": 3,
+      "children": [
+        {
+          "arrivalDelayMean": "1.3186195826645264",
+          "arrivalDelaySum": "3286",
+          "category": 4,
+          "children": [
+            {
+              "arrivalDelayMean": "0.998686974789916",
+              "arrivalDelaySum": "3803",
+              "category": 3,
+              "departureDelayMean": "1.339548319327731",
+              "departureDelaySum": "5101",
+              "lat": 48770255,
+              "layer": 3,
+              "lines": [
+                "6",
+                "1",
+                "5",
+                "2",
+                "4",
+                "3",
+                "60"
+              ],
+              "long": 9156959,
+              "name": "Schwabstrassse",
+              "sumArrivals": 3808
+            }
+          ],
+          "departureDelayMean": "1.735553772070626",
+          "departureDelaySum": "4325",
+          "lat": 48745837,
+          "layer": 2,
+          "lines": [
+            "1",
+            "2",
+            "3"
+          ],
+          "long": 9105398,
+          "name": "Universitaet",
+          "sumArrivals": 2492
+        },
+        {
+          "arrivalDelayMean": "1.7128764278296988",
+          "arrivalDelaySum": "3299",
+          "category": 4,
+          "children": [
+            {
+              "arrivalDelayMean": "0.8473282442748091",
+              "arrivalDelaySum": "888",
+              "category": 5,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.2161137440758294",
+                  "arrivalDelaySum": "1283",
+                  "category": 4,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "1.049645390070922",
+                      "arrivalDelaySum": "1036",
+                      "category": 4,
+                      "children": [
+                        {
+                          "arrivalDelayMean": "1.4195402298850575",
+                          "arrivalDelaySum": "988",
+                          "category": 4,
+                          "children": [
+                            {
+                              "arrivalDelayMean": "0.0",
+                              "arrivalDelaySum": "0",
+                              "category": 5,
+                              "departureDelayMean": "0.46987951807228917",
+                              "departureDelaySum": "195",
+                              "lat": 48676493,
+                              "layer": 7,
+                              "lines": [
+                                "2"
+                              ],
+                              "long": 9217709,
+                              "name": "Filderstadt",
+                              "sumArrivals": 415
+                            }
+                          ],
+                          "departureDelayMean": "1.2097701149425288",
+                          "departureDelaySum": "842",
+                          "lat": 48690648,
+                          "layer": 6,
+                          "lines": [
+                            "2",
+                            "3"
+                          ],
+                          "long": 919263,
+                          "name": "Flughafen/Messe",
+                          "sumArrivals": 696
+                        }
+                      ],
+                      "departureDelayMean": "1.055724417426545",
+                      "departureDelaySum": "1042",
+                      "lat": 48692152,
+                      "layer": 5,
+                      "lines": [
+                        "2",
+                        "3"
+                      ],
+                      "long": 9169164,
+                      "name": "Echterdingen",
+                      "sumArrivals": 987
+                    }
+                  ],
+                  "departureDelayMean": "1.0454976303317536",
+                  "departureDelaySum": "1103",
+                  "lat": 48696506,
+                  "layer": 4,
+                  "lines": [
+                    "2",
+                    "3"
+                  ],
+                  "long": 9142866,
+                  "name": "Leinfelden",
+                  "sumArrivals": 1055
+                }
+              ],
+              "departureDelayMean": "1.3692748091603053",
+              "departureDelaySum": "1435",
+              "lat": 48705193,
+              "layer": 3,
+              "lines": [
+                "2",
+                "3"
+              ],
+              "long": 9127335,
+              "name": "Oberaichen",
+              "sumArrivals": 1048
+            },
+            {
+              "arrivalDelayMean": "1.3016241299303943",
+              "arrivalDelaySum": "1122",
+              "category": 5,
+              "departureDelayMean": "1.8480278422273781",
+              "departureDelaySum": "1593",
+              "lat": 4869691,
+              "layer": 3,
+              "lines": [
+                "1"
+              ],
+              "long": 902043,
+              "name": "Goldberg",
+              "sumArrivals": 862
+            }
+          ],
+          "departureDelayMean": "1.4080996884735202",
+          "departureDelaySum": "2712",
+          "lat": 48717902,
+          "layer": 2,
+          "lines": [
+            "1",
+            "2",
+            "3"
+          ],
+          "long": 9108328,
+          "name": "Rohr",
+          "sumArrivals": 1926
+        },
+        {
+          "arrivalDelayMean": "0.9779527559055118",
+          "arrivalDelaySum": "1863",
+          "category": 3,
+          "children": [
+            {
+              "arrivalDelayMean": "2.0556930693069306",
+              "arrivalDelaySum": "1661",
+              "category": 5,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.8798498122653318",
+                  "arrivalDelaySum": "1502",
+                  "category": 4,
+                  "departureDelayMean": "2.1877346683354193",
+                  "departureDelaySum": "1748",
+                  "lat": 48662682,
+                  "layer": 4,
+                  "lines": [
+                    "1"
+                  ],
+                  "long": 894426,
+                  "name": "Ehningen",
+                  "sumArrivals": 799
+                }
+              ],
+              "departureDelayMean": "2.248762376237624",
+              "departureDelaySum": "1817",
+              "lat": 48679267,
+              "layer": 3,
+              "lines": [
+                "1"
+              ],
+              "long": 8982644,
+              "name": "Hulb",
+              "sumArrivals": 808
+            },
+            {
+              "arrivalDelayMean": "0.6263008514664143",
+              "arrivalDelaySum": "662",
+              "category": 3,
+              "children": [
+                {
+                  "arrivalDelayMean": "2.0856423173803527",
+                  "arrivalDelaySum": "1656",
+                  "category": 5,
+                  "departureDelayMean": "2.494962216624685",
+                  "departureDelaySum": "1981",
+                  "lat": 48620278,
+                  "layer": 4,
+                  "lines": [
+                    "1"
+                  ],
+                  "long": 8889796,
+                  "name": "Nufringen",
+                  "sumArrivals": 794
+                }
+              ],
+              "departureDelayMean": "0.9763481551561022",
+              "departureDelaySum": "1032",
+              "lat": 48593991,
+              "layer": 3,
+              "lines": [
+                "1",
+                "14b",
+                "63",
+                "14a",
+                "87",
+                "40",
+                "4"
+              ],
+              "long": 8862662,
+              "name": "Herrenberg",
+              "sumArrivals": 1057
+            },
+            {
+              "arrivalDelayMean": "0.9379432624113475",
+              "arrivalDelaySum": "529",
+              "category": 5,
+              "children": [
+                {
+                  "arrivalDelayMean": "1.2409727339719971",
+                  "arrivalDelaySum": "1684",
+                  "category": 3,
+                  "children": [
+                    {
+                      "arrivalDelayMean": "1.630721489526765",
+                      "arrivalDelaySum": "2102",
+                      "category": 5,
+                      "departureDelayMean": "1.5446082234290148",
+                      "departureDelaySum": "1991",
+                      "lat": 48790017,
+                      "layer": 5,
+                      "lines": [
+                        "6",
+                        "60"
+                      ],
+                      "long": 895955,
+                      "name": "Rutesheim",
+                      "sumArrivals": 1289
+                    },
+                    {
+                      "arrivalDelayMean": "0.7828447339847991",
+                      "arrivalDelaySum": "721",
+                      "category": 5,
+                      "children": [
+                        {
+                          "arrivalDelayMean": "0.0",
+                          "arrivalDelaySum": "0",
+                          "category": 4,
+                          "departureDelayMean": "0.6978967495219885",
+                          "departureDelaySum": "365",
+                          "lat": 48755483,
+                          "layer": 6,
+                          "lines": [
+                            "6",
+                            "62"
+                          ],
+                          "long": 8872806,
+                          "name": "Weil der Stadt",
+                          "sumArrivals": 523
+                        }
+                      ],
+                      "departureDelayMean": "1.6134636264929425",
+                      "departureDelaySum": "1486",
+                      "lat": 48771755,
+                      "layer": 5,
+                      "lines": [
+                        "6"
+                      ],
+                      "long": 8904505,
+                      "name": "Malmsheim",
+                      "sumArrivals": 921
+                    }
+                  ],
+                  "departureDelayMean": "0.6728076639646279",
+                  "departureDelaySum": "913",
+                  "lat": 48775121,
+                  "layer": 4,
+                  "lines": [
+                    "6",
+                    "60"
+                  ],
+                  "long": 893235,
+                  "name": "Renningen",
+                  "sumArrivals": 1357
+                }
+              ],
+              "departureDelayMean": "1.551418439716312",
+              "departureDelaySum": "875",
+              "lat": 4872736,
+              "layer": 3,
+              "lines": [
+                "60"
+              ],
+              "long": 8979257,
+              "name": "Maichingen Nord",
+              "sumArrivals": 564
+            },
+            {
+              "arrivalDelayMean": "2.030826140567201",
+              "arrivalDelaySum": "1647",
+              "category": 5,
+              "departureDelayMean": "2.373612823674476",
+              "departureDelaySum": "1925",
+              "lat": 48640912,
+              "layer": 3,
+              "lines": [
+                "1",
+                "14a"
+              ],
+              "long": 8908993,
+              "name": "Gaertringen",
+              "sumArrivals": 811
+            }
+          ],
+          "departureDelayMean": "1.3501312335958005",
+          "departureDelaySum": "2572",
+          "lat": 48687758,
+          "layer": 2,
+          "lines": [
+            "1",
+            "RB46",
+            "60",
+            "14a",
+            "87",
+            "4",
+            "14b"
+          ],
+          "long": 9004128,
+          "name": "Boeblingen",
+          "sumArrivals": 1905
+        },
+        {
+          "arrivalDelayMean": "1.4168776371308016",
+          "arrivalDelaySum": "3358",
+          "category": 4,
+          "departureDelayMean": "1.8236286919831224",
+          "departureDelaySum": "4322",
+          "lat": 48737651,
+          "layer": 2,
+          "lines": [
+            "1",
+            "2",
+            "3"
+          ],
+          "long": 9116774,
+          "name": "Oesterfeld",
+          "sumArrivals": 2370
+        }
+      ],
+      "departureDelayMean": "1.404616724738676",
+      "departureDelaySum": "3225",
+      "lat": 48726279,
+      "layer": 1,
+      "lines": [
+        "1",
+        "2",
+        "3",
+        "14a",
+        "87",
+        "4"
+      ],
+      "long": 9113226,
+      "name": "Vaihingen",
+      "sumArrivals": 2296
+    },
+    {
+      "arrivalDelayMean": "0.7947269303201506",
+      "arrivalDelaySum": "2110",
+      "category": 5,
+      "children": [
+        {
+          "arrivalDelayMean": "0.7951807228915663",
+          "arrivalDelaySum": "2112",
+          "category": 3,
+          "departureDelayMean": "0.8392319277108434",
+          "departureDelaySum": "2229",
+          "lat": 48813673,
+          "layer": 2,
+          "lines": [
+            "6",
+            "4",
+            "5",
+            "60"
+          ],
+          "long": 9169382,
+          "name": "Feuerbach",
+          "sumArrivals": 2656
+        }
+      ],
+      "departureDelayMean": "1.104331450094162",
+      "departureDelaySum": "2932",
+      "lat": 48803769,
+      "layer": 1,
+      "lines": [
+        "6",
+        "4",
+        "5",
+        "60"
+      ],
+      "long": 9188026,
+      "name": "Nordbahnhof",
+      "sumArrivals": 2655
+    },
+    {
+      "arrivalDelayMean": "1.1232209737827716",
+      "arrivalDelaySum": "5998",
+      "category": 3,
+      "children": [
+        {
+          "arrivalDelayMean": "1.209340434248259",
+          "arrivalDelaySum": "5904",
+          "category": 3,
+          "departureDelayMean": "1.1997132322818518",
+          "departureDelaySum": "5857",
+          "lat": 48772768,
+          "layer": 2,
+          "lines": [
+            "6",
+            "1",
+            "5",
+            "2",
+            "4",
+            "3",
+            "60"
+          ],
+          "long": 9166273,
+          "name": "Feuersee",
+          "sumArrivals": 4882
+        }
+      ],
+      "departureDelayMean": "1.2322097378277153",
+      "departureDelaySum": "6580",
+      "lat": 48776229,
+      "layer": 1,
+      "lines": [
+        "6",
+        "1",
+        "5",
+        "2",
+        "4",
+        "3",
+        "60"
+      ],
+      "long": 9172925,
+      "name": "Stadtmitte",
+      "sumArrivals": 5340
+    }
+  ],
+  "departureDelayMean": "0.9497807891590275",
+  "departureDelaySum": "2383",
+  "lat": 48784084,
+  "layer": 0,
+  "lines": [
+    "90",
+    "16",
+    "18",
+    "1",
+    "5",
+    "8",
+    "13",
+    "14a",
+    "17a",
+    "6",
+    "87",
+    "12",
+    "17c",
+    "19",
+    "10",
+    "14b",
+    "3",
+    "4"
+  ],
+  "long": 9181635,
+  "name": "Hauptbahnhof",
+  "sumArrivals": 2509
+}
