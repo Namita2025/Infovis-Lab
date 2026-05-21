@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="public/favicon.png" />
+  <link rel="icon" href="public/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Assignment 03</title>
-  <!-- global style -->
+  <title>VVS Line Delay Behavior Explorer</title>
   <link rel="stylesheet" href="style.css">
-  <!-- d3: most current version online -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/d3"></script> -->
-  <!-- d3: version given with the assignment -->
   <script src="./d3.v7.min.js"></script>
   <script src="drawVVS.js"></script>
-  <!-- data -->
 </head>
-
-
 <body>
-  <div>
-    <nav>
-      <img src="public/favicon.png" alt="logo" id="logo" />
-      <span id="assignment_id"></span>
-      <span class="divider"></span>
-      <span id="name"></span>
-    </nav>
+  <div id="page-wrapper">
+
+    <!-- ── Title bar ── -->
+    <div id="title-bar">
+      <span id="viz-title">VVS Line Delay Behavior Explorer</span>
+      <span id="student-name"></span>
+    </div>
+
+    <!-- ── Map visualization ── -->
     <main>
-      <iframe id="file-checker" style="display:none;"></iframe>
+      <iframe id="file-checker" style="display:none"></iframe>
     </main>
+
+    <!-- ── Conclusion ── -->
+   <section id="conclusion">
+  <h2>Key Findings</h2>
+  <p>
+    The majority of VVS S-Bahn stations act as <strong>delay amplifiers</strong> —
+    trains depart later than they arrive. The S6 corridor stations show the strongest
+    amplification: <strong>Malmsheim</strong> (+0.83 min), <strong>Neuwirtshaus</strong>
+    (+0.64 min), and <strong>Weilimdorf</strong> (+0.58 min) consistently add the most
+    delay per stop. High-traffic inner-city stations like <strong>Stadtmitte</strong>
+    (5,340 trains/week, +0.11 min) and <strong>Bad Cannstatt</strong> (4,683 trains/week,
+    +0.22 min) amplify moderately but affect a far greater volume of passengers.
+  </p>
+  <p>
+    A clear pattern of <strong>terminus and branching stations acting as absorbers</strong>
+    emerges at the network's edges. <strong>Renningen</strong> recovers the most delay
+    (−0.57 min), followed by <strong>Marbach</strong> (−0.43 min) and <strong>Rohr</strong>
+    (−0.30 min) — all end-of-line or low-frequency stops where scheduled buffer time
+    allows trains to recover before turning around. <strong>Waiblingen</strong> (3,004
+    trains/week, −0.18 min) is notably the largest absorber by traffic volume.
+  </p>
+  <p>
+    Filtering by line reveals that <strong>S6</strong> drives the most amplification along
+    the western Stuttgart corridor, while <strong>S4 and S60</strong> show predominantly
+    neutral or absorbing behavior at shared stations like <strong>Stadtmitte</strong>
+    (S60: −0.22 min, S4: −0.11 min). This suggests that line frequency and platform
+    sharing — not station size alone — are the primary drivers of delay accumulation
+    in the VVS network.
+  </p>
+</section>
+
   </div>
-</body>
 
+  <script type="module">
+    const studentname = "Namita Birari"
 
-</html>
-
-
-<script type="module">
-
-
-  const assignment_id = "03"
-  const student_name = "firstname lastname" // type your name here
-
-  function main() {
-    (async function () {
+    async function main() {
       try {
-
-        // current version of csv is empty
-        const data = await d3.csv("public/VVStrainrides.csv")
-        console.log('data loaded: ' + data?.length)
-        drawVVS()
-
-        console.log("CSV file is missing")
-
+        const graphData = await d3.json("public/graph_without_trains.json")
+        console.log("graph loaded", graphData?.nodes?.length, graphData?.links?.length)
+        drawVVS(graphData)
       } catch (error) {
-        console.log(error)
+        console.error("Failed to load graph JSON", error)
       }
-    })();
-  }
+      document.getElementById("student-name").innerText = studentname
+    }
 
-  // nav bar: fill assignment number and student name 
-  document.getElementById("assignment_id").innerHTML = "<b>PCIV</b> Assignment: " + assignment_id
-  document.getElementById("name").innerText = student_name
-
-  main()
-</script>
+    main()
+  </script>
+</body>
+</html>
