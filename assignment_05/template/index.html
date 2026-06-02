@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-Dimensional Vis</title>
+  <!-- global style -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="public/favicon.png" />
+  <!-- d3: most current version online -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/d3"></script> -->
+  <!-- d3: version given with the assignment -->
+  <script src="./d3.v7.min.js"></script>
+</head>
+
+<body>
+  <nav>
+    <img src="public/favicon.png" alt="logo" id="logo" />
+    <span>
+      <b>PCIV</b> Project
+    </span>
+    <span class="divider"></span>
+    <span>Your Name</span>
+  </nav>
+  <div>
+    <div id="container"></div>
+  </div>
+</body>
+
+</html>
+
+
+<script type="module">
+
+  async function loadData() {
+    const data = await fetch("http://localhost:8080/api/v1/get_data")
+    return await data.json()
+  }
+
+
+  async function main() {
+    console.log('main')
+
+    // see prepare-data.js
+    let DATA = await loadData()
+    console.log(DATA)
+
+
+    // see https://d3js.org/getting-started
+
+    // Declare the chart dimensions and margins.
+    // const width = 800
+    // let's make it full width, but not wider than 900px
+    const width = Math.min(window.innerWidth - 50, 900)
+    const height = 900
+    const marginTop = 20
+    const marginRight = 20
+    const marginBottom = 50
+    const marginLeft = 40
+
+
+    const colorMap = new Map([
+      ['Iris-setosa', 'green'],
+      ['Iris-versicolor', 'orange'],
+      ['Iris-virginica', 'purple'],
+    ])
+
+    const legendSvg = d3.create("div")
+      .attr("class", "legend")
+      .attr("height", height)
+    const legendSwatches = legendSvg.selectAll("div")
+      .data([...colorMap])
+      .join("div")
+    legendSwatches.append("div").attr("class", "legendBox").style("background", d => d[1])
+    legendSwatches.append("span").text(d => d[0])
+    container.append(legendSvg.node())
+
+    // color legend
+    const xExtent = d3.extent(DATA, d => d.petallength)
+    const yExtent = d3.extent(DATA, d => d.petalwidth)
+    // logging an object like this is a quick way to know what you logged
+    console.log({ xExtent, yExtent })
+
+
+    // Declare the x (horizontal position) scale.
+    const x = d3.scaleLinear()
+      .domain(xExtent)
+      .range([marginLeft, width - marginRight])
+
+    // Declare the y (vertical position) scale.
+    const y = d3.scaleLinear()
+      .domain(yExtent)
+      .range([height - marginBottom, marginTop])
+
+    // Create the SVG container.
+    const svg = d3.create("svg")
+      .attr("width", width)
+      .attr("height", height)
+
+    // Add the x-axis.
+    svg.append("g")
+      // a template string, allows inserting variables and expressions into a string
+      .attr("transform", `translate(0,${height - marginBottom})`)
+      .call(d3.axisBottom(x))
+
+    // Add the y-axis.
+    const yAxis = svg.append("g")
+      .attr("transform", `translate(${marginLeft},0)`)
+      .call(d3.axisLeft(y))
+
+    // axis labels
+    svg.append("text")
+      .text("petal length")
+      .attr("x", 0)
+      .attr("y", 15)
+    svg.append("text")
+      .text("petal width")
+      // make x prescribe the end of the text
+      .attr("text-anchor", "end")
+      .attr("x", width)
+      .attr("y", height - 15)
+
+
+    // Add data
+    svg.append("g")
+      .attr("class", "data-dots")
+      .selectAll("circle")
+      .data(DATA)
+      .join("circle")
+      .attr("cx", d => x(d.petallength))
+      .attr("cy", d => y(d.petalwidth))
+      .attr("r", 4)
+      // a semi-transparent color, so hovering works
+      .attr("fill", "#ffffff11")
+      .attr("stroke", d => colorMap.get(d.name))
+      .style("cursor", "crosshair")
+      .on("mousedown", console.log)
+      // we append a <title> that will give us a tooltip
+      .append("title")
+      .text(d => `${d.name}`)
+
+    // Append the SVG element.
+    container.append(svg.node())
+  }
+
+
+  main()
+</script>
