@@ -1,149 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>High-Dimensional Vis</title>
-  <!-- global style -->
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="public/favicon.png" />
-  <!-- d3: most current version online -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/d3"></script> -->
-  <!-- d3: version given with the assignment -->
   <script src="./d3.v7.min.js"></script>
+
 </head>
-
 <body>
-  <nav>
-    <img src="public/favicon.png" alt="logo" id="logo" />
-    <span>
-      <b>PCIV</b> Assignment: 4
-    </span>
-    <span class="divider"></span>
-    <span>Your Name</span>
-  </nav>
-  <div>
-    <div id="container"></div>
+  <div class="page-header">
+    <h1>Wine Cultivar Chemical Explorer</h1>
   </div>
-</body>
 
-</html>
+  <div class="page-wrapper">
 
+    <!-- Header with Legends -->
+    <div class="top-section">
+      <div class="legends-row">
+        <div class="legend-group">
+          <div class="legend-group-title">Color — Cultivar</div>
+          <div class="legend-items" id="legend-color"></div>
+        </div>
+        <div class="legend-group">
+          <div class="legend-group-title">Shape — KMeans Cluster</div>
+          <div class="legend-items" id="legend-shape"></div>
+        </div>
+        <div class="legend-group">
+          <div class="legend-group-title">Size — Alcohol</div>
+          <div class="legend-items">
+            <div class="legend-item">
+              <svg width="50" height="16">
+                <circle cx="6" cy="8" r="3" fill="#333"/>
+                <circle cx="22" cy="8" r="5" fill="#333"/>
+                <circle cx="42" cy="8" r="7" fill="#333"/>
+              </svg>
+              <span>Low → High</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<script type="module">
+    <!-- Dynamic panel -->
+    <div class="dynamic-panel">
+      <h3>Selection Insights</h3>
+      <div id="dynamic-content">
+        <p style="margin:0; color:#888;">Brush on the PCA projection to explore. Click background to reset.</p>
+      </div>
+    </div>
 
-  async function loadData() {
-    const data = await fetch("http://localhost:8080/api/v1/get_data")
-    return await data.json()
-  }
+    <!-- Charts side by side -->
+    <div class="charts-row">
 
+      <!-- PCA column -->
+      <div class="chart-col">
+        <div class="view-title">PCA Projection (2D) + Glyphs</div>
+        <div id="pca-container"></div>
+        <div class="explanation-panel">
+          <h3>PCA Explained</h3>
+          <p>PCA reduces 13 chemical attributes to 2 dimensions, preserving maximum variance. Each point = one wine sample.</p>
+          <p><b>PC1 (36.2%)</b> separates Cultivar 1 (right) from Cultivar 2 (left), driven by alcohol, proline and flavanoids.</p>
+          <p><b>PC2 (19.2%)</b> separates Cultivar 3 (top) from the others, driven by color intensity and malic acid.</p>
+          <div class="info-box blue">
+            <b>Glyph encoding:</b><br>
+            🎨 <b>Color</b> = cultivar (1/2/3)<br>
+            ▲●■ <b>Shape</b> = KMeans cluster<br>
+            ⬤ <b>Size</b> = alcohol content
+          </div>
+          <div class="info-box green" style="margin-top:8px;">
+            <b>Tip:</b> Drag to brush a region — the SPLOM highlights the same points.
+          </div>
+        </div>
+      </div>
 
-  async function main() {
-    console.log('main')
+      <!-- SPLOM column -->
+      <div class="chart-col">
+        <div class="view-title">SPLOM — Chemical Attributes</div>
+        <div id="splom-container"></div>
+        <div class="explanation-panel">
+          <h3>SPLOM Explained</h3>
+          <p>Each cell shows a scatter plot of two chemical attributes. Color = cultivar. The diagonal labels the attribute.</p>
+          <p>Use the SPLOM to discover <b>which attributes best separate the 3 cultivars</b>.</p>
+          <div class="info-box blue">
+            <b>Key patterns:</b><br>
+            • <b>Flavanoids × Proline</b>: clearest separation of all 3 cultivars<br>
+            • <b>Alcohol × Proline</b>: Cultivar 1 sits top-right<br>
+            • <b>Flavanoids × Color intensity</b>: strong negative trend<br>
+            • <b>Hue × Color intensity</b>: Cultivar 2 clusters separately
+          </div>
+          <div class="info-box green" style="margin-top:8px;">
+            <b>Tip:</b> Brush the PCA first, then look here to see which chemical attributes define that cluster.
+          </div>
+        </div>
+      </div>
 
-    // see prepare-data.js
-    let DATA = await loadData()
-    console.log(DATA)
+    </div>
 
+  </div>
 
-    // see https://d3js.org/getting-started
-
-    // Declare the chart dimensions and margins.
-    // const width = 800
-    // let's make it full width, but not wider than 900px
-    const width = Math.min(window.innerWidth - 50, 900)
-    const height = 900
-    const marginTop = 20
-    const marginRight = 20
-    const marginBottom = 50
-    const marginLeft = 40
-
+  <script type="module">
 
     const colorMap = new Map([
-      ['Iris-setosa', 'green'],
-      ['Iris-versicolor', 'orange'],
-      ['Iris-virginica', 'purple'],
+      ['Cultivar 1', '#e85a2a'],
+      ['Cultivar 2', '#2e86c1'],
+      ['Cultivar 3', '#27ae60'],
     ])
 
-    const legendSvg = d3.create("div")
-      .attr("class", "legend")
-      .attr("height", height)
-    const legendSwatches = legendSvg.selectAll("div")
-      .data([...colorMap])
-      .join("div")
-    legendSwatches.append("div").attr("class", "legendBox").style("background", d => d[1])
-    legendSwatches.append("span").text(d => d[0])
-    container.append(legendSvg.node())
+    // Distinct stroke colors per cluster — dark outlines only
+    const clusterStroke = ['#222', '#222', '#222']
+    const clusterDash   = ['none', '3,2', 'none']
 
-    // color legend
-    const xExtent = d3.extent(DATA, d => d.petallength)
-    const yExtent = d3.extent(DATA, d => d.petalwidth)
-    // logging an object like this is a quick way to know what you logged
-    console.log({ xExtent, yExtent })
+    const shapeTypes = [d3.symbolCircle, d3.symbolTriangle, d3.symbolSquare]
 
+    const splomAttrs = ['alcohol', 'flavanoids', 'color_intensity', 'hue', 'proline']
 
-    // Declare the x (horizontal position) scale.
-    const x = d3.scaleLinear()
-      .domain(xExtent)
-      .range([marginLeft, width - marginRight])
+    let selectedIds = new Set()
+    let ALL_DATA = []
+    let sizeScale
 
-    // Declare the y (vertical position) scale.
-    const y = d3.scaleLinear()
-      .domain(yExtent)
-      .range([height - marginBottom, marginTop])
+    async function loadData() {
+      const res = await fetch("http://localhost:8080/api/v1/get_data")
+      return await res.json()
+    }
 
-    // Create the SVG container.
-    const svg = d3.create("svg")
-      .attr("width", width)
-      .attr("height", height)
+    function updateHighlight() {
+      const has = selectedIds.size > 0
+      d3.selectAll(".datapoint")
+        .classed("dimmed", d => has && !selectedIds.has(d.id))
+        .classed("highlighted", d => !has || selectedIds.has(d.id))
+      updatePanel(has)
+    }
 
-    // Add the x-axis.
-    svg.append("g")
-      // a template string, allows inserting variables and expressions into a string
-      .attr("transform", `translate(0,${height - marginBottom})`)
-      .call(d3.axisBottom(x))
+    function updatePanel(has) {
+      const el = document.getElementById("dynamic-content")
+      if (!has) {
+        el.innerHTML = `<p style="margin:0;color:#999;">Brush on the PCA projection to explore. Click background to reset.</p>`
+        return
+      }
+      const sel = ALL_DATA.filter(d => selectedIds.has(d.id))
+      const n = sel.length
+      const byC = {}
+      colorMap.forEach((_, name) => byC[name] = 0)
+      sel.forEach(d => byC[d.cultivar_name]++)
+      const avg = a => (sel.reduce((s,d) => s + +d[a], 0) / n).toFixed(2)
+      const dom = Object.entries(byC).sort((a,b) => b[1]-a[1])[0]
 
-    // Add the y-axis.
-    const yAxis = svg.append("g")
-      .attr("transform", `translate(${marginLeft},0)`)
-      .call(d3.axisLeft(y))
+      el.innerHTML = `
+        <p style="margin:0 0 6px;"><b>${n} points selected</b> — dominant: <b style="color:${colorMap.get(dom[0])}">${dom[0]}</b> (${dom[1]})</p>
+        <div class="stat-row">
+          <div class="stat-box"><div class="stat-val">${avg('alcohol')}</div><div class="stat-lbl">Avg Alcohol</div></div>
+          <div class="stat-box"><div class="stat-val">${avg('flavanoids')}</div><div class="stat-lbl">Avg Flavanoids</div></div>
+          <div class="stat-box"><div class="stat-val">${avg('proline')}</div><div class="stat-lbl">Avg Proline</div></div>
+        </div>
+        <div class="cultivar-bar">
+          ${Object.entries(byC).filter(([,v])=>v>0).map(([name,count])=>
+            `<span class="cultivar-chip" style="background:${colorMap.get(name)}">${name}: ${count}</span>`
+          ).join('')}
+        </div>`
+    }
 
-    // axis labels
-    svg.append("text")
-      .text("petal length")
-      .attr("x", 0)
-      .attr("y", 15)
-    svg.append("text")
-      .text("petal width")
-      // make x prescribe the end of the text
-      .attr("text-anchor", "end")
-      .attr("x", width)
-      .attr("y", height - 15)
+    function drawLegends() {
+      const ce = d3.select("#legend-color")
+      colorMap.forEach((color, name) => {
+        const it = ce.append("div").attr("class","legend-item")
+        it.append("div").style("width","13px").style("height","13px")
+          .style("border-radius","50%").style("background",color).style("flex-shrink","0")
+        it.append("span").text(name)
+      })
+      const se = d3.select("#legend-shape")
+      shapeTypes.forEach((type, i) => {
+        const it = se.append("div").attr("class","legend-item")
+        const s = it.append("svg").attr("width",18).attr("height",18)
+        s.append("path")
+          .attr("d", d3.symbol().type(type).size(55)())
+          .attr("transform","translate(9,9)")
+          .attr("fill","#888").attr("stroke","#333").attr("stroke-width",1)
+        it.append("span").text(`Cluster ${i}`)
+      })
+    }
 
+    function drawPCA(data) {
+      const m = {top:20, right:20, bottom:52, left:52}
+      const W = 460 - m.left - m.right
+      const H = 420 - m.top - m.bottom
 
-    // Add data
-    svg.append("g")
-      .attr("class", "data-dots")
-      .selectAll("circle")
-      .data(DATA)
-      .join("circle")
-      .attr("cx", d => x(d.petallength))
-      .attr("cy", d => y(d.petalwidth))
-      .attr("r", 4)
-      // a semi-transparent color, so hovering works
-      .attr("fill", "#ffffff11")
-      .attr("stroke", d => colorMap.get(d.name))
-      .style("cursor", "crosshair")
-      .on("mousedown", console.log)
-      // we append a <title> that will give us a tooltip
-      .append("title")
-      .text(d => `${d.name}`)
+      const svg = d3.select("#pca-container").append("svg")
+        .attr("width", W + m.left + m.right)
+        .attr("height", H + m.top + m.bottom)
+        .style("background","#faf9f6")
 
-    // Append the SVG element.
-    container.append(svg.node())
-  }
+      svg.on("click", () => { selectedIds.clear(); updateHighlight() })
 
+      const g = svg.append("g").attr("transform",`translate(${m.left},${m.top})`)
 
-  main()
-</script>
+      const x = d3.scaleLinear().domain(d3.extent(data, d=>d.pca_x)).nice().range([0,W])
+      const y = d3.scaleLinear().domain(d3.extent(data, d=>d.pca_y)).nice().range([H,0])
+
+      // grid lines
+      g.append("g").attr("class","grid")
+        .selectAll("line").data(x.ticks(6)).join("line")
+        .attr("x1",d=>x(d)).attr("x2",d=>x(d))
+        .attr("y1",0).attr("y2",H)
+        .attr("stroke","#eee").attr("stroke-width",1)
+      g.append("g").attr("class","grid")
+        .selectAll("line").data(y.ticks(6)).join("line")
+        .attr("x1",0).attr("x2",W)
+        .attr("y1",d=>y(d)).attr("y2",d=>y(d))
+        .attr("stroke","#eee").attr("stroke-width",1)
+
+      g.append("g").attr("transform",`translate(0,${H})`).call(d3.axisBottom(x).ticks(6))
+      g.append("g").call(d3.axisLeft(y).ticks(6))
+
+      g.append("text").attr("text-anchor","middle")
+        .attr("x",W/2).attr("y",H+38)
+        .attr("font-size","11px").attr("fill","#666").text("PC1 (36.2% variance)")
+      g.append("text").attr("text-anchor","middle")
+        .attr("transform","rotate(-90)").attr("x",-H/2).attr("y",-36)
+        .attr("font-size","11px").attr("fill","#666").text("PC2 (19.2% variance)")
+
+      // glyphs
+      g.append("g").selectAll("path")
+        .data(data).join("path")
+        .attr("class","datapoint")
+        .attr("d", d => d3.symbol().type(shapeTypes[d.cluster] || d3.symbolCircle)
+                           .size(sizeScale(d.alcohol))())
+        .attr("transform", d => `translate(${x(d.pca_x)},${y(d.pca_y)})`)
+        .attr("fill", d => colorMap.get(d.cultivar_name) || "#999")
+        .attr("fill-opacity", 0.85)
+        .attr("stroke", "#fff")
+        .attr("stroke-width", 0.8)
+        .append("title")
+        .text(d => `${d.cultivar_name} | Cluster ${d.cluster}\nAlcohol: ${d.alcohol}\nFlavanoids: ${d.flavanoids}\nProline: ${d.proline}\nColor intensity: ${d.color_intensity}`)
+
+      // brush
+      const brush = d3.brush()
+        .extent([[0,0],[W,H]])
+        .on("brush end", ({selection}) => {
+          if (!selection) { selectedIds.clear() }
+          else {
+            const [[x0,y0],[x1,y1]] = selection
+            selectedIds.clear()
+            data.forEach(d => {
+              const px=x(d.pca_x), py=y(d.pca_y)
+              if (px>=x0&&px<=x1&&py>=y0&&py<=y1) selectedIds.add(d.id)
+            })
+          }
+          updateHighlight()
+        })
+      g.append("g").attr("class","brush").call(brush)
+    }
+
+    function drawSPLOM(data) {
+      const n = splomAttrs.length
+      const cell = 82, pad = 22
+
+      const svg = d3.select("#splom-container").append("svg")
+        .attr("width", n*cell + pad*2)
+        .attr("height", n*cell + pad*2)
+        .style("background","#faf9f6")
+
+      svg.on("click", () => { selectedIds.clear(); updateHighlight() })
+
+      const g = svg.append("g").attr("transform",`translate(${pad},${pad})`)
+
+      // build scales
+      const sc = {}
+      splomAttrs.forEach(a => {
+        sc[a] = d3.scaleLinear().domain(d3.extent(data, d=>d[a])).nice().range([4, cell-4])
+      })
+      const scY = {}
+      splomAttrs.forEach(a => {
+        scY[a] = d3.scaleLinear().domain(d3.extent(data, d=>d[a])).nice().range([cell-4, 4])
+      })
+
+      splomAttrs.forEach((ay, row) => {
+        splomAttrs.forEach((ax, col) => {
+          const ox=col*cell, oy=row*cell
+          const cell_g = g.append("g").attr("transform",`translate(${ox},${oy})`)
+
+          cell_g.append("rect")
+            .attr("width",cell).attr("height",cell)
+            .attr("fill", row===col ? "#f0f4ff" : "#fff")
+            .attr("stroke","#e0e0e0").attr("stroke-width",0.5)
+
+          if (row===col) {
+            cell_g.append("text")
+              .attr("x",cell/2).attr("y",cell/2)
+              .attr("text-anchor","middle").attr("dominant-baseline","middle")
+              .attr("font-size","10px").attr("font-weight","700").attr("fill","#445")
+              .text(ax.replace(/_/g,' '))
+          } else {
+            cell_g.selectAll("circle")
+              .data(data).join("circle")
+              .attr("class","datapoint")
+              .attr("cx", d => sc[ax](d[ax]))
+              .attr("cy", d => scY[ay](d[ay]))
+              .attr("r", 2.5)
+              .attr("fill", d => colorMap.get(d.cultivar_name) || "#999")
+              .attr("fill-opacity", 0.8)
+              .attr("stroke","none")
+              .append("title")
+              .text(d => `${d.cultivar_name} | Cluster ${d.cluster}\n${ax}: ${d[ax]}\n${ay}: ${d[ay]}`)
+          }
+        })
+      })
+
+      // axis labels
+      splomAttrs.forEach((a,i) => {
+        g.append("text").attr("x",i*cell+cell/2).attr("y",-10)
+          .attr("text-anchor","middle").attr("font-size","9px").attr("fill","#888")
+          .text(a.replace(/_/g,' '))
+        g.append("text").attr("transform","rotate(-90)")
+          .attr("x",-(i*cell+cell/2)).attr("y",-14)
+          .attr("text-anchor","middle").attr("font-size","9px").attr("fill","#888")
+          .text(a.replace(/_/g,' '))
+      })
+    }
+
+    async function main() {
+      let data
+      try {
+        data = await loadData()
+      } catch(e) {
+        document.getElementById("dynamic-content").innerHTML =
+          `<p style="color:#c0392b;">⚠️ Could not load data. Make sure Flask is running: <code>python server.py</code></p>`
+        return
+      }
+      ALL_DATA = data
+      const alco = d3.extent(data, d => +d.alcohol)
+      sizeScale = d3.scaleLinear().domain(alco).range([18, 90])
+      drawLegends()
+      drawPCA(data)
+      drawSPLOM(data)
+      updateHighlight()
+    }
+
+    main()
+  </script>
+</body>
+</html>

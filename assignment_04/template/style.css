@@ -1,105 +1,264 @@
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Root ── */
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.5;
     font-weight: 400;
-
     color-scheme: light;
-    color: #213547;
-    background-color: #ffffff;
-
+    color: #1a1a1a;
+    background-color: #fefdfb;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-}
-
-a:hover {
-    color: #535bf2;
-}
-
+/* ── Base ── */
 body {
     margin: 0;
-    /* display: flex; */
-    /* place-items: center; */
     min-width: 320px;
     min-height: 100vh;
+    background: #fefdfb;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+* {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-#app {
-    width: 100%;
+p {
     margin: 0;
-    padding: 0;
-    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.6;
 }
 
-button {
+span {
+    font-size: inherit;
+}
+
+a { font-weight: 500; color: #646cff; text-decoration: inherit; }
+a:hover { color: #535bf2; }
+h1 { font-size: 1.8em; line-height: 1.1; font-weight: 600; margin: 0; }
+
+/* ── Page Header ── */
+.page-header {
+    padding: 20px 32px;
+    border-bottom: 1px solid #f0ede8;
+    background: #fefdfb;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #1a1a1a;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+/* ── Page wrapper — full width ── */
+.page-wrapper {
+    padding: 20px 32px;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* ── Top Section with Legends ── */
+.top-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* ── Legends ── */
+.legends-row {
+    display: flex; 
+    gap: 40px; 
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.legend-group {
+    flex: 0 1 auto;
+}
+
+.legend-group-title {
+    font-size: 0.75em; 
+    font-weight: 700; 
+    color: #1a1a1a;
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    margin-bottom: 8px;
+}
+
+.legend-items { 
+    display: flex; 
+    gap: 14px; 
+    flex-wrap: wrap; 
+    align-items: center; 
+}
+
+.legend-item { 
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    font-size: 0.85em; 
+    color: #333; 
+}
+
+/* ── Dynamic / Selection panel ── */
+.dynamic-panel {
+    background: #faf9f6; 
+    border: 1px solid #ede9e3;
     border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
+    padding: 16px 20px; 
+    margin-bottom: 24px;
+}
+
+.dynamic-panel h3 {
+    font-size: 0.85em; 
+    font-weight: 700; 
+    color: #1a1a1a;
+    text-transform: uppercase; 
+    letter-spacing: 0.1em; 
+    margin: 0 0 12px;
+}
+
+#dynamic-content { 
+    font-size: 0.9em; 
+    color: #333; 
+    line-height: 1.6; 
+}
+.stat-row { 
+    display: flex; 
+    gap: 12px; 
+    flex-wrap: wrap; 
+    margin-top: 12px; 
+}
+
+.stat-box {
+    background: #ffffff; 
+    border: 1px solid #e8e3dd;
+    border-radius: 6px; 
+    padding: 10px 14px; 
+    text-align: center; 
+    min-width: 90px;
+    flex: 0 1 auto;
+}
+
+.stat-val { 
+    font-size: 1.3em; 
+    font-weight: 700; 
+    color: #1a1a1a; 
+}
+
+.stat-lbl { 
+    font-size: 0.7em; 
+    color: #666; 
     font-weight: 500;
-    font-family: inherit;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: border-color 0.25s;
+    margin-top: 4px;
 }
 
-button:hover {
-    border-color: #646cff;
+.cultivar-bar { 
+    display: flex; 
+    gap: 8px; 
+    flex-wrap: wrap; 
+    margin-top: 12px; 
 }
 
-button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+.cultivar-chip {
+    border-radius: 14px; 
+    padding: 4px 10px;
+    font-size: 0.8em; 
+    font-weight: 600; 
+    color: #fff;
 }
 
-nav {
-    font-size: 1.2em;
+/* ── Charts side by side ── */
+.charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px; 
+    margin-bottom: 32px;
+}
+
+.chart-col {
+    flex: 1; 
+    min-width: 0; 
     display: flex;
-    padding: 1em;
-    align-items: center;
-    background-color: #242424;
-    color: white;
+    flex-direction: column;
 }
 
-nav>#logo {
-    height: 2em;
-    margin-right: 0.66em;
+/* ── Chart title ── */
+.view-title {
+    font-size: 1.1em; 
+    font-weight: 700; 
+    color: #1a1a1a;
+    letter-spacing: -0.01em; 
+    margin-bottom: 14px;
 }
 
-.divider {
-    flex-grow: 1;
+/* ── Explanation panel — below each chart ── */
+.explanation-panel {
+    background: transparent; 
+    border: none;
+    padding: 16px 0 4px 0; 
+    width: 100%;
 }
 
-
-
-/* legend */
-div.legend {
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-items: center;
+.explanation-panel h3 {
+    font-size: 1em; 
+    font-weight: 700; 
+    color: #1a1a1a;
+    margin: 0 0 12px; 
+    letter-spacing: -0.01em;
 }
 
+.explanation-panel p {
+    font-size: 0.85em; 
+    color: #444; 
+    line-height: 1.7; 
+    margin: 0 0 10px;
+}
+
+/* ── Info boxes ── */
+.info-box {
+    padding: 8px 0 8px 12px;
+    font-size: 0.8em; 
+    line-height: 1.65; 
+    margin-top: 10px;
+    background: transparent; 
+    border-radius: 0;
+}
+
+.info-box.blue { 
+    border-left: 3px solid #2e5aa8; 
+    color: #1a1a1a; 
+}
+
+.info-box.green { 
+    border-left: 3px solid #2e7d32; 
+    color: #1a1a1a; 
+}
+
+/* ── Brush ── */
+.brush .selection {
+    fill: #6699cc; fill-opacity: 0.15;
+    stroke: #336699; stroke-width: 1px;
+}
+
+/* ── Datapoints ── */
+.datapoint { transition: opacity 0.12s; cursor: crosshair; }
+.datapoint.dimmed { opacity: 0.06; }
+.datapoint.highlighted { opacity: 1; }
+
+/* ── Misc ── */
+circle { cursor: crosshair; }
+div.legend { margin: 10px; display: flex; align-items: center; }
 div.legendBox {
-    margin: 0 5px 0 20px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
-}
-
-circle {
-    cursor: crosshair;
+    margin: 0 5px 0 20px; display: inline-block;
+    width: 16px; height: 16px; border-radius: 4px;
 }
