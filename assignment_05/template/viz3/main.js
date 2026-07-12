@@ -5,9 +5,10 @@
    ============================================================ */
 
 export async function loadViz3() {
+  const dataUrl = file => new URL(`../public/data/${file}`, import.meta.url);
 
   // ── 1. DATA ──────────────────────────────────────────────
-  const raw = await (await fetch('./public/data/viz3_network.json')).json();
+  const raw = await (await fetch(dataUrl('viz3_network.json'))).json();
 
   // Olympic ring colors per PDF
   const COLOR = {
@@ -41,7 +42,7 @@ export async function loadViz3() {
   const eras = ERAS.map(e => e.val);
 
   // ── 2. CONTAINER SETUP ───────────────────────────────────
-  const section = d3.select('#viz3');
+  const section = d3.select('#viz3-root');
   section.selectAll('*:not(h2)').remove();
 
   section.append('p').attr('class','viz-story-banner')
@@ -415,7 +416,6 @@ export async function loadViz3() {
     annotG.selectAll('*').remove();
     if (state.layout === 'Force') {
       // Will be placed after simulation settles (in tick handler)
-      // So we draw them post-tick
     }
 
     // ── TICK ───────────────────────────────────────────────

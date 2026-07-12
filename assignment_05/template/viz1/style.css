@@ -1,0 +1,152 @@
+/* Viz 1 uses the shared OlympicLens tokens and layout primitives. */
+@import url('../style.css');
+
+.viz1-page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.viz1-page h1 {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.2;
+}
+
+.viz1-page .viz-subtitle {
+  display: inline-block;
+  margin-left: var(--space-2);
+}
+
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.pill {
+  border: 1px solid var(--line-lane);
+  border-radius: var(--radius-pill);
+  padding: 0.4em 0.7em;
+  background: var(--bg-page);
+  color: var(--fg-graphite);
+  cursor: pointer;
+  font: 600 var(--step--2) / 1.2 var(--font-body);
+}
+
+.pill:hover,
+.pill:focus-visible,
+.pill.active {
+  border-color: var(--pill-color);
+  background: var(--pill-color);
+  color: white;
+}
+
+.range-slider-svg {
+  display: block;
+  width: 100%;
+  height: 40px;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.rs-track {
+  stroke: var(--line-lane);
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+
+.rs-handle {
+  fill: var(--fg-charcoal);
+  stroke: var(--bg-canvas);
+  stroke-width: 3;
+  cursor: grab;
+}
+
+.rs-handle:active {
+  cursor: grabbing;
+}
+
+.viz1-chartcol .chart-wrap {
+  min-height: 480px;
+}
+
+.viz-svg {
+  min-height: 480px;
+}
+
+.viz1-panelwrap.collapsed .viz1-sidepanel {
+  visibility: hidden;
+}
+
+.viz1-shell .legend-row {
+  min-height: 28px;
+  padding: 0.35rem 0.55rem;
+  border-radius: 0.7rem;
+  color: #334155;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.viz1-shell .legend-row:hover {
+  background: #f8fafc;
+}
+
+.viz1-shell .country-item {
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+}
+
+.viz1-shell .country-item:hover {
+  border-color: #dbeafe;
+  background: #eff6ff;
+}
+
+.viz1-shell .country-checkbox {
+  accent-color: #0284c7;
+}
+
+.viz1-shell .chip {
+  border-color: #bae6fd;
+  background: #f0f9ff;
+  color: #075985;
+  font-weight: 700;
+}
+
+.viz1-shell .story-entry {
+  border-bottom-color: #e2e8f0;
+}
+
+.viz1-collapse-btn {
+  color: var(--fg-charcoal);
+}
+
+.viz1-collapse-btn:focus-visible,
+.play-btn:focus-visible,
+.country-picker-toggle:focus-visible,
+.country-picker-clear:focus-visible,
+.chip-x:focus-visible,
+.story-close:focus-visible,
+.viz1-select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--c-europe) 55%, white);
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cap-msg[hidden],
+.viz-tooltip[hidden] {
+  display: none;
+}

@@ -49,6 +49,7 @@ export function setMode(mode) {
 export function setSelectedContinent(continent) {
   state.selectedContinent = continent;
   state.selectedCountries = [];
+  state.mode = 'continent';
   notify();
 }
 
@@ -82,23 +83,33 @@ let playTimer = null;
 
 export function startPlay(onTick) {
   if (playTimer) return;
-  state.isPlaying = true;
+
   let idx = OLYMPIC_YEARS.indexOf(state.activeYear);
   if (idx === -1) idx = 0;
+  if (idx === OLYMPIC_YEARS.length - 1) {
+    state.activeYear = OLYMPIC_YEARS[0];
+    idx = 0;
+  }
+
+  state.isPlaying = true;
+  notify();
+
   playTimer = setInterval(() => {
-    idx = (idx + 1) % OLYMPIC_YEARS.length;
+    idx += 1;
     setActiveYear(OLYMPIC_YEARS[idx]);
     if (onTick) onTick(OLYMPIC_YEARS[idx]);
-    if (idx === OLYMPIC_YEARS.length - 1) stopPlay();
+    if (idx >= OLYMPIC_YEARS.length - 1) stopPlay();
   }, 900);
 }
 
 export function stopPlay() {
+  const wasPlaying = state.isPlaying || playTimer;
   state.isPlaying = false;
   if (playTimer) {
     clearInterval(playTimer);
     playTimer = null;
   }
+  if (wasPlaying) notify();
 }
 
 document.addEventListener('DOMContentLoaded', () => {

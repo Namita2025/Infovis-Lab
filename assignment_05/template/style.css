@@ -131,7 +131,6 @@ body {
   border-radius: var(--radius-pill);
   padding: 0.2em 0.7em;
   cursor: pointer;
-  transition: var(--trans-fast);
 }
 
 .filter-reset:hover {
@@ -242,7 +241,6 @@ body {
   background: var(--line-lane);
   cursor: pointer;
   border-radius: var(--radius-control);
-  transition: var(--trans-fast);
   color: var(--fg-graphite);
 }
 
@@ -347,7 +345,6 @@ Appended to existing style.css — reuses root design tokens.
   flex: 0 0 300px;
   width: 300px;
   position: relative;
-  transition: var(--trans-base);
 }
 
 .viz1-panelwrap.collapsed {
@@ -390,6 +387,10 @@ Appended to existing style.css — reuses root design tokens.
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
+}
+
+.panel-block.story-block {
+  margin-top: var(--space-1);
 }
 
 /* ── TOP CONTROLS BAR: play button + shared year slider ── */
@@ -450,6 +451,143 @@ Appended to existing style.css — reuses root design tokens.
 .viz1-select:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.country-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2);
+  border-radius: calc(var(--radius-control) + 2px);
+  border: 1px solid color-mix(in srgb, var(--continent-blue) 18%, var(--line-lane));
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.9)),
+    radial-gradient(circle at top left, color-mix(in srgb, var(--continent-blue) 14%, transparent), transparent 60%);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+}
+
+.country-picker-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.country-picker-toggle {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0.7em 0.9em;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--line-lane);
+  background: var(--bg-canvas);
+  color: var(--fg-charcoal);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 700;
+  text-align: left;
+  box-shadow: var(--shadow-card);
+}
+
+.country-picker-toggle::after {
+  content: '▾';
+  flex: none;
+  color: var(--fg-graphite);
+}
+
+.country-picker.open .country-picker-toggle::after {
+  transform: rotate(180deg);
+}
+
+.country-picker-clear {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--fg-graphite);
+  font-family: var(--font-data);
+  font-size: var(--step--2);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.25em 0.45em;
+  border-radius: 999px;
+}
+
+.country-picker-clear:hover {
+  color: var(--evt-boycott);
+  background: rgba(194, 65, 12, 0.08);
+}
+
+.country-picker-hint {
+  font-size: var(--step--2);
+  color: var(--fg-graphite);
+  line-height: 1.3;
+}
+
+.country-picker-panel {
+  display: none;
+  max-height: 260px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.country-picker.open .country-picker-panel {
+  display: block;
+}
+
+.country-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-2) 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.country-group:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.group-label {
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--fg-charcoal);
+  letter-spacing: 0.01em;
+}
+
+.country-items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  color: var(--fg-charcoal);
+}
+
+.country-item:hover {
+  background: rgba(0, 129, 200, 0.08);
+  transform: translateX(2px);
+}
+
+.country-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--continent-blue);
+  flex: none;
+}
+
+.country-label {
+  font-size: var(--step--1);
+  line-height: 1.25;
 }
 
 /* ── COUNTRY CHIPS ── */
@@ -568,10 +706,7 @@ Appended to existing style.css — reuses root design tokens.
 /* ── EVENT MARKER LAYERS (bands/lines/dots drawn inside the SVG) ── */
 .evt-band { pointer-events: none; }
 .evt-line { pointer-events: none; }
-.evt-dot { transition: var(--trans-fast); }
 .evt-dot:hover { stroke-width: 2; }
-
-.country-line { transition: var(--trans-base); }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
@@ -734,12 +869,5 @@ Appended to existing style.css — reuses root design tokens.
   }
   .viz-section {
     padding: var(--space-3);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
   }
 }
