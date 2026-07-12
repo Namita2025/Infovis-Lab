@@ -1,105 +1,745 @@
+/* ============================================================
+   OLYMPICLENS — Design System (rev 2, matches layout spec)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+  --c-europe:     #0081C8;
+  --c-americas:   #EE334E;
+  --c-asia:       #FCB131;
+  --c-africa:     #00A651;
+  --c-oceania:    #6F4E9C;
 
-    color-scheme: light;
-    color: #213547;
-    background-color: #ffffff;
+  --evt-war:      #b91c1c;
+  --evt-boycott:  #c2410c;
+  --evt-host:     #0369a1;
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  --gender-male:   #0369a1;
+  --gender-female: #c2410c;
+
+  --medal-gold:   #D4A82B;
+  --medal-silver: #B8C0C8;
+  --medal-bronze: #A67C52;
+
+  --bg-page:      #f4f2ed; /* warm light background per spec */
+  --bg-canvas:    #ffffff; /* chart canvas white per spec */
+  --fg-charcoal:  #1C1C1C;
+  --fg-graphite:  #6B6B6B;
+  --muted:        var(--fg-graphite);
+  --line-lane:    #E8E4DB;
+
+  /* Inter is one of the most common fonts in modern web apps and
+     dashboards (GitHub, Linear, Notion, Stripe all use it); the
+     system-ui fallbacks kick in instantly if the web font is still
+     loading, so text never flashes invisible. */
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-data:    ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace;
+
+  --step--2: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --step--1: clamp(0.875rem, 0.825rem + 0.25vw, 1rem);
+  --step-0:  clamp(1rem, 0.925rem + 0.375vw, 1.125rem);
+  --step-1:  clamp(1.25rem, 1.125rem + 0.625vw, 1.5rem);
+  --step-2:  clamp(1.5rem, 1.3rem + 1vw, 2rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+
+  --radius-control: 6px;
+  --radius-pill: 999px;
+
+  --shadow-podium: 0 4px 24px rgba(28,28,28,0.08);
+
+  --trans-fast: 120ms ease-out;
+  --trans-base: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-}
+* { box-sizing: border-box; }
 
-a:hover {
-    color: #535bf2;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    /* display: flex; */
-    /* place-items: center; */
-    min-width: 320px;
-    min-height: 100vh;
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  color: var(--fg-charcoal);
+  background-color: var(--bg-page);
 }
 
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
+/* ── STICKY HEADER — title + shared filter state ─────────────── */
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0.5em var(--space-4);
+  background-color: var(--fg-charcoal);
+  color: white;
+  box-shadow: var(--shadow-podium);
 }
 
-#app {
+.header-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-1);
+}
+
+.brand-sub {
+  font-size: var(--step--2);
+  color: rgba(255,255,255,0.65);
+}
+
+.header-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-data);
+  font-size: var(--step--1);
+}
+
+.filter-label { color: rgba(255,255,255,0.6); }
+
+.filter-value {
+  font-weight: 600;
+  background: rgba(255,255,255,0.12);
+  padding: 0.2em 0.6em;
+  border-radius: var(--radius-pill);
+}
+
+.filter-reset {
+  font-family: var(--font-body);
+  font-size: var(--step--2);
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  border-radius: var(--radius-pill);
+  padding: 0.2em 0.7em;
+  cursor: pointer;
+  transition: var(--trans-fast);
+}
+
+.filter-reset:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── MAIN LAYOUT — three full-width ~600px sections ───────────── */
+#container {
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.viz-section {
+  background-color: var(--bg-canvas);
+  border-radius: var(--radius-control);
+  padding: var(--space-4);
+  box-shadow: var(--shadow-podium);
+}
+
+.viz-section h2 {
+  margin-top: 0;
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 700;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.viz-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--fg-graphite);
+}
+
+.viz-story-banner {
+  font-size: var(--step--1);
+  color: var(--fg-graphite);
+  margin: 0 0 var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-page);
+  border-left: 3px solid var(--evt-host);
+  border-radius: var(--radius-control);
+}
+
+.viz-story-banner strong {
+  color: var(--fg-charcoal);
+}
+
+.viz-panel {
+  background-color: var(--bg-canvas);
+}
+
+/* ── CONTROLS ──────────────────────────────────────────────────── */
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  align-items: center;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.control-label {
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--fg-graphite);
+}
+
+.cb-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.cb-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.cb-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.toggle-btn {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  padding: 0.4em 0.8em;
+  border: none;
+  background: var(--line-lane);
+  cursor: pointer;
+  border-radius: var(--radius-control);
+  transition: var(--trans-fast);
+  color: var(--fg-graphite);
+}
+
+.toggle-btn.active {
+  background: var(--fg-charcoal);
+  color: white;
+}
+
+/* ── TOOLTIP ───────────────────────────────────────────────────── */
+.viz-tooltip {
+  position: fixed;
+  background: white;
+  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--step--1);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  pointer-events: none;
+  z-index: 1000;
+  max-width: 260px;
+}
+
+.viz-tooltip .tt-year {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: var(--space-1);
+}
+
+.viz-tooltip .tt-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.viz-tooltip .tt-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: var(--space-1);
+}
+
+/* ── CHART SVG ELEMENTS ───────────────────────────────────────── */
+.chart-wrap svg,
+#container svg {
+  display: block;
+  font-family: inherit;
+  width: 100%;
+  background-color: var(--bg-canvas);
+}
+
+#container svg text {
+  fill: var(--fg-charcoal);
+  font-size: var(--step--1);
+}
+
+#container svg .tick text {
+  fill: var(--fg-graphite);
+  font-size: var(--step--2);
+}
+
+#container svg .tick line,
+#container svg .domain {
+  stroke: var(--line-lane);
+}
+
+#container svg .axis-label {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 500;
+  fill: var(--fg-charcoal);
+}
+
+/* ── VIZ 1 — Two-column layout: sidebar (KPIs + filters) | chart ── */
+
+
+/* ============================================================
+VIZ 1 (rev) — Disrupted Games: shell layout, collapsible side panel,
+event category pills, cascading dropdowns, chips, and story card.
+Appended to existing style.css — reuses root design tokens.
+============================================================ */
+
+/* ── OUTER SHELL: chart column + collapsible right side panel ── */
+.viz1-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+  position: relative;
+}
+
+.viz1-chartcol {
+  flex: 1 1 auto;
+  min-width: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.viz1-panelwrap {
+  flex: 0 0 300px;
+  width: 300px;
+  position: relative;
+  transition: var(--trans-base);
+}
+
+.viz1-panelwrap.collapsed {
+  flex: 0 0 0px;
+  width: 0px;
+  overflow: hidden;
+}
+
+.viz1-sidepanel {
+  background: var(--bg-canvas);
+  border: 1px solid var(--line-lane);
+  border-radius: var(--radius-control);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 300px;
+}
+
+.viz1-collapse-btn {
+  position: absolute;
+  top: 8px;
+  left: -14px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line-lane);
+  background: var(--bg-canvas);
+  box-shadow: var(--shadow-podium);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* ── TOP CONTROLS BAR: play button + shared year slider ── */
+.viz1-controlsbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-page);
+  border-radius: var(--radius-control);
+}
+
+.play-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--fg-charcoal);
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.year-readout {
+  font-family: var(--font-data);
+  font-weight: 700;
+  font-size: var(--step-1);
+  min-width: 3.5em;
+}
+
+.year-slider-wrap {
+  flex: 1 1 auto;
+}
+
+/* ── EVENT CATEGORY PILLS ── */
+.viz1-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* ── CASCADING DROPDOWNS ── */
+.viz1-select {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  padding: 0.5em 0.7em;
+  border-radius: var(--radius-control);
+  border: 1px solid var(--line-lane);
+  background: var(--bg-canvas);
+  color: var(--fg-charcoal);
+  width: 100%;
+}
+
+.viz1-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ── COUNTRY CHIPS ── */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-page);
+  border: 1px solid var(--line-lane);
+  border-radius: var(--radius-pill);
+  padding: 0.25em 0.4em 0.25em 0.7em;
+  font-size: var(--step--2);
+}
+
+.chip-x {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--fg-graphite);
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.chip-x:hover { color: var(--evt-boycott); }
+
+.cap-msg {
+  font-size: var(--step--2);
+  color: var(--evt-boycott);
+  font-weight: 600;
+}
+
+/* ── EVENT STORY CARD ── */
+.story-card {
+  background: var(--bg-page);
+  border-radius: var(--radius-control);
+  padding: var(--space-3);
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.story-card.placeholder {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.story-placeholder-text {
+  color: var(--fg-graphite);
+  font-size: var(--step--1);
+  margin: 0;
+}
+
+.story-entry {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--line-lane);
+}
+
+.story-entry:last-of-type { border-bottom: none; }
+
+.story-badge {
+  display: inline-block;
+  align-self: flex-start;
+  color: white;
+  font-size: var(--step--2);
+  font-weight: 700;
+  padding: 0.15em 0.6em;
+  border-radius: var(--radius-pill);
+}
+
+.story-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-0);
+}
+
+.story-meta {
+  font-size: var(--step--2);
+  color: var(--fg-graphite);
+}
+
+.story-text {
+  font-size: var(--step--1);
+  color: var(--fg-charcoal);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.story-close {
+  align-self: flex-end;
+  background: transparent;
+  border: 1px solid var(--line-lane);
+  border-radius: var(--radius-pill);
+  padding: 0.3em 0.9em;
+  font-size: var(--step--2);
+  cursor: pointer;
+  color: var(--fg-graphite);
+}
+
+.story-close:hover {
+  background: var(--fg-charcoal);
+  color: white;
+}
+
+/* ── EVENT MARKER LAYERS (bands/lines/dots drawn inside the SVG) ── */
+.evt-band { pointer-events: none; }
+.evt-line { pointer-events: none; }
+.evt-dot { transition: var(--trans-fast); }
+.evt-dot:hover { stroke-width: 2; }
+
+.country-line { transition: var(--trans-base); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .viz1-shell {
+    flex-direction: column;
+  }
+  .viz1-panelwrap {
+    flex: 1 1 auto;
     width: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  }
+  .viz1-panelwrap.collapsed {
+    width: 100%;
+    height: 0;
+  }
+  .viz1-collapse-btn {
+    display: none;
+  }
 }
 
-button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: border-color 0.25s;
+/* ── VIZ 2 — Medal Efficiency Choropleth ──────────────────────── */
+.viz2-controls-row {
+  align-items: flex-end;
 }
 
-button:hover {
-    border-color: #646cff;
+.viz2-slider-wrap .decade-row,
+.viz2-medal-filter .btn-group {
+  align-items: center;
 }
 
-button:focus,
-button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+.viz2-year-label {
+  min-width: 9em;
+  display: inline-block;
 }
 
-nav {
-    font-size: 1.2em;
-    display: flex;
-    padding: 1em;
-    align-items: center;
-    background-color: #242424;
-    color: white;
+.viz2-slider-wrap {
+  margin-top: var(--space-3);
 }
 
-nav>#logo {
-    height: 2em;
-    margin-right: 0.66em;
+.viz2-slider-wrap .decade-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
 }
 
-.divider {
-    flex-grow: 1;
+.viz2-slider-wrap .decade-slider {
+  flex: 1 1 auto;
 }
 
-
-
-/* legend */
-div.legend {
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-items: center;
+.viz2-map-wrap {
+  width: 100%;
+  position: relative;
+  border-radius: var(--radius-control);
 }
 
-div.legendBox {
-    margin: 0 5px 0 20px;
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border-radius: 4px;
+.viz2-map-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-circle {
-    cursor: crosshair;
+.viz2-nogames-banner {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-0);
+  color: var(--fg-graphite);
+  background: rgba(244, 242, 237, 0.6);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.viz2-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+  font-size: var(--step--1);
+  color: var(--fg-graphite);
+  align-items: center;
+}
+
+.viz2-continent-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.continent-legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.continent-legend-swatch {
+  width: 48px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid var(--line-lane);
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  display: inline-block;
+  flex: none;
+}
+
+.legend-swatch.zero { background: #c9c4b8; }
+.legend-swatch.nodata { background: #eeece5; border: 1px solid var(--line-lane); }
+.legend-swatch.hatch {
+  background: repeating-linear-gradient(
+    45deg,
+    #b8ad98,
+    #b8ad98 2px,
+    rgba(255,255,255,0.85) 2px,
+    rgba(255,255,255,0.85) 4px
+  );
+}
+
+.viz2-footnote {
+  font-size: var(--step--2);
+  color: var(--fg-graphite);
+  margin-top: var(--space-2);
+  font-style: italic;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .viz1-layout {
+    flex-direction: column;
+  }
+  .viz1-sidebar {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  #app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  #container {
+    padding: var(--space-4) var(--space-2);
+    gap: var(--space-4);
+  }
+  .viz-section {
+    padding: var(--space-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
