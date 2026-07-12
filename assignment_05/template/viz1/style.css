@@ -84,14 +84,14 @@
 .viz1-shell .legend-row {
   min-height: 28px;
   padding: 0.35rem 0.55rem;
-  border-radius: 0.7rem;
-  color: #334155;
+  border-radius: 2px;
+  color: var(--panel-muted);
   font-size: 0.82rem;
   font-weight: 650;
 }
 
 .viz1-shell .legend-row:hover {
-  background: #f8fafc;
+  background: var(--panel-wash-soft);
 }
 
 .viz1-shell .country-item {
@@ -100,23 +100,23 @@
 }
 
 .viz1-shell .country-item:hover {
-  border-color: #dbeafe;
-  background: #eff6ff;
+  border-color: var(--accent-blue-panel);
+  background: var(--blue-wash);
 }
 
 .viz1-shell .country-checkbox {
-  accent-color: #0284c7;
+  accent-color: var(--accent-blue-panel);
 }
 
 .viz1-shell .chip {
-  border-color: #bae6fd;
-  background: #f0f9ff;
-  color: #075985;
+  border-color: var(--blue-line);
+  background: var(--blue-wash-light);
+  color: var(--panel-text);
   font-weight: 700;
 }
 
 .viz1-shell .story-entry {
-  border-bottom-color: #e2e8f0;
+  border-bottom-color: var(--paper-rule);
 }
 
 .viz1-collapse-btn {
@@ -130,7 +130,7 @@
 .chip-x:focus-visible,
 .story-close:focus-visible,
 .viz1-select:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--c-europe) 55%, white);
+  outline: 3px solid var(--accent-blue-panel);
   outline-offset: 2px;
 }
 
@@ -149,4 +149,144 @@
 .cap-msg[hidden],
 .viz-tooltip[hidden] {
   display: none;
+}
+
+/* Compact desktop composition: the chart owns the filters, the rail owns the key. */
+.viz1-page .viz1-shell {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 260px) !important;
+  gap: 1rem !important;
+  align-items: start;
+}
+
+.viz1-page .viz1-shell.legend-collapsed {
+  grid-template-columns: minmax(0, 1fr) 40px !important;
+}
+
+.viz1-page .viz1-panelwrap {
+  width: auto !important;
+  min-width: 0;
+}
+
+.viz1-page .viz1-sidepanel {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.viz1-controls-dock {
+  display: grid;
+  grid-template-columns: minmax(150px, 0.36fr) minmax(0, 1fr) minmax(250px, 0.9fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 0.75rem;
+  padding: 1rem;
+  border: 1px solid var(--panel-line);
+  border-radius: 2px;
+  background: var(--ink-card);
+  box-shadow: 0 16px 45px rgba(24, 36, 43, 0.12);
+  overflow: visible;
+}
+
+.viz1-dock-heading {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  min-width: 0;
+  padding-top: 0.15rem;
+}
+
+.viz1-dock-index {
+  color: var(--accent-gold-panel);
+  font: 0.7rem var(--mono-premium);
+  letter-spacing: 0.08em;
+}
+
+.viz1-dock-heading p {
+  max-width: 12rem;
+  margin: 0.45rem 0 0;
+  color: var(--panel-muted);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.viz1-controls-dock .viz1-filter-block {
+  min-width: 0;
+  gap: 0.55rem;
+}
+
+.viz1-controls-dock .viz1-country-block {
+  padding-left: 1rem;
+  border-left: 1px solid var(--panel-line);
+  overflow: visible;
+}
+
+.viz1-controls-dock .pill-group {
+  align-content: start;
+}
+
+.viz1-controls-dock .country-picker {
+  min-width: 0;
+}
+
+.viz1-controls-dock .country-picker-panel {
+  max-height: 220px;
+}
+
+.viz1-controls-dock .country-items {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.viz1-controls-dock .chip-row:empty {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .viz1-controls-dock {
+    grid-template-columns: minmax(130px, 0.32fr) minmax(0, 1fr);
+  }
+
+  .viz1-controls-dock .viz1-country-block {
+    grid-column: 1 / -1;
+    padding-top: 0.9rem;
+    padding-left: 0;
+    border-top: 1px solid var(--panel-line);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .viz1-page .viz1-shell,
+  .viz1-page .viz1-shell.legend-collapsed {
+    grid-template-columns: 1fr !important;
+  }
+
+  .viz1-page .viz1-sidepanel {
+    position: static;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .viz1-page .viz1-panelwrap.collapsed {
+    display: block;
+    width: 100% !important;
+    min-width: 0;
+    height: 40px;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .viz1-controls-dock {
+    grid-template-columns: 1fr;
+  }
+
+  .viz1-controls-dock .viz1-country-block {
+    grid-column: auto;
+  }
+
+  .viz1-controls-dock .country-items {
+    grid-template-columns: 1fr;
+  }
 }

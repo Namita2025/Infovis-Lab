@@ -7,6 +7,7 @@
 
 import {
   state,
+  getThemeColor,
   onStateChange,
   setActiveYear,
   setSelectedContinent,
@@ -22,19 +23,27 @@ const ALL_CONTINENTS = ['Europe', 'Americas', 'Asia', 'Africa', 'Oceania'];
 const CATEGORY_LIST = ['All', 'Wars/Cancellations', 'Boycotts', 'Political Events', 'Security Events'];
 
 const CONTINENT_COLOR = {
-  Europe: '#0081C8',
-  Americas: '#EE334E',
-  Asia: '#FCB131',
-  Africa: '#00A651',
-  Oceania: '#6F4E9C',
+  Europe: getThemeColor('--plot-blue'),
+  Americas: getThemeColor('--plot-red'),
+  Asia: getThemeColor('--plot-yellow'),
+  Africa: getThemeColor('--plot-green'),
+  Oceania: getThemeColor('--plot-purple'),
 };
 
 const CATEGORY_COLOR = {
-  'Wars/Cancellations': '#b91c1c',
-  Boycotts: '#c2410c',
-  'Political Events': '#7c3aed',
-  'Security Events': '#0369a1',
-  'Geographical Calamity': '#0f766e',
+  'Wars/Cancellations': getThemeColor('--accent-red-paper'),
+  Boycotts: getThemeColor('--accent-gold-paper'),
+  'Political Events': getThemeColor('--accent-violet-paper'),
+  'Security Events': getThemeColor('--accent-blue-paper'),
+  'Geographical Calamity': getThemeColor('--accent-green-paper'),
+};
+
+const CATEGORY_PLOT_COLOR = {
+  'Wars/Cancellations': getThemeColor('--accent-red-panel'),
+  Boycotts: getThemeColor('--accent-gold-panel'),
+  'Political Events': getThemeColor('--accent-violet-panel'),
+  'Security Events': getThemeColor('--accent-blue-panel'),
+  'Geographical Calamity': getThemeColor('--accent-green-panel'),
 };
 
 const YEARS = OLYMPIC_YEARS;
@@ -64,25 +73,27 @@ export async function loadViz1() {
   const chartWrap = root.select('.chart-wrap');
   const chartSvg = chartWrap.select('.viz-svg');
   const tooltip = root.select('.viz-tooltip');
+  const shell = root.select('.viz1-shell');
   const panelWrap = root.select('.viz1-panelwrap');
   const panel = panelWrap.select('.viz1-sidepanel');
+  const filterDock = root.select('.viz1-controls-dock');
 
   const controls = {
     play: root.select('#viz1-play'),
     year: root.select('#active-year-display'),
     slider: root.select('#viz1-year-slider'),
     sliderHandle: root.select('.rs-handle'),
-    categoryPills: panel.selectAll('.pill'),
+    categoryPills: filterDock.selectAll('.pill'),
     legend: panel.select('.viz1-legend'),
     continent: root.select('#viz1-continent'),
-    picker: panel.select('.country-picker'),
-    pickerToggle: panel.select('.country-picker-toggle'),
-    pickerClear: panel.select('.country-picker-clear'),
-    checklist: panel.select('.country-checklist'),
-    chips: panel.select('.chip-row'),
-    capMessage: panel.select('.cap-msg'),
+    picker: filterDock.select('.country-picker'),
+    pickerToggle: filterDock.select('.country-picker-toggle'),
+    pickerClear: filterDock.select('.country-picker-clear'),
+    checklist: filterDock.select('.country-checklist'),
+    chips: filterDock.select('.chip-row'),
+    capMessage: filterDock.select('.cap-msg'),
     storyCard: panel.select('.story-card'),
-    collapse: panel.select('.viz1-collapse-btn'),
+    collapse: panelWrap.select('.viz1-collapse-btn'),
   };
 
   const chartRoot = chartSvg.select('.chart-root');
@@ -172,6 +183,11 @@ export async function loadViz1() {
     controls.picker.classed('has-selection', state.selectedCountries.length > 0);
   }
 
+  function setPickerOpen(isOpen) {
+    controls.picker.classed('open', isOpen);
+    controls.pickerToggle.attr('aria-expanded', String(isOpen));
+  }
+
   function renderChips() {
     const chips = controls.chips.selectAll('.chip').data(state.selectedCountries, (noc) => noc);
     chips.exit().remove();
@@ -237,7 +253,7 @@ export async function loadViz1() {
       const entry = controls.storyCard.append('div').attr('class', 'story-entry');
       entry.append('div')
         .attr('class', 'story-badge')
-        .style('background', CATEGORY_COLOR[event.Category] || '#1c1c1c')
+        .style('background', CATEGORY_COLOR[event.Category] || getThemeColor('--accent-neutral-panel'))
         .text(event.Category);
       entry.append('div').attr('class', 'story-title').text(`${event.Year} — ${event.Label}`);
       entry.append('div').attr('class', 'story-meta').text(`${event.Host_City}, ${event.Host_Country}`);
@@ -299,10 +315,10 @@ export async function loadViz1() {
 
     xAxisG.call(d3.axisBottom(x).tickValues(YEARS.filter((_, index) => index % 2 === 0)));
     yAxisG.call(d3.axisLeft(y).ticks(6));
-    xAxisG.select('.domain').attr('stroke', '#ccc8c0');
-    yAxisG.select('.domain').attr('stroke', '#ccc8c0');
-    xAxisG.selectAll('.tick line').attr('stroke', '#ccc8c0');
-    yAxisG.selectAll('.tick line').attr('stroke', '#ccc8c0');
+    xAxisG.select('.domain').attr('stroke', getThemeColor('--panel-line'));
+    yAxisG.select('.domain').attr('stroke', getThemeColor('--panel-line'));
+    xAxisG.selectAll('.tick line').attr('stroke', getThemeColor('--panel-line'));
+    yAxisG.selectAll('.tick line').attr('stroke', getThemeColor('--panel-line'));
 
     lineG.selectAll('*').remove();
     dotG.selectAll('*').remove();
@@ -323,7 +339,7 @@ export async function loadViz1() {
     d3.groups(events, (event) => event.Year).forEach(([year, rows]) => {
       if (year < YEAR_MIN || year > YEAR_MAX) return;
       const isBand = rows.some((event) => event.Display_Style === 'shaded_band');
-      const color = CATEGORY_COLOR[rows[0].Category] || '#999';
+      const color = CATEGORY_PLOT_COLOR[rows[0].Category] || getThemeColor('--panel-text');
       const scale = d3.scaleLinear().domain([YEAR_MIN, YEAR_MAX]).range([0, innerWidth]);
       const xPosition = x(year) === undefined ? scale(year) : x(year) + x.bandwidth() / 2;
 
@@ -348,7 +364,7 @@ export async function loadViz1() {
         .attr('cx', xPosition).attr('cy', -8)
         .attr('r', rows[0].Impact_Level === 'Context' ? 4 : 6)
         .attr('fill', color)
-        .attr('stroke', '#fff').attr('stroke-width', 1)
+        .attr('stroke', getThemeColor('--panel-text')).attr('stroke-width', 1)
         .style('cursor', 'pointer')
         .attr('tabindex', 0)
         .attr('role', 'button')
@@ -386,7 +402,7 @@ export async function loadViz1() {
         .attr('class', `dot-${seriesItem.noc}`)
         .attr('cx', (record) => xLine(record.Year)).attr('cy', (record) => y(record.athletes))
         .attr('r', (record) => record.athletes === 0 ? 3 : 4)
-        .attr('fill', (record) => record.athletes === 0 ? '#fff' : seriesItem.color)
+        .attr('fill', (record) => record.athletes === 0 ? getThemeColor('--panel-text') : seriesItem.color)
         .attr('stroke', seriesItem.color).attr('stroke-width', (record) => record.athletes === 0 ? 2 : 0)
         .style('cursor', 'pointer')
         .on('mousemove', (event, record) => {
@@ -475,19 +491,30 @@ export async function loadViz1() {
 
   controls.pickerToggle.on('click', () => {
     const isOpen = !controls.picker.classed('open');
-    controls.picker.classed('open', isOpen);
-    controls.pickerToggle.attr('aria-expanded', String(isOpen));
+    setPickerOpen(isOpen);
   });
 
   controls.pickerClear.on('click', clearSelectedCountries);
 
+  document.addEventListener('pointerdown', (event) => {
+    if (!controls.picker.node().contains(event.target)) setPickerOpen(false);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !controls.picker.classed('open')) return;
+    setPickerOpen(false);
+    controls.pickerToggle.node().focus();
+  });
+
   controls.collapse.on('click', function () {
     panelCollapsed = !panelCollapsed;
     panelWrap.classed('collapsed', panelCollapsed);
+    shell.classed('legend-collapsed', panelCollapsed);
     d3.select(this)
       .html(panelCollapsed ? '‹' : '›')
-      .attr('title', panelCollapsed ? 'Expand panel' : 'Collapse panel')
-      .attr('aria-label', panelCollapsed ? 'Expand panel' : 'Collapse panel');
+      .attr('title', panelCollapsed ? 'Expand legend' : 'Collapse legend')
+      .attr('aria-label', panelCollapsed ? 'Expand legend' : 'Collapse legend')
+      .attr('aria-expanded', String(!panelCollapsed));
     requestAnimationFrame(renderChart);
   });
 

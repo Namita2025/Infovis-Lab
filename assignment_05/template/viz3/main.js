@@ -4,6 +4,8 @@
    File: viz3.js
    ============================================================ */
 
+import { getThemeColor } from '../main.js';
+
 export async function loadViz3() {
   const dataUrl = file => new URL(`../public/data/${file}`, import.meta.url);
 
@@ -12,12 +14,20 @@ export async function loadViz3() {
 
   // Olympic ring colors per PDF
   const COLOR = {
-    Europe:   '#0081C8',  // Olympic Blue
-    Americas: '#EE334E',  // Olympic Red
-    Asia:     '#FCB131',  // Olympic Yellow/Gold
-    Africa:   '#00A651',  // Olympic Green
-    Oceania:  '#6F4E9C',  // Olympic Purple
-    sport:    '#3A8FB7',  // Pool Blue
+    Europe:   getThemeColor('--plot-blue'),
+    Americas: getThemeColor('--plot-red'),
+    Asia:     getThemeColor('--plot-yellow'),
+    Africa:   getThemeColor('--plot-green'),
+    Oceania:  getThemeColor('--plot-purple'),
+    sport:    getThemeColor('--plot-sport'),
+  };
+
+  const REGION_COLOR = {
+    Europe:   getThemeColor('--accent-blue-paper'),
+    Americas: getThemeColor('--accent-red-paper'),
+    Asia:     getThemeColor('--accent-gold-paper'),
+    Africa:   getThemeColor('--accent-green-paper'),
+    Oceania:  getThemeColor('--accent-purple-paper'),
   };
 
   const SPORT_EMOJI = {
@@ -124,7 +134,7 @@ export async function loadViz3() {
   defs.append('marker').attr('id','arrow')
     .attr('viewBox','0 0 10 10').attr('refX',18).attr('refY',5)
     .attr('markerWidth',6).attr('markerHeight',6).attr('orient','auto')
-    .append('path').attr('d','M 0 0 L 10 5 L 0 10 z').attr('fill','#ccc');
+    .append('path').attr('d','M 0 0 L 10 5 L 0 10 z').attr('fill',getThemeColor('--panel-line'));
 
   // Glow filters per continent + sport
   Object.entries(COLOR).forEach(([key,col]) => {
@@ -333,11 +343,11 @@ export async function loadViz3() {
     const linkSel = linkG.selectAll('.net-link').data(links, d => d.source.id||d.source+'_'+d.target.id||d.target);
     linkSel.join(
       enter => enter.append('line').attr('class','net-link')
-        .attr('stroke', d => COLOR[d.continent] ?? '#ccc')
+        .attr('stroke', d => COLOR[d.continent] ?? getThemeColor('--panel-line'))
         .attr('stroke-width', d => lScale(d.value))
         .attr('stroke-opacity', 0.35),
       update => update
-        .attr('stroke', d => COLOR[d.continent] ?? '#ccc')
+        .attr('stroke', d => COLOR[d.continent] ?? getThemeColor('--panel-line'))
         .attr('stroke-width', d => lScale(d.value)),
       exit => exit.remove()
     );
@@ -360,7 +370,7 @@ export async function loadViz3() {
         g.append('circle').attr('class','node-circle')
           .attr('r', d => rScale(d.medals))
           .attr('fill', d => d.type === 'sport' ? COLOR.sport : COLOR[d.continent])
-          .attr('stroke', '#fff').attr('stroke-width', 1.8)
+          .attr('stroke', getThemeColor('--panel-text')).attr('stroke-width', 1.8)
           .attr('opacity', 0.9);
 
         // Sport emoji inside sport node
@@ -400,7 +410,7 @@ export async function loadViz3() {
       enter => enter.append('text').attr('class','net-label')
         .attr('font-size', d => d.type === 'sport' ? 9 : 10)
         .attr('font-weight', d => hubSet.has(d.id) ? 800 : 500)
-        .attr('fill', d => d.type === 'sport' ? '#6b6760' : COLOR[d.continent])
+        .attr('fill', d => d.type === 'sport' ? getThemeColor('--accent-sport-panel') : COLOR[d.continent])
         .attr('text-anchor','middle')
         .attr('pointer-events','none'),
       update => update,
@@ -494,7 +504,7 @@ export async function loadViz3() {
 
       infoPanel.select('.nip-body').html(`
         <div class="nip-row"><span>Type</span><strong>${d.type==='sport'?'Sport':'Country'}</strong></div>
-        ${d.continent ? `<div class="nip-row"><span>Region</span><strong style="color:${COLOR[d.continent]}">${d.continent}</strong></div>` : ''}
+        ${d.continent ? `<div class="nip-row"><span>Region</span><strong style="color:${REGION_COLOR[d.continent]}">${d.continent}</strong></div>` : ''}
         <div class="nip-row"><span>Total medals</span><strong>${d.medals}</strong></div>
         <div class="nip-row"><span>Connections</span><strong>${d.connections}</strong></div>
         ${isHub      ? '<div class="nip-tag hub">🌟 Hub Nation</div>' : ''}
@@ -523,10 +533,10 @@ export async function loadViz3() {
       const n = nodes.find(d => d.id === noc || d.id.includes(noc));
       if (!n || !n.x) return;
       const labels = {
-        USA:    { text:'🇺🇸 USA — hub nation', sub:'Dominates 8+ sports', color:'#006BA6' },
-        USSR:   { text:'🇷🇺 USSR/Russia',       sub:'Cold War rival',       color:'#C8102E' },
-        Jamaica:{ text:'🇯🇲 Jamaica',            sub:'One lane, one legacy', color:'#007A4D' },
-        Kenya:  { text:'🇰🇪 Kenya',              sub:'Built on altitude',    color:'#007A4D' },
+        USA:    { text:'🇺🇸 USA — hub nation', sub:'Dominates 8+ sports', color:getThemeColor('--accent-blue-paper'), lineColor:getThemeColor('--accent-blue-panel') },
+        USSR:   { text:'🇷🇺 USSR/Russia',       sub:'Cold War rival',       color:getThemeColor('--accent-red-paper'), lineColor:getThemeColor('--accent-red-panel') },
+        Jamaica:{ text:'🇯🇲 Jamaica',            sub:'One lane, one legacy', color:getThemeColor('--accent-green-paper'), lineColor:getThemeColor('--accent-green-panel') },
+        Kenya:  { text:'🇰🇪 Kenya',              sub:'Built on altitude',    color:getThemeColor('--accent-green-paper'), lineColor:getThemeColor('--accent-green-panel') },
       };
       const lb = labels[noc] || labels[Object.keys(labels).find(k => noc.includes(k))];
       if (!lb) return;
@@ -540,21 +550,21 @@ export async function loadViz3() {
       annotG.append('line')
         .attr('x1', nx).attr('y1', ny)
         .attr('x2', bx+60).attr('y2', by+12)
-        .attr('stroke', lb.color).attr('stroke-width', 1)
+        .attr('stroke', lb.lineColor).attr('stroke-width', 1)
         .attr('stroke-dasharray','4,3').attr('opacity',0.6);
 
       const g = annotG.append('g');
       g.append('rect')
         .attr('x', bx).attr('y', by)
         .attr('width', 120).attr('height', 34)
-        .attr('rx', 6).attr('fill','#fff')
-        .attr('stroke', '#e2ddd6').attr('stroke-width',1)
-        .attr('filter','drop-shadow(0 2px 4px rgba(0,0,0,.08))');
+        .attr('rx', 6).attr('fill',getThemeColor('--ink-raised'))
+        .attr('stroke', getThemeColor('--paper-rule')).attr('stroke-width',1)
+        .attr('filter', getThemeColor('--annotation-shadow'));
       g.append('text').attr('x', bx+8).attr('y', by+13)
         .attr('font-size',10).attr('font-weight',700)
         .attr('fill', lb.color).text(lb.text);
       g.append('text').attr('x', bx+8).attr('y', by+26)
-        .attr('font-size',9).attr('fill','#6b6760').text(lb.sub);
+        .attr('font-size',9).attr('fill',getThemeColor('--paper-soft')).text(lb.sub);
     });
   }
 
@@ -590,20 +600,20 @@ export async function loadViz3() {
 
   // Size legend
   legendDiv.append('div').attr('class','legend-item')
-    .html(`<span style="width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,.15);border:1px solid #aaa;display:inline-block;margin-right:5px;"></span>
-           <span class="legend-text">Node size = medals</span>`);
+    .html('<span class="legend-size-swatch"></span>'
+      + '<span class="legend-text">Node size = medals</span>');
 
   legendDiv.append('div').attr('class','legend-item')
-    .html(`<span style="width:20px;height:2px;background:#ccc;display:inline-block;margin-right:5px;"></span>
-           <span class="legend-text">Edge thickness = medals</span>`);
+    .html('<span class="legend-edge-swatch"></span>'
+      + '<span class="legend-text">Edge thickness = medals</span>');
 
   legendDiv.append('span').attr('class','legend-note')
     .text('Drag nodes · Click to inspect · 🌟 Hub · 🎯 Single-sport specialist');
 
   // ── 9. WIRE CONTROLS ─────────────────────────────────────
   // Era buttons
-  d3.selectAll('#viz3 .era-btn').on('click', function() {
-    d3.selectAll('#viz3 .era-btn').classed('active',false);
+  d3.selectAll('#viz3-root .era-btn').on('click', function() {
+    d3.selectAll('#viz3-root .era-btn').classed('active',false);
     d3.select(this).classed('active',true);
     state.era = this.dataset.val;
     state.pinned = null; state.hovered = null;
@@ -624,8 +634,8 @@ export async function loadViz3() {
   });
 
   // Edge weight
-  d3.selectAll('#viz3 .btn-group:nth-of-type(2) .toggle-btn').on('click', function() {
-    d3.selectAll('#viz3 .btn-group:nth-of-type(2) .toggle-btn').classed('active',false);
+  d3.selectAll('#viz3-root .btn-group:nth-of-type(2) .toggle-btn').on('click', function() {
+    d3.selectAll('#viz3-root .btn-group:nth-of-type(2) .toggle-btn').classed('active',false);
     d3.select(this).classed('active',true);
     state.edgeWeight = this.dataset.val;
     render();
@@ -640,7 +650,7 @@ export async function loadViz3() {
 
   // Node toggles
   const nodeToggleMap = ['showCountry','showSport','showLabels'];
-  d3.selectAll('#viz3 .btn-group:nth-of-type(3) .toggle-btn').each(function(d,i) {
+  d3.selectAll('#viz3-root .btn-group:nth-of-type(3) .toggle-btn').each(function(d,i) {
     d3.select(this).on('click', function() {
       const key = nodeToggleMap[i];
       state[key] = !state[key];
@@ -650,8 +660,8 @@ export async function loadViz3() {
   });
 
   // Layout
-  d3.selectAll('#viz3 .btn-group:nth-of-type(4) .toggle-btn').on('click', function() {
-    d3.selectAll('#viz3 .btn-group:nth-of-type(4) .toggle-btn').classed('active',false);
+  d3.selectAll('#viz3-root .btn-group:nth-of-type(4) .toggle-btn').on('click', function() {
+    d3.selectAll('#viz3-root .btn-group:nth-of-type(4) .toggle-btn').classed('active',false);
     d3.select(this).classed('active',true);
     state.layout = this.dataset.val;
     // Clear fixed positions from previous radial/arc layouts
