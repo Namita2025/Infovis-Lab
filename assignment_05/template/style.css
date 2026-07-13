@@ -67,8 +67,12 @@ html { scroll-behavior: smooth; }
   position: relative;
   top: auto;
   z-index: 90;
+  border-radius: 1.25rem;
   transform-origin: top left;
-  transition: top .45s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease;
+  transition:
+    top .45s cubic-bezier(.2,.7,.2,1),
+    border-radius .32s cubic-bezier(.2,.7,.2,1),
+    box-shadow .25s ease;
 }
 .home-year-control-anchor {
   width: 100%;
@@ -79,6 +83,7 @@ html { scroll-behavior: smooth; }
   right: 0;
   left: 0;
   width: 100%;
+  border-radius: 0 !important;
   box-shadow: 0 7px 24px rgba(19,36,44,.24);
 }
 .home-page.header-is-hidden { --home-sticky-top: 0px; }
