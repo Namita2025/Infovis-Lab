@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OlympicLens — Disrupted Games</title>
-  <link rel="icon" href="favicon.png" />
+  <link rel="icon" href="/template/public/olympic-games-svgrepo-com.svg" />
   <link rel="stylesheet" href="viz1/style.css" />
+  <link rel="stylesheet" href="viz2/style.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="home-page">
@@ -18,7 +19,10 @@
 
   <header id="app-header" class="site-header">
     <div class="header-title !gap-3">
-      <a class="brand" href="#top"><span class="olympic-rings" aria-label="Olympic rings"><i></i><i></i><i></i><i></i><i></i></span>Olympic<span>Lens</span></a>
+      <a class="brand" href="#top">
+        <img class="brand-mark" src="/template/public/olympic-games-svgrepo-com.svg" alt="" aria-hidden="true" />
+        Olympic<span>Lens</span>
+      </a>
       <span class="brand-sub">An interactive archive of the Games</span>
     </div>
     <nav class="site-nav" aria-label="Primary navigation">
@@ -27,7 +31,6 @@
       <span class="header-filter"><span class="filter-label">Window</span><span class="filter-value" id="year-range-display">1896 – 2016</span><button class="filter-reset" id="reset-range">Reset</button></span>
     </nav>
   </header>
-
   <main id="top" class="site-main">
     <section class="hero" id="story" data-reveal>
       <div class="hero-grid" aria-hidden="true"></div>
@@ -58,15 +61,8 @@
       <div id="viz1-root" class="!w-full">
         <div class="viz1-shell !w-full !grid !grid-cols-1 !gap-5 lg:!grid-cols-[minmax(0,1fr)_22rem]">
           <section class="viz1-chartcol !w-full !min-w-0 !gap-0" aria-label="Olympic participation chart">
-            <div class="viz1-controlsbar !rounded-2xl !p-3" aria-label="Chart playback controls">
-              <button id="viz1-play" class="play-btn !h-11 !w-11 !rounded-xl !text-base" type="button" aria-label="Play year sequence" aria-pressed="false">▶</button>
-              <output id="active-year-display" class="year-readout !text-2xl !font-black !tracking-tight" aria-live="polite">1896</output>
-              <div class="year-slider-wrap">
-                <svg id="viz1-year-slider" class="range-slider-svg" viewBox="0 0 600 40" role="slider" aria-label="Active Olympic year" aria-valuemin="1896" aria-valuemax="2016" aria-valuenow="1896" tabindex="0">
-                  <line class="rs-track" x1="20" x2="580" y1="20" y2="20"></line>
-                  <circle class="rs-handle" r="8" cx="20" cy="20"></circle>
-                </svg>
-              </div>
+            <div class="home-year-control-anchor">
+              <div class="shared-year-control home-year-control" data-year-control aria-label="Shared Olympic edition controls"></div>
             </div>
             <div class="chart-wrap !w-full mt-4 overflow-hidden !rounded-2xl !p-2 sm:!p-4">
               <svg class="viz-svg" aria-label="Olympic athletes by year">
@@ -96,9 +92,9 @@
             </section>
             <div class="viz-tooltip" role="status" aria-live="polite" hidden></div>
           </section>
-          <aside class="viz1-panelwrap !w-auto !basis-auto" aria-label="Chart legend and event details">
-            <button class="viz1-collapse-btn" type="button" title="Collapse legend" aria-label="Collapse legend" aria-controls="viz1-legend-panel" aria-expanded="true">›</button>
+          <aside class="viz1-panelwrap !w-auto !basis-auto" aria-label="Legend and event details">
             <div id="viz1-legend-panel" class="viz1-sidepanel !w-auto !rounded-2xl !p-5">
+              <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true">›</button>
               <section class="panel-block !gap-3"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Legend</h2><div class="viz1-legend !gap-2"></div></section>
               <section class="panel-block story-block !gap-3 !border-t !pt-5"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Details</h2><div class="story-card placeholder !rounded-2xl !p-4"><p class="story-placeholder-text !text-sm !leading-6">Click an event marker on the chart to see its story.</p></div></section>
             </div>
@@ -107,12 +103,10 @@
       </div>
     </section>
 
-    <section class="viz-section teaser-section" id="viz2-section" data-reveal>
-      <p class="section-kicker">02 / Efficiency</p><h2>
-        Medal Efficiency by Country
-        <span class="viz-subtitle">Choropleth · medals ÷ athletes sent</span>
-      </h2>
-      <div id="viz2-root" class="empty-viz"><span class="empty-index">02</span><p>The next layer of the archive maps how effectively each nation converted presence into podiums.</p><span class="coming-soon">Mapping soon</span></div>
+    <section class="viz-section feature-section" id="viz2-section" data-reveal>
+      <div class="section-heading"><div><p class="section-kicker">02 / Efficiency</p><h2>From Presence to Podium</h2></div><p class="section-summary">Compare how delegations converted participation into medals—and find the editions when a country first reached the podium.</p></div>
+      <div class="viz-subtitle">Summer Olympic medal efficiency by country · 1896–2016</div>
+      <div id="viz2-root"></div>
     </section>
 
     <section class="viz-section teaser-section" id="viz3-section" data-reveal>
@@ -131,11 +125,11 @@
   <script type="module" src="main.js"></script>
   <script type="module">
     import { loadViz1 } from './viz1/main.js';
-    // import { loadViz2 } from './viz2/main.js';  // viz2/main.js kept empty per instructions
+    import { loadViz2 } from './viz2/main.js';
     // import { loadViz3 } from './viz3/main.js';
 
     loadViz1();
-    // loadViz2();
+    loadViz2();
     // loadViz3();
   </script>
 

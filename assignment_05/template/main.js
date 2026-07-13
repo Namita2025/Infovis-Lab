@@ -5,7 +5,7 @@ Holds the single shared state object used by all visualizations.
 
 export const state = {
   yearRange: [1896, 2016],       // shared global year slider range
-  activeYear: 1896,              // current "play head" year
+  activeYear: 2016,              // current "play head" year
   isPlaying: false,
   eventCategory: 'All',          // 'All' | 'Wars/Cancellations' | 'Boycotts' | 'Political Events' | 'Security Events'
   mode: 'continent',             // 'continent' | 'country'
@@ -35,8 +35,7 @@ export function setYearRange(range) {
 
 export function setActiveYear(year) {
   state.activeYear = year;
-  const disp = document.getElementById('active-year-display');
-  if (disp) disp.textContent = year;
+  document.querySelectorAll('[data-active-year], #active-year-display').forEach((disp) => { disp.textContent = year; });
   notify();
 }
 
@@ -116,6 +115,30 @@ export function stopPlay() {
   if (wasPlaying) notify();
 }
 
+/** Bind every reusable year bar on the page to the shared playhead. */
+export function initYearControls(scope = document) {
+  scope.querySelectorAll('[data-year-control]:not([data-year-bound])').forEach((control) => {
+    control.dataset.yearBound = 'true';
+    control.innerHTML = `<button type="button" data-year-play aria-label="Play year sequence">▶</button><output data-active-year aria-live="polite">${state.activeYear}</output><input data-year-range type="range" min="0" max="${OLYMPIC_YEARS.length - 1}" step="1" aria-label="Active Olympic year">`;
+    const play = control.querySelector('[data-year-play]');
+    const range = control.querySelector('[data-year-range]');
+    const sync = () => {
+      const index = Math.max(0, OLYMPIC_YEARS.indexOf(state.activeYear));
+      range.value = index;
+      control.querySelector('[data-active-year]').textContent = state.activeYear;
+      play.textContent = state.isPlaying ? 'Ⅱ' : '▶';
+      play.setAttribute('aria-label', state.isPlaying ? 'Pause year sequence' : 'Play year sequence');
+    };
+    play.addEventListener('click', () => state.isPlaying ? stopPlay() : startPlay());
+    range.addEventListener('input', () => { stopPlay(); setActiveYear(OLYMPIC_YEARS[+range.value]); });
+    range.addEventListener('keydown', (event) => {
+      if (event.key === 'Home') { event.preventDefault(); setActiveYear(OLYMPIC_YEARS[0]); }
+      if (event.key === 'End') { event.preventDefault(); setActiveYear(OLYMPIC_YEARS.at(-1)); }
+    });
+    onStateChange(sync); sync();
+  });
+}
+
 function initPremiumChrome() {
   const preloader = document.querySelector('.preloader');
   if (preloader) {
@@ -139,12 +162,65 @@ function initPremiumChrome() {
   const header = document.querySelector('#app-header');
   let lastScroll = window.scrollY;
   if (header) {
+    const syncHeaderLayout = (hidden = header.classList.contains('header-hidden')) => {
+      document.body.classList.toggle('header-is-hidden', hidden);
+      document.documentElement.style.setProperty('--home-header-height', `${header.offsetHeight}px`);
+      document.documentElement.style.setProperty('--home-sticky-top', hidden ? '0px' : 'var(--home-header-height)');
+    };
+    syncHeaderLayout();
+    if ('ResizeObserver' in window) new ResizeObserver(() => syncHeaderLayout()).observe(header);
+
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
-      if (currentScroll > 120 && currentScroll > lastScroll + 4) header.classList.add('header-hidden');
-      if (currentScroll < lastScroll - 4 || currentScroll < 40) header.classList.remove('header-hidden');
+      let hidden = header.classList.contains('header-hidden');
+      if (currentScroll > 120 && currentScroll > lastScroll + 4) hidden = true;
+      if (currentScroll < lastScroll - 4 || currentScroll < 40) hidden = false;
+      header.classList.toggle('header-hidden', hidden);
+      syncHeaderLayout(hidden);
       lastScroll = currentScroll;
     }, { passive: true });
+  }
+
+  const yearControlAnchor = document.querySelector('.home-year-control-anchor');
+  const yearControl = yearControlAnchor?.querySelector('.home-year-control');
+  if (yearControlAnchor && yearControl) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let yearControlAnimation = null;
+
+    const syncGlobalYearControl = () => {
+      yearControlAnchor.style.height = `${yearControl.offsetHeight}px`;
+      const headerOffset = header && !header.classList.contains('header-hidden') ? header.offsetHeight : 0;
+      const shouldBeGlobal = yearControlAnchor.getBoundingClientRect().top <= headerOffset;
+      const wasGlobal = yearControl.classList.contains('is-global');
+      if (shouldBeGlobal === wasGlobal) return;
+
+      const before = yearControl.getBoundingClientRect();
+      yearControl.classList.toggle('is-global', shouldBeGlobal);
+      yearControlAnchor.classList.toggle('has-global-control', shouldBeGlobal);
+      const after = yearControl.getBoundingClientRect();
+
+      yearControlAnimation?.cancel();
+      if (!reduceMotion.matches) {
+        yearControlAnimation = yearControl.animate([
+          {
+            transform: `translate(${before.left - after.left}px, ${before.top - after.top}px)`,
+            opacity: .96,
+          },
+          {
+            transform: 'translate(0, 0)',
+            opacity: 1,
+          },
+        ], {
+          duration: 460,
+          easing: 'cubic-bezier(.2,.7,.2,1)',
+        });
+      }
+    };
+
+    syncGlobalYearControl();
+    window.addEventListener('scroll', syncGlobalYearControl, { passive: true });
+    window.addEventListener('resize', syncGlobalYearControl, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(syncGlobalYearControl).observe(yearControl);
   }
 
   const cursor = document.querySelector('.cursor-orb');
@@ -200,8 +276,10 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     initPremiumChrome();
     bindResetRange();
+    initYearControls();
   });
 } else {
   initPremiumChrome();
   bindResetRange();
+  initYearControls();
 }

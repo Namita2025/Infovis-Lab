@@ -78,7 +78,7 @@
 }
 
 .viz1-panelwrap.collapsed .viz1-sidepanel {
-  visibility: hidden;
+  visibility: visible;
 }
 
 .viz1-shell .legend-row {
@@ -154,12 +154,12 @@
 /* Compact desktop composition: the chart owns the filters, the rail owns the key. */
 .viz1-page .viz1-shell {
   grid-template-columns: minmax(0, 1fr) minmax(220px, 260px) !important;
-  gap: 1rem !important;
-  align-items: start;
+  gap: 0 !important;
+  align-items: stretch;
 }
 
 .viz1-page .viz1-shell.legend-collapsed {
-  grid-template-columns: minmax(0, 1fr) 40px !important;
+  grid-template-columns: minmax(0, 1fr) 3rem !important;
 }
 
 .viz1-page .viz1-panelwrap {
@@ -168,9 +168,11 @@
 }
 
 .viz1-page .viz1-sidepanel {
-  position: sticky;
-  top: 1rem;
-  max-height: calc(100vh - 2rem);
+  position: absolute;
+  inset: 0;
+  height: auto;
+  min-height: 0;
+  max-height: none;
   overflow-y: auto;
   scrollbar-width: thin;
 }
@@ -231,7 +233,7 @@
 }
 
 .viz1-controls-dock .country-picker-panel {
-  max-height: 220px;
+  max-height: var(--country-picker-max-height, 220px);
 }
 
 .viz1-controls-dock .country-items {
@@ -272,7 +274,7 @@
     display: block;
     width: 100% !important;
     min-width: 0;
-    height: 40px;
+    height: auto;
     overflow: visible;
   }
 }

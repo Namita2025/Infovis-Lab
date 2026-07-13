@@ -63,6 +63,27 @@
 
 html { scroll-behavior: smooth; }
 
+.home-year-control {
+  position: relative;
+  top: auto;
+  z-index: 90;
+  transform-origin: top left;
+  transition: top .45s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease;
+}
+.home-year-control-anchor {
+  width: 100%;
+}
+.home-year-control.is-global {
+  position: fixed;
+  top: var(--home-sticky-top, 74px);
+  right: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 7px 24px rgba(19,36,44,.24);
+}
+.home-page.header-is-hidden { --home-sticky-top: 0px; }
+#viz2-section #viz2-root { margin-top:1rem; }
+
 body {
   margin: 0;
   min-width: 320px;
@@ -344,21 +365,29 @@ Appended to existing style.css — reuses root design tokens.
 .viz1-panelwrap {
   flex: 0 0 300px;
   width: 300px;
+  min-height: 0;
   position: relative;
+  overflow: hidden;
 }
 
 .viz1-panelwrap.collapsed {
-  flex: 0 0 40px;
-  width: 40px;
+  flex: 0 0 3rem;
+  width: 3rem;
   overflow: visible;
 }
 
 .viz1-panelwrap.collapsed .viz1-sidepanel {
-  visibility: hidden;
-  pointer-events: none;
+  min-height: 100%;
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.viz1-panelwrap.collapsed .viz1-sidepanel > *:not(.viz1-collapse-btn) {
+  display: none;
 }
 
 .viz1-sidepanel {
+  position: relative;
   background: var(--bg-canvas);
   border: 1px solid var(--line-lane);
   border-radius: var(--radius-control);
@@ -371,11 +400,10 @@ Appended to existing style.css — reuses root design tokens.
 
 .viz1-collapse-btn {
   position: absolute;
-  top: 14px;
-  right: auto;
-  left: -14px;
-  width: 28px;
-  height: 28px;
+  top: .8rem;
+  right: .65rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   border: 1px solid var(--line-lane);
   background: var(--bg-canvas);
@@ -473,6 +501,10 @@ Appended to existing style.css — reuses root design tokens.
   box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
 }
 
+.country-picker.open {
+  z-index: 150;
+}
+
 .country-picker-header {
   display: flex;
   align-items: center;
@@ -538,8 +570,8 @@ Appended to existing style.css — reuses root design tokens.
   top: calc(100% + var(--space-2));
   right: 0;
   left: 0;
-  z-index: 30;
-  max-height: min(260px, calc(100vh - 12rem));
+  z-index: 150;
+  max-height: var(--country-picker-max-height, min(260px, calc(100vh - 12rem)));
   overflow-y: auto;
   overscroll-behavior: contain;
   padding-right: 2px;
@@ -552,6 +584,11 @@ Appended to existing style.css — reuses root design tokens.
 
 .country-picker.open .country-picker-panel {
   display: block;
+}
+
+.country-picker.opens-upward .country-picker-panel {
+  top: auto;
+  bottom: calc(100% + var(--space-2));
 }
 
 .country-group {
@@ -737,8 +774,21 @@ Appended to existing style.css — reuses root design tokens.
   }
   .viz1-panelwrap.collapsed {
     width: 100%;
-    height: 40px;
+    height: auto;
     overflow: visible;
+  }
+
+  .viz1-collapse-btn {
+    display: none;
+  }
+
+  .viz1-panelwrap.collapsed .viz1-sidepanel {
+    min-height: 0;
+    padding: var(--space-3) !important;
+  }
+
+  .viz1-panelwrap.collapsed .viz1-sidepanel > *:not(.viz1-collapse-btn) {
+    display: flex;
   }
 }
 
@@ -1032,6 +1082,8 @@ button, input, select { font: inherit; }
 #app-header.header-hidden { transform: translateY(-100%); }
 .header-title { display: flex; align-items: baseline; gap: 1rem; min-width: 0; }
 .brand { color: var(--paper); font: 800 1.2rem/1 var(--display); letter-spacing: -.06em; text-decoration: none; }
+.brand { display: inline-flex; align-items: center; gap: .45rem; }
+.brand-mark { width: 2.5rem; height: 2.5rem; display: block; flex: 0 0 auto; }
 .brand span { color: var(--acid); }
 .olympic-rings { display: inline-grid; grid-template-columns: repeat(3, 8px); grid-template-rows: repeat(2, 8px); gap: 0 2px; width: 28px; height: 17px; margin-right: .45rem; vertical-align: -.08rem; }
 .olympic-rings i { display: block; width: 8px; height: 8px; border: 1.5px solid currentColor; border-radius: 50%; }
@@ -1109,8 +1161,19 @@ button, input, select { font: inherit; }
 .viz-subtitle { display: block; margin: 1rem 0 2rem; color: var(--paper-soft); font: .62rem var(--mono-premium); letter-spacing: .06em; text-transform: uppercase; }
 
 /* chart shell */
-.viz1-shell { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); gap: 1rem !important; align-items: start; }
-.viz1-shell.legend-collapsed { grid-template-columns: minmax(0, 1fr) 40px !important; }
+.viz1-shell {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+  gap: 0 !important;
+  align-items: stretch;
+  overflow: visible;
+  border: 1px solid var(--panel-line);
+  border-radius: 1.25rem;
+  background: var(--ink-card);
+  box-shadow: 0 16px 45px rgba(24,36,43,.16);
+}
+.viz1-shell.legend-collapsed { grid-template-columns: minmax(0, 1fr) 3rem !important; }
 .viz1-chartcol { gap: .75rem; }
 .viz1-controlsbar { min-height: 76px; padding: .85rem 1rem !important; border: 1px solid var(--panel-line) !important; border-radius: 2px !important; background: var(--ink-card) !important; box-shadow: none !important; }
 .play-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--accent-blue-paper); color: var(--panel-text); background: var(--accent-blue-paper); box-shadow: none; font-size: .7rem; transition: transform .25s ease, background .25s ease; }
@@ -1128,7 +1191,22 @@ button, input, select { font: inherit; }
 #container svg .tick line, #container svg .domain { stroke: var(--panel-line); }
 #container svg .axis-label { fill: var(--panel-muted); font: .62rem var(--mono-premium); text-transform: uppercase; }
 .grid-h { stroke: rgba(245,240,232,.12) !important; }
-.viz1-sidepanel { width: 100%; padding: 1.2rem !important; border: 1px solid var(--panel-line) !important; border-radius: 2px !important; background: var(--ink-card) !important; box-shadow: 0 16px 45px rgba(24,36,43,.16) !important; }
+.viz1-sidepanel {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 1.2rem !important;
+  border: 0 !important;
+  border-left: 1px solid var(--panel-line) !important;
+  border-radius: 0 1.2rem 1.2rem 0 !important;
+  background: var(--ink-card) !important;
+  box-shadow: none !important;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
 .panel-block { gap: .7rem; }
 .panel-block + .panel-block { border-color: var(--panel-line) !important; }
 .control-label { color: var(--panel-muted) !important; font: 600 .58rem var(--mono-premium) !important; letter-spacing: .15em; text-transform: uppercase; }
@@ -1148,7 +1226,7 @@ button, input, select { font: inherit; }
 .country-item { color: var(--panel-muted); border-radius: 2px; }
 .country-item:hover { background: rgba(0,129,200,.16); transform: none; }
 .country-label { font-size: .68rem; }
-.group-label, .story-title { color: var(--paper); }
+.group-label, .story-title { color: var(--panel-muted); margin: 10px 0 0 10px; }
 .chip { border-color: rgba(0,129,200,.5); background: rgba(0,129,200,.16); color: var(--panel-text); }
 .story-card { min-height: 100px; border-radius: 2px; background: var(--ink-raised); }
 .story-text { color: var(--paper); font-size: .72rem; }
@@ -1185,6 +1263,15 @@ button, input, select { font: inherit; }
   .viz1-shell { grid-template-columns: 1fr; }
   .viz1-shell.legend-collapsed { grid-template-columns: 1fr !important; }
   .viz1-panelwrap { width: 100%; }
+  .viz1-sidepanel {
+    position: relative;
+    inset: auto;
+    height: auto;
+    overflow: visible;
+    border-radius: 0 0 1.2rem 1.2rem !important;
+    border-top: 1px solid var(--panel-line) !important;
+    border-left: 0 !important;
+  }
   .section-heading { align-items: start; flex-direction: column; }
   .intro-strip { grid-template-columns: 1fr; gap: 1.5rem; }
   .intro-metrics { max-width: 32rem; }

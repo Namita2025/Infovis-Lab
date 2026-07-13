@@ -183,7 +183,30 @@ export async function loadViz1() {
     controls.picker.classed('has-selection', state.selectedCountries.length > 0);
   }
 
+  function positionPickerPanel() {
+    const pickerNode = controls.picker.node();
+    if (!pickerNode) return;
+
+    const bounds = pickerNode.getBoundingClientRect();
+    const header = document.querySelector('#app-header:not(.header-hidden)');
+    const globalYearControl = document.querySelector('.home-year-control.is-global');
+    const topBoundary = Math.max(
+      8,
+      header?.getBoundingClientRect().bottom || 0,
+      globalYearControl?.getBoundingClientRect().bottom || 0,
+    );
+    const spaceAbove = Math.max(0, bounds.top - topBoundary - 8);
+    const spaceBelow = Math.max(0, window.innerHeight - bounds.bottom - 8);
+    const opensUpward = spaceAbove > spaceBelow;
+    const availableHeight = Math.max(80, Math.floor(opensUpward ? spaceAbove : spaceBelow));
+
+    controls.picker
+      .classed('opens-upward', opensUpward)
+      .style('--country-picker-max-height', `${availableHeight}px`);
+  }
+
   function setPickerOpen(isOpen) {
+    if (isOpen) positionPickerPanel();
     controls.picker.classed('open', isOpen);
     controls.pickerToggle.attr('aria-expanded', String(isOpen));
   }
@@ -506,14 +529,22 @@ export async function loadViz1() {
     controls.pickerToggle.node().focus();
   });
 
+  const repositionPicker = () => {
+    if (controls.picker.classed('open')) positionPickerPanel();
+  };
+  window.addEventListener('resize', repositionPicker, { passive: true });
+  window.addEventListener('scroll', () => {
+    if (controls.picker.classed('open')) setPickerOpen(false);
+  }, { passive: true });
+
   controls.collapse.on('click', function () {
     panelCollapsed = !panelCollapsed;
     panelWrap.classed('collapsed', panelCollapsed);
     shell.classed('legend-collapsed', panelCollapsed);
     d3.select(this)
       .html(panelCollapsed ? '‹' : '›')
-      .attr('title', panelCollapsed ? 'Expand legend' : 'Collapse legend')
-      .attr('aria-label', panelCollapsed ? 'Expand legend' : 'Collapse legend')
+      .attr('title', panelCollapsed ? 'Expand legend and event details' : 'Collapse legend and event details')
+      .attr('aria-label', panelCollapsed ? 'Expand legend and event details' : 'Collapse legend and event details')
       .attr('aria-expanded', String(!panelCollapsed));
     requestAnimationFrame(renderChart);
   });

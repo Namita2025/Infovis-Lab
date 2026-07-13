@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>From Presence to Podium — OlympicLens</title>
+  <link rel="icon" href="../public/favicon.png">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="viz2-page">
+  <header class="viz2-standalone-head">
+    <a href="../index.html" class="viz2-back">← OlympicLens</a>
+    <div><p>Data story 02 / Summer Games</p><h1>From Presence to Podium</h1></div>
+    <p>How efficiently did each delegation turn participation into medals?</p>
+  </header>
+  <div class="shared-year-control" data-year-control aria-label="Olympic edition controls"></div>
+  <main><div id="viz2-root"></div></main>
+  <script src="../d3.v7.min.js"></script>
+  <script type="module">import { initYearControls } from '../main.js'; import { loadViz2 } from './main.js'; initYearControls(); loadViz2();</script>
+</body>
+</html>
