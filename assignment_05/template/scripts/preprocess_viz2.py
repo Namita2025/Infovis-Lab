@@ -53,6 +53,20 @@ def main():
     df["ID"] = pd.to_numeric(df.ID)
     medal_rows = df[df.Medal.isin(["Gold", "Silver", "Bronze"])].copy()
     medals = medal_rows.drop_duplicates(["Year", "NOC", "Sport", "Event", "Medal"])
+    # Games-level medal totals are deduplicated by event and medal type across NOCs,
+    # so team medals are counted once per event rather than once per athlete/team row.
+    games_medals = medal_rows.drop_duplicates(["Year", "Sport", "Event", "Medal"])
+    year_stats = {}
+    for year, edition in df.groupby("Year"):
+        won = games_medals[games_medals.Year == year]
+        counts = won.Medal.value_counts()
+        year_stats[str(int(year))] = {
+            "discipline_count": int(edition.Sport.nunique()),
+            "total_medals": int(len(won)),
+            "gold_medals": int(counts.get("Gold", 0)),
+            "silver_medals": int(counts.get("Silver", 0)),
+            "bronze_medals": int(counts.get("Bronze", 0)),
+        }
 
     # First facts are scoped nationally and by sport. Ties within an edition retain every event.
     facts = {}
@@ -101,9 +115,11 @@ def main():
         "meta": {
             "season": "Summer", "years": sorted(df.Year.unique().astype(int).tolist()),
             "medal_dedup_key": ["Year", "NOC", "Sport", "Event", "Medal"],
+            "games_medal_dedup_key": ["Year", "Sport", "Event", "Medal"],
             "athlete_key": "ID", "unsupported_nocs": sorted({r["noc"] for r in records if r["mapping_status"] == "unsupported"}),
             "historical_geometry_map": {k: v[0] for k, v in HISTORICAL.items()},
         },
+        "year_stats": year_stats,
         "records": records,
     }
     OUTPUT.write_text(json.dumps(payload, separators=(",", ":")), encoding="utf-8")

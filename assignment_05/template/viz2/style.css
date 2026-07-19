@@ -5,11 +5,11 @@
 .viz2-standalone-head p { margin:0; color:#b8c3c8; font-size:.8rem; }
 .viz2-standalone-head h1 { margin:.25rem 0 0; font-size:clamp(2rem,4vw,4.5rem); line-height:.92; letter-spacing:-.055em; }
 .viz2-back { color:white; text-decoration:none; align-self:start; font-size:.8rem; }
-.shared-year-control { position:sticky; top:0; z-index:90; display:grid; grid-template-columns:auto 5rem minmax(10rem,1fr); align-items:center; gap:1rem; padding:.65rem clamp(1rem,4vw,4rem); color:white; background:#172a34f2; backdrop-filter:blur(12px); box-shadow:0 7px 24px #13242c20; }
+.shared-year-control { position:sticky; top:0; z-index:90; display:grid; grid-template-columns:auto 5rem minmax(10rem,1fr); align-items:center; gap:1rem; padding:.65rem clamp(1rem,4vw,4rem); color:white; background:#172a34f2; backdrop-filter:blur(12px); box-shadow: none; }
 .shared-year-control button { width:2.5rem; height:2.5rem; border:1px solid #ffffff55; border-radius:50%; color:white; background:transparent; cursor:pointer; }
 .shared-year-control output { font:700 1.2rem var(--font-data); }
 .shared-year-control input { width:100%; accent-color:#55aef2; }
-.viz2-shell { position:relative; display:grid; grid-template-columns:minmax(0,1fr) 21rem; grid-template-rows:680px auto; min-height:680px; overflow:hidden; color:var(--v2-ink); background:var(--v2-paper); border:1px solid #d5cec1; border-radius:1.25rem; box-shadow:0 16px 50px #18242b18; }
+.viz2-shell { position:relative; display:grid; grid-template-columns:minmax(0,1fr) 21rem; grid-template-rows:680px auto; min-height:680px; overflow:hidden; color:var(--v2-ink); background:var(--v2-paper); border:1px solid #d5cec1; border-radius:1.25rem; box-shadow: none; }
 .viz2-shell.is-collapsed { grid-template-columns:minmax(0,1fr) 3rem; }
 .viz2-map-panel { position:relative; min-width:0; background:radial-gradient(circle at 50% 42%,#fff 0,#f8f5ef 70%); }
 .viz2-map-head { position:absolute; z-index:4; top:1.2rem; left:1.4rem; max-width:32rem; pointer-events:none; }
@@ -23,10 +23,10 @@
 .country.peer-muted { opacity:.35; }
 .country.is-hovered,.country:focus { opacity:1; stroke:#132c38; stroke-width:var(--v2-country-hover-border,2.2px); outline:none; }
 .country.is-selected { stroke:#071b25; stroke-width:var(--v2-country-selected-border,2.8px); }
-.country.first-hit { filter:url(#viz2-glow); animation:v2pulse 1.7s ease-in-out infinite; }
+.country.first-hit { filter: none; animation:v2pulse 1.7s ease-in-out infinite; }
 .medal-glyph { cursor:pointer; transition:opacity 350ms ease; }
 .glyph-hit { fill:transparent; stroke:transparent; }
-.viz2-legend { position:absolute; z-index:3; left:0; right:0; bottom:0; max-height:9rem; overflow-y:auto; padding:.7rem 1.4rem; border-top:1px solid #ded9cf; background:#fffefbe8; box-shadow:0 -5px 18px #132a3512; font:600 .68rem var(--font-data); }
+.viz2-legend { position:absolute; z-index:3; left:0; right:0; bottom:0; max-height:9rem; overflow-y:auto; padding:.7rem 1.4rem; border-top:1px solid #ded9cf; background:#fffefbe8; box-shadow: none; font:600 .68rem var(--font-data); }
 .legend-ramp { width:180px; height:7px; margin:.35rem 0; border-radius:5px; background:linear-gradient(90deg,#e8f2fa,#0875d1); }
 .viz2-zoom-note { position:absolute; right:1rem; bottom:5.5rem; color:#63747c; font:500 .65rem var(--font-data); }
 .viz2-side { position:relative; min-height:0; padding:1.1rem; border-left:1px solid var(--v2-line); background:#fffdfa; overflow-y:auto; }
@@ -50,7 +50,6 @@
 .viz2-check { display:flex;gap:.55rem;align-items:center;font-size:.75rem; }
 .viz2-actions { display:flex; justify-content:space-between; gap:1rem; align-items:center; margin-top:.85rem; }
 .viz2-reset { width:auto; min-width:8rem; min-height:2.5rem; padding:0 1rem; border:1px solid #1a4356; border-radius:.5rem; color:#1a4356; background:white; cursor:pointer; }
-.viz2-method { margin:1rem 0; padding:.7rem; border-left:2px solid #87abc1; background:#f1f5f6; color:#586b74; font-size:.66rem; line-height:1.45; }
 .viz2-detail { padding-top:1rem; border-top:1px solid var(--v2-line); }
 .detail-empty { color:#728087; font-size:.75rem; }
 .detail-title { display:flex;align-items:center;justify-content:space-between;gap:.5rem; }
@@ -74,7 +73,7 @@
 .history-x-axis text,.history-y-axis text,.history-x-label,.history-y-label { fill:#63747c; font:8px var(--font-data); }
 .history-y-grid path { display:none; }
 .history-y-grid line { stroke:#e1ddd5; }
-.viz2-tooltip { position:fixed;z-index:1000;max-width:310px;padding:.85rem;border:1px solid #d8d4ca;border-radius:.6rem;background:#fffefb;box-shadow:0 12px 36px #152b3630;pointer-events:none;font-size:.72rem; }
+.viz2-tooltip { position:fixed;z-index:1000;max-width:310px;padding:.85rem;border:1px solid #d8d4ca;border-radius:.6rem;background:#fffefb;box-shadow: none;pointer-events:none;font-size:.72rem; }
 .viz2-tooltip h3 { margin:0 0 .35rem;font-size:1rem; }
 .viz2-tooltip p { margin:.2rem 0; }
 .tt-grid { display:grid;grid-template-columns:1fr auto;gap:.15rem 1rem; }
@@ -83,3 +82,56 @@
 @media (max-width:900px) { .viz2-shell,.viz2-shell.is-collapsed { grid-template-columns:1fr; grid-template-rows:680px auto auto; } .viz2-controls-dock { grid-row:2; } .viz2-side { grid-row:3; border-left:0;border-top:1px solid var(--v2-line);max-height:none; } .viz2-collapse { display:none; } .viz2-standalone-head { grid-template-columns:1fr; } }
 @media (max-width:600px) { .viz2-page main { padding:.5rem; } .viz2-shell,.viz2-shell.is-collapsed { grid-template-rows:510px auto auto; min-height:0;border-radius:.75rem; } .viz2-map-head { left:.8rem;top:.8rem; } .viz2-legend { padding-inline:.8rem; } .viz2-controls-grid { grid-template-columns:1fr; } .viz2-controls-head,.viz2-actions { align-items:stretch; flex-direction:column; } .viz2-reset { width:100%; } .viz2-zoom-note { display:none; } }
 @media (prefers-reduced-motion:reduce) { .country,.medal-glyph { transition:none; } .country.first-hit { animation:none; } }
+
+/* Viz 2 shared light map and explicit state encoding */
+.viz2-shell { color:var(--text-primary); background:var(--surface-card); border-color:var(--border-subtle); }
+.viz2-map-panel { background:var(--surface-map); }
+.viz2-side,.viz2-controls-dock { background:var(--surface-panel); border-color:var(--border-subtle); }
+.viz2-map-head p,.viz2-zoom-note,.viz2-field label,.viz2-field legend,.viz2-status,.detail-empty,.detail-title span,.detail-fact p,.detail-fact ul,.detail-copy,.detail-history figcaption,.history-x-axis text,.history-y-axis text,.history-x-label,.history-y-label { color:var(--text-secondary); }
+.country { stroke:#7B8A91; }
+.country.is-hovered,.country:focus,.country.is-selected { stroke:var(--outline-active); }
+.country.first-medal { stroke:#A8622D; stroke-width:2.8px; filter: none; }
+.country.first-gold { stroke:var(--medal-gold); stroke-width:3.2px; filter: none; }
+.viz2-legend { color:var(--text-primary); background:color-mix(in srgb,var(--surface-card) 94%,transparent); border-color:var(--border-subtle); }
+.legend-ramp { background:linear-gradient(90deg,var(--efficiency-1),var(--efficiency-5)); }
+.legend-ramp.tally-ramp { background:linear-gradient(90deg,var(--tally-1),var(--tally-5)); }
+.legend-key { display:inline-flex; align-items:center; gap:.35rem; margin:.25rem 1rem .15rem 0; }
+.legend-fill,.legend-outline { display:inline-block; width:1rem; height:.7rem; border:1px solid var(--border-subtle); }
+.legend-fill.no-participation { background:repeating-linear-gradient(45deg,var(--map-no-participation),var(--map-no-participation) 3px,var(--border-subtle) 3px,var(--border-subtle) 4px); }
+.legend-fill.zero-medal { background:var(--map-zero-medal); }
+.legend-fill.neutral { background:var(--map-no-participation); }
+.legend-fill.unmapped { background:repeating-linear-gradient(45deg,var(--surface-panel),var(--surface-panel) 3px,var(--border-subtle) 3px,var(--border-subtle) 4px); }
+.legend-outline.first-medal-key { border:2px solid var(--medal-bronze); }
+.legend-outline.first-gold-key { border:2px solid var(--medal-gold); }
+.viz2-field select,.viz2-segments button { border-color:var(--border-subtle); background:var(--surface-card); color:var(--text-primary); }
+.viz2-segments button.active { border-color:var(--control-selected); background:var(--control-selected); color:#fff; }
+.medal-dot { display:inline-block; width:.5rem; height:.5rem; margin-right:.25rem; border-radius:50%; vertical-align:middle; }
+.medal-gold { background:var(--medal-gold); } .medal-silver { background:var(--medal-silver); border:1px solid #7B8A91; } .medal-bronze { background:var(--medal-bronze); }
+.viz2-reset,.viz2-collapse { border-color:var(--control-selected); color:var(--control-selected); background:var(--surface-card); }
+.detail-metrics div { background:var(--surface-card); }
+.history-line { stroke:var(--continent-europe); }
+.history-x-axis path,.history-y-axis path,.history-x-axis line,.history-y-axis line,.history-y-grid line { stroke:var(--border-subtle); }
+.viz2-tooltip { color:var(--text-primary); background:var(--surface-card); border-color:var(--border-subtle); }
+
+/* Viz 2 Games at a Glance KPI panel */
+.viz2-kpi-panel { padding-bottom: 1rem; }
+.viz2-kpi-panel h4 { margin: 0 2.5rem .75rem 0; color: var(--text-primary); font-size: .75rem; text-transform: uppercase; letter-spacing: .14em; }
+.viz2-kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+.viz2-kpi-card { min-width: 0; padding: .7rem; border: 1px solid var(--border-subtle); border-radius: .55rem; background: var(--surface-card); }
+.viz2-kpi-card strong { display: block; color: var(--text-primary); font: 700 1.35rem/1 var(--font-data); font-variant-numeric: tabular-nums; }
+.viz2-kpi-card > span { display: block; margin-top: .35rem; color: var(--text-secondary); font: 700 .62rem/1.2 var(--font-data); text-transform: uppercase; letter-spacing: .06em; }
+.viz2-kpi-card small { display: block; margin-top: .5rem; color: var(--text-secondary); font: .58rem/1.35 var(--font-data); white-space: nowrap; }
+.viz2-kpi-status { margin: .65rem 0 0; color: var(--event-war); font: 600 .65rem var(--font-data); }
+.viz2-kpi-panel + .viz2-detail { padding-top: 1rem; }
+@media (max-width: 600px) { .viz2-kpis { gap: .4rem; } .viz2-kpi-card { padding: .55rem; } .viz2-kpi-card small { white-space: normal; } }
+
+/* Viz 2 adopts shared structural tokens while preserving semantic map colors. */
+:root { --v2-ink: var(--viz-ink); --v2-paper: var(--viz-surface); --v2-line: var(--viz-rule); --v2-muted: var(--viz-muted); }
+.viz2-shell { border-color: var(--viz-rule); border-radius: var(--viz-radius); box-shadow: none; }
+.viz2-side, .viz2-controls-dock { border-color: var(--viz-rule); background: var(--viz-surface-raised); }
+.viz2-collapse, .viz2-reset, .viz2-field select, .viz2-segments button { border-radius: var(--viz-radius-sm); }
+.viz2-tooltip { border-color: var(--viz-rule); border-radius: var(--viz-radius-sm); background: var(--viz-surface-raised); box-shadow: none; }
+
+/* Keep standalone Viz 2 consistent when its stylesheet is loaded directly. */
+.shared-year-control, .viz2-shell, .viz2-legend, .viz2-tooltip { box-shadow: none !important; }
+.viz2-shell, .viz2-side, .viz2-controls-dock, .viz2-legend, .viz2-tooltip { border-color: var(--viz-border, var(--border-subtle)) !important; }

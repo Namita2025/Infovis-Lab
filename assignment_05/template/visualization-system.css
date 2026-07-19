@@ -1,0 +1,307 @@
+/* OlympicLens visualization hierarchy
+   A shared, final cascade for all integrated and standalone data systems. */
+
+:root {
+  --instrument-frame: #F5F0E8;
+  --instrument-canvas: #FFFDF8;
+  --instrument-panel: #F5F0E8;
+  --instrument-inset: #E9E1D3;
+  --instrument-rule: #CFC5B5;
+  --instrument-rule-strong: #8A969B;
+  --instrument-ink: #18242B;
+  --instrument-muted: #52636B;
+  --instrument-active: #163A4A;
+  --instrument-focus: #005A87;
+  --instrument-radius: 11px;
+  --instrument-control-radius: 7px;
+  --instrument-control-height: 40px;
+  --instrument-motion: 180ms ease;
+}
+
+/* One parent frame; its children create hierarchy with surfaces and rules. */
+#viz1-root .viz1-shell,
+#viz2-root .viz2-shell,
+#viz3-root .viz3-shell {
+  color: var(--instrument-ink);
+  border: 1px solid var(--instrument-rule) !important;
+  border-radius: var(--instrument-radius) !important;
+  background: var(--instrument-frame) !important;
+  box-shadow: none !important;
+}
+
+#viz1-root .viz1-shell {
+  grid-template-columns: minmax(0, 1fr) 21rem !important;
+  gap: 0 !important;
+  align-items: stretch;
+}
+
+#viz1-root .viz1-chartcol,
+#viz2-root .viz2-map-panel,
+#viz3-root .viz3-chart-panel {
+  min-width: 0;
+  background: var(--instrument-canvas) !important;
+}
+
+#viz1-root .viz1-chartcol {
+  padding: 1rem;
+}
+
+#viz1-root .viz1-panelwrap,
+#viz2-root .viz2-side,
+#viz3-root .viz3-side {
+  min-width: 0;
+  background: var(--instrument-panel) !important;
+}
+
+#viz1-root .viz1-panelwrap,
+#viz2-root .viz2-side,
+#viz3-root .viz3-side {
+  border-left: 1px solid var(--instrument-rule) !important;
+}
+
+#viz1-root .viz1-sidepanel {
+  position: relative !important;
+  inset: auto !important;
+  height: 100%;
+  padding: 1rem !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  overflow: visible;
+}
+
+/* Chart chrome belongs to the canvas; it is not another card. */
+#viz1-root .chart-wrap {
+  margin: .5rem 0 0 !important;
+  padding: .5rem 0 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+#viz1-root .home-year-control,
+#viz1-root .viz1-controlsbar {
+  border: 0 !important;
+  border-bottom: 1px solid var(--instrument-rule) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+/* Docks form a single subordinate band below their visualization canvas. */
+#viz1-root .viz1-controls-dock,
+#viz2-root .viz2-controls-dock {
+  margin: 0 !important;
+  padding: 1rem !important;
+  border: 0 !important;
+  border-top: 1px solid var(--instrument-rule) !important;
+  border-radius: 0 !important;
+  background: var(--instrument-panel) !important;
+}
+
+#viz1-root .viz1-controls-dock {
+  gap: 1rem;
+}
+
+#viz1-root .viz1-controls-dock .viz1-country-block {
+  border-color: var(--instrument-rule) !important;
+}
+
+/* Rails use dividers, not nested cards. */
+#viz1-root .panel-block + .panel-block,
+#viz2-root .viz2-detail,
+#viz3-root .viz3-detail,
+#viz3-root .viz3-tree-wrap {
+  border-color: var(--instrument-rule) !important;
+}
+
+#viz1-root .story-card {
+  min-height: 0;
+  padding: .75rem 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+#viz1-root .country-picker {
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+/* Metrics read as one unit within the rail. */
+#viz2-root .viz2-kpis,
+#viz2-root .detail-metrics,
+#viz3-root .detail-metrics {
+  gap: 0;
+  border-top: 1px solid var(--instrument-rule);
+  border-bottom: 1px solid var(--instrument-rule);
+}
+
+#viz2-root .viz2-kpi-card,
+#viz2-root .detail-metrics > div,
+#viz3-root .detail-metrics > div {
+  padding: .7rem;
+  border: 0;
+  border-right: 1px solid var(--instrument-rule);
+  border-radius: 0;
+  background: transparent;
+}
+
+#viz2-root .viz2-kpi-card:last-child,
+#viz2-root .detail-metrics > div:last-child,
+#viz3-root .detail-metrics > div:last-child {
+  border-right: 0;
+}
+
+/* The map legend is an information band inside the primary canvas. */
+#viz2-root .viz2-legend {
+  border-color: var(--instrument-rule) !important;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--instrument-canvas) 94%, transparent);
+  box-shadow: none !important;
+}
+
+/* A single control vocabulary across the three systems. */
+#viz1-root .pill,
+#viz1-root .viz1-select,
+#viz1-root .country-picker-toggle,
+#viz1-root .country-picker-clear,
+#viz2-root .viz2-field select,
+#viz2-root .viz2-segments button,
+#viz2-root .viz2-reset,
+#viz3-root .viz3-reset,
+.viz-action-toolbar button {
+  min-height: var(--instrument-control-height);
+  border: 1px solid var(--instrument-rule) !important;
+  border-radius: var(--instrument-control-radius) !important;
+  color: var(--instrument-ink) !important;
+  background: var(--instrument-canvas) !important;
+  box-shadow: none !important;
+  transition: color var(--instrument-motion), border-color var(--instrument-motion), background-color var(--instrument-motion), transform var(--instrument-motion);
+}
+
+#viz1-root .pill:hover,
+#viz1-root .country-picker-toggle:hover,
+#viz1-root .country-picker-clear:hover,
+#viz2-root .viz2-segments button:hover,
+#viz2-root .viz2-reset:hover,
+#viz3-root .viz3-reset:hover,
+.viz-action-toolbar button:hover {
+  border-color: var(--instrument-rule-strong) !important;
+  background: var(--instrument-inset) !important;
+}
+
+#viz1-root .pill.active {
+  border-color: var(--pill-color, var(--instrument-active)) !important;
+  color: #fff !important;
+  background: var(--pill-color, var(--instrument-active)) !important;
+}
+
+#viz2-root .viz2-segments button.active {
+  border-color: var(--instrument-active) !important;
+  color: #fff !important;
+  background: var(--instrument-active) !important;
+}
+
+#viz1-root .viz1-collapse-btn,
+#viz2-root .viz2-collapse,
+#viz3-root .viz3-collapse {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--instrument-rule) !important;
+  border-radius: var(--instrument-control-radius) !important;
+  color: var(--instrument-ink) !important;
+  background: var(--instrument-canvas) !important;
+  box-shadow: none !important;
+  transition: color var(--instrument-motion), border-color var(--instrument-motion), background-color var(--instrument-motion);
+}
+
+#viz1-root .viz1-collapse-btn:hover,
+#viz2-root .viz2-collapse:hover,
+#viz3-root .viz3-collapse:hover {
+  border-color: var(--instrument-rule-strong) !important;
+  background: var(--instrument-inset) !important;
+}
+
+#viz1-root :is(button, select, input):focus-visible,
+#viz2-root :is(button, select, input):focus-visible,
+#viz3-root :is(button, select, input):focus-visible,
+#viz3-root [tabindex]:focus-visible {
+  outline: 2px solid var(--instrument-focus) !important;
+  outline-offset: 2px;
+}
+
+/* Consistent utility typography and spacing. */
+#viz1-root .control-label,
+#viz2-root :is(.viz2-field label, .viz2-field legend, .viz2-controls-dock h4, .viz2-side h4),
+#viz3-root :is(.viz3-legend, .viz3-year-subtitle) {
+  color: var(--instrument-muted) !important;
+  font-family: var(--font-data);
+  font-size: .72rem !important;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+#viz1-root :is(.story-placeholder-text, .story-meta, .country-picker-hint, .viz1-dock-heading p),
+#viz2-root :is(.detail-empty, .detail-copy, .detail-fact p, .detail-fact ul, .viz2-status),
+#viz3-root :is(.detail-empty, .detail-copy, .detail-fact p, .detail-fact ul) {
+  color: var(--instrument-muted) !important;
+  line-height: 1.5;
+}
+
+#viz1-root .viz-tooltip,
+#viz2-root .viz2-tooltip {
+  border: 1px solid var(--instrument-rule) !important;
+  border-radius: var(--instrument-control-radius) !important;
+  color: var(--instrument-ink) !important;
+  background: var(--instrument-canvas) !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  #viz1-root .viz1-shell,
+  #viz1-root .viz1-shell.legend-collapsed,
+  #viz2-root .viz2-shell,
+  #viz2-root .viz2-shell.is-collapsed,
+  #viz3-root .viz3-shell,
+  #viz3-root .viz3-shell.is-collapsed {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  #viz1-root .viz1-panelwrap,
+  #viz2-root .viz2-side,
+  #viz3-root .viz3-side {
+    width: auto !important;
+    border-top: 1px solid var(--instrument-rule) !important;
+    border-left: 0 !important;
+  }
+
+  #viz1-root .viz1-sidepanel {
+    height: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  #viz1-root .viz1-chartcol,
+  #viz1-root .viz1-sidepanel,
+  #viz1-root .viz1-controls-dock,
+  #viz2-root .viz2-side,
+  #viz2-root .viz2-controls-dock,
+  #viz3-root .viz3-chart-panel,
+  #viz3-root .viz3-side {
+    padding: .8rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #viz1-root *,
+  #viz2-root *,
+  #viz3-root * {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}

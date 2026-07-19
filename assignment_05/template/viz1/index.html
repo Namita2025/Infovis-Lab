@@ -6,6 +6,7 @@
   <title>Viz 1 — Disrupted Games</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../visualization-system.css" />
 </head>
 <body class="viz1-page-body">
   <div class="preloader" aria-hidden="true">
@@ -41,7 +42,8 @@
     </header>
 
     <div id="viz1-root" class="!w-full">
-      <div class="viz1-shell !w-full !grid !grid-cols-1 !gap-5 lg:!grid-cols-[minmax(0,1fr)_22rem]">
+      <div class="viz-action-toolbar"><button class="viz1-reset" type="button" aria-label="Reset">Reset</button></div>
+        <div class="viz1-shell !w-full !grid !grid-cols-1 !gap-5 lg:!grid-cols-[minmax(0,1fr)_22rem]">
         <section class="viz1-chartcol !w-full !min-w-0 !gap-0" aria-label="Olympic participation chart">
           <div class="viz1-controlsbar !rounded-2xl !p-3" aria-label="Chart playback controls">
             <button id="viz1-play" class="play-btn !h-11 !w-11 !rounded-xl !text-base" type="button" aria-label="Play year sequence" aria-pressed="false">▶</button>

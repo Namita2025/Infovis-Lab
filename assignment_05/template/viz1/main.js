@@ -14,37 +14,42 @@ import {
   toggleSelectedCountry,
   clearSelectedCountries,
   setEventCategory,
+  setYearRange,
   startPlay,
   stopPlay,
   OLYMPIC_YEARS,
 } from '../main.js';
 
 const ALL_CONTINENTS = ['Europe', 'Americas', 'Asia', 'Africa', 'Oceania'];
-const CATEGORY_LIST = ['All', 'Wars/Cancellations', 'Boycotts', 'Political Events', 'Security Events'];
+const CATEGORY_LIST = ['All', 'Wars/Cancellations', 'Boycotts', 'Political Events', 'Security Events', 'Geographical Calamity', 'Economic & Logistical Crisis'];
 
 const CONTINENT_COLOR = {
-  Europe: getThemeColor('--plot-blue'),
-  Americas: getThemeColor('--plot-red'),
-  Asia: getThemeColor('--plot-yellow'),
-  Africa: getThemeColor('--plot-green'),
-  Oceania: getThemeColor('--plot-purple'),
+  Europe: getThemeColor('--continent-europe'),
+  Americas: getThemeColor('--continent-americas'),
+  Asia: getThemeColor('--continent-asia'),
+  Africa: getThemeColor('--continent-africa'),
+  Oceania: getThemeColor('--continent-oceania'),
 };
 
 const CATEGORY_COLOR = {
-  'Wars/Cancellations': getThemeColor('--accent-red-paper'),
-  Boycotts: getThemeColor('--accent-gold-paper'),
-  'Political Events': getThemeColor('--accent-violet-paper'),
-  'Security Events': getThemeColor('--accent-blue-paper'),
+  'Wars/Cancellations': getThemeColor('--event-war'),
+  Boycotts: getThemeColor('--event-boycott'),
+  'Political Events': getThemeColor('--event-political'),
+  'Security Events': getThemeColor('--event-security'),
   'Geographical Calamity': getThemeColor('--accent-green-paper'),
+  'Economic & Logistical Crisis': getThemeColor('--accent-gold-paper'),
 };
 
 const CATEGORY_PLOT_COLOR = {
-  'Wars/Cancellations': getThemeColor('--accent-red-panel'),
-  Boycotts: getThemeColor('--accent-gold-panel'),
-  'Political Events': getThemeColor('--accent-violet-panel'),
-  'Security Events': getThemeColor('--accent-blue-panel'),
-  'Geographical Calamity': getThemeColor('--accent-green-panel'),
+  'Wars/Cancellations': getThemeColor('--event-war'),
+  Boycotts: getThemeColor('--event-boycott'),
+  'Political Events': getThemeColor('--event-political'),
+  'Security Events': getThemeColor('--event-security'),
+  'Geographical Calamity': getThemeColor('--accent-green-paper'),
+  'Economic & Logistical Crisis': getThemeColor('--accent-gold-paper'),
 };
+
+const COUNTRY_COLORS = ['--country-1','--country-2','--country-3','--country-4','--country-5'];
 
 const YEARS = OLYMPIC_YEARS;
 const YEAR_MIN = YEARS[0];
@@ -93,7 +98,9 @@ export async function loadViz1() {
     chips: filterDock.select('.chip-row'),
     capMessage: filterDock.select('.cap-msg'),
     storyCard: panel.select('.story-card'),
+    continentDetails: panel.select('.viz1-continent-detail-body'),
     collapse: panelWrap.select('.viz1-collapse-btn'),
+    reset: root.select('.viz1-reset'),
   };
 
   const chartRoot = chartSvg.select('.chart-root');
@@ -115,6 +122,14 @@ export async function loadViz1() {
   const stackedData = pivotContinentData(continentData);
   let panelCollapsed = false;
   let selectedStoryEvents = null;
+  const countryColorAssignments = new Map();
+  function countryColor(noc) {
+    if (!countryColorAssignments.has(noc)) {
+      const used = new Set(countryColorAssignments.values());
+      countryColorAssignments.set(noc, COUNTRY_COLORS.find((name) => !used.has(name)) || COUNTRY_COLORS[0]);
+    }
+    return getThemeColor(countryColorAssignments.get(noc));
+  }
 
   function pivotContinentData(data) {
     const byYear = new Map();
@@ -226,7 +241,8 @@ export async function loadViz1() {
 
     controls.chips.selectAll('.chip')
       .select('.chip-label')
-      .text((noc) => countryMeta(noc).Country);
+      .text((noc) => countryMeta(noc).Country)
+      .style('--country-color', (noc) => countryColor(noc));
     controls.capMessage.property('hidden', state.selectedCountries.length < 5);
     updatePickerSummary();
   }
@@ -259,7 +275,7 @@ export async function loadViz1() {
     const items = state.mode === 'country'
       ? state.selectedCountries.map((noc, index) => ({
         label: countryMeta(noc).Country,
-        color: countryColorScale(countryMeta(noc).Continent, 1)[0],
+        color: countryColor(noc),
       }))
       : visibleContinents().map((continent) => ({ label: continent, color: CONTINENT_COLOR[continent] }));
 
@@ -267,6 +283,12 @@ export async function loadViz1() {
       .append('div').attr('class', 'legend-row');
     rows.append('span').attr('class', 'legend-swatch').style('background', (item) => item.color);
     rows.append('span').text((item) => item.label);
+  }
+
+  function renderContinentDetails(year, selectedContinent) {
+    const record = stackedData.find((item) => item.Year === year) || { Year: year };
+    const rows = ALL_CONTINENTS.map((continent) => ({ continent, value: record[continent] || 0 }));
+    controls.continentDetails.html(`<div class="viz1-continent-year">${year} edition</div>${rows.map((row) => `<div class="viz1-continent-row ${row.continent === selectedContinent ? 'is-selected' : ''}"><span><i style="background:${CONTINENT_COLOR[row.continent]}"></i>${row.continent}</span><strong>${row.value.toLocaleString()}</strong></div>`).join('')}`);
   }
 
   function renderStoryCard(events) {
@@ -380,7 +402,7 @@ export async function loadViz1() {
         .attr('stroke', color)
         .attr('stroke-width', isBand ? 2 : 1.5)
         .attr('stroke-dasharray', isBand ? null : '5,4')
-        .attr('opacity', rows[0].Impact_Level === 'Context' ? 0.4 : 0.85);
+        .attr('opacity', rows[0].Impact_Level === 'Context' ? 0.72 : 0.9);
 
       evtDotG.append('circle')
         .attr('class', 'evt-dot')
@@ -405,7 +427,7 @@ export async function loadViz1() {
     const xLine = d3.scalePoint().domain(YEARS).range([0, innerWidth]);
     const series = state.selectedCountries.map((noc, index) => ({
       noc,
-      color: countryColorScale(countryMeta(noc).Continent, 1)[0],
+      color: countryColor(noc),
       values: YEARS.map((year) => {
         const record = countryData.find((item) => item.NOC === noc && item.Year === year);
         return { Year: year, athletes: record ? record.athletes : 0 };
@@ -431,7 +453,7 @@ export async function loadViz1() {
         .on('mousemove', (event, record) => {
           const status = record.athletes === 0 ? 'Did not participate' : 'Participated';
           const eventNames = eventsForYear(record.Year).map((item) => item.Label).join(', ') || 'None';
-          showTooltip(event, `<div class="tt-year">${seriesItem.noc} · ${record.Year}</div>
+          showTooltip(event, `<div class="tt-year"><span class="tt-swatch" style="background:${seriesItem.color}"></span>${seriesItem.noc} · ${record.Year}</div>
             <div class="tt-row">Athletes: ${record.athletes}</div>
             <div class="tt-row">${status}</div>
             <div class="tt-row">Events: ${eventNames}</div>`);
@@ -451,8 +473,13 @@ export async function loadViz1() {
           .attr('y', (record) => y(record[1]))
           .attr('width', x.bandwidth())
           .attr('height', (record) => Math.max(0, y(record[0]) - y(record[1])))
+          .attr('stroke', getThemeColor('--surface-card')).attr('stroke-width', 1)
           .attr('opacity', (record) => record.data.Year === state.activeYear ? 1 : 0.85)
           .style('cursor', 'pointer')
+          .on('click', (event, record) => {
+            const continent = d3.select(event.currentTarget.parentNode).datum().key;
+            renderContinentDetails(record.data.Year, continent);
+          })
           .on('mousemove', (event, record) => {
             const continent = d3.select(event.currentTarget.parentNode).datum().key;
             const value = record[1] - record[0];
@@ -518,6 +545,15 @@ export async function loadViz1() {
   });
 
   controls.pickerClear.on('click', clearSelectedCountries);
+
+  controls.reset.on('click', () => {
+    stopPlay();
+    setYearRange([YEAR_MIN, YEAR_MAX]);
+    setActiveYear(YEAR_MAX);
+    setEventCategory('All');
+    setSelectedContinent(null);
+    clearSelectedCountries();
+  });
 
   document.addEventListener('pointerdown', (event) => {
     if (!controls.picker.node().contains(event.target)) setPickerOpen(false);

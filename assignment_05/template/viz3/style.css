@@ -1,93 +1,26 @@
-/* Country–sport network: focused workspace layered on the shared archive skin. */
-#viz3-root {
-  width: min(100%, 1500px);
-  margin: 0 auto;
-  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 4.5rem);
-}
-#viz3-root::before {
-  display: block;
-  margin-bottom: 1rem;
-  color: var(--acid);
-  content: 'OLYMPICLENS / DATA STORY 03';
-  font: .62rem var(--mono-premium);
-  letter-spacing: .18em;
-}
-#viz3-root .viz-story-banner {
-  max-width: 46rem;
-  margin: 0 0 2.5rem;
-  padding: 0;
-  border: 0;
-  color: var(--fg-graphite);
-  background: transparent;
-  font-size: clamp(1.1rem, 2vw, 1.6rem);
-  line-height: 1.5;
-}
-#viz3-root .viz-story-banner strong { color: var(--fg-charcoal); }
-#viz3-root .viz-controls {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--panel-line);
-  background: var(--ink-card);
-}
-#viz3-root .control-group { gap: .55rem; }
-#viz3-root .btn-group { display: flex; flex-wrap: wrap; gap: .35rem; }
-#viz3-root .toggle-btn {
-  padding: .55rem .7rem;
-  border: 1px solid var(--panel-line);
-  border-radius: 2px;
-  color: var(--panel-muted);
-  background: transparent;
-  font: .62rem var(--mono-premium);
-  cursor: pointer;
-}
-#viz3-root .toggle-btn:hover,
-#viz3-root .toggle-btn.active { border-color: var(--accent-blue-panel); color: var(--panel-text); background: var(--accent-blue-paper); }
-#viz3-root .search-input {
-  width: 100%;
-  padding: .6rem .7rem;
-  border: 1px solid var(--panel-line);
-  border-radius: 2px;
-  outline: 0;
-  color: var(--panel-text);
-  background: var(--panel-wash);
-  font: .68rem var(--mono-premium);
-}
-#viz3-root .search-input:focus { border-color: var(--accent-blue-panel); }
-#viz3-root .control-hint { color: var(--panel-muted); font-size: .62rem; }
-#viz3-root .decade-row { display: flex; align-items: center; gap: .65rem; }
-#viz3-root .decade-display { min-width: 1.5rem; color: var(--accent-blue-panel); font: 1rem var(--mono-premium); }
-#viz3-root input[type='range'] { accent-color: var(--acid); }
-#viz3-root .kpi-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin: 1rem 0; border: 1px solid var(--panel-line); background: var(--panel-line); }
-#viz3-root .kpi-card { padding: 1.15rem; background: var(--ink-card); }
-#viz3-root .kpi-label { margin-bottom: .5rem; color: var(--panel-muted); font: .58rem var(--mono-premium); letter-spacing: .14em; text-transform: uppercase; }
-#viz3-root .kpi-value { color: var(--accent-blue-panel); font: 500 clamp(1.2rem, 2.5vw, 2.4rem) var(--display); letter-spacing: -.06em; }
-#viz3-root .network-wrap { min-height: 620px; margin-top: 0 !important; overflow: hidden; }
-#viz3-root .network-svg { min-height: 620px; }
-#viz3-root .net-label { font-family: var(--mono-premium); paint-order: stroke; stroke: var(--ink-card); stroke-width: 3px; stroke-linejoin: round; }
-#viz3-root .network-info-panel { height: 100%; padding: 1rem; border-left: 1px solid var(--paper-rule); color: var(--paper); background: var(--ink-raised); backdrop-filter: blur(12px); }
-#viz3-root .nip-title { margin-bottom: 1rem; color: var(--accent-blue-paper); font: .78rem var(--mono-premium); }
-#viz3-root .nip-body { color: var(--paper-soft); font-size: .7rem; }
-#viz3-root .nip-row { display: flex; justify-content: space-between; gap: .5rem; padding: .45rem 0; border-bottom: 1px solid var(--ink-line); }
-#viz3-root .nip-row strong { color: var(--paper); }
-#viz3-root .nip-sports-title { margin: 1rem 0 .5rem; color: var(--paper); font: .62rem var(--mono-premium); text-transform: uppercase; }
-#viz3-root .nip-sport-row { display: flex; gap: .35rem; padding: .2rem 0; }
-#viz3-root .nip-sport-row strong { margin-left: auto; color: var(--accent-blue-paper); }
-#viz3-root .nip-tag { display: inline-block; margin-top: .8rem; padding: .3rem .45rem; border: 1px solid var(--accent-blue-paper); color: var(--accent-blue-paper); font: .58rem var(--mono-premium); }
-#viz3-root .viz-legend { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: center; padding-top: 1rem; color: var(--fg-graphite); font: .62rem var(--mono-premium); }
-#viz3-root .legend-item { display: flex; align-items: center; gap: .4rem; }
-#viz3-root .legend-circle { display: inline-block; width: 9px; height: 9px; border-radius: 50%; }
-#viz3-root .legend-size-swatch { display: inline-block; width: 8px; height: 8px; border: 1px solid var(--paper-rule); border-radius: 50%; background: var(--paper-soft); }
-#viz3-root .legend-edge-swatch { display: inline-block; width: 20px; height: 2px; background: var(--paper-rule); }
-#viz3-root .legend-note { flex-basis: 100%; color: var(--fg-graphite); }
+#viz3-section { border-top-color:#2A9D8F; } #viz3-section .section-kicker { color:#2A9D8F; }
+#viz3-root .viz3-shell { display:grid; grid-template-columns:minmax(0,1fr) 21rem; min-height:0; border:1px solid var(--border-subtle); background:var(--surface-panel); }
+#viz3-root .viz3-chart-panel { position:relative; min-width:0; padding:1rem; background:var(--surface-card); transition:opacity .25s ease; } #viz3-root .viz3-chart-panel.is-cancelled { opacity:.45; }
+.viz3-banner { min-height:1.2rem; color:#B34A4A; font:700 .72rem var(--font-data); text-transform:uppercase; letter-spacing:.12em; }
+.viz3-legend { display:flex; flex-wrap:wrap; gap:.5rem 1rem; padding:.5rem 0 1rem; color:var(--text-secondary); font: .65rem var(--font-data); } .viz3-legend-item { display:inline-flex; align-items:center; gap:.35rem; } .viz3-legend-item i { width:9px; height:9px; border-radius:50%; }
+.viz3-tree-wrap { overflow:visible; border-top:1px solid var(--border-subtle); } .viz3-svg { display:block; min-width:900px; } .viz3-link { fill:none; stroke:var(--border-subtle); stroke-width:1; } .viz3-node circle { fill:var(--text-secondary); } .viz3-node text { fill:var(--text-primary); font: .68rem var(--font-data); } .viz3-family-label { font-weight:700; fill:var(--text-primary); } .viz3-node.is-leaf { cursor:pointer; outline:none; } .viz3-node.is-leaf:focus text,.viz3-node.is-leaf:hover text { font-weight:700; } .viz3-node.is-leaf:focus .viz3-leaf-dot,.viz3-node.is-selected .viz3-leaf-dot { stroke-width:3; }
+#viz3-root .viz3-side { border-left:1px solid var(--border-subtle); } #viz3-root .detail-fact { margin-top:.85rem; } @media(max-width:900px){#viz3-root .viz3-shell{grid-template-columns:1fr;}.viz3-side{border-left:0!important;border-top:1px solid var(--border-subtle);}}
 
-@media (max-width: 900px) {
-  #viz3-root .viz-controls { grid-template-columns: repeat(2, minmax(150px, 1fr)); }
-  #viz3-root .network-info-panel { display: none; }
-  #viz3-root .network-wrap, #viz3-root .network-svg { min-height: 540px; }
-}
-@media (max-width: 560px) {
-  #viz3-root .viz-controls, #viz3-root .kpi-bar { grid-template-columns: 1fr; }
-  #viz3-root .network-wrap, #viz3-root .network-svg { min-height: 460px; }
-}
+.viz3-toolbar { display:flex; justify-content:flex-end; margin-bottom:.6rem; } .viz3-reset { min-height:40px; padding:.55rem .8rem; border:1px solid var(--border-subtle); color:var(--text-primary); background:var(--surface-card); font:700 .65rem var(--font-data); text-transform:uppercase; letter-spacing:.08em; cursor:pointer; } .viz3-reset:hover,.viz3-reset:focus-visible { border-color:#2A9D8F; color:#2A9D8F; } .viz3-family-label { cursor:pointer; } .viz3-family-label:focus { outline:2px solid #2A9D8F; outline-offset:3px; }
+
+
+
+#viz3-root .viz3-shell { width:100%; grid-template-columns:minmax(0,1fr) 21rem; transition:grid-template-columns .3s ease; } #viz3-root .viz3-shell.is-collapsed { grid-template-columns:minmax(0,1fr) 3rem; } #viz3-root .viz3-shell.is-collapsed .viz3-side { display:block; width:3rem; min-width:3rem; padding:.6rem .45rem; overflow:visible; } #viz3-root .viz3-shell.is-collapsed .viz3-side > *:not(.viz3-collapse) { display:none; } #viz3-root .viz3-shell.is-collapsed .viz3-collapse { display:grid; position:relative; top:0; right:auto; margin:0 auto; } #viz3-root .viz3-chart-panel { width:100%; min-width:0; } #viz3-root .viz3-tree-wrap { width:100%; overflow:visible; }
+
+/* Override inherited Viz 2 map-shell sizing: Viz 3 grows with visible hierarchy rows. */
+#viz3-root .viz3-shell { grid-template-rows:auto; height:auto; min-height:0; overflow:visible; align-items:start; } #viz3-root .viz3-chart-panel { height:auto; min-height:0; overflow:visible; } #viz3-root .viz3-side { height:auto; max-height:none; overflow:visible; } #viz3-root .viz3-svg { height:auto; min-height:0; }
+
+/* Viz 3 shares shell, surface, and detail-panel hierarchy. */
+#viz3-root .viz3-shell { border-color: var(--viz-rule); border-radius: var(--viz-radius); background: var(--viz-surface); box-shadow: none; }
+#viz3-root .viz3-chart-panel, #viz3-root .viz3-side { background: var(--viz-surface-raised); }
+#viz3-root .viz3-side { border-color: var(--viz-rule); }
+.viz3-reset { border-radius: var(--viz-radius-sm); }
+
+/* Keep standalone Viz 3 consistent when its stylesheet is loaded directly. */
+#viz3-root .viz3-shell, #viz3-root .viz3-chart-panel, #viz3-root .viz3-side, .viz3-reset { box-shadow: none !important; }
+#viz3-root .viz3-shell, #viz3-root .viz3-chart-panel, #viz3-root .viz3-side, .viz3-reset { border-color: var(--viz-border, var(--border-subtle)) !important; }

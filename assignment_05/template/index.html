@@ -7,7 +7,9 @@
   <link rel="icon" href="/template/public/olympic-games-svgrepo-com.svg" />
   <link rel="stylesheet" href="viz1/style.css" />
   <link rel="stylesheet" href="viz2/style.css" />
+  <link rel="stylesheet" href="viz3/style.css" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="visualization-system.css" />
 </head>
 <body class="home-page">
   <div class="preloader" aria-hidden="true">
@@ -28,7 +30,7 @@
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#story">The story</a>
       <a href="#viz1-section">Explore data</a>
-      <span class="header-filter"><span class="filter-label">Window</span><span class="filter-value" id="year-range-display">1896 – 2016</span><button class="filter-reset" id="reset-range">Reset</button></span>
+      <span class="header-filter"><span class="filter-label">Window</span><span class="filter-value" id="year-range-display">1896 – 2016</span></span>
     </nav>
   </header>
   <main id="top" class="site-main">
@@ -59,6 +61,7 @@
       </div>
       <div class="viz-subtitle">Olympic Participation Through Global Events · 1896–2016</div>
       <div id="viz1-root" class="!w-full">
+        <div class="viz-action-toolbar"><button class="viz1-reset" type="button" aria-label="Reset">Reset</button></div>
         <div class="viz1-shell !w-full !grid !grid-cols-1 !gap-5 lg:!grid-cols-[minmax(0,1fr)_22rem]">
           <section class="viz1-chartcol !w-full !min-w-0 !gap-0" aria-label="Olympic participation chart">
             <div class="home-year-control-anchor">
@@ -79,7 +82,7 @@
               <section class="panel-block viz1-filter-block">
                 <h3 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Category</h3>
                 <div class="pill-group !gap-2" role="group" aria-label="Filter events by category">
-                  <button class="pill active !px-3 !py-2 !font-bold" type="button" data-category="All">All</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Wars/Cancellations">Wars/Cancellations</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Boycotts">Boycotts</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Political Events">Political Events</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Security Events">Security Events</button>
+                  <button class="pill active !px-3 !py-2 !font-bold" type="button" data-category="All">All</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Wars/Cancellations">Wars/Cancellations</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Boycotts">Boycotts</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Political Events">Political Events</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Security Events">Security Events</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Geographical Calamity">Geographical Calamity</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Economic & Logistical Crisis">Economic & Logistical Crisis</button>
                 </div>
               </section>
               <section class="panel-block viz1-filter-block viz1-country-block">
@@ -96,7 +99,7 @@
             <div id="viz1-legend-panel" class="viz1-sidepanel !w-auto !rounded-2xl !p-5">
               <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true">›</button>
               <section class="panel-block !gap-3"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Legend</h2><div class="viz1-legend !gap-2"></div></section>
-              <section class="panel-block story-block !gap-3 !border-t !pt-5"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Details</h2><div class="story-card placeholder !rounded-2xl !p-4"><p class="story-placeholder-text !text-sm !leading-6">Click an event marker on the chart to see its story.</p></div></section>
+              <section class="panel-block viz1-continent-details" aria-live="polite"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Participation by continent</h2><div class="viz1-continent-detail-body"><p class="story-placeholder-text">Click a continent bar to compare the edition.</p></div></section><section class="panel-block story-block !gap-3 !border-t !pt-5"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Details</h2><div class="story-card placeholder !rounded-2xl !p-4"><p class="story-placeholder-text !text-sm !leading-6">Click an event marker on the chart to see its story.</p></div></section>
             </div>
           </aside>
         </div>
@@ -109,13 +112,7 @@
       <div id="viz2-root"></div>
     </section>
 
-    <section class="viz-section teaser-section" id="viz3-section" data-reveal>
-      <p class="section-kicker">03 / Dominance</p><h2>
-        Country–Sport Dominance Network
-        <span class="viz-subtitle">Force-directed bipartite graph</span>
-      </h2>
-      <div id="viz3-root" class="empty-viz"><span class="empty-index">03</span><p>Follow the invisible lines between nations and the sports they shaped.</p><a class="text-link" href="viz3/index.html">Open the network ↗</a></div>
-    </section>
+    <section class="viz-section feature-section" id="viz3-section" data-reveal><div class="section-heading"><div><p class="section-kicker">03 / Programme</p><h2>The Expanding Games</h2></div><p class="section-summary">Follow Olympic sports from debut to disappearance?and see how participation and women?s representation changed across the programme.</p></div><div id="viz3-root"></div></section>
 
     <footer class="site-footer"><span>OlympicLens</span><span>Built from historical participation data · 2024</span><span>Scroll / explore / compare</span></footer>
 
@@ -126,11 +123,11 @@
   <script type="module">
     import { loadViz1 } from './viz1/main.js';
     import { loadViz2 } from './viz2/main.js';
-    // import { loadViz3 } from './viz3/main.js';
+    import { loadViz3 } from './viz3/main.js';
 
     loadViz1();
     loadViz2();
-    // loadViz3();
+    loadViz3();
   </script>
 
 </body>

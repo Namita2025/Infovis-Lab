@@ -53,7 +53,7 @@
   --radius-control: 6px;
   --radius-pill: 999px;
 
-  --shadow-podium: 0 4px 24px rgba(24,36,43,0.12);
+  --shadow-podium: none;
 
   --trans-fast: 120ms ease-out;
   --trans-base: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -72,7 +72,7 @@ html { scroll-behavior: smooth; }
   transition:
     top .45s cubic-bezier(.2,.7,.2,1),
     border-radius .32s cubic-bezier(.2,.7,.2,1),
-    box-shadow .25s ease;
+    border-color .25s ease;
 }
 .home-year-control-anchor {
   width: 100%;
@@ -84,7 +84,7 @@ html { scroll-behavior: smooth; }
   left: 0;
   width: 100%;
   border-radius: 0 !important;
-  box-shadow: 0 7px 24px rgba(19,36,44,.24);
+  box-shadow: none;
 }
 .home-page.header-is-hidden { --home-sticky-top: 0px; }
 #viz2-section #viz2-root { margin-top:1rem; }
@@ -111,7 +111,7 @@ body {
   padding: 0.5em var(--space-4);
   background-color: var(--fg-charcoal);
   color: white;
-  box-shadow: var(--shadow-podium);
+  box-shadow: none;
 }
 
 .header-title {
@@ -177,7 +177,7 @@ body {
   background-color: var(--bg-canvas);
   border-radius: var(--radius-control);
   padding: var(--space-4);
-  box-shadow: var(--shadow-podium);
+  box-shadow: none;
 }
 
 .viz-section h2 {
@@ -282,7 +282,7 @@ body {
   border-radius: 8px;
   padding: var(--space-2) var(--space-3);
   font-size: var(--step--1);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  box-shadow: none;
   pointer-events: none;
   z-index: 1000;
   max-width: 260px;
@@ -412,7 +412,7 @@ Appended to existing style.css — reuses root design tokens.
   border-radius: 50%;
   border: 1px solid var(--line-lane);
   background: var(--bg-canvas);
-  box-shadow: var(--shadow-podium);
+  box-shadow: none;
   cursor: pointer;
   font-size: 1rem;
   line-height: 1;
@@ -503,7 +503,7 @@ Appended to existing style.css — reuses root design tokens.
   background:
     linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.9)),
     radial-gradient(circle at top left, color-mix(in srgb, var(--continent-blue) 14%, transparent), transparent 60%);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+  box-shadow: none;
 }
 
 .country-picker.open {
@@ -533,7 +533,7 @@ Appended to existing style.css — reuses root design tokens.
   font-size: var(--step--1);
   font-weight: 700;
   text-align: left;
-  box-shadow: var(--shadow-card);
+  box-shadow: none;
 }
 
 .country-picker-toggle::after {
@@ -583,7 +583,7 @@ Appended to existing style.css — reuses root design tokens.
   border: 1px solid var(--panel-line, var(--line-lane));
   border-radius: var(--radius-control);
   background: var(--ink-card, var(--bg-canvas));
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+  box-shadow: none;
   scrollbar-width: thin;
 }
 
@@ -989,10 +989,10 @@ Appended to existing style.css — reuses root design tokens.
   --blue-wash: rgba(0,129,200,.16);
   --blue-line: rgba(97,191,234,.6);
   --blue-wash-light: rgba(97,191,234,.14);
-  --annotation-shadow: drop-shadow(0 2px 4px rgba(24,36,43,.18));
+  --annotation-shadow: none;
   --continent-blue: var(--ring-blue);
   --pill-color: var(--ring-blue);
-  --shadow-card: 0 10px 24px rgba(24,36,43,.12);
+  --shadow-card: none;
   --acid: var(--accent-blue-paper);
   --acid-panel: var(--accent-blue-panel);
   --acid-dark: #005f96;
@@ -1118,7 +1118,7 @@ button, input, select { font: inherit; }
 .viz1-page > header .grid .font-mono { color: var(--accent-blue-panel); font: 1.6rem var(--mono-premium); }
 .viz1-page > header .grid div div:last-child { color: var(--panel-muted); font: .58rem var(--mono-premium); text-transform: uppercase; }
 .viz1-hero-kicker { color: var(--accent-blue-panel); }
-.viz1-hero-dot { background: var(--accent-gold-panel); box-shadow: 0 0 14px rgba(255,211,106,.65); }
+.viz1-hero-dot { background: var(--accent-gold-panel); box-shadow: none; }
 .viz1-hero-copy { color: var(--panel-muted); }
 .viz1-stat-card { border: 1px solid var(--panel-line); background: rgba(245,240,232,.06); }
 .viz1-stat-value { color: var(--panel-text); }
@@ -1128,7 +1128,7 @@ button, input, select { font: inherit; }
 .hero::after { position: absolute; inset: 0; z-index: -3; content: ''; background: radial-gradient(circle at 72% 44%, rgba(0,129,200,.11), transparent 16rem), radial-gradient(circle at 60% 75%, rgba(238,51,78,.08), transparent 26rem), radial-gradient(circle at 85% 75%, rgba(252,177,49,.08), transparent 18rem); }
 .hero-copy { max-width: 880px; }
 .eyebrow, .section-kicker { margin: 0 0 1.5rem; color: var(--acid); font: 600 .64rem/1.2 var(--mono-premium); letter-spacing: .18em; text-transform: uppercase; }
-.eyebrow-dot { display: inline-block; width: 7px; height: 7px; margin-right: .6rem; border-radius: 50%; background: var(--acid); box-shadow: 0 0 18px var(--acid); }
+.eyebrow-dot { display: inline-block; width: 7px; height: 7px; margin-right: .6rem; border-radius: 50%; background: var(--acid); box-shadow: none; }
 .hero h1 { max-width: 10ch; margin: 0; color: var(--paper); font: 600 clamp(4.25rem, 11.5vw, 11.8rem)/.82 var(--display); letter-spacing: -.105em; }
 .hero h1 em { color: var(--acid); font-style: normal; }
 .hero-lede { max-width: 31rem; margin: 2.5rem 0 0 9vw; color: var(--paper-soft); font-size: clamp(.95rem, 1.4vw, 1.15rem); line-height: 1.7; }
@@ -1156,9 +1156,7 @@ button, input, select { font: inherit; }
 .feature-section { margin-top: clamp(2rem, 5vw, 6rem); padding: clamp(2rem, 4vw, 4rem); border: 1px solid var(--ink-line); background: linear-gradient(145deg, rgba(32,42,48,.07), rgba(32,42,48,.02)); }
 .feature-section { border-top: 2px solid var(--ring-blue); }
 #viz2-section { border-top-color: var(--ring-yellow); }
-#viz3-section { border-top-color: var(--ring-green); }
 #viz2-section .section-kicker { color: var(--ring-yellow); }
-#viz3-section .section-kicker { color: var(--ring-green); }
 .section-heading { display: flex; justify-content: space-between; gap: 2rem; align-items: end; margin-bottom: 1.25rem; }
 .section-heading .section-kicker { margin-bottom: .75rem; }
 .section-heading h2, .teaser-section > h2 { margin: 0; color: var(--paper); font: 600 clamp(2.8rem, 6vw, 6.2rem)/.9 var(--display); letter-spacing: -.09em; }
@@ -1176,17 +1174,17 @@ button, input, select { font: inherit; }
   border: 1px solid var(--panel-line);
   border-radius: 1.25rem;
   background: var(--ink-card);
-  box-shadow: 0 16px 45px rgba(24,36,43,.16);
+  box-shadow: none;
 }
 .viz1-shell.legend-collapsed { grid-template-columns: minmax(0, 1fr) 3rem !important; }
 .viz1-chartcol { gap: .75rem; }
-.viz1-controlsbar { min-height: 76px; padding: .85rem 1rem !important; border: 1px solid var(--panel-line) !important; border-radius: 2px !important; background: var(--ink-card) !important; box-shadow: none !important; }
+.viz1-controlsbar { min-height: 76px; padding: .85rem 1rem !important; border: 1px solid var(--panel-line) !important; border-radius: 2px !important; background: var(--ink-card) !important; box-shadow: none; }
 .play-btn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--accent-blue-paper); color: var(--panel-text); background: var(--accent-blue-paper); box-shadow: none; font-size: .7rem; transition: transform .25s ease, background .25s ease; }
 .play-btn:hover { background: transparent; color: var(--accent-blue-panel); transform: scale(1.08); }
 .year-readout { color: var(--accent-blue-panel) !important; font: 500 1.6rem var(--mono-premium) !important; }
 .rs-track { stroke: rgba(245,240,232,.28); stroke-width: 3; }
 .rs-handle { fill: var(--acid); stroke: var(--ink-card); stroke-width: 4; }
-.chart-wrap { margin-top: .75rem !important; padding: .75rem !important; border: 1px solid var(--panel-line) !important; border-radius: 2px !important; background: var(--ink-card) !important; box-shadow: 0 16px 45px rgba(24,36,43,.16) !important; }
+.chart-wrap { margin-top: .75rem !important; padding: .75rem !important; border: 1px solid var(--panel-line) !important; border-radius: 2px !important; background: var(--ink-card) !important; box-shadow: none; }
 .chart-wrap svg, #container svg { background: transparent; }
 .site-main .chart-wrap svg text, .viz1-page .chart-wrap svg text { fill: var(--panel-muted); }
 .site-main .chart-wrap svg .tick text, .viz1-page .chart-wrap svg .tick text { font: .62rem var(--mono-premium); }
@@ -1207,7 +1205,7 @@ button, input, select { font: inherit; }
   border-left: 1px solid var(--panel-line) !important;
   border-radius: 0 1.2rem 1.2rem 0 !important;
   background: var(--ink-card) !important;
-  box-shadow: none !important;
+  box-shadow: none;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
@@ -1226,7 +1224,7 @@ button, input, select { font: inherit; }
 .viz1-legend .legend-row:hover { background: rgba(245,240,232,.08); }
 .viz1-select, .country-picker-toggle { border: 1px solid var(--panel-line) !important; border-radius: 2px !important; color: var(--panel-text) !important; background: rgba(245,240,232,.06) !important; font: .68rem var(--mono-premium) !important; }
 .viz1-select option { color: var(--paper); background: var(--ink-raised); }
-.country-picker { border-color: var(--panel-line) !important; border-radius: 2px !important; background: rgba(245,240,232,.045) !important; box-shadow: none !important; }
+.country-picker { border-color: var(--panel-line) !important; border-radius: 2px !important; background: rgba(245,240,232,.045) !important; box-shadow: none; }
 .country-picker-hint, .story-placeholder-text, .story-meta { color: var(--panel-muted) !important; font-size: .67rem; }
 .country-item { color: var(--panel-muted); border-radius: 2px; }
 .country-item:hover { background: rgba(0,129,200,.16); transform: none; }
@@ -1238,7 +1236,7 @@ button, input, select { font: inherit; }
 .story-entry { border-color: var(--panel-line); }
 .story-close { border-color: var(--panel-line); color: var(--panel-muted); }
 .story-close:hover { background: var(--accent-blue-paper); color: var(--panel-text); }
-.viz-tooltip { padding: .75rem; border: 1px solid var(--panel-line); border-radius: 2px; color: var(--panel-text); background: var(--ink-card); box-shadow: 0 18px 50px rgba(24,36,43,.28); font-size: .7rem; }
+.viz-tooltip { padding: .75rem; border: 1px solid var(--panel-line); border-radius: 2px; color: var(--panel-text); background: var(--ink-card); box-shadow: none; font-size: .7rem; }
 .viz-tooltip .tt-year { color: var(--accent-blue-panel); font: .72rem var(--mono-premium); }
 .viz1-collapse-btn { border-color: var(--panel-line); color: var(--panel-text); background: var(--ink-card); }
 .country-picker-clear:hover { color: var(--accent-red-panel); background: var(--panel-wash); }
@@ -1302,4 +1300,329 @@ button, input, select { font: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
   [data-reveal] { opacity: 1; transform: none; }
+}
+
+/* OlympicLens shared light visualization surfaces and semantic colour tokens. */
+:root {
+  --surface-page:#ECE6D9; --surface-card:#FAF9F5; --surface-panel:#F3F1EA; --surface-map:#F7F5EF;
+  --text-primary:#162D38; --text-secondary:#5C6870; --border-subtle:#D7DFE0; --control-selected:#163A4A; --outline-active:#163A4A;
+  --continent-europe:#0085C7; --continent-americas:#E53935; --continent-asia:#F4B400; --continent-africa:#009B4C; --continent-oceania:#1C1C1C;
+  --country-1:#0072B2; --country-2:#D55E00; --country-3:#009E73; --country-4:#CC79A7; --country-5:#E69F00;
+  --event-war:#66757F; --event-boycott:#A63D40; --event-political:#715A9B; --event-security:#C9782A;
+  --map-no-participation:#D8DEE0; --map-zero-medal:#9FB6C0;
+  --efficiency-1:#C7E8E4; --efficiency-2:#82CBC4; --efficiency-3:#35AAA6; --efficiency-4:#007B82; --efficiency-5:#005962;
+  --tally-1:#DCE6F2; --tally-5:#1C4E80; --medal-gold:#D99A1E; --medal-silver:#B7C2C8; --medal-bronze:#A8622D;
+}
+#viz1-section,#viz2-section { color:var(--text-primary); background:var(--surface-card); border-color:var(--border-subtle); }
+#viz1-section .section-heading h2,#viz2-section .section-heading h2 { color:var(--text-primary); }
+#viz1-section .section-summary,#viz2-section .section-summary,#viz1-section .viz-subtitle,#viz2-section .viz-subtitle { color:var(--text-secondary); }
+
+#viz1-section .pill[data-category='Wars/Cancellations'].active { --pill-color:var(--event-war); }
+#viz1-section .pill[data-category='Boycotts'].active { --pill-color:var(--event-boycott); }
+#viz1-section .pill[data-category='Political Events'].active { --pill-color:var(--event-political); }
+#viz1-section .pill[data-category='Security Events'].active { --pill-color:var(--event-security); }
+
+/* Final Viz 1 cascade guard: the page stylesheet loads after viz1/style.css. */
+#viz1-section .viz1-shell,
+#viz1-section .viz1-chartcol,
+#viz1-section .chart-wrap,
+#viz1-section .viz1-sidepanel,
+#viz1-section .viz1-controls-dock,
+#viz1-section .story-card {
+  color: var(--text-primary) !important;
+  background: var(--surface-card) !important;
+  border-color: var(--border-subtle) !important;
+}
+#viz1-section .viz1-sidepanel,
+#viz1-section .viz1-controls-dock,
+#viz1-section .story-card {
+  background: var(--surface-panel) !important;
+}
+#viz1-section .chart-wrap svg { background: var(--surface-card) !important; }
+#viz1-section .chart-wrap svg text,
+#viz1-section .chart-wrap svg .tick text,
+#viz1-section .chart-wrap svg .axis-label { fill: var(--text-secondary) !important; }
+#viz1-section .chart-wrap svg .tick line,
+#viz1-section .chart-wrap svg .domain,
+#viz1-section .grid-h { stroke: var(--border-subtle) !important; }
+#viz1-section .control-label,
+#viz1-section .viz1-dock-heading p,
+#viz1-section .country-picker-hint,
+#viz1-section .story-placeholder-text,
+#viz1-section .story-meta,
+#viz1-section .legend-row,
+#viz1-section .country-item,
+#viz1-section .group-label,
+#viz1-section .story-title { color: var(--text-secondary) !important; }
+#viz1-section .viz1-select,
+#viz1-section .country-picker-toggle,
+#viz1-section .country-picker { background: var(--surface-card) !important; color: var(--text-primary) !important; border-color: var(--border-subtle) !important; }
+#viz1-section .viz-tooltip { background: var(--surface-card) !important; color: var(--text-primary) !important; border-color: var(--border-subtle) !important; }
+
+
+/* Shared timeline + Viz 1 collapse control: light OlympicLens theme */
+.shared-year-control,
+.home-year-control {
+  color: var(--text-primary) !important;
+  background: var(--surface-panel) !important;
+  border: 1px solid var(--border-subtle);
+  box-shadow: none;
+}
+.shared-year-control output,
+.home-year-control output { color: var(--text-primary) !important; }
+.shared-year-control button,
+.home-year-control button {
+  border-color: var(--control-selected) !important;
+  color: var(--surface-card) !important;
+  background: var(--control-selected) !important;
+}
+.shared-year-control button:hover,
+.home-year-control button:hover { background: var(--accent-sport-panel) !important; }
+.shared-year-control input[type='range'],
+.home-year-control input[type='range'] {
+  accent-color: var(--control-selected);
+  height: 1.15rem;
+  background: linear-gradient(90deg, #2A9D8F 0%, #E9C46A 100%);
+  border-radius: 999px;
+}
+.shared-year-control input[type='range']::-webkit-slider-runnable-track,
+.home-year-control input[type='range']::-webkit-slider-runnable-track {
+  height: .3rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #E9C46A 100%);
+}
+.shared-year-control input[type='range']::-moz-range-track,
+.home-year-control input[type='range']::-moz-range-track {
+  height: .3rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2A9D8F 0%, #E9C46A 100%);
+}
+.shared-year-control input[type='range']::-webkit-slider-thumb,
+.home-year-control input[type='range']::-webkit-slider-thumb {
+  width: 1rem; height: 1rem; margin-top: -.35rem;
+  border: 2px solid var(--surface-panel); border-radius: 50%;
+  background: var(--control-selected); box-shadow: none;
+}
+.shared-year-control input[type='range']::-moz-range-thumb,
+.home-year-control input[type='range']::-moz-range-thumb {
+  width: .75rem; height: .75rem;
+  border: 2px solid var(--surface-panel); border-radius: 50%;
+  background: var(--control-selected); box-shadow: none;
+}
+#viz1-section .viz1-collapse-btn {
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  background: var(--surface-card) !important;
+}
+#viz1-section .viz1-collapse-btn:hover,
+#viz1-section .viz1-collapse-btn:focus-visible {
+  border-color: var(--control-selected) !important;
+  color: var(--control-selected) !important;
+  background: var(--surface-panel) !important;
+}
+
+#viz1-section .viz1-legend { gap:.2rem .5rem; padding:.25rem .35rem; } #viz1-section .viz1-legend .legend-row { min-height:22px; padding:.2rem .35rem; } #viz1-section .viz1-continent-details { gap:.4rem; padding-top:.55rem; padding-bottom:.65rem; } .viz1-continent-year { color:var(--text-secondary); font:600 .62rem var(--mono-premium); text-transform:uppercase; letter-spacing:.08em; } .viz1-continent-row { display:flex; justify-content:space-between; align-items:center; padding:.28rem .35rem; color:var(--text-secondary); font:.68rem var(--mono-premium); border-bottom:1px solid var(--border-subtle); } .viz1-continent-row span { display:flex; align-items:center; gap:.4rem; } .viz1-continent-row i { width:8px; height:8px; border-radius:50%; } .viz1-continent-row strong { color:var(--text-primary); } .viz1-continent-row.is-selected { color:var(--text-primary); background:var(--panel-wash); }
+
+
+/* Type and spacing balance: readable supporting text with calmer display scale */
+:root {
+  --type-body: .96rem;
+  --type-label: .74rem;
+  --type-meta: .70rem;
+}
+body { font-size: var(--type-body); }
+.section-heading h2, .teaser-section > h2 {
+  font-size: clamp(2.35rem, 5vw, 5rem) !important;
+  line-height: .94;
+}
+.section-summary { font-size: .96rem; line-height: 1.6; }
+.viz-subtitle { font-size: .72rem; }
+.panel-block { gap: .65rem; }
+.control-label { font-size: .74rem !important; }
+.story-placeholder-text, .story-meta, .country-picker-hint, .group-label, .story-title { font-size: .78rem !important; line-height: 1.5; }
+.viz1-legend .legend-row { font-size: .74rem; min-height: 28px; }
+.viz1-select, .country-picker-toggle, .country-item, .pill { font-size: .74rem !important; }
+.viz1-continent-row { font-size: .74rem; padding: .34rem .4rem; }
+.viz1-continent-year { font-size: .68rem; }
+.viz2-side, .viz2-controls-dock, .viz3-side { font-size: .78rem; }
+.viz2-side h4, .viz2-kpi-panel h4 { font-size: .78rem; }
+.detail-title h3 { font-size: 1.4rem; }
+.detail-title span, .detail-fact b, .detail-fact p, .detail-fact ul, .detail-metrics small, .detail-copy, .detail-empty { font-size: .76rem; line-height: 1.5; }
+.detail-metrics { gap: .55rem; }
+.detail-metrics div { padding: .65rem .55rem; }
+.viz3-year-subtitle { font-size: .74rem; }
+.viz3-legend { font-size: .72rem; gap: .55rem 1rem; }
+.viz3-node text { font-size: .75rem; }
+.viz3-family-label { font-size: .78rem !important; }
+.viz3-reset { font-size: .72rem; }
+.shared-year-control, .home-year-control { gap: .8rem; }
+.shared-year-control output, .home-year-control output { font-size: 1.05rem; }
+
+.pill[data-category='Geographical Calamity'] { --pill-color: var(--accent-green-paper); --pill-text: var(--panel-text); } #viz1-section .pill[data-category='Geographical Calamity'].active { --pill-color: var(--accent-green-paper); } #viz1-section .pill[data-category='Economic & Logistical Crisis'] { --pill-color: var(--accent-gold-paper); --pill-text: var(--panel-text); } #viz1-section .pill[data-category='Economic & Logistical Crisis'].active { --pill-color: var(--accent-gold-paper); }
+
+/* Shared visualization actions: aligned above each panel. */
+.viz-action-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: .5rem;
+  margin: 0 0 .6rem;
+}
+.viz-action-toolbar button {
+  min-height: 40px;
+  padding: .55rem .8rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: .75rem;
+  color: var(--text-primary);
+  background: var(--surface-card);
+  font: 700 .65rem var(--font-data);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  cursor: pointer;
+}
+.viz-action-toolbar button:hover,
+.viz-action-toolbar button:focus-visible {
+  border-color: var(--control-selected);
+  color: var(--control-selected);
+}
+
+/* Keep Viz 1's detail rail in normal document flow so the page remains
+   scrollable while the pointer is over the panel. */
+#viz1-section .viz1-panelwrap { overflow: visible; }
+#viz1-section .viz1-sidepanel {
+  position: relative;
+  inset: auto;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  overscroll-behavior: auto;
+}
+
+/* Match Viz 3: the outer visualization shell stays transparent; inner
+   chart, detail, and control panels retain their own surfaces. */
+#viz1-section .viz1-shell,
+#viz2-section .viz2-shell {
+  background: transparent !important;
+}
+
+/* Match Viz 3 outer-card treatment. */
+#viz1-section,
+#viz2-section {
+  background: transparent !important;
+}
+
+/* Use Viz 3's outlined, transparent outer layout for Viz 1 and Viz 2. */
+#viz1-section .viz1-shell,
+#viz2-section .viz2-shell {
+  border: 1px solid var(--border-subtle) !important;
+  background: transparent !important;
+}
+
+/* Shared visualization language: archival data instrument surfaces. */
+:root {
+  --viz-radius: 11px;
+  --viz-radius-sm: 7px;
+  --viz-surface: #F5F0E8;
+  --viz-surface-raised: #FFFDF8;
+  --viz-surface-muted: #E9E1D3;
+  --viz-rule: #CFC5B5;
+  --viz-ink: #18242B;
+  --viz-muted: #52636B;
+  --viz-panel-shadow: none;
+  --viz-tooltip-shadow: none;
+}
+
+.viz-section,
+.viz2-shell,
+#viz3-root .viz3-shell {
+  border: 1px solid var(--viz-rule);
+  border-radius: var(--viz-radius);
+  box-shadow: none;
+}
+
+.control-label,
+.viz2-field label,
+.viz2-field legend,
+.viz2-controls-dock h4,
+.viz2-side h4,
+.viz3-legend,
+.section-kicker {
+  font-family: var(--font-data);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+button, select, input { font: inherit; }
+button:focus-visible, select:focus-visible, input:focus-visible, .pill:focus-visible {
+  outline: 2px solid var(--evt-host);
+  outline-offset: 2px;
+}
+
+/* Border-only hierarchy: all visual depth is carried by rules, never shadows. */
+:root {
+  --viz-border: var(--border-subtle, #CFC5B5);
+  --viz-border-strong: var(--outline-active, #52636B);
+  --viz-panel-shadow: none;
+  --viz-tooltip-shadow: none;
+  --shadow-podium: none;
+  --shadow-card: none;
+  --annotation-shadow: none;
+}
+
+*, *::before, *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.viz1-shell,
+.viz2-shell,
+#viz3-root .viz3-shell {
+  border: 1px solid var(--viz-border) !important;
+  border-radius: var(--viz-radius, 11px) !important;
+  box-shadow: none !important;
+}
+
+.viz1-chartcol,
+.viz1-sidepanel,
+.viz1-controls-dock,
+.viz1-chartcol .chart-wrap,
+.viz1-shell .story-card,
+.viz2-map-panel,
+.viz2-side,
+.viz2-controls-dock,
+.viz3-chart-panel,
+#viz3-root .viz3-side {
+  border-color: var(--viz-border) !important;
+}
+
+.viz1-chartcol,
+.viz1-sidepanel,
+.viz1-controls-dock,
+.viz1-chartcol .chart-wrap,
+.viz1-shell .story-card,
+.viz2-side,
+.viz2-controls-dock,
+.viz3-chart-panel,
+#viz3-root .viz3-side,
+.viz2-tooltip,
+.viz-tooltip {
+  box-shadow: none !important;
+}
+
+.viz2-map-panel { border-right: 1px solid var(--viz-border); }
+.viz2-side, #viz3-root .viz3-side { border-left: 1px solid var(--viz-border); }
+.viz1-controls-dock, .viz2-controls-dock { border-top: 1px solid var(--viz-border) !important; }
+.viz3-tree-wrap, .viz3-detail, .viz2-detail { border-color: var(--viz-border); }
+
+.country.first-hit,
+.country.first-medal,
+.country.first-gold { filter: none !important; }
+
+@media (max-width: 900px) {
+  .viz2-map-panel,
+  .viz2-side,
+  #viz3-root .viz3-side { border-left: 0; border-right: 0; }
+  .viz2-side, #viz3-root .viz3-side { border-top: 1px solid var(--viz-border) !important; }
 }
