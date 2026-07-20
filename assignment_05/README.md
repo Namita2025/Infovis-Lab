@@ -84,3 +84,24 @@ No specific order is required for the web app itself.
 - To view the visualization: start the local server and open the page in your browser.
 - To work with the Python notebooks: open them after installing the packages above.
 - If you change the underlying data, refresh the browser after updating the relevant JSON files in [template/public/data](template/public/data).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hvugwbkjf
