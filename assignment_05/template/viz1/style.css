@@ -294,50 +294,125 @@
 }
 
 /* Viz 1 light card treatment */
-.viz1-shell,.viz1-chartcol,.viz1-sidepanel,.viz1-controls-dock,.chart-wrap,.story-card { color:var(--text-primary); background:var(--surface-card) !important; border-color:var(--border-subtle) !important; }
-.viz1-controls-dock,.viz1-sidepanel,.story-card { background:var(--surface-panel) !important; }
-.viz1-shell .legend-row,.viz1-shell .country-item,.country-picker-hint,.story-placeholder-text,.story-meta,.viz1-dock-heading p { color:var(--text-secondary); }
-.viz1-shell .legend-row:hover,.viz1-shell .country-item:hover { background:var(--surface-card); border-color:var(--outline-active); }
-.viz1-shell .country-checkbox { accent-color:var(--control-selected); }
-.viz1-shell .chip { --country-color:var(--control-selected); border-color:var(--country-color); background:color-mix(in srgb,var(--country-color) 12%,var(--surface-card)); color:var(--text-primary); }
-.viz1-shell .chip::before { background:var(--country-color); }
-.viz1-shell .legend-swatch { border:1px solid var(--border-subtle); }
-.pill { border-color:var(--border-subtle); background:var(--surface-card); color:var(--text-secondary); }
-.pill:hover,.pill:focus-visible,.pill.active { border-color:var(--control-selected); background:var(--control-selected); color:#fff; }
-.viz1-select,.country-picker-toggle,.country-picker { border-color:var(--border-subtle) !important; color:var(--text-primary) !important; background:var(--surface-card) !important; }
-.viz1-select option { color:var(--text-primary); background:var(--surface-card); }
-.viz1-collapse-btn,.country-picker-clear,.story-close { color:var(--text-primary); background:var(--surface-card); border-color:var(--border-subtle); }
-.viz1-collapse-btn:focus-visible,.country-picker-toggle:focus-visible,.country-picker-clear:focus-visible,.chip-x:focus-visible,.story-close:focus-visible,.viz1-select:focus-visible { outline-color:var(--outline-active); }
-.viz1-shell .story-entry { border-color:var(--border-subtle); }
-.viz-tooltip { color:var(--text-primary); background:var(--surface-card) !important; border-color:var(--border-subtle) !important; }
-.viz-tooltip .tt-year { color:var(--text-primary); }
-
-.viz1-bottom-actions {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 1rem;
+.viz1-shell, .viz1-chartcol, .viz1-sidepanel, .viz1-controls-dock, .chart-wrap, .story-card {
+  color: var(--text-primary);
+  background: var(--surface-card) !important;
+  border-color: var(--border-subtle) !important;
+}
+.viz1-controls-dock, .viz1-sidepanel, .story-card {
+  background: var(--surface-panel) !important;
+}
+.viz1-shell .legend-row,
+.viz1-shell .country-item,
+.country-picker-hint,
+.story-placeholder-text,
+.story-meta,
+.viz1-dock-heading p {
+  color: var(--text-secondary);
+}
+.viz1-shell .legend-row:hover, .viz1-shell .country-item:hover {
+  background: var(--surface-card);
+  border-color: var(--outline-active);
+}
+.viz1-shell .country-checkbox {
+  accent-color: var(--control-selected);
+}
+.viz1-shell .chip {
+  --country-color: var(--control-selected);
+  border-color: var(--country-color);
+  background: color-mix(in srgb, var(--country-color) 12%, var(--surface-card));
+  color: var(--text-primary);
+}
+.viz1-shell .chip::before {
+  background: var(--country-color);
+}
+.viz1-shell .legend-swatch {
+  border: 1px solid var(--border-subtle);
+}
+.pill {
+  border-color: var(--border-subtle);
+  background: var(--surface-card);
+  color: var(--text-secondary);
+}
+.pill:hover, .pill:focus-visible, .pill.active {
+  border-color: var(--control-selected);
+  background: var(--control-selected);
+  color: #fff;
+}
+.viz1-select, .country-picker-toggle, .country-picker {
+  border-color: var(--border-subtle) !important;
+  color: var(--text-primary) !important;
+  background: var(--surface-card) !important;
+}
+.viz1-select option {
+  color: var(--text-primary);
+  background: var(--surface-card);
+}
+.viz1-collapse-btn, .country-picker-clear, .story-close {
+  color: var(--text-primary);
+  background: var(--surface-card);
+  border-color: var(--border-subtle);
+}
+.viz1-collapse-btn:focus-visible,
+.country-picker-toggle:focus-visible,
+.country-picker-clear:focus-visible,
+.chip-x:focus-visible,
+.story-close:focus-visible,
+.viz1-select:focus-visible {
+  outline-color: var(--outline-active);
+}
+.viz1-shell .story-entry {
+  border-color: var(--border-subtle);
+}
+.viz-tooltip {
+  color: var(--text-primary);
+  background: var(--surface-card) !important;
+  border-color: var(--border-subtle) !important;
+}
+.viz-tooltip .tt-year {
+  color: var(--text-primary);
 }
 
 .viz1-reset {
   border: 1px solid var(--border-subtle);
-  border-radius: .75rem;
-  padding: .7rem 1rem;
+  border-radius: 0.75rem;
+  padding: 0.7rem 1rem;
   background: var(--surface-panel);
   color: var(--text-primary);
   font: inherit;
-  font-size: .78rem;
+  font-size: 0.78rem;
   font-weight: 700;
   cursor: pointer;
 }
 
-.viz1-reset:hover { border-color: var(--accent-gold-paper); color: var(--accent-gold-paper); }
+.viz1-reset:hover {
+  border-color: var(--accent-gold-paper);
+  color: var(--accent-gold-paper);
+}
 
 /* Viz 1 control rhythm */
-.viz1-page .viz-controls { padding: .8rem 1rem; border: 1px solid var(--viz-rule); border-radius: var(--viz-radius); background: var(--viz-surface-raised); }
-.viz1-page .pill { min-height: 2.25rem; padding-inline: .8rem; border-radius: var(--viz-radius-sm); }
+.viz1-page .pill {
+  min-height: 2.25rem;
+  padding-inline: 0.8rem;
+  border-radius: var(--viz-radius-sm);
+}
 
 /* Keep standalone Viz 1 consistent when its stylesheet is loaded directly. */
-.viz1-shell, .viz1-chartcol, .viz1-sidepanel, .viz1-controls-dock, .chart-wrap, .story-card,
-.viz-tooltip { box-shadow: none !important; }
-.viz1-shell, .viz1-chartcol, .viz1-sidepanel, .viz1-controls-dock, .chart-wrap, .story-card,
-.viz-tooltip { border-color: var(--viz-border, var(--border-subtle)) !important; }
+.viz1-shell,
+.viz1-chartcol,
+.viz1-sidepanel,
+.viz1-controls-dock,
+.chart-wrap,
+.story-card,
+.viz-tooltip {
+  box-shadow: none !important;
+}
+.viz1-shell,
+.viz1-chartcol,
+.viz1-sidepanel,
+.viz1-controls-dock,
+.chart-wrap,
+.story-card,
+.viz-tooltip {
+  border-color: var(--viz-border, var(--border-subtle)) !important;
+}

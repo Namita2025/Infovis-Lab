@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Viz 1 — Disrupted Games</title>
+  <title>Disrupted Games — OlympicLens</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../visualization-system.css" />
@@ -14,40 +14,39 @@
     <div class="preloader-line"><span></span></div>
   </div>
   <div class="cursor-orb" aria-hidden="true"></div>
-  <main class="viz-section viz1-page !mx-0 !w-full !max-w-none !rounded-none !bg-transparent !p-4 !shadow-none sm:!p-6 lg:!p-10" aria-labelledby="viz1-title">
-    <header class="viz1-hero-header relative mb-8 overflow-hidden rounded-[2rem] px-6 py-8 sm:px-10 sm:py-10">
-      <div class="viz1-hero-glow absolute -right-20 -top-24 h-64 w-64 rounded-full blur-3xl" aria-hidden="true"></div>
-      <div class="relative flex flex-col justify-between gap-8 md:flex-row md:items-end">
-        <div class="max-w-2xl">
-          <div class="viz1-hero-kicker mb-4 flex items-center gap-3 text-[0.68rem] font-bold uppercase tracking-[0.24em]">
-            <span class="viz1-hero-dot h-2 w-2 rounded-full"></span>
+  <main class="viz-section viz1-page" aria-labelledby="viz1-title">
+    <header>
+      <div class="relative">
+        <div>
+          <div class="viz1-hero-kicker">
+            <span class="viz1-hero-dot"></span>
             OlympicLens / data story 01
           </div>
-          <h1 id="viz1-title" class="!m-0 !font-sans !text-4xl !font-black !leading-[0.95] !tracking-[-0.04em] sm:!text-6xl">
-            Disrupted<br class="hidden sm:block" /> Games
+          <h1 id="viz1-title">
+            Disrupted<br /> Games
           </h1>
-          <p class="viz1-hero-copy mt-5 max-w-xl text-sm leading-6 sm:text-base">A visual record of how conflict, politics, and security reshaped who could take part in the Olympic Games.</p>
+          <p class="viz1-hero-copy">The Olympics were not a smooth story of growth. Wars, boycotts, and political crises interrupted participation and changed who appeared at the Games.</p>
         </div>
-        <div class="grid shrink-0 grid-cols-2 gap-2 text-right sm:gap-3">
-          <div class="viz1-stat-card rounded-2xl px-4 py-3">
-            <div class="viz1-stat-value font-mono text-2xl font-bold tracking-tight">1896</div>
-            <div class="viz1-stat-label mt-1 text-[0.62rem] font-bold uppercase tracking-[0.18em]">First edition</div>
+        <div class="grid">
+          <div class="viz1-stat-card">
+            <div class="viz1-stat-value font-mono">1896</div>
+            <div class="viz1-stat-label">First edition</div>
           </div>
-          <div class="viz1-stat-card rounded-2xl px-4 py-3">
-            <div class="viz1-stat-value font-mono text-2xl font-bold tracking-tight">2016</div>
-            <div class="viz1-stat-label mt-1 text-[0.62rem] font-bold uppercase tracking-[0.18em]">Latest edition</div>
+          <div class="viz1-stat-card">
+            <div class="viz1-stat-value font-mono">2016</div>
+            <div class="viz1-stat-label">Latest edition</div>
           </div>
         </div>
       </div>
     </header>
 
-    <div id="viz1-root" class="!w-full">
+    <div id="viz1-root">
       <div class="viz-action-toolbar"><button class="viz1-reset" type="button" aria-label="Reset">Reset</button></div>
-        <div class="viz1-shell !w-full !grid !grid-cols-1 !gap-5 lg:!grid-cols-[minmax(0,1fr)_22rem]">
-        <section class="viz1-chartcol !w-full !min-w-0 !gap-0" aria-label="Olympic participation chart">
-          <div class="viz1-controlsbar !rounded-2xl !p-3" aria-label="Chart playback controls">
-            <button id="viz1-play" class="play-btn !h-11 !w-11 !rounded-xl !text-base" type="button" aria-label="Play year sequence" aria-pressed="false">▶</button>
-            <output id="active-year-display" class="year-readout !text-2xl !font-black !tracking-tight" aria-live="polite">1896</output>
+        <div class="viz1-shell">
+        <section class="viz1-chartcol" aria-label="Olympic participation chart">
+          <div class="viz1-controlsbar" aria-label="Chart playback controls">
+            <button id="viz1-play" class="play-btn" type="button" aria-label="Play year sequence" aria-pressed="false">▶</button>
+            <output id="active-year-display" class="year-readout" aria-live="polite">1896</output>
             <div class="year-slider-wrap">
               <svg id="viz1-year-slider" class="range-slider-svg" viewBox="0 0 600 40" role="slider"
                 aria-label="Active Olympic year" aria-valuemin="1896" aria-valuemax="2016" aria-valuenow="1896" tabindex="0">
@@ -57,7 +56,7 @@
             </div>
           </div>
 
-          <div class="chart-wrap !w-full mt-4 overflow-hidden !rounded-2xl !p-2 sm:!p-4">
+          <div class="chart-wrap">
             <svg class="viz-svg" aria-label="Olympic athletes by year">
               <g class="chart-root">
                 <g class="grid-g"></g>
@@ -78,26 +77,26 @@
             <div class="viz1-dock-heading">
               <span class="viz1-dock-index">01</span>
               <div>
-                <h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Shape the view</h2>
+                <h2 class="control-label">Shape the view</h2>
                 <p>Filter disruptions or compare participation by country.</p>
               </div>
             </div>
 
             <section class="panel-block viz1-filter-block">
-              <h3 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Category</h3>
-              <div class="pill-group !gap-2" role="group" aria-label="Filter events by category">
-                <button class="pill active !px-3 !py-2 !font-bold" type="button" data-category="All">All</button>
-                <button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Wars/Cancellations">Wars/Cancellations</button>
-                <button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Boycotts">Boycotts</button>
-                <button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Political Events">Political Events</button>
-                <button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Security Events">Security Events</button>
+              <h3 class="control-label">Event Category</h3>
+              <div class="pill-group" role="group" aria-label="Filter events by category">
+                <button class="pill active" type="button" data-category="All">All</button>
+                <button class="pill" type="button" data-category="Wars/Cancellations">Wars/Cancellations</button>
+                <button class="pill" type="button" data-category="Boycotts">Boycotts</button>
+                <button class="pill" type="button" data-category="Political Events">Political Events</button>
+                <button class="pill" type="button" data-category="Security Events">Security Events</button>
               </div>
             </section>
 
             <section class="panel-block viz1-filter-block viz1-country-block">
-              <h3 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Country Detail Mode</h3>
+              <h3 class="control-label">Country Detail Mode</h3>
               <label class="sr-only" for="viz1-continent">Continent</label>
-              <select id="viz1-continent" class="viz1-select !rounded-xl !px-3 !py-3 !text-sm !font-semibold">
+              <select id="viz1-continent" class="viz1-select">
                 <option value="">All Continents</option>
                 <option value="Europe">Europe</option>
                 <option value="Americas">Americas</option>
@@ -106,35 +105,35 @@
                 <option value="Oceania">Oceania</option>
               </select>
 
-              <div class="country-picker !rounded-2xl !p-3 !shadow-none">
+              <div class="country-picker">
                 <div class="country-picker-header">
-                  <button class="country-picker-toggle !min-h-11 !rounded-xl !px-3 !py-2 !text-sm !shadow-none" type="button" aria-expanded="false" aria-controls="viz1-country-options" aria-haspopup="true">Choose countries</button>
-                  <button class="country-picker-clear !rounded-lg !px-2 !py-2 !font-bold" type="button">Clear</button>
+                  <button class="country-picker-toggle" type="button" aria-expanded="false" aria-controls="viz1-country-options" aria-haspopup="true">Choose countries</button>
+                  <button class="country-picker-clear" type="button">Clear</button>
                 </div>
                 <div class="country-picker-hint">Select up to 5 countries from one continent.</div>
                 <div id="viz1-country-options" class="country-picker-panel">
                   <div class="country-checklist"></div>
                 </div>
               </div>
-              <div class="chip-row !gap-2" aria-live="polite"></div>
-              <div class="cap-msg !font-mono !text-xs" hidden>Max 5 countries reached</div>
+              <div class="chip-row" aria-live="polite"></div>
+              <div class="cap-msg" hidden>Max 5 countries reached</div>
             </section>
           </section>
           <div class="viz-tooltip" role="status" aria-live="polite" hidden></div>
         </section>
 
-        <aside class="viz1-panelwrap !w-auto !basis-auto" aria-label="Legend and event details">
-          <div id="viz1-legend-panel" class="viz1-sidepanel !w-auto !rounded-2xl !p-5">
-            <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true">›</button>
-            <section class="panel-block !gap-3">
-              <h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Legend</h2>
-              <div class="viz1-legend !gap-2"></div>
+        <aside class="viz1-panelwrap" aria-label="Legend and event details">
+          <div id="viz1-legend-panel" class="viz1-sidepanel">
+            <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true"></button>
+            <section class="panel-block">
+              <h2 class="control-label">Legend</h2>
+              <div class="viz1-legend"></div>
             </section>
 
-            <section class="panel-block story-block !gap-3 !border-t !pt-5">
-              <h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Details</h2>
-              <div class="story-card placeholder !rounded-2xl !p-4">
-                <p class="story-placeholder-text !text-sm !leading-6">Click an event marker on the chart to see its story.</p>
+            <section class="panel-block story-block">
+              <h2 class="control-label">Event Details</h2>
+              <div class="story-card placeholder">
+                <p class="story-placeholder-text">Click an event marker on the chart to see its story.</p>
               </div>
             </section>
           </div>

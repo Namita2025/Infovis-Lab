@@ -6,22 +6,21 @@
  */
 
 import {
-  state,
+  clearSelectedCountries,
   getThemeColor,
+  OLYMPIC_YEARS,
   onStateChange,
   setActiveYear,
-  setSelectedContinent,
-  toggleSelectedCountry,
-  clearSelectedCountries,
   setEventCategory,
+  setSelectedContinent,
   setYearRange,
   startPlay,
+  state,
   stopPlay,
-  OLYMPIC_YEARS,
+  toggleSelectedCountry,
 } from '../main.js';
 
 const ALL_CONTINENTS = ['Europe', 'Americas', 'Asia', 'Africa', 'Oceania'];
-const CATEGORY_LIST = ['All', 'Wars/Cancellations', 'Boycotts', 'Political Events', 'Security Events', 'Geographical Calamity', 'Economic & Logistical Crisis'];
 
 const CONTINENT_COLOR = {
   Europe: getThemeColor('--continent-europe'),
@@ -49,19 +48,11 @@ const CATEGORY_PLOT_COLOR = {
   'Economic & Logistical Crisis': getThemeColor('--accent-gold-paper'),
 };
 
-const COUNTRY_COLORS = ['--country-1','--country-2','--country-3','--country-4','--country-5'];
+const COUNTRY_COLORS = ['--country-1', '--country-2', '--country-3', '--country-4', '--country-5'];
 
 const YEARS = OLYMPIC_YEARS;
 const YEAR_MIN = YEARS[0];
 const YEAR_MAX = YEARS[YEARS.length - 1];
-
-function countryColorScale(continent, count) {
-  const base = d3.hsl(CONTINENT_COLOR[continent]);
-  return d3.range(count).map((index) => {
-    const color = d3.hsl(base.h, base.s, Math.min(0.75, base.l + index * 0.12));
-    return color.formatHex();
-  });
-}
 
 export async function loadViz1() {
   const dataUrl = (file) => new URL(`../public/data/${file}`, import.meta.url);
@@ -118,7 +109,10 @@ export async function loadViz1() {
   const margin = { top: 30, right: 30, bottom: 50, left: 60 };
   const chartHeight = 480;
   const sliderMargin = 20;
-  const sliderX = d3.scaleLinear().domain([YEAR_MIN, YEAR_MAX]).range([sliderMargin, 600 - sliderMargin]);
+  const sliderX = d3.scaleLinear().domain([YEAR_MIN, YEAR_MAX]).range([
+    sliderMargin,
+    600 - sliderMargin,
+  ]);
   const stackedData = pivotContinentData(continentData);
   let panelCollapsed = false;
   let selectedStoryEvents = null;
@@ -126,7 +120,10 @@ export async function loadViz1() {
   function countryColor(noc) {
     if (!countryColorAssignments.has(noc)) {
       const used = new Set(countryColorAssignments.values());
-      countryColorAssignments.set(noc, COUNTRY_COLORS.find((name) => !used.has(name)) || COUNTRY_COLORS[0]);
+      countryColorAssignments.set(
+        noc,
+        COUNTRY_COLORS.find((name) => !used.has(name)) || COUNTRY_COLORS[0],
+      );
     }
     return getThemeColor(countryColorAssignments.get(noc));
   }
@@ -184,8 +181,13 @@ export async function loadViz1() {
 
   function updateCategoryPills() {
     controls.categoryPills
-      .classed('active', function () { return d3.select(this).datum() === state.eventCategory || this.dataset.category === state.eventCategory; })
-      .attr('aria-pressed', function () { return String(this.dataset.category === state.eventCategory); });
+      .classed('active', function () {
+        return d3.select(this).datum() === state.eventCategory ||
+          this.dataset.category === state.eventCategory;
+      })
+      .attr('aria-pressed', function () {
+        return String(this.dataset.category === state.eventCategory);
+      });
   }
 
   function updatePickerSummary() {
@@ -194,7 +196,10 @@ export async function loadViz1() {
     if (names.length === 1) label = names[0];
     if (names.length === 2) label = `${names[0]} and ${names[1]}`;
     if (names.length > 2) label = `${names.slice(0, 2).join(', ')} +${names.length - 2}`;
-    controls.pickerToggle.text(label).attr('aria-expanded', controls.picker.classed('open') ? 'true' : 'false');
+    controls.pickerToggle.text(label).attr(
+      'aria-expanded',
+      controls.picker.classed('open') ? 'true' : 'false',
+    );
     controls.picker.classed('has-selection', state.selectedCountries.length > 0);
   }
 
@@ -257,13 +262,19 @@ export async function loadViz1() {
       const items = group.append('div').attr('class', 'country-items');
 
       (countryLookup[continent] || []).forEach((country) => {
-        const label = items.append('label').attr('class', 'country-item').attr('title', country.NOC);
+        const label = items.append('label').attr('class', 'country-item').attr(
+          'title',
+          country.NOC,
+        );
         label.append('input')
           .attr('type', 'checkbox')
           .attr('class', 'country-checkbox')
           .attr('value', country.NOC)
           .property('checked', state.selectedCountries.includes(country.NOC))
-          .property('disabled', state.selectedCountries.length >= 5 && !state.selectedCountries.includes(country.NOC))
+          .property(
+            'disabled',
+            state.selectedCountries.length >= 5 && !state.selectedCountries.includes(country.NOC),
+          )
           .on('change', () => toggleSelectedCountry(country.NOC));
         label.append('span').attr('class', 'country-label').text(country.Country);
       });
@@ -277,7 +288,10 @@ export async function loadViz1() {
         label: countryMeta(noc).Country,
         color: countryColor(noc),
       }))
-      : visibleContinents().map((continent) => ({ label: continent, color: CONTINENT_COLOR[continent] }));
+      : visibleContinents().map((continent) => ({
+        label: continent,
+        color: CONTINENT_COLOR[continent],
+      }));
 
     const rows = controls.legend.selectAll('.legend-row').data(items).enter()
       .append('div').attr('class', 'legend-row');
@@ -288,7 +302,17 @@ export async function loadViz1() {
   function renderContinentDetails(year, selectedContinent) {
     const record = stackedData.find((item) => item.Year === year) || { Year: year };
     const rows = ALL_CONTINENTS.map((continent) => ({ continent, value: record[continent] || 0 }));
-    controls.continentDetails.html(`<div class="viz1-continent-year">${year} edition</div>${rows.map((row) => `<div class="viz1-continent-row ${row.continent === selectedContinent ? 'is-selected' : ''}"><span><i style="background:${CONTINENT_COLOR[row.continent]}"></i>${row.continent}</span><strong>${row.value.toLocaleString()}</strong></div>`).join('')}`);
+    controls.continentDetails.html(
+      `<div class="viz1-continent-year">${year} edition</div>${
+        rows.map((row) =>
+          `<div class="viz1-continent-row ${
+            row.continent === selectedContinent ? 'is-selected' : ''
+          }"><span><i style="background:${
+            CONTINENT_COLOR[row.continent]
+          }"></i>${row.continent}</span><strong>${row.value.toLocaleString()}</strong></div>`
+        ).join('')
+      }`,
+    );
   }
 
   function renderStoryCard(events) {
@@ -298,10 +322,15 @@ export async function loadViz1() {
       const entry = controls.storyCard.append('div').attr('class', 'story-entry');
       entry.append('div')
         .attr('class', 'story-badge')
-        .style('background', CATEGORY_COLOR[event.Category] || getThemeColor('--accent-neutral-panel'))
+        .style(
+          'background',
+          CATEGORY_COLOR[event.Category] || getThemeColor('--accent-neutral-panel'),
+        )
         .text(event.Category);
       entry.append('div').attr('class', 'story-title').text(`${event.Year} — ${event.Label}`);
-      entry.append('div').attr('class', 'story-meta').text(`${event.Host_City}, ${event.Host_Country}`);
+      entry.append('div').attr('class', 'story-meta').text(
+        `${event.Host_City}, ${event.Host_Country}`,
+      );
       entry.append('p').attr('class', 'story-text').text(event.Story || event.Reason);
     });
     controls.storyCard.append('button')
@@ -337,7 +366,10 @@ export async function loadViz1() {
     const innerHeight = chartHeight - margin.top - margin.bottom;
     const x = d3.scaleBand().domain(YEARS).range([0, innerWidth]).padding(0.25);
 
-    chartSvg.attr('viewBox', `0 0 ${width} ${chartHeight}`).attr('preserveAspectRatio', 'xMidYMid meet');
+    chartSvg.attr('viewBox', `0 0 ${width} ${chartHeight}`).attr(
+      'preserveAspectRatio',
+      'xMidYMid meet',
+    );
     chartRoot.attr('transform', `translate(${margin.left},${margin.top})`);
     xAxisG.attr('transform', `translate(0,${innerHeight})`);
     xLabel.attr('x', margin.left + innerWidth / 2).attr('y', chartHeight - 8);
@@ -348,8 +380,14 @@ export async function loadViz1() {
 
     const continents = visibleContinents();
     const maxY = state.mode === 'country'
-      ? d3.max(countryData.filter((record) => state.selectedCountries.includes(record.NOC)), (record) => record.athletes) || 100
-      : d3.max(stackedData, (record) => continents.reduce((sum, continent) => sum + (record[continent] || 0), 0)) || 100;
+      ? d3.max(
+        countryData.filter((record) => state.selectedCountries.includes(record.NOC)),
+        (record) => record.athletes,
+      ) || 100
+      : d3.max(
+        stackedData,
+        (record) => continents.reduce((sum, continent) => sum + (record[continent] || 0), 0),
+      ) || 100;
     const y = d3.scaleLinear().domain([0, maxY]).nice().range([innerHeight, 0]);
 
     gridG.selectAll('*').remove();
@@ -418,7 +456,16 @@ export async function loadViz1() {
         .on('keydown', (event) => {
           if (event.key === 'Enter' || event.key === ' ') renderStoryCard(rows);
         })
-        .on('mousemove', (event) => showTooltip(event, `<div class="tt-year">${year}</div>${rows.map((row) => `<div class="tt-row">${row.Label}</div>`).join('')}`))
+        .on(
+          'mousemove',
+          (event) =>
+            showTooltip(
+              event,
+              `<div class="tt-year">${year}</div>${
+                rows.map((row) => `<div class="tt-row">${row.Label}</div>`).join('')
+              }`,
+            ),
+        )
         .on('mouseleave', hideTooltip);
     });
   }
@@ -433,7 +480,8 @@ export async function loadViz1() {
         return { Year: year, athletes: record ? record.athletes : 0 };
       }),
     }));
-    const line = d3.line().x((record) => xLine(record.Year)).y((record) => y(record.athletes)).curve(d3.curveMonotoneX);
+    const line = d3.line().x((record) => xLine(record.Year)).y((record) => y(record.athletes))
+      .curve(d3.curveMonotoneX);
 
     series.forEach((seriesItem) => {
       lineG.append('path')
@@ -447,23 +495,35 @@ export async function loadViz1() {
         .attr('class', `dot-${seriesItem.noc}`)
         .attr('cx', (record) => xLine(record.Year)).attr('cy', (record) => y(record.athletes))
         .attr('r', (record) => record.athletes === 0 ? 3 : 4)
-        .attr('fill', (record) => record.athletes === 0 ? getThemeColor('--panel-text') : seriesItem.color)
-        .attr('stroke', seriesItem.color).attr('stroke-width', (record) => record.athletes === 0 ? 2 : 0)
+        .attr(
+          'fill',
+          (record) => record.athletes === 0 ? getThemeColor('--panel-text') : seriesItem.color,
+        )
+        .attr('stroke', seriesItem.color).attr(
+          'stroke-width',
+          (record) => record.athletes === 0 ? 2 : 0,
+        )
         .style('cursor', 'pointer')
         .on('mousemove', (event, record) => {
           const status = record.athletes === 0 ? 'Did not participate' : 'Participated';
-          const eventNames = eventsForYear(record.Year).map((item) => item.Label).join(', ') || 'None';
-          showTooltip(event, `<div class="tt-year"><span class="tt-swatch" style="background:${seriesItem.color}"></span>${seriesItem.noc} · ${record.Year}</div>
+          const eventNames = eventsForYear(record.Year).map((item) => item.Label).join(', ') ||
+            'None';
+          showTooltip(
+            event,
+            `<div class="tt-year"><span class="tt-swatch" style="background:${seriesItem.color}"></span>${seriesItem.noc} · ${record.Year}</div>
             <div class="tt-row">Athletes: ${record.athletes}</div>
             <div class="tt-row">${status}</div>
-            <div class="tt-row">Events: ${eventNames}</div>`);
+            <div class="tt-row">Events: ${eventNames}</div>`,
+          );
         })
         .on('mouseleave', hideTooltip);
     });
   }
 
   function renderContinentBars(x, y, continents) {
-    const stacked = d3.stack().keys(continents).value((record, key) => record[key] || 0)(stackedData);
+    const stacked = d3.stack().keys(continents).value((record, key) => record[key] || 0)(
+      stackedData,
+    );
     barsG.selectAll('.series').data(stacked).join('g')
       .attr('class', 'series')
       .attr('fill', (series) => CONTINENT_COLOR[series.key])
@@ -485,11 +545,16 @@ export async function loadViz1() {
             const value = record[1] - record[0];
             const total = continents.reduce((sum, item) => sum + (record.data[item] || 0), 0);
             const share = total > 0 ? ((value / total) * 100).toFixed(1) : '0.0';
-            const eventNames = eventsForYear(record.data.Year).map((item) => item.Label).join(', ') || 'None';
-            showTooltip(event, `<div class="tt-year">${record.data.Year} · ${continent}</div>
+            const eventNames = eventsForYear(record.data.Year).map((item) =>
+              item.Label
+            ).join(', ') || 'None';
+            showTooltip(
+              event,
+              `<div class="tt-year">${record.data.Year} · ${continent}</div>
               <div class="tt-row">Athletes: ${value}</div>
               <div class="tt-row">Share: ${share}%</div>
-              <div class="tt-row">Events: ${eventNames}</div>`);
+              <div class="tt-row">Events: ${eventNames}</div>`,
+            );
           })
           .on('mouseleave', hideTooltip);
       });
@@ -504,13 +569,18 @@ export async function loadViz1() {
     renderChart();
   }
 
-  controls.sliderHandle.call(d3.drag().on('drag', (event) => {
-    const [pixel] = d3.pointer(event, controls.slider.node());
-    setActiveYear(nearestOlympicYear(pixel));
-  }));
+  controls.sliderHandle.call(
+    d3.drag().on('drag', (event) => {
+      const [pixel] = d3.pointer(event, controls.slider.node());
+      setActiveYear(nearestOlympicYear(pixel));
+    }),
+  );
 
   controls.slider
-    .on('click', (event) => setActiveYear(nearestOlympicYear(d3.pointer(event, controls.slider.node())[0])))
+    .on(
+      'click',
+      (event) => setActiveYear(nearestOlympicYear(d3.pointer(event, controls.slider.node())[0])),
+    )
     .on('keydown', (event) => {
       const direction = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
       if (!direction) return;
@@ -576,11 +646,19 @@ export async function loadViz1() {
   controls.collapse.on('click', function () {
     panelCollapsed = !panelCollapsed;
     panelWrap.classed('collapsed', panelCollapsed);
-    shell.classed('legend-collapsed', panelCollapsed);
+    shell
+      .classed('legend-collapsed', panelCollapsed)
+      .classed('is-collapsed', panelCollapsed);
     d3.select(this)
-      .html(panelCollapsed ? '‹' : '›')
-      .attr('title', panelCollapsed ? 'Expand legend and event details' : 'Collapse legend and event details')
-      .attr('aria-label', panelCollapsed ? 'Expand legend and event details' : 'Collapse legend and event details')
+      .classed('is-collapsed', panelCollapsed)
+      .attr(
+        'title',
+        panelCollapsed ? 'Expand legend and event details' : 'Collapse legend and event details',
+      )
+      .attr(
+        'aria-label',
+        panelCollapsed ? 'Expand legend and event details' : 'Collapse legend and event details',
+      )
       .attr('aria-expanded', String(!panelCollapsed));
     requestAnimationFrame(renderChart);
   });

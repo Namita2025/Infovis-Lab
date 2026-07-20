@@ -1,26 +1,280 @@
-#viz3-section { border-top-color:#2A9D8F; } #viz3-section .section-kicker { color:#2A9D8F; }
-#viz3-root .viz3-shell { display:grid; grid-template-columns:minmax(0,1fr) 21rem; min-height:0; border:1px solid var(--border-subtle); background:var(--surface-panel); }
-#viz3-root .viz3-chart-panel { position:relative; min-width:0; padding:1rem; background:var(--surface-card); transition:opacity .25s ease; } #viz3-root .viz3-chart-panel.is-cancelled { opacity:.45; }
-.viz3-banner { min-height:1.2rem; color:#B34A4A; font:700 .72rem var(--font-data); text-transform:uppercase; letter-spacing:.12em; }
-.viz3-legend { display:flex; flex-wrap:wrap; gap:.5rem 1rem; padding:.5rem 0 1rem; color:var(--text-secondary); font: .65rem var(--font-data); } .viz3-legend-item { display:inline-flex; align-items:center; gap:.35rem; } .viz3-legend-item i { width:9px; height:9px; border-radius:50%; }
-.viz3-tree-wrap { overflow:visible; border-top:1px solid var(--border-subtle); } .viz3-svg { display:block; min-width:900px; } .viz3-link { fill:none; stroke:var(--border-subtle); stroke-width:1; } .viz3-node circle { fill:var(--text-secondary); } .viz3-node text { fill:var(--text-primary); font: .68rem var(--font-data); } .viz3-family-label { font-weight:700; fill:var(--text-primary); } .viz3-node.is-leaf { cursor:pointer; outline:none; } .viz3-node.is-leaf:focus text,.viz3-node.is-leaf:hover text { font-weight:700; } .viz3-node.is-leaf:focus .viz3-leaf-dot,.viz3-node.is-selected .viz3-leaf-dot { stroke-width:3; }
-#viz3-root .viz3-side { border-left:1px solid var(--border-subtle); } #viz3-root .detail-fact { margin-top:.85rem; } @media(max-width:900px){#viz3-root .viz3-shell{grid-template-columns:1fr;}.viz3-side{border-left:0!important;border-top:1px solid var(--border-subtle);}}
+#viz3-section {
+  border-top-color: #2a9d8f;
+}
+#viz3-section .section-kicker {
+  color: #2a9d8f;
+}
+#viz3-root .viz3-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 21rem;
+  min-height: 0;
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-panel);
+}
+#viz3-root .viz3-chart-panel {
+  position: relative;
+  min-width: 0;
+  padding: 1rem;
+  background: var(--surface-card);
+  transition: opacity 0.25s ease;
+}
+#viz3-root .viz3-chart-panel.is-cancelled {
+  opacity: 0.45;
+}
+.viz3-banner {
+  min-height: 1.2rem;
+  color: #b34a4a;
+  font: 700 0.72rem var(--font-data);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.viz3-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.5rem 0 1rem;
+  color: var(--text-secondary);
+  font: 0.65rem var(--font-data);
+}
+.viz3-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.viz3-legend-item i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.viz3-tree-wrap {
+  overflow: visible;
+  border-top: 1px solid var(--border-subtle);
+}
+.viz3-svg {
+  display: block;
+  min-width: 900px;
+}
+.viz3-link {
+  fill: none;
+  stroke: var(--border-subtle);
+  stroke-width: 1;
+}
+.viz3-node circle {
+  fill: var(--text-secondary);
+}
+.viz3-node text {
+  fill: var(--text-primary);
+  font: 0.68rem var(--font-data);
+}
+.viz3-family-label {
+  font-weight: 700;
+  fill: var(--text-primary);
+}
+.viz3-node.is-leaf {
+  cursor: pointer;
+  outline: none;
+}
+.viz3-node.is-leaf:focus text, .viz3-node.is-leaf:hover text {
+  font-weight: 700;
+}
+.viz3-node.is-leaf:focus .viz3-leaf-dot, .viz3-node.is-selected .viz3-leaf-dot {
+  stroke-width: 3;
+}
+#viz3-root .viz3-side {
+  position: relative;
+  min-height: 0;
+  padding: 1.1rem;
+  border-left: 1px solid var(--border-subtle);
+  overflow-y: auto;
+}
+#viz3-root .detail-fact {
+  margin-top: 0.85rem;
+}
+@media (max-width: 900px) {
+  #viz3-root .viz3-shell {
+    grid-template-columns: 1fr;
+  }
+  .viz3-side {
+    grid-row: 3;
+    border-left: 0 !important;
+    border-top: 1px solid var(--border-subtle);
+  }
+}
+#viz3-root .viz3-collapse {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+#viz3-root .viz3-detail {
+  padding-top: 1.5rem;
+}
 
-.viz3-toolbar { display:flex; justify-content:flex-end; margin-bottom:.6rem; } .viz3-reset { min-height:40px; padding:.55rem .8rem; border:1px solid var(--border-subtle); color:var(--text-primary); background:var(--surface-card); font:700 .65rem var(--font-data); text-transform:uppercase; letter-spacing:.08em; cursor:pointer; } .viz3-reset:hover,.viz3-reset:focus-visible { border-color:#2A9D8F; color:#2A9D8F; } .viz3-family-label { cursor:pointer; } .viz3-family-label:focus { outline:2px solid #2A9D8F; outline-offset:3px; }
+.viz3-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.6rem;
+}
+.viz3-reset {
+  min-height: 40px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  background: var(--surface-card);
+  font: 700 0.65rem var(--font-data);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.viz3-reset:hover, .viz3-reset:focus-visible {
+  border-color: #2a9d8f;
+  color: #2a9d8f;
+}
+.viz3-family-label {
+  cursor: pointer;
+}
+.viz3-family-label:focus {
+  outline: 2px solid #2a9d8f;
+  outline-offset: 3px;
+}
 
+#viz3-root .viz3-shell {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) 21rem;
+  transition: grid-template-columns 0.3s ease;
+}
+#viz3-root .viz3-shell.is-collapsed {
+  grid-template-columns: minmax(0, 1fr) 3rem;
+}
+#viz3-root .viz3-shell.is-collapsed .viz3-side {
+  display: block;
+  width: 3rem;
+  min-width: 3rem;
+  padding: 0.6rem 0.45rem;
+  overflow: visible;
+}
+#viz3-root .viz3-shell.is-collapsed .viz3-side > *:not(.viz3-collapse) {
+  display: none;
+}
+#viz3-root .viz3-shell.is-collapsed .viz3-collapse {
+  display: grid;
+  position: relative;
+  inset: auto;
+  margin: 0 auto;
+}
+#viz3-root .viz3-chart-panel {
+  width: 100%;
+  min-width: 0;
+}
+#viz3-root .viz3-tree-wrap {
+  width: 100%;
+  overflow: visible;
+}
 
-
-#viz3-root .viz3-shell { width:100%; grid-template-columns:minmax(0,1fr) 21rem; transition:grid-template-columns .3s ease; } #viz3-root .viz3-shell.is-collapsed { grid-template-columns:minmax(0,1fr) 3rem; } #viz3-root .viz3-shell.is-collapsed .viz3-side { display:block; width:3rem; min-width:3rem; padding:.6rem .45rem; overflow:visible; } #viz3-root .viz3-shell.is-collapsed .viz3-side > *:not(.viz3-collapse) { display:none; } #viz3-root .viz3-shell.is-collapsed .viz3-collapse { display:grid; position:relative; top:0; right:auto; margin:0 auto; } #viz3-root .viz3-chart-panel { width:100%; min-width:0; } #viz3-root .viz3-tree-wrap { width:100%; overflow:visible; }
-
-/* Override inherited Viz 2 map-shell sizing: Viz 3 grows with visible hierarchy rows. */
-#viz3-root .viz3-shell { grid-template-rows:auto; height:auto; min-height:0; overflow:visible; align-items:start; } #viz3-root .viz3-chart-panel { height:auto; min-height:0; overflow:visible; } #viz3-root .viz3-side { height:auto; max-height:none; overflow:visible; } #viz3-root .viz3-svg { height:auto; min-height:0; }
+/* Viz 3 grows with the visible hierarchy rows instead of using a fixed-height shell. */
+#viz3-root .viz3-shell {
+  grid-template-rows: auto;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  align-items: start;
+}
+#viz3-root .viz3-chart-panel {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+}
+#viz3-root .viz3-side {
+  height: auto;
+  max-height: none;
+  overflow: visible;
+}
+#viz3-root .viz3-svg {
+  height: auto;
+  min-height: 0;
+}
 
 /* Viz 3 shares shell, surface, and detail-panel hierarchy. */
-#viz3-root .viz3-shell { border-color: var(--viz-rule); border-radius: var(--viz-radius); background: var(--viz-surface); box-shadow: none; }
-#viz3-root .viz3-chart-panel, #viz3-root .viz3-side { background: var(--viz-surface-raised); }
-#viz3-root .viz3-side { border-color: var(--viz-rule); }
-.viz3-reset { border-radius: var(--viz-radius-sm); }
+#viz3-root .viz3-shell {
+  border-color: var(--viz-rule);
+  border-radius: var(--viz-radius);
+  background: var(--viz-surface);
+  box-shadow: none;
+}
+#viz3-root .viz3-chart-panel, #viz3-root .viz3-side {
+  background: var(--viz-surface-raised);
+}
+#viz3-root .viz3-side {
+  border-color: var(--viz-rule);
+}
+.viz3-reset {
+  border-radius: var(--viz-radius-sm);
+}
 
 /* Keep standalone Viz 3 consistent when its stylesheet is loaded directly. */
-#viz3-root .viz3-shell, #viz3-root .viz3-chart-panel, #viz3-root .viz3-side, .viz3-reset { box-shadow: none !important; }
-#viz3-root .viz3-shell, #viz3-root .viz3-chart-panel, #viz3-root .viz3-side, .viz3-reset { border-color: var(--viz-border, var(--border-subtle)) !important; }
+#viz3-root .viz3-shell, #viz3-root .viz3-chart-panel, #viz3-root .viz3-side, .viz3-reset {
+  box-shadow: none !important;
+}
+#viz3-root .viz3-shell, #viz3-root .viz3-chart-panel, #viz3-root .viz3-side, .viz3-reset {
+  border-color: var(--viz-border, var(--border-subtle)) !important;
+}
+
+/* Keep expanded sport labels inside the chart column instead of letting the
+   oversized SVG spill beneath the details rail. */
+#viz3-root .viz3-tree-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#viz3-root .viz3-svg {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+#viz3-root .viz3-link {
+  stroke: var(--instrument-rule-strong, #8a969b);
+  stroke-width: 1.15;
+}
+
+.viz3-standalone-head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(16rem, 28rem);
+  align-items: end;
+  gap: 2rem;
+  padding: 2rem 2rem 1rem;
+}
+.viz3-standalone-head p {
+  margin: 0;
+  color: var(--text-secondary);
+  font: 0.78rem/1.5 var(--font-data);
+}
+.viz3-standalone-head h1 {
+  margin: 0.35rem 0 0;
+  color: var(--text-primary);
+  font: 900 clamp(2rem, 5vw, 4rem)/0.95 var(--font-display);
+  letter-spacing: -0.05em;
+}
+.viz3-back {
+  color: var(--text-primary);
+  font: 700 0.68rem var(--font-data);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.viz3-back:hover, .viz3-back:focus-visible {
+  color: #2a9d8f;
+}
+@media (max-width: 800px) {
+  .viz3-standalone-head {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1.25rem 1rem 0.75rem;
+  }
+  .viz3-standalone-head > p {
+    max-width: 38rem;
+  }
+}

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OlympicLens — Disrupted Games</title>
+  <title>Disrupted, Expanded, Included: A Visual History of the Olympic Games</title>
   <link rel="icon" href="/template/public/olympic-games-svgrepo-com.svg" />
   <link rel="stylesheet" href="viz1/style.css" />
   <link rel="stylesheet" href="viz2/style.css" />
@@ -20,7 +20,7 @@
   <div class="cursor-orb" aria-hidden="true"></div>
 
   <header id="app-header" class="site-header">
-    <div class="header-title !gap-3">
+    <div class="header-title">
       <a class="brand" href="#top">
         <img class="brand-mark" src="/template/public/olympic-games-svgrepo-com.svg" alt="" aria-hidden="true" />
         Olympic<span>Lens</span>
@@ -40,8 +40,8 @@
       <div class="hero-orbit hero-orbit-b" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-dot"></span> Olympic history / 1896—2016</p>
-        <h1>When the<br /><em>world</em> stopped<br />the Games.</h1>
-        <p class="hero-lede">A visual archive of participation, pressure, and the moments that changed who could show up.</p>
+        <h1>Disrupted,<br /><em>Expanded,</em><br />Included.</h1>
+        <p class="hero-lede">A Visual History of the Olympic Games</p>
         <a class="hero-cta magnetic" href="#viz1-section"><span>Enter the archive</span><span class="cta-arrow">↘</span></a>
       </div>
       <div class="hero-side-note"><span>Scroll to investigate</span><i></i><span class="mono">01 / 03</span></div>
@@ -49,25 +49,25 @@
     </section>
 
     <section class="intro-strip" data-reveal>
-      <p class="section-kicker">A century in motion</p>
-      <p class="intro-copy">The Olympics are often framed as a constant. The data tells a more complicated story: attendance bends around war, ideology, protest, and fear.</p>
+      <p class="section-kicker">Research question</p>
+      <p class="intro-copy">From disruption to expansion: how did the Olympic Games evolve in participation, inclusion, and programme structure across 120 years?</p>
       <div class="intro-metrics"><div><strong>28</strong><span>editions mapped</span></div><div><strong>5</strong><span>continents compared</span></div><div><strong>8</strong><span>disruptions tracked</span></div></div>
     </section>
 
     <section class="viz-section feature-section" id="viz1-section" data-reveal>
       <div class="section-heading">
         <div><p class="section-kicker">01 / Participation</p><h2>Disrupted Games</h2></div>
-        <p class="section-summary">Trace the rise and fall of Olympic participation against the events that pulled the world apart.</p>
+        <p class="section-summary">The Olympics were not a smooth story of growth. Wars, boycotts, and political crises interrupted participation and changed who appeared at the Games.</p>
       </div>
       <div class="viz-subtitle">Olympic Participation Through Global Events · 1896–2016</div>
-      <div id="viz1-root" class="!w-full">
+      <div id="viz1-root">
         <div class="viz-action-toolbar"><button class="viz1-reset" type="button" aria-label="Reset">Reset</button></div>
-        <div class="viz1-shell !w-full !grid !grid-cols-1 !gap-5 lg:!grid-cols-[minmax(0,1fr)_22rem]">
-          <section class="viz1-chartcol !w-full !min-w-0 !gap-0" aria-label="Olympic participation chart">
+        <div class="viz1-shell">
+          <section class="viz1-chartcol" aria-label="Olympic participation chart">
             <div class="home-year-control-anchor">
               <div class="shared-year-control home-year-control" data-year-control aria-label="Shared Olympic edition controls"></div>
             </div>
-            <div class="chart-wrap !w-full mt-4 overflow-hidden !rounded-2xl !p-2 sm:!p-4">
+            <div class="chart-wrap">
               <svg class="viz-svg" aria-label="Olympic athletes by year">
                 <g class="chart-root">
                   <g class="grid-g"></g><g class="bars-g"></g><g class="line-g"></g><g class="dot-g"></g>
@@ -78,28 +78,28 @@
               </svg>
             </div>
             <section class="viz1-controls-dock" aria-label="Chart filters">
-              <div class="viz1-dock-heading"><span class="viz1-dock-index">01</span><div><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Shape the view</h2><p>Filter disruptions or compare participation by country.</p></div></div>
+              <div class="viz1-dock-heading"><span class="viz1-dock-index">01</span><div><h2 class="control-label">Shape the view</h2><p>Filter disruptions or compare participation by country.</p></div></div>
               <section class="panel-block viz1-filter-block">
-                <h3 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Category</h3>
-                <div class="pill-group !gap-2" role="group" aria-label="Filter events by category">
-                  <button class="pill active !px-3 !py-2 !font-bold" type="button" data-category="All">All</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Wars/Cancellations">Wars/Cancellations</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Boycotts">Boycotts</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Political Events">Political Events</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Security Events">Security Events</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Geographical Calamity">Geographical Calamity</button><button class="pill !px-3 !py-2 !font-bold" type="button" data-category="Economic & Logistical Crisis">Economic & Logistical Crisis</button>
+                <h3 class="control-label">Event Category</h3>
+                <div class="pill-group" role="group" aria-label="Filter events by category">
+                  <button class="pill active" type="button" data-category="All">All</button><button class="pill" type="button" data-category="Wars/Cancellations">Wars/Cancellations</button><button class="pill" type="button" data-category="Boycotts">Boycotts</button><button class="pill" type="button" data-category="Political Events">Political Events</button><button class="pill" type="button" data-category="Security Events">Security Events</button><button class="pill" type="button" data-category="Geographical Calamity">Geographical Calamity</button><button class="pill" type="button" data-category="Economic & Logistical Crisis">Economic & Logistical Crisis</button>
                 </div>
               </section>
               <section class="panel-block viz1-filter-block viz1-country-block">
-                <h3 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Country Detail Mode</h3>
+                <h3 class="control-label">Country Detail Mode</h3>
                 <label class="sr-only" for="viz1-continent">Continent</label>
-                <select id="viz1-continent" class="viz1-select !rounded-xl !px-3 !py-3 !text-sm !font-semibold"><option value="">All Continents</option><option value="Europe">Europe</option><option value="Americas">Americas</option><option value="Asia">Asia</option><option value="Africa">Africa</option><option value="Oceania">Oceania</option></select>
-                <div class="country-picker !rounded-2xl !p-3 !shadow-none"><div class="country-picker-header"><button class="country-picker-toggle !min-h-11 !rounded-xl !px-3 !py-2 !text-sm !shadow-none" type="button" aria-expanded="false" aria-controls="viz1-country-options" aria-haspopup="true">Choose countries</button><button class="country-picker-clear !rounded-lg !px-2 !py-2 !font-bold" type="button">Clear</button></div><div class="country-picker-hint">Select up to 5 countries from one continent.</div><div id="viz1-country-options" class="country-picker-panel"><div class="country-checklist"></div></div></div>
-                <div class="chip-row !gap-2" aria-live="polite"></div><div class="cap-msg !font-mono !text-xs" hidden>Max 5 countries reached</div>
+                <select id="viz1-continent" class="viz1-select"><option value="">All Continents</option><option value="Europe">Europe</option><option value="Americas">Americas</option><option value="Asia">Asia</option><option value="Africa">Africa</option><option value="Oceania">Oceania</option></select>
+                <div class="country-picker"><div class="country-picker-header"><button class="country-picker-toggle" type="button" aria-expanded="false" aria-controls="viz1-country-options" aria-haspopup="true">Choose countries</button><button class="country-picker-clear" type="button">Clear</button></div><div class="country-picker-hint">Select up to 5 countries from one continent.</div><div id="viz1-country-options" class="country-picker-panel"><div class="country-checklist"></div></div></div>
+                <div class="chip-row" aria-live="polite"></div><div class="cap-msg" hidden>Max 5 countries reached</div>
               </section>
             </section>
             <div class="viz-tooltip" role="status" aria-live="polite" hidden></div>
           </section>
-          <aside class="viz1-panelwrap !w-auto !basis-auto" aria-label="Legend and event details">
-            <div id="viz1-legend-panel" class="viz1-sidepanel !w-auto !rounded-2xl !p-5">
-              <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true">›</button>
-              <section class="panel-block !gap-3"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Legend</h2><div class="viz1-legend !gap-2"></div></section>
-              <section class="panel-block viz1-continent-details" aria-live="polite"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Participation by continent</h2><div class="viz1-continent-detail-body"><p class="story-placeholder-text">Click a continent bar to compare the edition.</p></div></section><section class="panel-block story-block !gap-3 !border-t !pt-5"><h2 class="control-label !text-[0.68rem] !font-black !uppercase !tracking-[0.18em]">Event Details</h2><div class="story-card placeholder !rounded-2xl !p-4"><p class="story-placeholder-text !text-sm !leading-6">Click an event marker on the chart to see its story.</p></div></section>
+          <aside class="viz1-panelwrap" aria-label="Legend and event details">
+            <div id="viz1-legend-panel" class="viz1-sidepanel">
+              <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true"></button>
+              <section class="panel-block"><h2 class="control-label">Legend</h2><div class="viz1-legend"></div></section>
+              <section class="panel-block viz1-continent-details" aria-live="polite"><h2 class="control-label">Participation by continent</h2><div class="viz1-continent-detail-body"><p class="story-placeholder-text">Click a continent bar to compare the edition.</p></div></section><section class="panel-block story-block"><h2 class="control-label">Event Details</h2><div class="story-card placeholder"><p class="story-placeholder-text">Click an event marker on the chart to see its story.</p></div></section>
             </div>
           </aside>
         </div>
@@ -107,12 +107,12 @@
     </section>
 
     <section class="viz-section feature-section" id="viz2-section" data-reveal>
-      <div class="section-heading"><div><p class="section-kicker">02 / Efficiency</p><h2>From Presence to Podium</h2></div><p class="section-summary">Compare how delegations converted participation into medals—and find the editions when a country first reached the podium.</p></div>
+      <div class="section-heading"><div><p class="section-kicker">02 / Efficiency</p><h2>From Presence to Podium</h2></div><p class="section-summary">Showing up is not the same as succeeding. Some countries converted participation into medals far more efficiently than others.</p></div>
       <div class="viz-subtitle">Summer Olympic medal efficiency by country · 1896–2016</div>
       <div id="viz2-root"></div>
     </section>
 
-    <section class="viz-section feature-section" id="viz3-section" data-reveal><div class="section-heading"><div><p class="section-kicker">03 / Programme</p><h2>The Expanding Games</h2></div><p class="section-summary">Follow Olympic sports from debut to disappearance?and see how participation and women?s representation changed across the programme.</p></div><div id="viz3-root"></div></section>
+    <section class="viz-section feature-section" id="viz3-section" data-reveal><div class="section-heading"><div><p class="section-kicker">03 / Programme</p><h2>The Expanding Games</h2></div><p class="section-summary">The Olympic programme itself changed dramatically over time. New sports, disciplines, and categories expanded the Games and gradually widened inclusion.</p></div><div id="viz3-root"></div></section>
 
     <footer class="site-footer"><span>OlympicLens</span><span>Built from historical participation data · 2024</span><span>Scroll / explore / compare</span></footer>
 
