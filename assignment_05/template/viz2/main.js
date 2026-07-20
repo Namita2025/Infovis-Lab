@@ -46,6 +46,7 @@ const flag = (noc) =>
     ? String.fromCodePoint(...[...FLAG_ISO2[noc]].map((c) => 127397 + c.charCodeAt()))
     : '';
 
+// Build the shell for the medal-efficiency map view.
 function markup() {
   return `<div class="viz-action-toolbar"><button class="viz2-reset">Reset map</button></div><div class="viz2-shell">
     <section class="viz2-map-panel" aria-label="World medal efficiency map">
@@ -95,6 +96,7 @@ function markup() {
   </div>`;
 }
 
+// Load the data, set up the map interactions, and keep the UI in sync with shared state.
 export async function loadViz2() {
   const root = document.querySelector('#viz2-root');
   if (!root || root.dataset.loaded) return;

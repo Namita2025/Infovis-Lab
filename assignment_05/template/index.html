@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="visualization-system.css" />
 </head>
 <body class="home-page">
+  <!-- Preloader, cursor effect, and fixed site header -->
   <div class="preloader" aria-hidden="true">
     <div class="preloader-mark">OL<span>/</span>01</div>
     <div class="preloader-line"><span></span></div>
@@ -33,6 +34,8 @@
       <span class="header-filter"><span class="filter-label">Window</span><span class="filter-value" id="year-range-display">1896 – 2016</span></span>
     </nav>
   </header>
+
+  <!-- Main narrative and interactive visualizations -->
   <main id="top" class="site-main">
     <section class="hero" id="story" data-reveal>
       <div class="hero-grid" aria-hidden="true"></div>
@@ -54,6 +57,7 @@
       <div class="intro-metrics"><div><strong>28</strong><span>editions mapped</span></div><div><strong>5</strong><span>continents compared</span></div><div><strong>8</strong><span>disruptions tracked</span></div></div>
     </section>
 
+    <!-- Visualization 1: participation and disruption history -->
     <section class="viz-section feature-section" id="viz1-section" data-reveal>
       <div class="section-heading">
         <div><p class="section-kicker">01 / Participation</p><h2>Disrupted Games</h2></div>
@@ -106,15 +110,17 @@
       </div>
     </section>
 
+    <!-- Visualization 2: medal efficiency by country -->
     <section class="viz-section feature-section" id="viz2-section" data-reveal>
       <div class="section-heading"><div><p class="section-kicker">02 / Efficiency</p><h2>From Presence to Podium</h2></div><p class="section-summary">Showing up is not the same as succeeding. Some countries converted participation into medals far more efficiently than others.</p></div>
       <div class="viz-subtitle">Summer Olympic medal efficiency by country · 1896–2016</div>
       <div id="viz2-root"></div>
     </section>
 
+    <!-- Visualization 3: programme expansion across editions -->
     <section class="viz-section feature-section" id="viz3-section" data-reveal><div class="section-heading"><div><p class="section-kicker">03 / Programme</p><h2>The Expanding Games</h2></div><p class="section-summary">The Olympic programme itself changed dramatically over time. New sports, disciplines, and categories expanded the Games and gradually widened inclusion.</p></div><div id="viz3-root"></div></section>
 
-    <footer class="site-footer"><span>OlympicLens</span><span>Built from historical participation data · 2024</span><span>Scroll / explore / compare</span></footer>
+    <footer class="site-footer"><span></span><span></span><span></span></footer>
 
   </main>
 

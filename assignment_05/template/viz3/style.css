@@ -1,3 +1,4 @@
+/* Styling for the expanding-programme visualization. */
 #viz3-section {
   border-top-color: #2a9d8f;
 }
@@ -66,6 +67,19 @@
 .viz3-node text {
   fill: var(--text-primary);
   font: 0.68rem var(--font-data);
+  paint-order: stroke fill;
+  stroke: var(--viz-surface-raised, var(--surface-card));
+  stroke-linejoin: round;
+  stroke-width: 3px;
+}
+.viz3-label-bg {
+  fill: var(--viz-surface-raised, var(--surface-card));
+  opacity: 0.98;
+  pointer-events: none;
+}
+.viz3-branch-dot {
+  stroke: var(--viz-surface-raised, var(--surface-card));
+  stroke-width: 2px;
 }
 .viz3-family-label {
   font-weight: 700;

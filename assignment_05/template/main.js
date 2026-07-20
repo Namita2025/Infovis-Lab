@@ -138,6 +138,7 @@ export function stopPlay() {
 }
 
 /** Bind every reusable year bar on the page to the shared playhead. */
+// Bind the shared year-control UI to any visualization that needs the playhead.
 export function initYearControls(scope = document) {
   scope.querySelectorAll('[data-year-control]:not([data-year-bound])').forEach((control) => {
     control.dataset.yearBound = 'true';

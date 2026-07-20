@@ -18,7 +18,7 @@
   --instrument-motion: 180ms ease;
 }
 
-/* One parent frame; its children create hierarchy with surfaces and rules. */
+/* Shared visual system for the three story views. */
 #viz1-root .viz1-shell,
 #viz2-root .viz2-shell,
 #viz3-root .viz3-shell {

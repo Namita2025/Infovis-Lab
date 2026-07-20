@@ -186,7 +186,7 @@ body {
   color: var(--fg-graphite);
 }
 
-/* ── TOOLTIP ───────────────────────────────────────────────────── */
+/* ── SHARED PAGE LAYOUT ───────────────────────────────────────── */
 .viz-tooltip {
   position: fixed;
   background: var(--bg-canvas);

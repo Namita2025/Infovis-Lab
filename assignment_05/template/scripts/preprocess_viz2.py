@@ -31,7 +31,6 @@ HISTORICAL_LABELS = {
     "ANZ": "Australasia", "BOH": "Bohemia", "TCH": "Czechoslovakia",
     "SAA": "United Team of Germany",
 }
-UNSUPPORTED = {"IOA", "ROT", "UNK", "MIX"}
 
 
 def clean_event_list(frame):

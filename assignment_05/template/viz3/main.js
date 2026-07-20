@@ -10,12 +10,17 @@ const FAMILY_COLORS = {
   Other: '#64748B',
 };
 const cancelled = new Set([1916, 1940, 1944]);
+const NODE_RADIUS = 6;
+const LINK_PADDING = 5;
+const LABEL_BG_PADDING_X = 4;
+const LABEL_BG_PADDING_Y = 2;
 const esc = (value) =>
   String(value ?? '?').replace(
     /[&<>"']/g,
     (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]),
   );
 
+// Load the sport-tree data and render the interactive programme hierarchy.
 export async function loadViz3() {
   const root = document.querySelector('#viz3-root');
   if (!root) return;
@@ -40,6 +45,36 @@ export async function loadViz3() {
       node.children = null;
     });
   collapseFamilies();
+  const linkHorizontal = d3.linkHorizontal().x((d) => d.y).y((d) => d.x);
+  const linkPoint = (node, direction) => ({
+    x: node.x,
+    // Keep the path outside the node circle, plus a small visual gutter.
+    y: node.y + direction * (NODE_RADIUS + LINK_PADDING),
+  });
+  const addLabelBackground = (node, label) => {
+    const box = label.node().getBBox();
+    node.insert('rect', () => label.node()).attr('class', 'viz3-label-bg').attr(
+      'x',
+      box.x - LABEL_BG_PADDING_X,
+    ).attr('y', box.y - LABEL_BG_PADDING_Y).attr(
+      'width',
+      box.width + LABEL_BG_PADDING_X * 2,
+    ).attr('height', box.height + LABEL_BG_PADDING_Y * 2).attr('rx', 2);
+  };
+  const toggleNode = (node) => {
+    const next = node.children ? null : node._children;
+    if (next && node.depth === 1 && hierarchy.children) {
+      hierarchy.children.forEach((other) => {
+        if (other !== node) {
+          other._children = other.children || other._children;
+          other.children = null;
+        }
+      });
+    }
+    node._children = node.children;
+    node.children = next;
+    draw(true);
+  };
   function renderDetail(node) {
     selected = node;
     const d = node.data,
@@ -65,59 +100,43 @@ export async function loadViz3() {
     const width = Math.max(620, root.querySelector('.viz3-chart-panel').clientWidth - 32),
       height = Math.max(240, hierarchy.leaves().length * 32 + 80);
     svg.attr('viewBox', `0 0 ${width} ${height}`).attr('height', height);
-    tree.size([height - 40, Math.max(280, width - 280)]);
+    tree.size([height - 56, Math.max(280, width - 280)]);
     tree(hierarchy);
     svg.selectAll('*').remove();
-    const g = svg.append('g').attr('transform', 'translate(32,20)').style(
+    const g = svg.append('g').attr('transform', 'translate(100,32)').style(
       'opacity',
       animate ? 0 : 1,
     );
     if (animate) g.transition().duration(300).style('opacity', 1);
     g.selectAll('.viz3-link').data(hierarchy.links()).join('path').attr('class', 'viz3-link').attr(
       'd',
-      d3.linkHorizontal().x((d) => d.y).y((d) => d.x),
+      (d) => linkHorizontal({
+        source: linkPoint(d.source, 1),
+        target: linkPoint(d.target, -1),
+      }),
     );
     g.selectAll('.viz3-node').data(hierarchy.descendants()).join('g').attr(
       'class',
-      (d) => `viz3-node ${d.children ? 'is-branch' : 'is-leaf'}`,
+      (d) => `viz3-node ${d.children || d._children ? 'is-branch' : 'is-leaf'}`,
     ).attr('transform', (d) => `translate(${d.y},${d.x})`).each(function (d) {
       const n = d3.select(this);
       if (d.children || d._children) {
-        n.append('text').attr('class', 'viz3-family-label').attr('x', 0).attr('dy', '.35em').text(
+        n.append('circle').attr('class', 'viz3-branch-dot').attr('r', NODE_RADIUS);
+        const label = n.append('text').attr('class', 'viz3-family-label').attr('x', 0).attr(
+          'y',
+          -(NODE_RADIUS + LINK_PADDING + 1),
+        ).attr('text-anchor', 'middle').text(
           `${d.data.name} [${d._children ? '+' : '-'}]`,
-        ).attr('tabindex', d.depth === 1 ? 0 : null).on('click', () => {
-          if (d.depth !== 1) {
-            return;
-          }
-          const next = d.children ? null : d._children;
-          if (next) {
-            hierarchy.children.forEach((other) => {
-              if (other !== d) {
-                other._children = other.children || other._children;
-                other.children = null;
-              }
-            });
-          }
-          d._children = d.children;
-          d.children = next;
-          draw(true);
-        }).on('keydown', (e) => {
-          if ((e.key === 'Enter' || e.key === ' ') && d.depth === 1) {
+        ).attr('tabindex', 0).attr('role', 'button').attr(
+          'aria-expanded',
+          String(Boolean(d.children)),
+        ).on('click', () => toggleNode(d)).on('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            const next = d.children ? null : d._children;
-            if (next) {
-              hierarchy.children.forEach((other) => {
-                if (other !== d) {
-                  other._children = other.children || other._children;
-                  other.children = null;
-                }
-              });
-            }
-            d._children = d.children;
-            d.children = next;
-            draw(true);
+            toggleNode(d);
           }
         });
+        addLabelBackground(n, label);
       } else {
         const color = FAMILY_COLORS[d.parent.data.name] || FAMILY_COLORS.Other,
           stat = d.data.yearlyStats[String(state.activeYear)],
@@ -128,11 +147,15 @@ export async function loadViz3() {
         ).on('keydown', (e) => {
           if (e.key === 'Enter' || e.key === ' ') renderDetail(d);
         }).attr('tabindex', 0).attr('aria-label', `${d.data.name}, ${d.data.status}`);
-        n.append('circle').attr('class', 'viz3-leaf-dot').attr('r', 6).attr(
+        n.append('circle').attr('class', 'viz3-leaf-dot').attr('r', NODE_RADIUS).attr(
           'fill',
           d.data.status === 'active' ? color : 'none',
         ).attr('stroke', color).attr('stroke-width', d.data.status === 'reinstated' ? 3 : 1.6);
-        n.append('text').attr('x', 42).attr('dy', '.35em').text(d.data.name);
+        const label = n.append('text').attr('x', NODE_RADIUS + LINK_PADDING).attr(
+          'dy',
+          '.35em',
+        ).text(d.data.name);
+        addLabelBackground(n, label);
       }
     });
     root.querySelector('.viz3-year-subtitle').textContent =

@@ -1,46 +1,86 @@
-# Assignment 4
+# OlympicLens
 
-This folder contains all files for assignment 4.
+This project is a browser-based interactive visualization of Olympic history. It presents three linked stories about disruption, medal efficiency, and the expansion of the Olympic programme.
 
-## Visualization
+## Run the visualization
 
-Use the provided skeleton template, see the respective README.md for more information on how to use the skeleton.
+The web app is a static site, so you do not need a build step.
 
-## Python Setup and Usage
+1. Open a terminal in the project root.
+2. Start a simple local web server:
 
-To use the python scripts provided to you make sure you have Python >=3.7 installed.
-If you have python installed, navigate to the `python` folder on the command line and execute the following steps.
-
-**Easiest:**
-
-1. vscode hit CTRL+SHIFT+P, type python env and hit enter, then follow the instructions
-2. every time you open the terminal vscode should start the environment, if not see below (you might need to kill open ones)
-3. go to 3. below
-
-**Alternative:**
-
-1. Create a virtual environment with `python -m venv <env-name>`
-2. Activate your virtual environment with one of the following commands, depending on your OS and shell
-   - Windows Shell: `<env-name>\Scripts\activate.bat`
-   - Windows PowerShell: `<env-name>\Scripts\Activate.ps1`
-   - POSIX bash/zsh: `source <env-name>/bin/activate`
-   - POSIX fish: `source <env-name>/bin/activate.fish`
-   - POSIX csh/tcsh: `source <env-name>/bin/activate.csh`
-   - POSIX PowerShell Core: `<env-name>/bin/Activate.ps1`
-
-3. Install all required packages
-   - `pip install pandas flask`
-4. To run the Flask server run:
    ```bash
-   python server.py
+   python -m http.server 8000
    ```
-5. To deactivate your virtual environment, type `deactivate`
 
-### Jupyter Notebook
+3. Open the following URL in your browser:
 
-You can edit jupyter notebooks in vscode, simply open the file.
+   ```text
+   http://localhost:8000/template/
+   ```
 
-Alternatively, to open and edit a jupyter notebook, simply go to the data directory, activate your environment and type `jupyter notebook` to open jupyter notebook in the current directory or type `jupyter notebook <name>.ipynb` to directly open a specific notebook. This will start a local server and open your browser.
-We provided a basic jupyter notebook file in the data directory to get you started.
+This is the recommended way to run the site because the charts load JSON data from the local project files.
 
-For more information on jupyter notebook, please refer to [https://jupyter-notebook.readthedocs.io/en/stable/](https://jupyter-notebook.readthedocs.io/en/stable/).
+> If you prefer, you can also open the page directly in a browser, but serving it locally is more reliable.
+
+## Project structure
+
+- [template/index.html](template/index.html) — main landing page and entry point for the full experience
+- [template/main.js](template/main.js) — shared state and shared UI logic used across the visualizations
+- [template/style.css](template/style.css) — shared styling for the site
+- [template/visualization-system.css](template/visualization-system.css) — shared layout and component styling for the charts
+
+### Visualization 1: Participation and disruption
+- [template/viz1/index.html](template/viz1/index.html)
+- [template/viz1/main.js](template/viz1/main.js)
+- [template/viz1/style.css](template/viz1/style.css)
+- Purpose: explores participation over time and highlights disruptions such as wars, boycotts, and political events
+
+### Visualization 2: Medal efficiency
+- [template/viz2/index.html](template/viz2/index.html)
+- [template/viz2/main.js](template/viz2/main.js)
+- [template/viz2/style.css](template/viz2/style.css)
+- Purpose: shows how countries converted participation into medals across Olympic editions
+
+### Visualization 3: Programme expansion
+- [template/viz3/index.html](template/viz3/index.html)
+- [template/viz3/main.js](template/viz3/main.js)
+- [template/viz3/style.css](template/viz3/style.css)
+- Purpose: visualizes how the Olympic sports programme expanded over time
+
+### Data files
+- [template/public/data](template/public/data) — JSON files used by the visualizations
+- [template/public/data/countries.geo.json](template/public/data/countries.geo.json) — geographic shapes for the map view
+- [template/public/data/viz1_continent_athletes.json](template/public/data/viz1_continent_athletes.json) — participation data for visualization 1
+- [template/public/data/viz2_efficiency_yearly.json](template/public/data/viz2_efficiency_yearly.json) — medal-efficiency data for visualization 2
+- [template/public/data/viz3_sport_tree.json](template/public/data/viz3_sport_tree.json) — programme hierarchy data for visualization 3
+
+## Python files and notebooks
+
+The Python folder contains supporting files for data processing and experimentation.
+
+- [python/](python/) — notebooks and CSV data used during preprocessing
+- [python/server.py](python/server.py) — a simple Flask example; it is not required to view the visualization
+- [template/scripts/preprocess_viz2.py](template/scripts/preprocess_viz2.py) — optional preprocessing helper for visualization 2 data
+
+### Optional Python setup
+
+If you want to work with the notebooks or Python scripts, use Python 3.8+ and install the required packages:
+
+```bash
+pip install pandas flask jupyter
+```
+
+You can then launch Jupyter from the project root:
+
+```bash
+jupyter notebook
+```
+
+## Running order
+
+No specific order is required for the web app itself.
+
+- To view the visualization: start the local server and open the page in your browser.
+- To work with the Python notebooks: open them after installing the packages above.
+- If you change the underlying data, refresh the browser after updating the relevant JSON files in [template/public/data](template/public/data).

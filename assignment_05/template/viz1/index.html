@@ -9,11 +9,14 @@
   <link rel="stylesheet" href="../visualization-system.css" />
 </head>
 <body class="viz1-page-body">
+  <!-- Loading state and cursor overlay -->
   <div class="preloader" aria-hidden="true">
     <div class="preloader-mark">OL<span>/</span>01</div>
     <div class="preloader-line"><span></span></div>
   </div>
   <div class="cursor-orb" aria-hidden="true"></div>
+
+  <!-- Main visualization page content -->
   <main class="viz-section viz1-page" aria-labelledby="viz1-title">
     <header>
       <div class="relative">
@@ -41,8 +44,10 @@
     </header>
 
     <div id="viz1-root">
+      <!-- Global reset action for the view -->
       <div class="viz-action-toolbar"><button class="viz1-reset" type="button" aria-label="Reset">Reset</button></div>
-        <div class="viz1-shell">
+      <div class="viz1-shell">
+        <!-- Main chart area and interactive controls -->
         <section class="viz1-chartcol" aria-label="Olympic participation chart">
           <div class="viz1-controlsbar" aria-label="Chart playback controls">
             <button id="viz1-play" class="play-btn" type="button" aria-label="Play year sequence" aria-pressed="false">▶</button>
@@ -122,6 +127,7 @@
           <div class="viz-tooltip" role="status" aria-live="polite" hidden></div>
         </section>
 
+        <!-- Legend and event detail sidebar -->
         <aside class="viz1-panelwrap" aria-label="Legend and event details">
           <div id="viz1-legend-panel" class="viz1-sidepanel">
             <button class="viz1-collapse-btn" type="button" title="Collapse legend and event details" aria-label="Collapse legend and event details" aria-controls="viz1-legend-panel" aria-expanded="true"></button>

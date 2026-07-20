@@ -360,6 +360,7 @@ export async function loadViz1() {
     tooltip.property('hidden', true);
   }
 
+  // Render the chart and its supporting elements from the current shared state.
   function renderChart() {
     const width = Math.max(chartWrap.node().getBoundingClientRect().width, 300);
     const innerWidth = width - margin.left - margin.right;
@@ -569,6 +570,7 @@ export async function loadViz1() {
     renderChart();
   }
 
+  // Wire the interactive controls to the shared state and view updates.
   controls.sliderHandle.call(
     d3.drag().on('drag', (event) => {
       const [pixel] = d3.pointer(event, controls.slider.node());
